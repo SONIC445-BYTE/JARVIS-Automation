@@ -86,3 +86,5 @@ dist/
 # ========================
 screenshots/
 ui_dumps/
+# Runtime chat logs
+chat_hystory.txt
