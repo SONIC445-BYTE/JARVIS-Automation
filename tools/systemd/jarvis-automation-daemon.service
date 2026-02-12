@@ -1,0 +1,14 @@
+[Unit]
+Description=JARVIS Automation Daemon
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/J.A.R.V.I.S.1.0
+ExecStart=/usr/bin/python3 -m daemon.cli run-loop
+Restart=always
+RestartSec=2
+Environment=PYTHONPATH=%h/J.A.R.V.I.S.1.0
+
+[Install]
+WantedBy=default.target

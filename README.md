@@ -1,64 +1,92 @@
-# J.A.R.V.I.S - Just A Rather Very Intelligent System 🤖
+# J.A.R.V.I.S - Just A Rather Very Intelligent System
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Instagram][instagram-shield]][instagram-url]
-[![Twitter][twitter-shield]][twitter-url]
-[![YouTube][youtube-shield]][youtube-url]
-[![Telegram][telegram-shield]][telegram-url]
+J.A.R.V.I.S is a local-first assistant project. This repository now includes a GUI-automation daemon stack that supports wake-word standby, transcript-driven command dispatch, dry-run safety, and structured action logs.
 
-**Welcome to J.A.R.V.I.S!**  
-J.A.R.V.I.S (Just A Rather Very Intelligent System) is an advanced AI assistant inspired by Iron Man's Jarvis, designed to assist with various tasks, from navigating websites to controlling your PC with natural language commands.
+## Installation
+1. `pip install -r requirements.txt`
+2. Optional for tests: `pip install pytest`
 
-![image](https://github.com/user-attachments/assets/59727c15-d85a-41bc-b27d-bea08b3b3a41)
+## Existing Runtime
+- Main app: `python jarvis.py`
+- Existing service modes remain available in `jarvis.py` (`--service`, `--convo`, etc.)
 
+## New Automation Daemon
+The daemon implementation is additive and does not replace existing flows.
 
-## Installation ⚙️
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/AnubhavChaturvedi-GitHub/J.A.R.V.I.S.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd J.A.R.V.I.S
-    ```
-3. Install the dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+- Start: `python -m daemon.cli start`
+- Stop: `python -m daemon.cli stop`
+- Status: `python -m daemon.cli status`
+- One-shot dry-run check: `python -m daemon.cli dry-run`
+- Foreground service loop: `python -m daemon.cli run-loop`
 
-## Usage 🚀
-To start the assistant, run:
-```bash
-python jarvis.py
+### Wake-Word and Transcript Flow
+- Standby wake-word logic is in `daemon/service.py`.
+- Default wake word: `JARVIS` (configurable with `JARVIS_WAKE_WORD`).
+- After wake-word detection, the next transcript is parsed and dispatched.
+
+### STT Integration (Non-Invasive)
+Use `stt_integration.py` to subscribe to existing STT transcript events:
+
+```python
+from daemon import DaemonConfig, JarvisDaemon
+from stt_integration import wire_to_existing_stt
+
+daemon = JarvisDaemon(DaemonConfig.from_env(dry_run=True))
+daemon.start()
+wire_to_existing_stt(existing_stt_source, daemon)
 ```
 
-## Contribution 🤝
-Feel free to fork the repository, submit issues, or create pull requests. Your contributions are welcome!
+If preferred, call `daemon.receive_transcript(text)` directly from the STT pipeline callback.
 
-## License 📄
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-<!-- Linkedin -->
+## Canonical Root Platform Adapters
+The canonical adapter package for this upgrade is `platform_adapters/`:
+- `platform_adapters/adapter_base.py`
+- `platform_adapters/browser_adapter.py`
+- `platform_adapters/text_editor_adapter.py`
+- `platform_adapters/whatsapp_desktop_adapter.py`
+- `platform_adapters/telegram_desktop_adapter.py`
+- `platform_adapters/gmail_browser_adapter.py`
 
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0B5FBB
-[linkedin-url]: https://www.linkedin.com/in/anubhav-chaturvedi-/
+Adapter interface methods:
+- `open_app()`
+- `close_app()`
+- `send_message(target, message)`
+- `read_unread(limit=10)`
 
-<!-- Instagram -->
+## Logs and Action History
+- Structured action history is written to `logs/jarvis_actions.log` (JSON lines).
+- Event keys: `timestamp`, `action`, `target`, `result`, `dry_run_flag`, `meta`.
 
-[instagram-shield]: https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
-[instagram-url]: https://www.instagram.com/_anubhav__chaturvedi_/
+## Dry-Run / Safe Mode
+- Dry-run is supported end-to-end and required for tests.
+- In dry-run mode, actions are logged but GUI automation calls are not executed.
 
-<!-- Twitter -->
+## Safety Flags
+- `ALLOW_DESTRUCTIVE=false` by default.
+- High-risk commands (delete, format, erase, wipe, run script, shutdown) are blocked unless `ALLOW_DESTRUCTIVE=true`.
+- Upgrade flag: `feature_flags/AUTOMATION_UPGRADE_V1.yaml`.
 
-[twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
-[twitter-url]: https://x.com/AnubhavChatu
+## Startup Installation
+- Linux installer: `tools/installer.sh`
+- Windows installer: `tools/installer.ps1`
+- Linux systemd example: `tools/systemd/jarvis-automation-daemon.service`
+- macOS LaunchAgent example: `tools/macos/com.jarvis.automation.plist`
+- Windows service wrapper example: `tools/windows/service_wrapper_example.ps1`
 
+Installers create rollback scripts:
+- Linux: `tools/rollback.sh`
+- Windows: `tools/rollback.ps1`
 
-<!-- YouTube -->
-[youtube-shield]: https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white
-[youtube-url]: https://www.youtube.com/@NetHyTech
+## Testing
+- Baseline tests: `PYTHONPATH=. pytest -q tests -p no:cacheprovider`
+- New automation upgrade tests: `PYTHONPATH=. pytest -q tests/automation_upgrade -p no:cacheprovider`
 
-<!-- Telegram -->
-[telegram-shield]: https://img.shields.io/badge/Telegram-%231DA1F2.svg?style=for-the-badge&logo=Telegram&logoColor=white
-[telegram-url]: https://t.me/YourTelegramUsername
+## Rollback Steps
+1. Stop daemon: `python -m daemon.cli stop`
+2. Run rollback:
+   - Linux: `bash tools/rollback.sh`
+   - Windows: `powershell -ExecutionPolicy Bypass -File tools/rollback.ps1`
+3. Remove startup registration if manually installed.
 
-
+## License
+MIT (see `LICENSE`).
