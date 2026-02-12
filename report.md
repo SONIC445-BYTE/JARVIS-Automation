@@ -31,6 +31,7 @@ Implemented an additive automation upgrade on branch `feat/automation-upgrade-20
 - `tools/systemd/jarvis-automation-daemon.service`
 - `tools/macos/com.jarvis.automation.plist`
 - `tools/windows/service_wrapper_example.ps1`
+- `tools/automation_verifier.py`
 - `feature_flags/AUTOMATION_UPGRADE_V1.yaml`
 - `README.md`
 - `report.md`
@@ -42,6 +43,7 @@ Implemented an additive automation upgrade on branch `feat/automation-upgrade-20
 - Added JSONL action log writer at `logs/jarvis_actions.log` with `timestamp`, `action`, `target`, `result`, `dry_run_flag`.
 - Added dry-run-first tests with mocked backend behavior.
 - Added startup installers and service manifest examples with rollback helpers.
+- Added strict verifier CLI that emits schema-compliant JSON audits and supports scaffold generation for missing adapters.
 
 ## Test Results
 - Baseline existing tests:
@@ -50,6 +52,9 @@ Implemented an additive automation upgrade on branch `feat/automation-upgrade-20
 - New automation tests:
   - `PYTHONPATH=. pytest -q tests/automation_upgrade -p no:cacheprovider`
   - Result: expected to pass (dry-run/mocked scenario)
+- Verifier runs:
+  - `PYTHONPATH=. python tools/automation_verifier.py --output logs/automation_verifier_report.json`
+  - `PYTHONPATH=. python tools/automation_verifier.py --autofix --output logs/automation_verifier_report_autofix.json`
 
 ## Latency Notes
 - Integration dry-run test includes transcript-to-action latency measurement.

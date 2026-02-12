@@ -81,6 +81,11 @@ Installers create rollback scripts:
 - Baseline tests: `PYTHONPATH=. pytest -q tests -p no:cacheprovider`
 - New automation upgrade tests: `PYTHONPATH=. pytest -q tests/automation_upgrade -p no:cacheprovider`
 
+## Automation Verifier (JSON Audit)
+- Run strict audit JSON: `PYTHONPATH=. python tools/automation_verifier.py --output logs/automation_verifier_report.json`
+- Run audit + scaffold missing adapters: `PYTHONPATH=. python tools/automation_verifier.py --autofix --output logs/automation_verifier_report_autofix.json`
+- Generated scaffolds (when needed): `platform_adapters/generated/`
+
 ## Rollback Steps
 1. Stop daemon: `python -m daemon.cli stop`
 2. Run rollback:
