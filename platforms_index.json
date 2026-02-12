@@ -1,0 +1,1010 @@
+[
+    {
+        "platform": "YouTube",
+        "domain": "youtube.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/youtube.json"
+    },
+    {
+        "platform": "WhatsApp",
+        "domain": "whatsapp.com",
+        "adapter_status": "stub",
+        "summary_path": "platform_summary/whatsapp.json"
+    },
+    {
+        "platform": "Notepad",
+        "domain": "local",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/notepad.json"
+    },
+    {
+        "platform": "Spotify",
+        "domain": "spotify.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/spotify.json"
+    },
+    {
+        "platform": "Google Chrome",
+        "domain": "local",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/chrome.json"
+    },
+    {
+        "platform": "Windows Explorer",
+        "domain": "local",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/explorer.json"
+    },
+    {
+        "platform": "Calculator",
+        "domain": "local",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/calculator.json"
+    },
+    {
+        "platform": "Google Search",
+        "domain": "google.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/google.json"
+    },
+    {
+        "platform": "Gmail",
+        "domain": "mail.google.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/gmail.json"
+    },
+    {
+        "platform": "Twitter/X",
+        "domain": "twitter.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/twitter.json"
+    },
+    {
+        "platform": "Amazon",
+        "domain": "amazon.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/amazon.json"
+    },
+    {
+        "platform": "Facebook",
+        "domain": "facebook.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/facebook.json"
+    },
+    {
+        "platform": "Instagram",
+        "domain": "instagram.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/instagram.json"
+    },
+    {
+        "platform": "TikTok",
+        "domain": "tiktok.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/tiktok.json"
+    },
+    {
+        "platform": "LinkedIn",
+        "domain": "linkedin.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/linkedin.json"
+    },
+    {
+        "platform": "Snapchat",
+        "domain": "snapchat.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/snapchat.json"
+    },
+    {
+        "platform": "Pinterest",
+        "domain": "pinterest.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/pinterest.json"
+    },
+    {
+        "platform": "Reddit",
+        "domain": "reddit.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/reddit.json"
+    },
+    {
+        "platform": "Discord",
+        "domain": "discord.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/discord.json"
+    },
+    {
+        "platform": "Telegram",
+        "domain": "telegram.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/telegram.json"
+    },
+    {
+        "platform": "WeChat",
+        "domain": "wechat.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/wechat.json"
+    },
+    {
+        "platform": "LINE",
+        "domain": "line.me",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/line.json"
+    },
+    {
+        "platform": "VKontakte",
+        "domain": "vk.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/vkontakte.json"
+    },
+    {
+        "platform": "QQ",
+        "domain": "qq.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/qq.json"
+    },
+    {
+        "platform": "Zoom",
+        "domain": "zoom.us",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/zoom.json"
+    },
+    {
+        "platform": "Slack",
+        "domain": "slack.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/slack.json"
+    },
+    {
+        "platform": "Microsoft Teams",
+        "domain": "teams.microsoft.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/microsoft_teams.json"
+    },
+    {
+        "platform": "Mattermost",
+        "domain": "mattermost.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/mattermost.json"
+    },
+    {
+        "platform": "Outlook",
+        "domain": "outlook.live.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/outlook.json"
+    },
+    {
+        "platform": "ProtonMail",
+        "domain": "proton.me",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/protonmail.json"
+    },
+    {
+        "platform": "Skype",
+        "domain": "skype.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/skype.json"
+    },
+    {
+        "platform": "Viber",
+        "domain": "viber.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/viber.json"
+    },
+    {
+        "platform": "Tinder",
+        "domain": "tinder.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/tinder.json"
+    },
+    {
+        "platform": "Bumble",
+        "domain": "bumble.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/bumble.json"
+    },
+    {
+        "platform": "Hinge",
+        "domain": "hinge.co",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/hinge.json"
+    },
+    {
+        "platform": "OkCupid",
+        "domain": "okcupid.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/okcupid.json"
+    },
+    {
+        "platform": "Meetup",
+        "domain": "meetup.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/meetup.json"
+    },
+    {
+        "platform": "eBay",
+        "domain": "ebay.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ebay.json"
+    },
+    {
+        "platform": "Alibaba",
+        "domain": "alibaba.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/alibaba.json"
+    },
+    {
+        "platform": "Shopify",
+        "domain": "shopify.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/shopify.json"
+    },
+    {
+        "platform": "Etsy",
+        "domain": "etsy.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/etsy.json"
+    },
+    {
+        "platform": "Walmart Marketplace",
+        "domain": "walmart.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/walmart.json"
+    },
+    {
+        "platform": "Rakuten",
+        "domain": "rakuten.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/rakuten.json"
+    },
+    {
+        "platform": "Mercado Libre",
+        "domain": "mercadolibre.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/mercadolibre.json"
+    },
+    {
+        "platform": "JD.com",
+        "domain": "jd.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/jdcom.json"
+    },
+    {
+        "platform": "WooCommerce",
+        "domain": "woocommerce.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/woocommerce.json"
+    },
+    {
+        "platform": "BigCommerce",
+        "domain": "bigcommerce.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/bigcommerce.json"
+    },
+    {
+        "platform": "Magento",
+        "domain": "magento.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/magento.json"
+    },
+    {
+        "platform": "Recharge",
+        "domain": "rechargepayments.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/recharge.json"
+    },
+    {
+        "platform": "Chargebee",
+        "domain": "chargebee.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/chargebee.json"
+    },
+    {
+        "platform": "Netflix",
+        "domain": "netflix.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/netflix.json"
+    },
+    {
+        "platform": "Disney+",
+        "domain": "disneyplus.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/disneyplus.json"
+    },
+    {
+        "platform": "Amazon Prime Video",
+        "domain": "primevideo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/prime_video.json"
+    },
+    {
+        "platform": "Hulu",
+        "domain": "hulu.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/hulu.json"
+    },
+    {
+        "platform": "HBO Max",
+        "domain": "max.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/hbomax.json"
+    },
+    {
+        "platform": "Apple TV+",
+        "domain": "tv.apple.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/appletv.json"
+    },
+    {
+        "platform": "Twitch",
+        "domain": "twitch.tv",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/twitch.json"
+    },
+    {
+        "platform": "Vimeo",
+        "domain": "vimeo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/vimeo.json"
+    },
+    {
+        "platform": "Steam",
+        "domain": "store.steampowered.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/steam.json"
+    },
+    {
+        "platform": "Epic Games Store",
+        "domain": "store.epicgames.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/epic_games.json"
+    },
+    {
+        "platform": "Xbox Live",
+        "domain": "xbox.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/xbox_live.json"
+    },
+    {
+        "platform": "PlayStation Network",
+        "domain": "playstation.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/playstation.json"
+    },
+    {
+        "platform": "Nintendo eShop",
+        "domain": "nintendo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/nintendo.json"
+    },
+    {
+        "platform": "Roblox",
+        "domain": "roblox.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/roblox.json"
+    },
+    {
+        "platform": "Unity",
+        "domain": "unity.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/unity.json"
+    },
+    {
+        "platform": "Unreal Engine",
+        "domain": "unrealengine.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/unreal_engine.json"
+    },
+    {
+        "platform": "Asana",
+        "domain": "asana.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/asana.json"
+    },
+    {
+        "platform": "Trello",
+        "domain": "trello.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/trello.json"
+    },
+    {
+        "platform": "Monday.com",
+        "domain": "monday.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/monday.json"
+    },
+    {
+        "platform": "Notion",
+        "domain": "notion.so",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/notion.json"
+    },
+    {
+        "platform": "ClickUp",
+        "domain": "clickup.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/clickup.json"
+    },
+    {
+        "platform": "Jira",
+        "domain": "atlassian.net",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/jira.json"
+    },
+    {
+        "platform": "Basecamp",
+        "domain": "basecamp.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/basecamp.json"
+    },
+    {
+        "platform": "Wrike",
+        "domain": "wrike.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/wrike.json"
+    },
+    {
+        "platform": "Smartsheet",
+        "domain": "smartsheet.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/smartsheet.json"
+    },
+    {
+        "platform": "Airtable",
+        "domain": "airtable.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/airtable.json"
+    },
+    {
+        "platform": "Salesforce",
+        "domain": "salesforce.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/salesforce.json"
+    },
+    {
+        "platform": "HubSpot",
+        "domain": "hubspot.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/hubspot.json"
+    },
+    {
+        "platform": "Pipedrive",
+        "domain": "pipedrive.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/pipedrive.json"
+    },
+    {
+        "platform": "Zoho CRM",
+        "domain": "zoho.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/zoho_crm.json"
+    },
+    {
+        "platform": "Freshsales",
+        "domain": "freshworks.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/freshsales.json"
+    },
+    {
+        "platform": "Microsoft Dynamics 365",
+        "domain": "dynamics.microsoft.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/dynamics365.json"
+    },
+    {
+        "platform": "SAP Sales Cloud",
+        "domain": "sap.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/sap_sales.json"
+    },
+    {
+        "platform": "Mailchimp",
+        "domain": "mailchimp.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/mailchimp.json"
+    },
+    {
+        "platform": "Marketo",
+        "domain": "marketo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/marketo.json"
+    },
+    {
+        "platform": "ActiveCampaign",
+        "domain": "activecampaign.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/activecampaign.json"
+    },
+    {
+        "platform": "Klaviyo",
+        "domain": "klaviyo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/klaviyo.json"
+    },
+    {
+        "platform": "Pardot",
+        "domain": "pardot.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/pardot.json"
+    },
+    {
+        "platform": "Eloqua",
+        "domain": "oracle.com/eloqua",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/eloqua.json"
+    },
+    {
+        "platform": "PayPal",
+        "domain": "paypal.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/paypal.json"
+    },
+    {
+        "platform": "Venmo",
+        "domain": "venmo.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/venmo.json"
+    },
+    {
+        "platform": "Cash App",
+        "domain": "cash.app",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/cashapp.json"
+    },
+    {
+        "platform": "Stripe",
+        "domain": "stripe.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/stripe.json"
+    },
+    {
+        "platform": "Square",
+        "domain": "squareup.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/square.json"
+    },
+    {
+        "platform": "Robinhood",
+        "domain": "robinhood.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/robinhood.json"
+    },
+    {
+        "platform": "Coinbase",
+        "domain": "coinbase.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/coinbase.json"
+    },
+    {
+        "platform": "Wise",
+        "domain": "wise.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/wise.json"
+    },
+    {
+        "platform": "Revolut",
+        "domain": "revolut.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/revolut.json"
+    },
+    {
+        "platform": "Chime",
+        "domain": "chime.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/chime.json"
+    },
+    {
+        "platform": "E*Trade",
+        "domain": "etrade.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/etrade.json"
+    },
+    {
+        "platform": "Fidelity",
+        "domain": "fidelity.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/fidelity.json"
+    },
+    {
+        "platform": "Charles Schwab",
+        "domain": "schwab.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/schwab.json"
+    },
+    {
+        "platform": "Wealthfront",
+        "domain": "wealthfront.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/wealthfront.json"
+    },
+    {
+        "platform": "Betterment",
+        "domain": "betterment.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/betterment.json"
+    },
+    {
+        "platform": "Acorns",
+        "domain": "acorns.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/acorns.json"
+    },
+    {
+        "platform": "AWS",
+        "domain": "aws.amazon.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/aws.json"
+    },
+    {
+        "platform": "Microsoft Azure",
+        "domain": "azure.microsoft.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/azure.json"
+    },
+    {
+        "platform": "Google Cloud Platform",
+        "domain": "cloud.google.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/gcp.json"
+    },
+    {
+        "platform": "IBM Cloud",
+        "domain": "cloud.ibm.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ibm_cloud.json"
+    },
+    {
+        "platform": "Oracle Cloud",
+        "domain": "cloud.oracle.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/oracle_cloud.json"
+    },
+    {
+        "platform": "Alibaba Cloud",
+        "domain": "alibabacloud.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/alibaba_cloud.json"
+    },
+    {
+        "platform": "Datadog",
+        "domain": "datadoghq.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/datadog.json"
+    },
+    {
+        "platform": "New Relic",
+        "domain": "newrelic.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/new_relic.json"
+    },
+    {
+        "platform": "Splunk",
+        "domain": "splunk.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/splunk.json"
+    },
+    {
+        "platform": "ServiceNow",
+        "domain": "servicenow.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/servicenow.json"
+    },
+    {
+        "platform": "PagerDuty",
+        "domain": "pagerduty.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/pagerduty.json"
+    },
+    {
+        "platform": "Coursera",
+        "domain": "coursera.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/coursera.json"
+    },
+    {
+        "platform": "Udemy",
+        "domain": "udemy.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/udemy.json"
+    },
+    {
+        "platform": "Khan Academy",
+        "domain": "khanacademy.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/khan_academy.json"
+    },
+    {
+        "platform": "edX",
+        "domain": "edx.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/edx.json"
+    },
+    {
+        "platform": "Canvas",
+        "domain": "instructure.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/canvas.json"
+    },
+    {
+        "platform": "Blackboard",
+        "domain": "blackboard.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/blackboard.json"
+    },
+    {
+        "platform": "Moodle",
+        "domain": "moodle.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/moodle.json"
+    },
+    {
+        "platform": "Google Classroom",
+        "domain": "classroom.google.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/google_classroom.json"
+    },
+    {
+        "platform": "Schoology",
+        "domain": "schoology.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/schoology.json"
+    },
+    {
+        "platform": "Teladoc",
+        "domain": "teladoc.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/teladoc.json"
+    },
+    {
+        "platform": "MyFitnessPal",
+        "domain": "myfitnesspal.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/myfitnesspal.json"
+    },
+    {
+        "platform": "Strava",
+        "domain": "strava.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/strava.json"
+    },
+    {
+        "platform": "Headspace",
+        "domain": "headspace.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/headspace.json"
+    },
+    {
+        "platform": "Calm",
+        "domain": "calm.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/calm.json"
+    },
+    {
+        "platform": "Peloton",
+        "domain": "onepeloton.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/peloton.json"
+    },
+    {
+        "platform": "Fitbit",
+        "domain": "fitbit.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/fitbit.json"
+    },
+    {
+        "platform": "Booking.com",
+        "domain": "booking.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/booking.json"
+    },
+    {
+        "platform": "Airbnb",
+        "domain": "airbnb.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/airbnb.json"
+    },
+    {
+        "platform": "Expedia",
+        "domain": "expedia.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/expedia.json"
+    },
+    {
+        "platform": "Uber",
+        "domain": "uber.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/uber.json"
+    },
+    {
+        "platform": "Lyft",
+        "domain": "lyft.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/lyft.json"
+    },
+    {
+        "platform": "Delta",
+        "domain": "delta.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/delta.json"
+    },
+    {
+        "platform": "GitHub",
+        "domain": "github.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/github.json"
+    },
+    {
+        "platform": "GitLab",
+        "domain": "gitlab.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/gitlab.json"
+    },
+    {
+        "platform": "Bitbucket",
+        "domain": "bitbucket.org",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/bitbucket.json"
+    },
+    {
+        "platform": "Jenkins",
+        "domain": "jenkins.io",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/jenkins.json"
+    },
+    {
+        "platform": "CircleCI",
+        "domain": "circleci.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/circleci.json"
+    },
+    {
+        "platform": "Travis CI",
+        "domain": "travis-ci.com",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/travisci.json"
+    },
+    {
+        "platform": "Android Studio",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "studio64.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/android_studio.json",
+        "action_count": 76
+    },
+    {
+        "platform": "PyCharm",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "pycharm64.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/pycharm.json",
+        "action_count": 54
+    },
+    {
+        "platform": "VS Code",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "code.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/vscode.json",
+        "action_count": 56
+    },
+    {
+        "platform": "Arduino IDE",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "arduino.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/arduino_ide.json",
+        "action_count": 29
+    },
+    {
+        "platform": "Git CLI",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "git.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/git_cli.json",
+        "action_count": 51
+    },
+    {
+        "platform": "GitHub Desktop",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "GitHubDesktop.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/github_desktop.json",
+        "action_count": 25
+    },
+    {
+        "platform": "Microsoft OneDrive",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "OneDrive.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/onedrive.json",
+        "action_count": 39
+    },
+    {
+        "platform": "Microsoft Word",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "WINWORD.EXE",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ms_word.json",
+        "action_count": 47
+    },
+    {
+        "platform": "Microsoft Excel",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "EXCEL.EXE",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ms_excel.json",
+        "action_count": 47
+    },
+    {
+        "platform": "Microsoft PowerPoint",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "POWERPNT.EXE",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ms_powerpoint.json",
+        "action_count": 43
+    },
+    {
+        "platform": "Adobe Acrobat",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "Acrobat.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/adobe_acrobat.json",
+        "action_count": 40
+    },
+    {
+        "platform": "WinRAR",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "WinRAR.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/winrar.json",
+        "action_count": 17
+    },
+    {
+        "platform": "Python Runtime",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "python.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/python_runtime.json",
+        "action_count": 22
+    },
+    {
+        "platform": "Node.js Runtime",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "node.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/nodejs_runtime.json",
+        "action_count": 23
+    },
+    {
+        "platform": "LM Studio",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "LM Studio.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/lm_studio.json",
+        "action_count": 16
+    },
+    {
+        "platform": "Ollama",
+        "domain": "local",
+        "platform_type": "local_application",
+        "executable": "ollama.exe",
+        "adapter_status": "implemented",
+        "summary_path": "platform_summary/ollama.json",
+        "action_count": 16
+    }
+]

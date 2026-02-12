@@ -1,0 +1,27 @@
+{
+    "platform": "Calculator",
+    "platform_urls": [
+        "ms-windows-store://pdp/?productid=9WZDNCRFHVN5"
+    ],
+    "supported_actions": {
+        "calculate": {
+            "sources": [
+                "Internal Windows Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "Type and Enter"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/calculator/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/calculator/tests/test_adapter.py",
+    "permissions": [
+        "None"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added calculate"
+    ],
+    "citations": [
+        "https://support.microsoft.com/en-us/windows/calculator-in-windows-10-2f9d6c4e-1286-455b-9d41-4775d718a38b"
+    ]
+}

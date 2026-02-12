@@ -1,0 +1,80 @@
+{
+    "platform": "LM Studio",
+    "platform_type": "local_application",
+    "executable": "LM Studio.exe",
+    "supported_actions": {
+        "model_downloaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_loaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_unloaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_session_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_message_sent": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_response_received": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "system_prompt_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "temperature_adjusted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "max_tokens_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "local_server_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "local_server_stopped": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "api_endpoint_configured": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_quantization_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "context_length_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "gpu_layers_configured": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_history_exported": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/lm_studio/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 16,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

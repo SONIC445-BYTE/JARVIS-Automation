@@ -1,0 +1,7 @@
+enabled: false
+auto_switch_confidence_threshold: 0.75
+owner_voice_id: "owner"
+require_owner_confirm_for_destructive: true
+cooldown_seconds: 2
+log_path: "data/logs/mode_switch.log"
+hmac_key_env: "JARVIS_HMAC_KEY"

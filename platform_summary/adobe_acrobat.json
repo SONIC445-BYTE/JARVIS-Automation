@@ -1,0 +1,176 @@
+{
+    "platform": "Adobe Acrobat",
+    "platform_type": "local_application",
+    "executable": "Acrobat.exe",
+    "supported_actions": {
+        "pdf_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_created_from_file": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_created_from_scanner": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_printed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_exported_to_word": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_exported_to_excel": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_exported_to_powerpoint": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_exported_to_image": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_copied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_highlighted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comment_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sticky_note_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_markup_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "stamp_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "drawing_markup_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "form_field_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "form_field_filled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "form_submitted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "digital_signature_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "certificate_based_signature_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "password_security_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "permissions_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_rotated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_extracted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_replaced": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pages_reordered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_merged": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_split": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "ocr_text_recognition_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "redaction_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "bookmark_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "link_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "accessibility_check_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdf_optimized": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/adobe_acrobat/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 40,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

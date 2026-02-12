@@ -1,0 +1,27 @@
+{
+    "platform": "Google Search",
+    "platform_urls": [
+        "https://google.com"
+    ],
+    "supported_actions": {
+        "search": {
+            "sources": [
+                "https://google.com"
+            ],
+            "confidence": 1.0,
+            "notes": "Web query"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/google/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/google/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added search"
+    ],
+    "citations": [
+        "https://google.com"
+    ]
+}

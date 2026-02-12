@@ -1,0 +1,139 @@
+{
+    "platform": "Klaviyo",
+    "platform_urls": [
+        "https://klaviyo.com"
+    ],
+    "supported_actions": {
+        "flow_created": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "campaign_scheduled": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "segment_built": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_edited": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "signup_form_published": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_enriched": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "list_cleaned": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "predictive_analytics_viewed": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "back_in_stock_flow_triggered": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "price_drop_alert_sent": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "benchmark_report_viewed": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cohort_analysis_run": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ltv_calculated": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "churn_risk_identified": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "a_b_test_analyzed": {
+            "sources": [
+                "https://klaviyo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/klaviyo/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/klaviyo/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added flow_created",
+        "added campaign_scheduled",
+        "added segment_built",
+        "added template_edited",
+        "added signup_form_published",
+        "added profile_enriched",
+        "added list_cleaned",
+        "added predictive_analytics_viewed",
+        "added back_in_stock_flow_triggered",
+        "added price_drop_alert_sent",
+        "added benchmark_report_viewed",
+        "added cohort_analysis_run",
+        "added ltv_calculated",
+        "added churn_risk_identified",
+        "added a_b_test_analyzed"
+    ],
+    "citations": [
+        "https://klaviyo.com"
+    ]
+}

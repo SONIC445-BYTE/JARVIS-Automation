@@ -1,0 +1,88 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ========================
+# Virtual Environments
+# ========================
+venv/
+env/
+.venv/
+ENV/
+
+# ========================
+# Environment Variables / Secrets
+# ========================
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+
+# ========================
+# AI / ML Models (VERY IMPORTANT)
+# ========================
+models/
+llm_models/
+whisper_models/
+*.bin
+*.gguf
+*.pt
+*.ckpt
+*.onnx
+
+# ========================
+# Logs & Runtime Files
+# ========================
+logs/
+*.log
+*.out
+*.pid
+
+# ========================
+# OS / Editor Junk
+# ========================
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+# ========================
+# Audio / Temp Files (Jarvis STT/TTS)
+# ========================
+*.wav
+*.mp3
+*.ogg
+temp_audio/
+recordings/
+
+# ========================
+# Cache / Sessions
+# ========================
+.cache/
+sessions/
+memory_store/
+
+# ========================
+# Build / Distribution
+# ========================
+build/
+dist/
+*.spec
+
+# ========================
+# Local Databases
+# ========================
+*.sqlite
+*.db
+
+# ========================
+# System-specific automation artifacts
+# ========================
+screenshots/
+ui_dumps/

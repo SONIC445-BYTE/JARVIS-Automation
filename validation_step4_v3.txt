@@ -1,0 +1,1087 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.12.10)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'hotkey', 'wait']
+[AdapterRegistry] Registered GenericBrowserAdapter for ['open_url', 'click_element', 'type_text']
+[AdapterRegistry] Registered SystemDialogAdapter for ['confirm_dialog', 'dismiss_dialog']
+[AdapterRegistry] Registered UnknownAppFallbackAdapter for ['any']
+[DynamicLoader] Scanning AgentCore/platform_adapters for adapters...
+[AdapterShim] Wrapped Acorns (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['round_up_invested', 'recurring_investment_set', 'found_money_earned', 'later_account_opened', 'early_account_managed', 'portfolio_selected', 'aggressive_conservative_slider_adjusted', 'gift_card_purchased', 'referral_bonus_earned', 'financial_literacy_content_consumed', 'market_explained_read', 'grow_magazine_article_viewed', 'money_lesson_completed', 'news_updated_checked', 'support_ticket_submitted']
+[DynamicLoader] Loaded platform: acorns
+[AdapterShim] Wrapped ActiveCampaign (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['automation_built', 'campaign_sent', 'deal_created', 'chat_conversation_started', 'site_tracking_enabled', 'contact_tagged', 'list_managed', 'form_submitted', 'goal_achieved', 'sms_sent', 'report_analyzed', 'split_test_reviewed', 'attribution_tracked', 'predictive_sending_used', 'crm_synced']
+[DynamicLoader] Loaded platform: activecampaign
+[AdapterShim] Wrapped Adobe Acrobat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pdf_opened', 'pdf_created_from_file', 'pdf_created_from_scanner', 'pdf_saved', 'pdf_saved_as', 'pdf_closed', 'pdf_printed', 'pdf_exported_to_word', 'pdf_exported_to_excel', 'pdf_exported_to_powerpoint', 'pdf_exported_to_image', 'text_selected', 'text_copied', 'text_highlighted', 'comment_added', 'sticky_note_added', 'text_markup_applied', 'stamp_added', 'drawing_markup_added', 'form_field_created', 'form_field_filled', 'form_submitted', 'digital_signature_applied', 'certificate_based_signature_applied', 'password_security_applied', 'permissions_set', 'pages_inserted', 'pages_deleted', 'pages_rotated', 'pages_extracted', 'pages_replaced', 'pages_reordered', 'pdf_merged', 'pdf_split', 'ocr_text_recognition_executed', 'redaction_applied', 'bookmark_created', 'link_created', 'accessibility_check_executed', 'pdf_optimized']
+[DynamicLoader] Loaded platform: adobe_acrobat
+[AdapterShim] Wrapped Airbnb (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['listing_searched', 'booking_requested', 'reservation_confirmed', 'check_in_completed', 'review_left', 'experience_booked', 'wishlist_created', 'co_host_invited', 'guidebook_accessed', 'message_sent', 'superguest_status_earned', 'referral_credit_earned', 'airbnb_plus_explored', 'luxe_property_viewed', 'long_term_stay_discount_applied']
+[DynamicLoader] Loaded platform: airbnb
+[AdapterShim] Wrapped Airtable (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['record_created', 'field_customized', 'view_filtered', 'automation_scripted', 'interface_designed', 'base_created', 'template_gallery_used', 'sync_integration_set', 'extension_installed', 'form_shared', 'collaborator_invited', 'comment_threaded', 'revision_history_viewed', 'snapshot_taken', 'enterprise_admin_managed']
+[DynamicLoader] Loaded platform: airtable
+[AdapterShim] Wrapped Alibaba (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_sourced', 'inquiry_sent', 'trade_assurance_order_placed', 'supplier_contacted', 'company_profile_created', 'product_showcase_uploaded', 'rfq_responded', 'gold_supplier_subscribed', 'taobao_product_imported', 'logistics_service_booked', 'inspection_service_ordered', 'trade_show_registered']
+[DynamicLoader] Loaded platform: alibaba
+[AdapterShim] Wrapped Alibaba Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ecs_instance_created', 'function_compute_service_deployed', 'container_service_kubernetes_cluster_created', 'batch_compute_job_submitted', 'elastic_gpu_service_activated', 'oss_bucket_created', 'nas_file_system_mounted', 'ebs_block_storage_attached', 'archive_storage_used', 'data_transport_solution_used', 'vpc_established', 'security_group_rule_configured', 'server_load_balancer_deployed', 'cdn_domain_added', 'express_connect_established']
+[DynamicLoader] Loaded platform: alibaba_cloud
+[AdapterShim] Wrapped Amazon (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['search_product']
+[DynamicLoader] Loaded platform: amazon
+[AdapterShim] Wrapped Android Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_module_added', 'new_file_created', 'new_class_created', 'new_activity_created', 'new_fragment_created', 'new_service_created', 'new_layout_file_created', 'new_resource_file_created', 'project_opened', 'file_opened', 'recent_project_opened', 'project_imported', 'file_saved', 'all_files_saved', 'file_closed', 'project_closed', 'file_renamed', 'class_renamed', 'method_renamed', 'variable_renamed', 'file_deleted', 'file_moved', 'file_copied', 'code_typed', 'paste_operation_executed', 'undo_operation_executed', 'redo_operation_executed', 'reformat_code_executed', 'optimize_imports_executed', 'completion_basic_triggered', 'completion_smart_type_triggered', 'go_to_class_executed', 'go_to_file_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_refactoring_executed', 'extract_variable_refactoring_executed', 'inline_refactoring_executed', 'generate_constructor_executed', 'generate_getter_executed', 'generate_setter_executed', 'generate_override_methods_executed', 'make_project_executed', 'rebuild_project_executed', 'clean_project_executed', 'build_apk_executed', 'generate_signed_bundle_or_apk_executed', 'gradle_sync_started', 'gradle_sync_finished_successfully', 'run_app_executed', 'debug_app_executed', 'app_run_on_emulator', 'app_run_on_physical_device', 'virtual_device_created', 'virtual_device_launched', 'emulator_screen_capture_taken', 'layout_editor_opened', 'design_view_selected', 'code_view_selected', 'cpu_profiler_opened', 'memory_profiler_opened', 'network_profiler_opened', 'database_inspector_opened', 'layout_inspector_opened', 'unit_test_run_executed', 'unit_test_debug_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed']
+[DynamicLoader] Loaded platform: android_studio
+[AdapterShim] Wrapped Apple TV+ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['original_watched', 'family_sharing_enabled', 'download_saved', 'up_next_added', 'apple_tv_channel_subscribed', 'itunes_movie_purchased', 'library_synced', 'airplay_used', 'apple_one_bundle_subscribed', 'apple_tv_plus_free_trial_started', 'apple_gift_card_used']
+[DynamicLoader] Loaded platform: appletv
+[AdapterShim] Wrapped Arduino IDE (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_sketch_created', 'sketch_opened', 'sketch_saved', 'sketch_saved_as', 'sketch_closed', 'example_sketch_opened', 'code_typed', 'code_pasted', 'undo_executed', 'redo_executed', 'verify_compile_executed', 'upload_executed', 'upload_using_programmer_executed', 'board_selected', 'port_selected', 'programmer_selected', 'library_installed', 'library_removed', 'library_updated', 'board_manager_opened', 'board_package_installed', 'serial_monitor_opened', 'serial_plotter_opened', 'serial_data_sent', 'baud_rate_changed', 'preferences_changed', 'verbose_output_enabled', 'include_library_added', 'sketch_exported_compiled_binary']
+[DynamicLoader] Loaded platform: arduino_ide
+[AdapterShim] Wrapped Asana (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'subtask_added', 'due_date_set', 'assignee_designated', 'custom_field_updated', 'project_created', 'timeline_viewed', 'portfolio_managed', 'goal_set', 'workload_balanced', 'team_invited', 'comment_added', 'proofing_used', 'approval_requested', 'form_submitted']
+[DynamicLoader] Loaded platform: asana
+[AdapterShim] Wrapped AWS (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ec2_instance_launched', 'lambda_function_deployed', 'ecs_task_run', 'eks_cluster_created', 'batch_job_submitted', 's3_bucket_created', 'ebs_volume_attached', 'efs_file_system_mounted', 'glacier_archive_uploaded', 'storage_gateway_configured', 'vpc_created', 'route_table_configured', 'load_balancer_deployed', 'cloudfront_distribution_created', 'transit_gateway_established']
+[DynamicLoader] Loaded platform: aws
+[AdapterShim] Wrapped Microsoft Azure (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['virtual_machine_deployed', 'function_app_created', 'aks_cluster_provisioned', 'app_service_published', 'container_instance_run', 'blob_storage_created', 'managed_disk_attached', 'file_share_mapped', 'archive_tier_set', 'data_lake_storage_gen2_enabled', 'virtual_network_created', 'network_security_group_configured', 'application_gateway_deployed', 'cdn_endpoint_created', 'express_route_circuit_provisioned']
+[DynamicLoader] Loaded platform: azure
+[AdapterShim] Wrapped Basecamp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['to_do_list_created', 'message_board_posted', 'schedule_added', 'document_uploaded', 'automatic_check_in_set', 'project_created', 'hill_chart_updated', 'client_access_enabled', 'template_project_used', 'progress_reported', 'person_invited', 'ping_sent', 'campfire_chat_used', 'doorbell_rung', 'boost_given']
+[DynamicLoader] Loaded platform: basecamp
+[AdapterShim] Wrapped Betterment (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['goal_based_investing_started', 'portfolio_deposited', 'rebalancing_automated', 'tax_coordinated_portfolio_enabled', 'crypto_invested', 'goal_projected', 'advice_accessed', 'checking_account_opened', 'joint_account_created', 'trust_account_established', 'educational_article_read', 'tool_used', 'performance_analyzed', 'fee_comparison_made', 'customer_support_chatted']
+[DynamicLoader] Loaded platform: betterment
+[AdapterShim] Wrapped BigCommerce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: bigcommerce
+[AdapterShim] Wrapped Bitbucket (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_created', 'pull_request_created', 'pipeline_executed', 'deployment_triggered', 'branch_permission_set', 'bitbucket_pipelines_enabled', 'deployment_environment_configured', 'jira_issue_linked', 'slack_notification_set', 'merge_check_configured', 'team_invited', 'access_control_managed', 'fork_synced', 'wiki_enabled', 'smart_mirror_configured']
+[DynamicLoader] Loaded platform: bitbucket
+[AdapterShim] Wrapped Blackboard (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['content_item_opened', 'assignment_uploaded', 'test_submitted', 'discussion_board_posted', 'journal_entry_created', 'safeassign_report_viewed', 'rubric_assessed', 'attempt_graded', 'feedback_released', 'external_tool_launched', 'course_announcement_received', 'email_sent', 'group_workspace_accessed', 'mobile_app_logged_in', 'student_preview_used']
+[DynamicLoader] Loaded platform: blackboard
+[AdapterShim] Wrapped Booking.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['property_searched', 'reservation_made', 'modification_requested', 'cancellation_processed', 'review_posted', 'genius_program_joined', 'trip_planner_used', 'airport_transfer_booked', 'car_rental_reserved', 'flight_searched', 'genius_level_achieved', 'reward_claimed', 'mobile_app_exclusive_used', 'secret_deal_unlocked', 'partner_offer_redeemed']
+[DynamicLoader] Loaded platform: booking
+[AdapterShim] Wrapped Bumble (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'swipe_right', 'swipe_left', 'match_made', 'message_sent', 'super_like_used', 'boost_applied', 'date_scheduled']
+[DynamicLoader] Loaded platform: bumble
+[AdapterShim] Wrapped Calculator (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['calculate']
+[DynamicLoader] Loaded platform: calculator
+[AdapterShim] Wrapped Calm (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meditation_played', 'sleep_story_listened', 'masterclass_watched', 'breathing_exercise_completed', 'music_track_played', 'mood_check_in_logged', 'streak_tracked', 'reminder_customized', 'favorite_added', 'offline_content_downloaded', 'subscription_purchased', 'gift_card_redeemed', 'corporate_wellness_accessed', 'kids_section_used', 'breathe_bubble_customized']
+[DynamicLoader] Loaded platform: calm
+[AdapterShim] Wrapped Canvas (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_accessed', 'assignment_submitted', 'module_completed', 'collaboration_used', 'eportfolio_created', 'quiz_taken', 'rubric_viewed', 'feedback_received', 'gradebook_checked', 'late_policy_applied', 'announcement_read', 'calendar_event_added', 'conference_joined', 'mobile_notification_received', 'parent_observer_added']
+[DynamicLoader] Loaded platform: canvas
+[AdapterShim] Wrapped Cash App (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cash_sent', 'cash_received', 'bitcoin_purchased', 'stock_bought', 'direct_deposit_received', 'cash_card_activated', 'boost_applied', 'routing_number_copied', 'paper_money_deposited', 'tax_refund_deposited', 'security_lock_enabled', 'notification_preference_set', 'pin_changed', 'account_closed', 'fraud_reported']
+[DynamicLoader] Loaded platform: cashapp
+[AdapterShim] Wrapped Chargebee (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['subscription_created', 'billing_cycle_managed', 'dunning_email_sent', 'plan_upgraded', 'plan_downgraded', 'churn_prevented', 'metered_billing_calculated']
+[DynamicLoader] Loaded platform: chargebee
+[AdapterShim] Wrapped Chime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['direct_deposit_received', 'spot_me_used', 'credit_builder_secured', 'savings_rounded_up', 'check_deposited', 'account_opened', 'debit_card_activated', 'credit_builder_card_requested', 'atm_located', 'friend_referred', 'transaction_alert_enabled', 'card_locked', 'two_factor_authentication_set', 'account_settings_updated', 'support_contacted']
+[DynamicLoader] Loaded platform: chime
+[AdapterShim] Wrapped Google Chrome (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['open_url', 'new_tab', 'close_tab']
+[DynamicLoader] Loaded platform: chrome
+[AdapterShim] Wrapped CircleCI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['config_validated', 'workflow_triggered', 'orb_used', 'context_created', 'schedule_configured', 'docker_image_built', 'kubernetes_deployment_made', 'artifact_stored', 'test_parallelization_run', 'security_scan_integrated', 'team_member_invited', 'project_followed', 'insights_viewed', 'plan_upgraded', 'support_ticket_created']
+[DynamicLoader] Loaded platform: circleci
+[AdapterShim] Wrapped ClickUp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'custom_status_applied', 'time_estimated', 'sprint_managed', 'dependency_linked', 'space_created', 'folder_organized', 'list_viewed', 'goal_tracked', 'dashboard_customized', 'assignee_added', 'watcher_set', 'comment_resolved', 'proofing_annotated', 'email_integration_used']
+[DynamicLoader] Loaded platform: clickup
+[AdapterShim] Wrapped Coinbase (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['crypto_bought', 'crypto_sold', 'crypto_sent', 'crypto_received', 'staking_rewards_earned', 'wallet_created', 'vault_set_up', 'recurring_buy_scheduled', 'direct_deposit_enabled', 'coinbase_card_used', 'two_step_verification_enabled', 'address_whitelisted', 'api_key_restricted', 'insurance_policy_viewed', 'security_prompt_completed']
+[DynamicLoader] Loaded platform: coinbase
+[AdapterShim] Wrapped Coursera (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_enrolled', 'lecture_watched', 'reading_completed', 'peer_review_submitted', 'certificate_earned', 'quiz_attempted', 'programming_assignment_submitted', 'exam_proctored', 'grade_received', 'mastery_achieved', 'discussion_posted', 'mentor_consulted', 'study_group_joined', 'mobile_app_downloaded', 'degree_applied']
+[DynamicLoader] Loaded platform: coursera
+[AdapterShim] Wrapped Datadog (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['agent_installed', 'dashboard_created', 'monitor_configured', 'log_pipeline_set_up', 'apm_instrumented', 'alert_triggered', 'synthetic_test_created', 'rum_session_replay_viewed', 'slo_defined', 'incident_declared', 'security_signal_investigated', 'compliance_monitor_enabled', 'cloud_security_posture_managed', 'application_vulnerability_detected']
+[DynamicLoader] Loaded platform: datadog
+[AdapterShim] Wrapped Delta (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flight_booked', 'seat_selected', 'check_in_completed', 'boarding_pass_accessed', 'upgrade_requested', 'skymiles_earned', 'delta_sync_used', 'fly_ready_confirmed', 'rebooking_requested', 'unaccompanied_minor_service_booked', 'medallion_status_achieved', 'companion_certificate_used', 'delta_sky_club_accessed', 'upgrade_clearance_received', 'mileage_run_calculated']
+[DynamicLoader] Loaded platform: delta
+[AdapterShim] Wrapped Discord (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'server_joined', 'channel_created', 'role_assigned', 'nitro_subscribed', 'boost_applied', 'stage_channel_started', 'thread_created', 'slash_command_used', 'bot_added', 'emoji_uploaded', 'server_template_used']
+[DynamicLoader] Loaded platform: discord
+[AdapterShim] Wrapped Disney+ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_played', 'groupwatch_started', 'download_added', 'continue_watching_resumed', 'profile_created', 'parental_controls_set', 'watchlist_added', 'star_content_enabled', 'bundle_subscribed', 'premier_access_purchased', 'gift_subscription_sent']
+[DynamicLoader] Loaded platform: disneyplus
+[AdapterShim] Wrapped Microsoft Dynamics 365 (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_qualified', 'opportunity_created', 'contact_synchronized', 'account_hierarchy_managed', 'case_routed', 'sales_process_guided', 'quote_generated', 'order_fulfilled', 'invoice_generated', 'relationship_analytics_viewed', 'power_automate_flow_triggered', 'ai_insights_viewed', 'workflow_executed', 'business_process_flow_completed', 'power_bi_report_embedded']
+[DynamicLoader] Loaded platform: dynamics365
+[AdapterShim] Wrapped eBay (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['auction_bid_placed', 'buy_it_now_clicked', 'offer_made', 'watch_list_added', 'listing_created', 'store_subscription_started', 'promoted_listing_used', 'shipping_label_printed', 'best_offer_accepted', 'global_shipping_used', 'authenticity_guaranteed_purchased', 'ebay_money_back_claimed']
+[DynamicLoader] Loaded platform: ebay
+[AdapterShim] Wrapped edX (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_audited', 'verified_certificate_purchased', 'program_enrolled', 'micromasters_started', 'professional_certificate_earned', 'proctored_exam_taken', 'lab_completed', 'peer_assessment_reviewed', 'final_exam_passed', 'transcript_downloaded', 'discussion_forum_used', 'wiki_contributed', 'social_media_shared', 'mobile_app_synced', 'corporate_training_accessed']
+[DynamicLoader] Loaded platform: edx
+[AdapterShim] Wrapped Eloqua (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_orchestrated', 'email_deployed', 'form_created', 'microsite_built', 'program_builder_used', 'contact_segmented', 'lead_scoring_model_applied', 'profiler_used', 'web_tracking_verified', 'subscription_center_managed', 'insight_analyzed', 'dashboard_customized', 'report_scheduled', 'a_b_test_executed', 'revenue_analytics_viewed']
+[DynamicLoader] Loaded platform: eloqua
+[AdapterShim] Wrapped Epic Games Store (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['free_game_claimed', 'purchase_made', 'library_managed', 'download_scheduled', 'friend_added', 'party_formed', 'voice_chat_used', 'screenshot_shared', 'creator_code_used', 'epic_coupon_applied', 'refund_requested', 'supporter_pack_purchased']
+[DynamicLoader] Loaded platform: epic_games
+[AdapterShim] Wrapped E*Trade (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stock_ordered', 'option_contract_traded', 'mutual_fund_purchased', 'bond_laddered', 'futures_contract_initiated', 'portfolio_analyzed', 'watch_list_created', 'paper_trading_used', 'margin_account_enabled', 'ira_opened', 'market_news_read', 'analyst_report_viewed', 'earnings_calendar_checked', 'stock_screener_used', 'educational_video_watched']
+[DynamicLoader] Loaded platform: etrade
+[AdapterShim] Wrapped Etsy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['handmade_item_listed', 'vintage_item_searched', 'custom_request_sent', 'favorite_shop_added', 'pattern_website_created', 'etsy_ads_started', 'deposit_scheduled', 'shop_policies_updated', 'etsy_payments_onboarded', 'etsy_shipping_labels_purchased', 'etsy_plus_subscribed', 'star_seller_achieved']
+[DynamicLoader] Loaded platform: etsy
+[AdapterShim] Wrapped Expedia (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flight_booked', 'hotel_reserved', 'package_purchased', 'activity_booked', 'cruise_reserved', 'itinerary_viewed', 'price_drop_alert_set', 'loyalty_points_redeemed', 'mobile_exclusive_deal_claimed', 'travel_insurance_added', 'expedia_rewards_enrolled', 'gold_status_achieved', 'vip_access_property_booked', 'member_price_used', 'point_purchase_made']
+[DynamicLoader] Loaded platform: expedia
+[AdapterShim] Wrapped Windows Explorer (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['open_folder']
+[DynamicLoader] Loaded platform: explorer
+[AdapterShim] Wrapped Facebook (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_created', 'post_shared', 'post_liked', 'comment_added', 'friend_request_sent', 'friend_request_accepted', 'group_joined', 'event_created', 'story_viewed', 'live_stream_started', 'marketplace_item_listed', 'fundraiser_created']
+[DynamicLoader] Loaded platform: facebook
+[AdapterShim] Wrapped Fidelity (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['trade_executed', 'order_type_selected', 'automatic_investment_set', 'dividend_reinvestment_enabled', 'esg_fund_invested', 'portfolio_rebalanced', 'retirement_planner_used', 'full_view_aggregated', 'wealth_management_consulted', 'plan_529_managed', 'research_report_accessed', 'stock_comparison_tool_used', 'fixed_income_analysis_viewed', 'market_monitor_watched', 'learning_center_accessed']
+[DynamicLoader] Loaded platform: fidelity
+[AdapterShim] Wrapped Fitbit (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['activity_tracked', 'sleep_logged', 'food_logged', 'water_logged', 'weight_logged', 'exercise_auto_recognized', 'heart_rate_variability_measured', 'spo2_monitored', 'skin_temperature_tracked', 'stress_management_score_calculated', 'premium_trial_started', 'health_metrics_dashboard_viewed', 'wellness_report_generated', 'coach_guidance_received', 'family_account_created']
+[DynamicLoader] Loaded platform: fitbit
+[AdapterShim] Wrapped Freshsales (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_scored', 'contact_enriched', 'account_hierarchy_built', 'deal_qualified', 'appointment_scheduled', 'sales_sequence_initiated', 'territory_auto_assigned', 'forecast_generated', 'document_shared', 'quote_created', 'workflow_automated', 'chat_triggered', 'email_tracking_enabled', 'phone_call_logged', 'api_integrated']
+[DynamicLoader] Loaded platform: freshsales
+[AdapterShim] Wrapped Google Cloud Platform (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['compute_engine_vm_started', 'cloud_function_deployed', 'gke_cluster_created', 'cloud_run_service_deployed', 'batch_job_submitted', 'cloud_storage_bucket_created', 'persistent_disk_attached', 'filestore_instance_mounted', 'archive_storage_used', 'transfer_service_job_run', 'vpc_network_created', 'firewall_rule_configured', 'cloud_load_balancing_set_up', 'cloud_cdn_enabled', 'cloud_interconnect_established']
+[DynamicLoader] Loaded platform: gcp
+[AdapterShim] Wrapped GitHub (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_created', 'commit_pushed', 'pull_request_opened', 'branch_merged', 'issue_created', 'action_workflow_triggered', 'package_published', 'page_deployed', 'release_published', 'security_advisory_addressed', 'fork_created', 'star_given', 'wiki_edited', 'discussion_started', 'sponsorship_set_up']
+[DynamicLoader] Loaded platform: github
+[AdapterShim] Wrapped GitHub Desktop (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_cloned', 'repository_added_from_local', 'repository_created', 'repository_opened', 'branch_created', 'branch_switched', 'branch_renamed', 'branch_deleted', 'commit_created', 'commit_amended', 'commit_undone', 'changes_staged', 'changes_unstaged', 'changes_discarded', 'push_executed', 'pull_executed', 'fetch_executed', 'pull_request_created', 'merge_branch_executed', 'conflict_resolved', 'stash_created', 'stash_restored', 'diff_viewed', 'history_viewed', 'blame_viewed']
+[DynamicLoader] Loaded platform: github_desktop
+[AdapterShim] Wrapped GitLab (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_initialized', 'merge_request_submitted', 'pipeline_triggered', 'container_image_built', 'security_scan_run', 'auto_devops_enabled', 'kubernetes_cluster_connected', 'page_deployed', 'release_created', 'infrastructure_as_code_managed', 'epic_created', 'roadmap_planned', 'wiki_documented', 'snippet_shared', 'group_managed']
+[DynamicLoader] Loaded platform: gitlab
+[AdapterShim] Wrapped Git CLI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['git_init_executed', 'git_clone_executed', 'git_add_file_executed', 'git_add_all_executed', 'git_add_interactive_executed', 'git_status_executed', 'git_diff_executed', 'git_diff_cached_staged_executed', 'git_commit_executed', 'git_commit_amend_executed', 'git_log_viewed', 'git_blame_viewed', 'git_branch_created', 'git_branch_deleted', 'git_branch_renamed', 'git_branch_list_shown', 'git_checkout_branch_executed', 'git_checkout_new_branch_executed', 'git_merge_branch_executed', 'git_merge_abort_executed', 'git_rebase_branch_executed', 'git_rebase_interactive_executed', 'git_rebase_continue_executed', 'git_rebase_abort_executed', 'git_cherry_pick_commit_executed', 'git_fetch_executed', 'git_pull_executed', 'git_push_executed', 'git_push_force_executed', 'git_remote_add_executed', 'git_remote_remove_executed', 'git_stash_push_executed', 'git_stash_pop_executed', 'git_stash_list_shown', 'git_stash_apply_executed', 'git_tag_annotated_created', 'git_tag_lightweight_created', 'git_tag_delete_executed', 'git_tag_list_shown', 'git_reset_soft_executed', 'git_reset_mixed_executed', 'git_reset_hard_executed', 'git_revert_commit_executed', 'git_bisect_start_executed', 'git_bisect_bad_executed', 'git_bisect_good_executed', 'git_bisect_reset_executed', 'git_submodule_add_executed', 'git_submodule_update_executed', 'git_config_global_set', 'git_config_local_set']
+[DynamicLoader] Loaded platform: git_cli
+[AdapterShim] Wrapped Gmail (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['send_email']
+[DynamicLoader] Loaded platform: gmail
+[AdapterShim] Wrapped Google Search (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['search']
+[DynamicLoader] Loaded platform: google
+[AdapterShim] Wrapped Google Classroom (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['class_joined', 'assignment_viewed', 'work_submitted', 'material_accessed', 'question_posted', 'assignment_returned', 'grade_posted', 'originality_report_viewed', 'rubric_graded', 'late_work_flagged', 'announcement_created', 'meet_link_generated', 'guardian_summary_enabled', 'calendar_synced', 'drive_folder_organized']
+[DynamicLoader] Loaded platform: google_classroom
+[AdapterShim] Wrapped HBO Max (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['content_streamed', 'discovery_plus_content_accessed', 'profile_customized', 'download_managed', 'my_list_curated', 'series_reminder_set', 'parental_pin_enabled', 'audio_language_changed', 'ad_free_plan_upgraded', 'annual_plan_subscribed', 'gift_card_redeemed']
+[DynamicLoader] Loaded platform: hbomax
+[AdapterShim] Wrapped Headspace (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meditation_completed', 'sleep_cast_played', 'focus_music_listened', 'course_started', 'mindful_moment_taken', 'progress_tracked', 'streak_extended', 'reminder_set', 'buddy_added', 'session_downloaded', 'subscription_gifted', 'work_plan_accessed', 'family_plan_joined', 'sleep_analysis_viewed', 'sos_session_used']
+[DynamicLoader] Loaded platform: headspace
+[AdapterShim] Wrapped Hinge (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'match_made', 'message_sent', 'like_sent', 'comment_added', 'rose_sent']
+[DynamicLoader] Loaded platform: hinge
+[AdapterShim] Wrapped HubSpot (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['contact_imported', 'company_associated', 'deal_stage_updated', 'ticket_created', 'conversation_logged', 'pipeline_managed', 'sequence_enrolled', 'meeting_scheduled', 'document_tracked', 'quote_approved', 'workflow_enrolled', 'list_segmented', 'email_automated', 'chatbot_deployed', 'attribution_reported']
+[DynamicLoader] Loaded platform: hubspot
+[AdapterShim] Wrapped Hulu (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['episode_watched', 'live_tv_tuned', 'dvr_recording_set', 'profile_switched', 'watchlist_added', 'my_stuff_organized', 'no_ads_plan_upgraded', 'live_tv_guide_customized', 'disney_bundle_subscribed', 'hulu_plus_live_tv_upgraded', 'add_on_premium_channel_added']
+[DynamicLoader] Loaded platform: hulu
+[AdapterShim] Wrapped IBM Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['virtual_server_provisioned', 'cloud_function_action_created', 'openshift_cluster_deployed', 'bare_metal_server_reserved', 'power_systems_virtual_server_created', 'cloud_object_storage_bucket_created', 'block_storage_volume_attached', 'file_storage_share_mounted', 'mass_migration_service_used', 'cloud_backup_configured', 'vpc_created', 'security_group_rule_added', 'load_balancer_as_a_service_deployed', 'cdn_implemented', 'direct_link_established']
+[DynamicLoader] Loaded platform: ibm_cloud
+[AdapterShim] Wrapped Instagram (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['photo_posted', 'story_posted', 'reel_shared', 'post_liked', 'direct_message_sent', 'story_replied', 'live_started', 'close_friend_added', 'shop_product_viewed', 'filter_applied', 'music_added', 'collaboration_posted']
+[DynamicLoader] Loaded platform: instagram
+[AdapterShim] Wrapped JD.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_searched', 'flash_sale_joined', 'plus_membership_subscribed', 'group_buy_initiated', 'store_opened', 'jd_logistics_used', 'jd_cloud_service_accessed', 'advertising_purchased', 'jd_health_consulted', 'jd_finance_used', 'jd_property_viewed', 'jd_auction_participated']
+[DynamicLoader] Loaded platform: jdcom
+[AdapterShim] Wrapped Jenkins (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['job_created', 'build_triggered', 'pipeline_scripted', 'plugin_installed', 'node_configured', 'deployment_stage_executed', 'artifact_archived', 'test_report_generated', 'credential_managed', 'backup_scheduled', 'user_permission_assigned', 'audit_trail_reviewed', 'distributed_build_configured', 'cloud_agent_provisioned', 'update_center_accessed']
+[DynamicLoader] Loaded platform: jenkins
+[AdapterShim] Wrapped Jira (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['issue_created', 'sprint_started', 'epic_linked', 'story_point_estimated', 'bug_reported', 'project_configured', 'workflow_customized', 'scrum_board_managed', 'kanban_used', 'roadmap_planned', 'developer_assigned', 'watcher_added', 'comment_logged', 'attachment_added', 'time_logged']
+[DynamicLoader] Loaded platform: jira
+[AdapterShim] Wrapped Khan Academy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_watched', 'exercise_completed', 'article_read', 'mission_started', 'mastery_points_earned', 'unit_test_taken', 'course_challenge_attempted', 'hint_used', 'scratchpad_utilized', 'coach_invited', 'parent_account_linked', 'teacher_dashboard_used', 'class_code_joined', 'discussion_participated', 'badge_earned']
+[DynamicLoader] Loaded platform: khan_academy
+[AdapterShim] Wrapped Klaviyo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flow_created', 'campaign_scheduled', 'segment_built', 'template_edited', 'signup_form_published', 'profile_enriched', 'list_cleaned', 'predictive_analytics_viewed', 'back_in_stock_flow_triggered', 'price_drop_alert_sent', 'benchmark_report_viewed', 'cohort_analysis_run', 'ltv_calculated', 'churn_risk_identified', 'a_b_test_analyzed']
+[DynamicLoader] Loaded platform: klaviyo
+[AdapterShim] Wrapped LINE (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'timeline_posted', 'sticker_purchased', 'official_account_added', 'line_pay_used', 'line_music_played', 'line_manga_read', 'line_taxi_called', 'openchat_joined', 'line_shopping_used', 'line_game_played', 'line_tv_watched']
+[DynamicLoader] Loaded platform: line
+[AdapterShim] Wrapped LinkedIn (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_shared', 'article_published', 'connection_request_sent', 'job_applied', 'endorsement_given', 'recommendation_written', 'event_registered', 'learning_course_started', 'sales_navigator_used', 'recruiter_lite_used', 'company_page_followed', 'pulse_article_commented']
+[DynamicLoader] Loaded platform: linkedin
+[AdapterShim] Wrapped LM Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_downloaded', 'model_loaded', 'model_unloaded', 'chat_session_started', 'chat_message_sent', 'chat_response_received', 'system_prompt_set', 'temperature_adjusted', 'max_tokens_set', 'local_server_started', 'local_server_stopped', 'api_endpoint_configured', 'model_quantization_selected', 'context_length_set', 'gpu_layers_configured', 'chat_history_exported']
+[DynamicLoader] Loaded platform: lm_studio
+[AdapterShim] Wrapped Lyft (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ride_requested', 'shared_ride_taken', 'bike_scooter_unlocked', 'scheduled_ride_set', 'transit_info_viewed', 'lyft_pink_subscribed', 'bike_lane_navigation_used', 'safety_features_used', 'driver_tipped', 'lost_item_reported', 'rewards_points_earned', 'challenge_completed', 'partnership_perk_claimed', 'business_profile_managed', 'healthcare_ride_scheduled']
+[DynamicLoader] Loaded platform: lyft
+[AdapterShim] Wrapped Magento (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: magento
+[AdapterShim] Wrapped Mailchimp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_created', 'audience_segmented', 'template_designed', 'automation_configured', 'landing_page_published', 'subscriber_imported', 'tag_applied', 'signup_form_embedded', 'preference_center_customized', 'cleaning_recommended', 'report_viewed', 'a_b_test_analyzed', 'send_time_optimization_used', 'comparative_report_generated', 'social_post_scheduled']
+[DynamicLoader] Loaded platform: mailchimp
+[AdapterShim] Wrapped Marketo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['program_created', 'smart_campaign_executed', 'email_asset_approved', 'landing_page_tested', 'nurture_stream_activated', 'lead_scored', 'segment_smart_list_created', 'form_filled', 'munchkin_tracking_verified', 'rce_report_viewed', 'revenue_cycle_modeler_used', 'success_path_analyzer_viewed', 'email_insights_analyzed', 'web_personalization_enabled', 'account_profiling_used']
+[DynamicLoader] Loaded platform: marketo
+[AdapterShim] Wrapped Mattermost (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated']
+[DynamicLoader] Loaded platform: mattermost
+[AdapterShim] Wrapped Meetup (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['event_rsvped', 'group_joined', 'event_created', 'message_sent', 'introduction_requested', 'salary_shared', 'interview_scheduled']
+[DynamicLoader] Loaded platform: meetup
+[AdapterShim] Wrapped Mercado Libre (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['publication_created', 'question_answered', 'sale_completed', 'reputation_earned', 'mercado_shops_activated', 'mercado_envios_used', 'mercado_pago_integrated', 'official_store_applied', 'mercado_credito_used', 'mercado_ads_managed', 'classified_ad_posted', 'vehicle_listed']
+[DynamicLoader] Loaded platform: mercadolibre
+[AdapterShim] Wrapped Microsoft Teams (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated', 'meeting_started', 'screen_shared']
+[DynamicLoader] Loaded platform: microsoft_teams
+[AdapterShim] Wrapped Monday.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pulse_created', 'column_customized', 'status_updated', 'automation_triggered', 'integration_connected', 'board_duplicated', 'template_gallery_used', 'workdoc_created', 'gantt_chart_viewed', 'dashboard_built', 'team_member_invited', 'guest_added', 'notification_customized', 'time_tracking_enabled', 'inbox_zero_achieved']
+[DynamicLoader] Loaded platform: monday
+[AdapterShim] Wrapped Moodle (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['resource_viewed', 'activity_completed', 'forum_posted', 'wiki_edited', 'glossary_entry_added', 'quiz_attempted', 'assignment_submitted', 'workshop_peer_assessed', 'lesson_completed', 'scorm_package_tracked', 'badge_awarded', 'competency_achieved', 'learning_plan_created', 'cohort_joined', 'mobile_app_offline_used']
+[DynamicLoader] Loaded platform: moodle
+[AdapterShim] Wrapped Microsoft Excel (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_workbook_created', 'workbook_from_template_created', 'workbook_saved', 'workbook_saved_as', 'workbook_saved_as_pdf', 'workbook_closed', 'cell_value_entered', 'cell_formula_entered', 'cell_format_changed', 'row_inserted', 'row_deleted', 'column_inserted', 'column_deleted', 'sheet_added', 'sheet_renamed', 'sheet_deleted', 'sheet_moved', 'range_selected', 'range_copied', 'range_pasted', 'range_cut', 'auto_fill_applied', 'flash_fill_used', 'sort_applied', 'filter_applied', 'advanced_filter_applied', 'pivot_table_created', 'pivot_chart_created', 'chart_created', 'chart_type_changed', 'chart_data_range_modified', 'conditional_formatting_applied', 'data_validation_applied', 'vlookup_formula_used', 'index_match_formula_used', 'sumif_formula_used', 'macro_recorded', 'macro_run', 'vba_editor_opened', 'freeze_panes_applied', 'split_window_applied', 'name_manager_opened', 'named_range_created', 'data_connection_created', 'power_query_opened', 'protect_sheet_applied', 'protect_workbook_applied']
+[DynamicLoader] Loaded platform: ms_excel
+[AdapterShim] Wrapped Microsoft PowerPoint (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_presentation_created', 'presentation_from_template_created', 'presentation_saved', 'presentation_saved_as', 'presentation_saved_as_pdf', 'presentation_closed', 'slide_added', 'slide_deleted', 'slide_duplicated', 'slide_moved', 'slide_layout_changed', 'slide_design_applied', 'text_typed', 'text_formatted', 'text_box_inserted', 'image_inserted', 'shape_inserted', 'chart_inserted', 'table_inserted', 'video_inserted', 'audio_inserted', 'icon_inserted', 'animation_applied', 'animation_removed', 'animation_reordered', 'transition_applied', 'transition_timing_set', 'slide_show_started', 'slide_show_from_beginning', 'slide_show_from_current_slide', 'presenter_view_used', 'notes_added', 'comments_added', 'comments_resolved', 'slide_master_edited', 'custom_layout_created', 'hyperlink_inserted', 'action_button_added', 'section_added', 'section_renamed', 'rehearse_timings_used', 'record_slide_show_used', 'export_to_video_executed']
+[DynamicLoader] Loaded platform: ms_powerpoint
+[AdapterShim] Wrapped Microsoft Word (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_document_created', 'document_from_template_created', 'document_saved', 'document_saved_as', 'document_saved_as_pdf', 'document_auto_saved', 'document_closed', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'text_undo_executed', 'text_redo_executed', 'text_find_executed', 'text_replace_executed', 'text_bold_applied', 'text_italic_applied', 'text_underline_applied', 'text_font_changed', 'text_font_size_changed', 'text_font_color_changed', 'text_paragraph_alignment_set_left', 'text_paragraph_alignment_set_center', 'text_paragraph_alignment_set_right', 'text_paragraph_alignment_set_justified', 'text_styles_applied', 'text_numbering_applied', 'text_bullets_applied', 'text_header_inserted', 'text_footer_inserted', 'text_page_break_inserted', 'text_page_setup_margins_set', 'text_page_setup_orientation_set_portrait', 'text_page_setup_orientation_set_landscape', 'text_footnote_inserted', 'text_citation_inserted', 'text_bookmark_inserted', 'text_cross_reference_inserted', 'text_index_and_tables_table_of_contents_inserted', 'text_check_accessibility_used', 'text_check_compatibility_used', 'text_macro_recorded', 'text_macro_run', 'document_password_protection_applied', 'document_marked_as_final', 'document_compare_executed', 'document_combine_executed']
+[DynamicLoader] Loaded platform: ms_word
+[AdapterShim] Wrapped MyFitnessPal (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meal_logged', 'exercise_recorded', 'water_tracked', 'weight_entered', 'goal_set', 'barcode_scanned', 'recipe_imported', 'nutrition_analyzed', 'streak_maintained', 'progress_photo_uploaded', 'community_posted', 'friend_challenged', 'premium_subscribed', 'report_generated', 'coach_consulted']
+[DynamicLoader] Loaded platform: myfitnesspal
+[AdapterShim] Wrapped Netflix (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_played', 'episode_completed', 'season_binged', 'download_initiated', 'profile_switched', 'my_list_added', 'rating_given', 'subtitle_preference_set', 'playback_speed_changed', 'subscription_upgraded', 'dvd_plan_added', 'gift_card_redeemed', 'extra_member_added']
+[DynamicLoader] Loaded platform: netflix
+[AdapterShim] Wrapped New Relic (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['agent_deployed', 'dashboard_built', 'alert_condition_created', 'nrql_query_written', 'log_forwarded', 'apm_transaction_traced', 'infrastructure_host_monitored', 'browser_monitoring_enabled', 'mobile_crash_analyzed', 'synthetic_monitor_checked', 'vulnerability_management_scan_run', 'security_audit_log_reviewed', 'user_permissions_managed', 'api_key_rotated']
+[DynamicLoader] Loaded platform: new_relic
+[AdapterShim] Wrapped Nintendo eShop (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_purchased', 'wish_list_added', 'gold_points_redeemed', 'nintendo_switch_online_subscribed', 'friend_code_exchanged', 'screenshot_shared', 'user_page_customized', 'parental_controls_set', 'nintendo_switch_expansion_pack_upgraded', 'game_voucher_used', 'dlc_purchased']
+[DynamicLoader] Loaded platform: nintendo
+[AdapterShim] Wrapped Node.js Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'repl_started', 'npm_init_executed', 'npm_install_executed', 'npm_uninstall_executed', 'npm_update_executed', 'npm_run_script_executed', 'npm_publish_executed', 'npm_audit_executed', 'npx_command_executed', 'package_json_edited', 'module_required', 'module_imported_esm', 'express_server_started', 'http_server_started', 'jest_test_run', 'mocha_test_run', 'webpack_build_executed', 'vite_dev_server_started', 'typescript_compiled', 'eslint_executed', 'nodemon_started', 'pm2_process_managed']
+[DynamicLoader] Loaded platform: nodejs_runtime
+[AdapterShim] Wrapped Notepad (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['type_text', 'save_file']
+[DynamicLoader] Loaded platform: notepad
+[AdapterShim] Wrapped Notion (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['page_created', 'database_set_up', 'block_edited', 'template_duplicated', 'relation_linked', 'workspace_organized', 'teamspace_created', 'permission_managed', 'integration_connected', 'api_accessed', 'member_invited', 'comment_threaded', 'mention_used', 'page_shared_publicly', 'export_generated']
+[DynamicLoader] Loaded platform: notion
+[AdapterShim] Wrapped OkCupid (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'match_made', 'message_sent', 'like_sent', 'question_answered']
+[DynamicLoader] Loaded platform: okcupid
+[AdapterShim] Wrapped Ollama (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_pulled', 'model_removed', 'model_list_shown', 'model_run_started', 'model_run_stopped', 'chat_message_sent', 'chat_response_received', 'api_server_started', 'api_request_processed', 'modelfile_created', 'custom_model_built', 'model_copied', 'model_pushed', 'system_prompt_set', 'temperature_set', 'embedding_generated']
+[DynamicLoader] Loaded platform: ollama
+[AdapterShim] Wrapped Microsoft OneDrive (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['file_uploaded', 'folder_uploaded', 'multiple_files_uploaded', 'file_downloaded', 'folder_downloaded', 'file_synced_up', 'file_synced_down', 'file_sync_conflict_detected', 'file_sync_conflict_resolved_keep_both', 'file_sync_paused', 'file_sync_resumed', 'file_shared_link_created', 'file_shared_link_deleted', 'file_shared_link_permission_set_view', 'file_shared_link_permission_set_edit', 'file_shared_directly_to_user', 'file_shared_to_group', 'file_version_created', 'file_version_restored', 'folder_created', 'folder_renamed', 'folder_moved', 'folder_deleted', 'file_renamed', 'file_moved', 'file_deleted', 'file_restored_from_recycle_bin', 'file_search_executed', 'file_filter_applied', 'document_opened_for_editing', 'document_edited_simultaneously_by_multiple_users', 'comment_added', 'comment_resolved', 'file_sync_on_demand_files_enabled', 'file_sync_free_up_space_used', 'user_signed_in', 'user_signed_out', 'retention_policy_applied', 'dlp_policy_triggered']
+[DynamicLoader] Loaded platform: onedrive
+[AdapterShim] Wrapped Oracle Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['compute_instance_launched', 'function_deployed', 'container_engine_kubernetes_cluster_created', 'autonomous_database_provisioned', 'analytics_cloud_instance_started', 'object_storage_bucket_created', 'block_volume_attached', 'file_storage_system_mounted', 'archive_storage_used', 'data_transfer_service_used', 'virtual_cloud_network_created', 'security_list_configured', 'load_balancer_set_up', 'dns_zone_managed', 'fast_connect_established']
+[DynamicLoader] Loaded platform: oracle_cloud
+[AdapterShim] Wrapped Outlook (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['email_composed', 'email_sent', 'email_opened', 'attachment_added', 'label_applied', 'filter_created', 'vacation_responder_enabled', 'signature_updated']
+[DynamicLoader] Loaded platform: outlook
+[AdapterShim] Wrapped PagerDuty (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['service_created', 'escalation_policy_configured', 'schedule_managed', 'integration_added', 'automation_action_created', 'incident_triggered', 'on_call_rotation_started', 'status_update_published', 'post_mortem_documented', 'business_service_mapped', 'event_intelligence_used', 'automation_triggered', 'permissions_managed', 'audit_log_reviewed']
+[DynamicLoader] Loaded platform: pagerduty
+[AdapterShim] Wrapped Pardot (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_launched', 'landing_page_published', 'form_handler_created', 'dynamic_content_enabled', 'engagement_program_built', 'prospect_scored', 'grading_profile_applied', 'assignment_rule_triggered', 'tag_added', 'list_email_sent', 'lifecycle_report_viewed', 'roi_calculator_used', 'connected_campaign_enabled', 'einstein_behavior_scoring_viewed', 'b2b_marketing_analytics_used']
+[DynamicLoader] Loaded platform: pardot
+[AdapterShim] Wrapped PayPal (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_sent', 'payment_received', 'invoice_created', 'subscription_managed', 'money_pooled', 'account_verified', 'bank_linked', 'card_added', 'balance_managed', 'currency_converted', 'two_factor_authentication_enabled', 'security_questions_set', 'device_trusted', 'login_alert_reviewed', 'dispute_filed']
+[DynamicLoader] Loaded platform: paypal
+[AdapterShim] Wrapped Peloton (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['class_taken', 'milestone_achieved', 'high_five_exchanged', 'stack_created', 'challenge_joined', 'output_tracked', 'heart_rate_monitored', 'personal_record_set', 'streak_maintained', 'achievement_badge_earned', 'membership_paused', 'apparel_purchased', 'referral_code_used', 'scenic_content_ridden', 'lanebreak_game_played']
+[DynamicLoader] Loaded platform: peloton
+[AdapterShim] Wrapped Pinterest (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pin_created', 'board_created', 'pin_saved', 'pin_tried', 'section_added', 'shopping_list_created', 'idea_pin_created', 'tag_followed', 'visual_search_used', 'shop_tab_visited', 'merchant_followed', 'try_on_feature_used']
+[DynamicLoader] Loaded platform: pinterest
+[AdapterShim] Wrapped Pipedrive (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_captured', 'deal_added', 'activity_scheduled', 'contact_mapped', 'email_synced', 'pipeline_stages_managed', 'probability_updated', 'forecast_viewed', 'goal_set', 'report_customized', 'workflow_automation_triggered', 'email_template_used', 'web_form_submitted', 'import_completed', 'api_call_made']
+[DynamicLoader] Loaded platform: pipedrive
+[AdapterShim] Wrapped PlayStation Network (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['trophy_earned', 'game_downloaded', 'remote_play_used', 'share_play_initiated', 'party_created', 'community_joined', 'broadcast_started', 'messages_sent', 'playstation_plus_subscribed', 'wallet_funded', 'pre_order_placed', 'playstation_stars_enrolled']
+[DynamicLoader] Loaded platform: playstation
+[AdapterShim] Wrapped Amazon Prime Video (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_streamed', 'channel_subscribed', 'video_purchased', 'rent_completed', 'watchlist_managed', 'x_ray_feature_used', 'imdb_integration_viewed', 'audio_description_enabled', 'prime_membership_managed', 'video_direct_publishing_used', 'amazon_channels_managed']
+[DynamicLoader] Loaded platform: prime_video
+[AdapterShim] Wrapped ProtonMail (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['email_composed', 'email_sent', 'email_opened', 'attachment_added', 'label_applied', 'filter_created', 'vacation_responder_enabled', 'signature_updated']
+[DynamicLoader] Loaded platform: protonmail
+[AdapterShim] Wrapped PyCharm (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_file_created', 'new_python_file_created', 'new_python_package_created', 'new_jupyter_notebook_created', 'project_opened', 'file_opened', 'file_saved', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'code_completion_basic_invoked', 'code_completion_smart_invoked', 'quick_fix_applied', 'intention_action_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'go_to_class_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_executed', 'extract_variable_executed', 'inline_refactoring_executed', 'reformat_code_executed', 'optimize_imports_executed', 'run_configuration_executed', 'debug_configuration_executed', 'breakpoint_toggled', 'step_over_executed', 'step_into_executed', 'evaluate_expression_executed', 'watch_added', 'python_interpreter_configured', 'virtualenv_created', 'pip_package_installed', 'pip_package_uninstalled', 'pytest_run_executed', 'unittest_run_executed', 'coverage_analysis_run', 'test_results_viewed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed', 'terminal_opened', 'python_console_opened', 'jupyter_notebook_cell_executed', 'jupyter_kernel_restarted']
+[DynamicLoader] Loaded platform: pycharm
+[AdapterShim] Wrapped Python Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'interactive_shell_started', 'module_imported', 'pip_install_executed', 'pip_uninstall_executed', 'pip_list_shown', 'pip_freeze_executed', 'virtualenv_created', 'virtualenv_activated', 'virtualenv_deactivated', 'package_built', 'package_published', 'unittest_run', 'pytest_run', 'pdb_debugger_started', 'breakpoint_hit', 'type_checking_executed', 'linting_executed', 'jupyter_notebook_started', 'jupyter_cell_executed', 'requirements_installed', 'setup_py_executed']
+[DynamicLoader] Loaded platform: python_runtime
+[AdapterShim] Wrapped QQ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'qzone_posted', 'group_joined', 'file_transferred', 'qq_wallet_used', 'qq_music_played', 'qq_game_launched', 'qq_mail_sent', 'qq_live_watched', 'qq_read_used', 'qq_shopping_visited', 'qq_health_synced']
+[DynamicLoader] Loaded platform: qq
+[AdapterShim] Wrapped Rakuten (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['item_purchased', 'super_points_earned', 'shop_discovered', 'coupon_clipped', 'store_opened', 'item_management_bulk_uploaded', 'rms_advertising_used', 'settlement_confirmed', 'rakuten_edy_charged', 'rakuten_bank_linked', 'travel_booked', 'insurance_quoted']
+[DynamicLoader] Loaded platform: rakuten
+[AdapterShim] Wrapped Recharge (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['subscription_created', 'billing_cycle_managed', 'dunning_email_sent', 'plan_upgraded', 'plan_downgraded', 'churn_prevented', 'metered_billing_calculated']
+[DynamicLoader] Loaded platform: recharge
+[AdapterShim] Wrapped Reddit (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_submitted', 'comment_posted', 'upvote_given', 'downvote_given', 'subreddit_joined', 'award_given', 'crosspost_created', 'wiki_edited', 'poll_voted', 'prediction_made', 'avatar_customized', 'community_chat_joined']
+[DynamicLoader] Loaded platform: reddit
+[AdapterShim] Wrapped Revolut (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['transfer_made', 'card_payment_processed', 'vault_created', 'crypto_exchanged', 'stock_traded', 'account_upgraded', 'physical_card_ordered', 'virtual_card_created', 'salary_advanced', 'insurance_purchased', 'security_feature_enabled', 'location_based_security_set', 'disposable_virtual_card_used', 'pin_changed', 'unauthorized_transaction_disputed']
+[DynamicLoader] Loaded platform: revolut
+[AdapterShim] Wrapped Robinhood (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stock_purchased', 'stock_sold', 'option_traded', 'crypto_bought', 'recurring_investment_set', 'account_funded', 'bank_linked', 'gold_subscribed', 'cash_card_requested', 'dividend_reinvested', 'two_factor_authentication_enabled', 'device_authorized', 'login_notification_received', 'account_restrictions_reviewed', 'tax_document_downloaded']
+[DynamicLoader] Loaded platform: robinhood
+[AdapterShim] Wrapped Roblox (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_joined', 'avatar_customized', 'place_created', 'robux_earned', 'friend_request_sent', 'group_joined', 'private_server_created', 'trade_request_sent', 'robux_purchased', 'premium_subscription_purchased', 'game_pass_sold', 'developer_exchange_used']
+[DynamicLoader] Loaded platform: roblox
+[AdapterShim] Wrapped Salesforce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_created', 'contact_enriched', 'account_mapped', 'opportunity_qualified', 'case_escalated', 'forecast_submitted', 'quote_generated', 'contract_negotiated', 'order_processed', 'renewal_managed', 'workflow_rule_triggered', 'process_builder_executed', 'flow_automated', 'apex_trigger_fired', 'einstein_prediction_used']
+[DynamicLoader] Loaded platform: salesforce
+[AdapterShim] Wrapped SAP Sales Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_qualified', 'account_360_viewed', 'opportunity_managed', 'quote_configured', 'contract_executed', 'sales_plan_activated', 'territory_aligned', 'forecast_committed', 'sales_performance_managed', 'rebate_program_executed', 'workflow_triggered', 'machine_learning_recommendation_used', 'integration_flow_executed', 'analytics_dashboard_viewed', 'mobile_app_synced']
+[DynamicLoader] Loaded platform: sap_sales
+[AdapterShim] Wrapped Schoology (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_material_accessed', 'assignment_submitted', 'test_completed', 'discussion_participated', 'folder_created', 'grade_viewed', 'attendance_marked', 'learning_objective_mastered', 'mastery_report_generated', 'portfolio_assembled', 'message_sent', 'group_joined', 'calendar_event_added', 'resource_appended', 'parent_access_granted']
+[DynamicLoader] Loaded platform: schoology
+[AdapterShim] Wrapped Charles Schwab (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['equity_traded', 'fixed_income_purchased', 'etf_bought', 'margin_loan_utilized', 'ipo_access_requested', 'portfolio_checkup_completed', 'financial_plan_created', 'robo_advisor_used', 'trust_account_opened', 'charitable_giving_account_managed', 'market_insight_read', 'stock_rating_viewed', 'international_research_accessed', 'learning_portal_visited', 'podcast_listened']
+[DynamicLoader] Loaded platform: schwab
+[AdapterShim] Wrapped ServiceNow (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['instance_requested', 'application_installed', 'workflow_created', 'catalog_item_published', 'integration_hub_spoke_used', 'incident_created', 'problem_investigated', 'change_request_approved', 'service_catalog_ordered', 'cmdb_populated', 'security_incident_responded', 'vulnerability_response_managed', 'grc_control_attested', 'soar_playbook_executed']
+[DynamicLoader] Loaded platform: servicenow
+[AdapterShim] Wrapped Shopify (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['store_created', 'product_added', 'theme_customized', 'order_processed', 'app_installed', 'payment_gateway_configured', 'discount_code_created', 'abandoned_cart_recovery_set', 'shopify_payments_activated', 'shopify_shipping_used', 'shopify_capital_accessed', 'shopify_email_sent']
+[DynamicLoader] Loaded platform: shopify
+[AdapterShim] Wrapped Skype (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['call_initiated', 'video_enabled', 'group_call_started', 'message_recorded', 'effect_applied', 'screen_shared', 'contact_invited', 'call_history_cleared']
+[DynamicLoader] Loaded platform: skype
+[AdapterShim] Wrapped Slack (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated', 'huddle_started', 'canvas_created']
+[DynamicLoader] Loaded platform: slack
+[AdapterShim] Wrapped Smartsheet (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['row_added', 'column_formula_created', 'gantt_chart_enabled', 'card_view_used', 'form_connected', 'workspace_created', 'template_applied', 'automation_workflow_built', 'dashboard_widget_added', 'report_scheduled', 'collaborator_invited', 'proofing_requested', 'update_request_sent', 'publish_enabled', 'calendar_integrated']
+[DynamicLoader] Loaded platform: smartsheet
+[AdapterShim] Wrapped Snapchat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['snap_sent', 'story_posted', 'streak_maintained', 'filter_applied', 'spotlight_viewed', 'map_location_shared', 'bitmoji_customized', 'memory_saved', 'snapcash_sent', 'lens_created', 'discover_subscribed', 'friendship_profile_viewed']
+[DynamicLoader] Loaded platform: snapchat
+[AdapterShim] Wrapped Splunk (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['forwarder_installed', 'index_created', 'search_head_cluster_deployed', 'dashboard_published', 'alert_configured', 'search_ran', 'report_scheduled', 'machine_learning_model_applied', 'it_service_intelligence_enabled', 'phantom_playbook_executed', 'security_event_investigated', 'user_behavior_analytics_enabled', 'risk_score_calculated', 'compliance_report_generated']
+[DynamicLoader] Loaded platform: splunk
+[AdapterShim] Wrapped Spotify (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['play_music', 'search_music']
+[DynamicLoader] Loaded platform: spotify
+[AdapterShim] Wrapped Square (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_processed', 'invoice_sent', 'gift_card_sold', 'appointment_booked', 'online_order_received', 'hardware_paired', 'team_member_added', 'inventory_managed', 'customer_directory_built', 'loyalty_program_enabled', 'security_settings_reviewed', 'two_step_verification_enabled', 'privacy_settings_managed', 'data_export_requested', 'account_deactivated']
+[DynamicLoader] Loaded platform: square
+[AdapterShim] Wrapped Steam (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_purchased', 'library_organized', 'achievement_unlocked', 'cloud_save_synced', 'friend_invited', 'group_joined', 'review_posted', 'workshop_item_subscribed', 'broadcast_watched', 'steam_wallet_funded', 'market_transaction_completed', 'trading_card_exchanged', 'hardware_purchased']
+[DynamicLoader] Loaded platform: steam
+[AdapterShim] Wrapped Strava (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['activity_recorded', 'route_planned', 'segment_raced', 'kudos_given', 'club_joined', 'gear_logged', 'training_log_updated', 'fitness_freshness_tracked', 'relative_effort_calculated', 'power_curve_analyzed', 'beacon_enabled', 'route_shared', 'subscription_upgraded', 'summit_feature_used', 'partner_perk_claimed']
+[DynamicLoader] Loaded platform: strava
+[AdapterShim] Wrapped Stripe (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['charge_created', 'customer_created', 'subscription_started', 'invoice_paid', 'refund_issued', 'account_onboarded', 'api_key_generated', 'webhook_configured', 'connect_account_created', 'radar_rule_set', 'dispute_managed', 'pci_compliance_verified', 'two_factor_authentication_enabled', 'team_member_invited', 'api_version_updated']
+[DynamicLoader] Loaded platform: stripe
+[AdapterShim] Wrapped Teladoc (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['consultation_scheduled', 'video_visit_started', 'prescription_sent', 'medical_record_accessed', 'follow_up_booked', 'symptom_checker_used', 'health_record_synced', 'biometric_device_connected', 'medication_reminder_set', 'care_plan_accessed', 'therapist_matched', 'psychiatrist_consulted', 'dermatologist_visit_completed', 'nutritionist_advised', 'specialist_referred']
+[DynamicLoader] Loaded platform: teladoc
+[AdapterShim] Wrapped Telegram (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'channel_created', 'group_formed', 'bot_started', 'voice_chat_started', 'poll_created', 'story_posted', 'username_claimed', 'passport_verified', 'giveaway_created', 'quiz_initiated', 'slow_mode_enabled']
+[DynamicLoader] Loaded platform: telegram
+[AdapterShim] Wrapped TikTok (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_posted', 'video_liked', 'comment_posted', 'sound_used', 'duet_created', 'stitch_created', 'live_streamed', 'effect_applied', 'collection_saved', 'creator_followed', 'q_and_a_posted', 'series_created']
+[DynamicLoader] Loaded platform: tiktok
+[AdapterShim] Wrapped Tinder (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'swipe_right', 'swipe_left', 'match_made', 'message_sent', 'super_like_used', 'boost_applied', 'date_scheduled']
+[DynamicLoader] Loaded platform: tinder
+[AdapterShim] Wrapped Travis CI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_activated', 'build_triggered', 'matrix_build_configured', 'deployment_released', 'cron_job_scheduled', 'github_releases_deployed', 'heroku_application_pushed', 'aws_s3_uploaded', 'docker_hub_pushed', 'pypi_package_published', 'organization_managed', 'billing_updated', 'log_accessed', 'cache_cleared', 'debug_mode_activated']
+[DynamicLoader] Loaded platform: travisci
+[AdapterShim] Wrapped Trello (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['card_created', 'checklist_added', 'label_applied', 'due_date_reminder_set', 'attachment_uploaded', 'board_created', 'power_up_enabled', 'automation_rule_set', 'template_applied', 'workspace_managed', 'member_invited', 'card_shared', 'voting_initiated', 'calendar_view_enabled', 'dashboard_viewed']
+[DynamicLoader] Loaded platform: trello
+[AdapterShim] Wrapped Twitch (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stream_watched', 'follow_clicked', 'subscription_gifted', 'bits_cheered', 'channel_points_redeemed', 'raid_initiated', 'clip_created', 'extension_interacted', 'prediction_participated', 'turbo_subscription_purchased', 'gifted_sub_sent', 'bits_purchased', 'hype_train_contributed', 'creator_camp_completed']
+[DynamicLoader] Loaded platform: twitch
+[AdapterShim] Wrapped Twitter/X (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_tweet']
+[DynamicLoader] Loaded platform: twitter
+[AdapterShim] Wrapped Uber (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ride_requested', 'trip_completed', 'fare_split', 'scheduled_ride_set', 'pool_joined', 'uber_eats_ordered', 'freight_shipment_created', 'business_profile_switched', 'safety_toolkit_used', 'rating_given', 'uber_rewards_enrolled', 'uber_cash_purchased', 'uber_pass_subscribed', 'vip_support_accessed', 'jump_bike_rented']
+[DynamicLoader] Loaded platform: uber
+[AdapterShim] Wrapped Udemy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_purchased', 'lecture_completed', 'note_taken', 'q_and_a_asked', 'certificate_downloaded', 'coding_exercise_completed', 'practice_test_taken', 'progress_tracked', 'lifetime_access_granted', 'wishlist_added', 'instructor_followed', 'review_posted', 'mobile_download_enabled', 'business_account_managed', 'learning_path_created']
+[DynamicLoader] Loaded platform: udemy
+[AdapterShim] Wrapped Unity (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_created', 'asset_imported', 'scene_built', 'game_deployed', 'asset_store_purchase_made', 'collaborate_feature_used', 'plastic_scm_used', 'analytics_dashboard_viewed', 'unity_plus_subscribed', 'unity_pro_purchased', 'asset_store_publisher_approved', 'certification_exam_taken']
+[DynamicLoader] Loaded platform: unity
+[AdapterShim] Wrapped Unreal Engine (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_started', 'blueprint_created', 'nanite_enabled', 'lumen_activated', 'marketplace_asset_purchased', 'quixel_bridge_used', 'metahuman_created', 'learning_platform_accessed', 'unreal_engine_license_purchased', 'fab_marketplace_used', 'enterprise_support_contracted']
+[DynamicLoader] Loaded platform: unreal_engine
+[AdapterShim] Wrapped Venmo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_made', 'payment_requested', 'split_bill_initiated', 'qr_code_scanned', 'instant_transfer_used', 'bank_account_linked', 'debit_card_added', 'profile_customized', 'privacy_setting_adjusted', 'direct_deposit_set_up', 'pin_code_set', 'face_id_enabled', 'transaction_alert_received', 'card_frozen', 'unauthorized_activity_reported']
+[DynamicLoader] Loaded platform: venmo
+[AdapterShim] Wrapped Viber (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['call_initiated', 'video_enabled', 'group_call_started', 'message_recorded', 'effect_applied', 'screen_shared', 'contact_invited', 'call_history_cleared']
+[DynamicLoader] Loaded platform: viber
+[AdapterShim] Wrapped Vimeo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_uploaded', 'portfolio_created', 'review_page_shared', 'live_event_streamed', 'video_replaced', 'privacy_settings_adjusted', 'custom_player_embedded', 'analytics_reviewed', 'vimeo_plus_upgraded', 'vimeo_pro_subscribed', 'vimeo_business_enrolled', 'ott_platform_launched', 'stock_footage_purchased']
+[DynamicLoader] Loaded platform: vimeo
+[AdapterShim] Wrapped VKontakte (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['wall_post_created', 'photo_uploaded', 'group_joined', 'story_posted', 'vk_pay_used', 'vk_clips_watched', 'vk_music_played', 'market_item_listed', 'live_stream_started', 'podcast_listened', 'vk_dating_used', 'mini_app_opened']
+[DynamicLoader] Loaded platform: vkontakte
+[AdapterShim] Wrapped VS Code (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_file_created', 'new_folder_created', 'new_workspace_created', 'file_opened', 'file_saved', 'file_saved_as', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'undo_executed', 'redo_executed', 'find_executed', 'replace_executed', 'find_in_files_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'go_to_line_executed', 'go_to_definition_executed', 'go_to_references_executed', 'peek_definition_executed', 'peek_references_executed', 'code_completion_triggered', 'quick_fix_applied', 'rename_symbol_executed', 'extract_method_executed', 'format_document_executed', 'format_selection_executed', 'toggle_comment_executed', 'toggle_block_comment_executed', 'extension_installed', 'extension_uninstalled', 'extension_updated', 'terminal_opened', 'terminal_command_executed', 'debug_session_started', 'breakpoint_toggled', 'git_stage_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_checkout_executed', 'task_run_executed', 'settings_changed', 'keybinding_changed', 'snippet_inserted', 'emmet_expanded', 'split_editor_opened', 'editor_group_created', 'command_palette_opened', 'workspace_settings_changed']
+[DynamicLoader] Loaded platform: vscode
+[AdapterShim] Wrapped Walmart Marketplace (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_listed', 'fulfillment_service_used', 'advertising_campaign_managed', 'return_processed', 'seller_account_approved', 'walmart_fulfillment_services_enrolled', 'repricer_tool_used', 'performance_metrics_viewed', 'pro_seller_badge_earned', 'walmart_connect_advertising_used', 'seller_support_ticket_created']
+[DynamicLoader] Loaded platform: walmart
+[AdapterShim] Wrapped Wealthfront (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['account_funded', 'portfolio_automated', 'auto_deposit_scheduled', 'tax_loss_harvesting_enabled', 'home_planning_started', 'risk_tolerance_assessed', 'financial_plan_projected', 'plan_529_recommended', 'high_yield_cash_account_opened', 'line_of_credit_accessed', 'investment_explanation_read', 'historical_performance_viewed', 'methodology_whitepaper_downloaded', 'faq_consulted', 'support_contacted']
+[DynamicLoader] Loaded platform: wealthfront
+[AdapterShim] Wrapped WeChat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['moment_posted', 'mini_program_opened', 'payment_made', 'official_account_followed', 'red_packet_sent', 'sticker_purchased', 'top_story_read', 'wechat_pay_used', 'channel_live_started', 'video_call_group_started', 'favorites_added', 'people_nearby_used']
+[DynamicLoader] Loaded platform: wechat
+[AdapterShim] Wrapped WhatsApp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['send_message', 'attach_photo']
+[DynamicLoader] Loaded platform: whatsapp
+[AdapterShim] Wrapped WinRAR (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['archive_created', 'archive_opened', 'archive_extracted', 'files_added_to_archive', 'files_deleted_from_archive', 'archive_tested', 'archive_repaired', 'compression_method_selected_store', 'compression_method_selected_fastest', 'compression_method_selected_normal', 'compression_method_selected_best', 'archive_format_rar_selected', 'archive_format_zip_selected', 'password_protection_applied', 'split_archive_created', 'self_extracting_archive_created', 'comment_added_to_archive']
+[DynamicLoader] Loaded platform: winrar
+[AdapterShim] Wrapped Wise (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['transfer_initiated', 'recipient_added', 'rate_alert_set', 'wise_card_used', 'business_account_opened', 'verification_document_uploaded', 'bank_details_shared', 'jar_created', 'direct_debit_set_up', 'api_integrated', 'two_factor_authentication_enabled', 'login_alert_reviewed', 'card_frozen', 'statement_downloaded', 'account_closure_requested']
+[DynamicLoader] Loaded platform: wise
+[AdapterShim] Wrapped WooCommerce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: woocommerce
+[AdapterShim] Wrapped Wrike (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'custom_workflow_applied', 'time_tracked', 'request_form_submitted', 'proof_approved', 'project_space_created', 'blueprint_used', 'report_built', 'resource_management_viewed', 'calendar_synced', 'user_invited', 'at_mention_used', 'approval_workflow_initiated', 'share_link_generated', 'mobile_app_used']
+[DynamicLoader] Loaded platform: wrike
+[AdapterShim] Wrapped Xbox Live (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_pass_game_installed', 'achievement_earned', 'gamerscore_increased', 'cloud_gaming_used', 'party_chat_joined', 'looking_for_group_posted', 'club_joined', 'activity_feed_updated', 'microsoft_points_redeemed', 'game_pass_subscription_managed', 'xbox_design_lab_used', 'elite_controller_customized']
+[DynamicLoader] Loaded platform: xbox_live
+[AdapterShim] Wrapped YouTube (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['play_video', 'search_video']
+[DynamicLoader] Loaded platform: youtube
+[AdapterShim] Wrapped Zoho CRM (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_converted', 'account_hierarchy_managed', 'contact_enriched', 'potential_created', 'case_resolved', 'blueprint_executed', 'canvas_view_designed', 'forecast_adjusted', 'territory_assigned', 'social_twitter_integrated', 'workflow_rule_triggered', 'scheduled_function_executed', 'web_form_captured', 'email_sent', 'zia_ai_used']
+[DynamicLoader] Loaded platform: zoho_crm
+[AdapterShim] Wrapped Zoom (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meeting_started', 'meeting_joined', 'screen_shared', 'recording_started', 'breakout_room_created', 'poll_launched', 'whiteboard_used', 'virtual_background_applied']
+[DynamicLoader] Loaded platform: zoom
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: adobe_acrobat
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: alibaba_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: android_studio
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: appletv
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: arduino_ide
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: azure
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: booking
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: cashapp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: chrome
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: disneyplus
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: dynamics365
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: epic_games
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: etrade
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: gcp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: github_desktop
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: git_cli
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: google
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: google_classroom
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: hbomax
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ibm_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: jdcom
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: khan_academy
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: lm_studio
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: mercadolibre
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: microsoft_teams
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: monday
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_excel
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_powerpoint
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_word
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: new_relic
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: nintendo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: nodejs_runtime
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: onedrive
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: oracle_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: playstation
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: prime_video
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: python_runtime
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: sap_sales
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: schwab
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: travisci
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: twitter
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: unreal_engine
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: vscode
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: walmart
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: xbox_live
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: zoho_crm
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: __pycache__
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+DEBUG: AgentCore loaded successfully!
+[DynamicLoader] Scanning AgentCore/platform_adapters for adapters...
+[AdapterShim] Wrapped Acorns (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['round_up_invested', 'recurring_investment_set', 'found_money_earned', 'later_account_opened', 'early_account_managed', 'portfolio_selected', 'aggressive_conservative_slider_adjusted', 'gift_card_purchased', 'referral_bonus_earned', 'financial_literacy_content_consumed', 'market_explained_read', 'grow_magazine_article_viewed', 'money_lesson_completed', 'news_updated_checked', 'support_ticket_submitted']
+[DynamicLoader] Loaded platform: acorns
+[AdapterShim] Wrapped ActiveCampaign (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['automation_built', 'campaign_sent', 'deal_created', 'chat_conversation_started', 'site_tracking_enabled', 'contact_tagged', 'list_managed', 'form_submitted', 'goal_achieved', 'sms_sent', 'report_analyzed', 'split_test_reviewed', 'attribution_tracked', 'predictive_sending_used', 'crm_synced']
+[DynamicLoader] Loaded platform: activecampaign
+[AdapterShim] Wrapped Adobe Acrobat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pdf_opened', 'pdf_created_from_file', 'pdf_created_from_scanner', 'pdf_saved', 'pdf_saved_as', 'pdf_closed', 'pdf_printed', 'pdf_exported_to_word', 'pdf_exported_to_excel', 'pdf_exported_to_powerpoint', 'pdf_exported_to_image', 'text_selected', 'text_copied', 'text_highlighted', 'comment_added', 'sticky_note_added', 'text_markup_applied', 'stamp_added', 'drawing_markup_added', 'form_field_created', 'form_field_filled', 'form_submitted', 'digital_signature_applied', 'certificate_based_signature_applied', 'password_security_applied', 'permissions_set', 'pages_inserted', 'pages_deleted', 'pages_rotated', 'pages_extracted', 'pages_replaced', 'pages_reordered', 'pdf_merged', 'pdf_split', 'ocr_text_recognition_executed', 'redaction_applied', 'bookmark_created', 'link_created', 'accessibility_check_executed', 'pdf_optimized']
+[DynamicLoader] Loaded platform: adobe_acrobat
+[AdapterShim] Wrapped Airbnb (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['listing_searched', 'booking_requested', 'reservation_confirmed', 'check_in_completed', 'review_left', 'experience_booked', 'wishlist_created', 'co_host_invited', 'guidebook_accessed', 'message_sent', 'superguest_status_earned', 'referral_credit_earned', 'airbnb_plus_explored', 'luxe_property_viewed', 'long_term_stay_discount_applied']
+[DynamicLoader] Loaded platform: airbnb
+[AdapterShim] Wrapped Airtable (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['record_created', 'field_customized', 'view_filtered', 'automation_scripted', 'interface_designed', 'base_created', 'template_gallery_used', 'sync_integration_set', 'extension_installed', 'form_shared', 'collaborator_invited', 'comment_threaded', 'revision_history_viewed', 'snapshot_taken', 'enterprise_admin_managed']
+[DynamicLoader] Loaded platform: airtable
+[AdapterShim] Wrapped Alibaba (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_sourced', 'inquiry_sent', 'trade_assurance_order_placed', 'supplier_contacted', 'company_profile_created', 'product_showcase_uploaded', 'rfq_responded', 'gold_supplier_subscribed', 'taobao_product_imported', 'logistics_service_booked', 'inspection_service_ordered', 'trade_show_registered']
+[DynamicLoader] Loaded platform: alibaba
+[AdapterShim] Wrapped Alibaba Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ecs_instance_created', 'function_compute_service_deployed', 'container_service_kubernetes_cluster_created', 'batch_compute_job_submitted', 'elastic_gpu_service_activated', 'oss_bucket_created', 'nas_file_system_mounted', 'ebs_block_storage_attached', 'archive_storage_used', 'data_transport_solution_used', 'vpc_established', 'security_group_rule_configured', 'server_load_balancer_deployed', 'cdn_domain_added', 'express_connect_established']
+[DynamicLoader] Loaded platform: alibaba_cloud
+[AdapterShim] Wrapped Amazon (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['search_product']
+[DynamicLoader] Loaded platform: amazon
+[AdapterShim] Wrapped Android Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_module_added', 'new_file_created', 'new_class_created', 'new_activity_created', 'new_fragment_created', 'new_service_created', 'new_layout_file_created', 'new_resource_file_created', 'project_opened', 'file_opened', 'recent_project_opened', 'project_imported', 'file_saved', 'all_files_saved', 'file_closed', 'project_closed', 'file_renamed', 'class_renamed', 'method_renamed', 'variable_renamed', 'file_deleted', 'file_moved', 'file_copied', 'code_typed', 'paste_operation_executed', 'undo_operation_executed', 'redo_operation_executed', 'reformat_code_executed', 'optimize_imports_executed', 'completion_basic_triggered', 'completion_smart_type_triggered', 'go_to_class_executed', 'go_to_file_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_refactoring_executed', 'extract_variable_refactoring_executed', 'inline_refactoring_executed', 'generate_constructor_executed', 'generate_getter_executed', 'generate_setter_executed', 'generate_override_methods_executed', 'make_project_executed', 'rebuild_project_executed', 'clean_project_executed', 'build_apk_executed', 'generate_signed_bundle_or_apk_executed', 'gradle_sync_started', 'gradle_sync_finished_successfully', 'run_app_executed', 'debug_app_executed', 'app_run_on_emulator', 'app_run_on_physical_device', 'virtual_device_created', 'virtual_device_launched', 'emulator_screen_capture_taken', 'layout_editor_opened', 'design_view_selected', 'code_view_selected', 'cpu_profiler_opened', 'memory_profiler_opened', 'network_profiler_opened', 'database_inspector_opened', 'layout_inspector_opened', 'unit_test_run_executed', 'unit_test_debug_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed']
+[DynamicLoader] Loaded platform: android_studio
+[AdapterShim] Wrapped Apple TV+ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['original_watched', 'family_sharing_enabled', 'download_saved', 'up_next_added', 'apple_tv_channel_subscribed', 'itunes_movie_purchased', 'library_synced', 'airplay_used', 'apple_one_bundle_subscribed', 'apple_tv_plus_free_trial_started', 'apple_gift_card_used']
+[DynamicLoader] Loaded platform: appletv
+[AdapterShim] Wrapped Arduino IDE (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_sketch_created', 'sketch_opened', 'sketch_saved', 'sketch_saved_as', 'sketch_closed', 'example_sketch_opened', 'code_typed', 'code_pasted', 'undo_executed', 'redo_executed', 'verify_compile_executed', 'upload_executed', 'upload_using_programmer_executed', 'board_selected', 'port_selected', 'programmer_selected', 'library_installed', 'library_removed', 'library_updated', 'board_manager_opened', 'board_package_installed', 'serial_monitor_opened', 'serial_plotter_opened', 'serial_data_sent', 'baud_rate_changed', 'preferences_changed', 'verbose_output_enabled', 'include_library_added', 'sketch_exported_compiled_binary']
+[DynamicLoader] Loaded platform: arduino_ide
+[AdapterShim] Wrapped Asana (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'subtask_added', 'due_date_set', 'assignee_designated', 'custom_field_updated', 'project_created', 'timeline_viewed', 'portfolio_managed', 'goal_set', 'workload_balanced', 'team_invited', 'comment_added', 'proofing_used', 'approval_requested', 'form_submitted']
+[DynamicLoader] Loaded platform: asana
+[AdapterShim] Wrapped AWS (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ec2_instance_launched', 'lambda_function_deployed', 'ecs_task_run', 'eks_cluster_created', 'batch_job_submitted', 's3_bucket_created', 'ebs_volume_attached', 'efs_file_system_mounted', 'glacier_archive_uploaded', 'storage_gateway_configured', 'vpc_created', 'route_table_configured', 'load_balancer_deployed', 'cloudfront_distribution_created', 'transit_gateway_established']
+[DynamicLoader] Loaded platform: aws
+[AdapterShim] Wrapped Microsoft Azure (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['virtual_machine_deployed', 'function_app_created', 'aks_cluster_provisioned', 'app_service_published', 'container_instance_run', 'blob_storage_created', 'managed_disk_attached', 'file_share_mapped', 'archive_tier_set', 'data_lake_storage_gen2_enabled', 'virtual_network_created', 'network_security_group_configured', 'application_gateway_deployed', 'cdn_endpoint_created', 'express_route_circuit_provisioned']
+[DynamicLoader] Loaded platform: azure
+[AdapterShim] Wrapped Basecamp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['to_do_list_created', 'message_board_posted', 'schedule_added', 'document_uploaded', 'automatic_check_in_set', 'project_created', 'hill_chart_updated', 'client_access_enabled', 'template_project_used', 'progress_reported', 'person_invited', 'ping_sent', 'campfire_chat_used', 'doorbell_rung', 'boost_given']
+[DynamicLoader] Loaded platform: basecamp
+[AdapterShim] Wrapped Betterment (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['goal_based_investing_started', 'portfolio_deposited', 'rebalancing_automated', 'tax_coordinated_portfolio_enabled', 'crypto_invested', 'goal_projected', 'advice_accessed', 'checking_account_opened', 'joint_account_created', 'trust_account_established', 'educational_article_read', 'tool_used', 'performance_analyzed', 'fee_comparison_made', 'customer_support_chatted']
+[DynamicLoader] Loaded platform: betterment
+[AdapterShim] Wrapped BigCommerce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: bigcommerce
+[AdapterShim] Wrapped Bitbucket (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_created', 'pull_request_created', 'pipeline_executed', 'deployment_triggered', 'branch_permission_set', 'bitbucket_pipelines_enabled', 'deployment_environment_configured', 'jira_issue_linked', 'slack_notification_set', 'merge_check_configured', 'team_invited', 'access_control_managed', 'fork_synced', 'wiki_enabled', 'smart_mirror_configured']
+[DynamicLoader] Loaded platform: bitbucket
+[AdapterShim] Wrapped Blackboard (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['content_item_opened', 'assignment_uploaded', 'test_submitted', 'discussion_board_posted', 'journal_entry_created', 'safeassign_report_viewed', 'rubric_assessed', 'attempt_graded', 'feedback_released', 'external_tool_launched', 'course_announcement_received', 'email_sent', 'group_workspace_accessed', 'mobile_app_logged_in', 'student_preview_used']
+[DynamicLoader] Loaded platform: blackboard
+[AdapterShim] Wrapped Booking.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['property_searched', 'reservation_made', 'modification_requested', 'cancellation_processed', 'review_posted', 'genius_program_joined', 'trip_planner_used', 'airport_transfer_booked', 'car_rental_reserved', 'flight_searched', 'genius_level_achieved', 'reward_claimed', 'mobile_app_exclusive_used', 'secret_deal_unlocked', 'partner_offer_redeemed']
+[DynamicLoader] Loaded platform: booking
+[AdapterShim] Wrapped Bumble (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'swipe_right', 'swipe_left', 'match_made', 'message_sent', 'super_like_used', 'boost_applied', 'date_scheduled']
+[DynamicLoader] Loaded platform: bumble
+[AdapterShim] Wrapped Calculator (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['calculate']
+[DynamicLoader] Loaded platform: calculator
+[AdapterShim] Wrapped Calm (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meditation_played', 'sleep_story_listened', 'masterclass_watched', 'breathing_exercise_completed', 'music_track_played', 'mood_check_in_logged', 'streak_tracked', 'reminder_customized', 'favorite_added', 'offline_content_downloaded', 'subscription_purchased', 'gift_card_redeemed', 'corporate_wellness_accessed', 'kids_section_used', 'breathe_bubble_customized']
+[DynamicLoader] Loaded platform: calm
+[AdapterShim] Wrapped Canvas (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_accessed', 'assignment_submitted', 'module_completed', 'collaboration_used', 'eportfolio_created', 'quiz_taken', 'rubric_viewed', 'feedback_received', 'gradebook_checked', 'late_policy_applied', 'announcement_read', 'calendar_event_added', 'conference_joined', 'mobile_notification_received', 'parent_observer_added']
+[DynamicLoader] Loaded platform: canvas
+[AdapterShim] Wrapped Cash App (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cash_sent', 'cash_received', 'bitcoin_purchased', 'stock_bought', 'direct_deposit_received', 'cash_card_activated', 'boost_applied', 'routing_number_copied', 'paper_money_deposited', 'tax_refund_deposited', 'security_lock_enabled', 'notification_preference_set', 'pin_changed', 'account_closed', 'fraud_reported']
+[DynamicLoader] Loaded platform: cashapp
+[AdapterShim] Wrapped Chargebee (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['subscription_created', 'billing_cycle_managed', 'dunning_email_sent', 'plan_upgraded', 'plan_downgraded', 'churn_prevented', 'metered_billing_calculated']
+[DynamicLoader] Loaded platform: chargebee
+[AdapterShim] Wrapped Chime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['direct_deposit_received', 'spot_me_used', 'credit_builder_secured', 'savings_rounded_up', 'check_deposited', 'account_opened', 'debit_card_activated', 'credit_builder_card_requested', 'atm_located', 'friend_referred', 'transaction_alert_enabled', 'card_locked', 'two_factor_authentication_set', 'account_settings_updated', 'support_contacted']
+[DynamicLoader] Loaded platform: chime
+[AdapterShim] Wrapped Google Chrome (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['open_url', 'new_tab', 'close_tab']
+[DynamicLoader] Loaded platform: chrome
+[AdapterShim] Wrapped CircleCI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['config_validated', 'workflow_triggered', 'orb_used', 'context_created', 'schedule_configured', 'docker_image_built', 'kubernetes_deployment_made', 'artifact_stored', 'test_parallelization_run', 'security_scan_integrated', 'team_member_invited', 'project_followed', 'insights_viewed', 'plan_upgraded', 'support_ticket_created']
+[DynamicLoader] Loaded platform: circleci
+[AdapterShim] Wrapped ClickUp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'custom_status_applied', 'time_estimated', 'sprint_managed', 'dependency_linked', 'space_created', 'folder_organized', 'list_viewed', 'goal_tracked', 'dashboard_customized', 'assignee_added', 'watcher_set', 'comment_resolved', 'proofing_annotated', 'email_integration_used']
+[DynamicLoader] Loaded platform: clickup
+[AdapterShim] Wrapped Coinbase (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['crypto_bought', 'crypto_sold', 'crypto_sent', 'crypto_received', 'staking_rewards_earned', 'wallet_created', 'vault_set_up', 'recurring_buy_scheduled', 'direct_deposit_enabled', 'coinbase_card_used', 'two_step_verification_enabled', 'address_whitelisted', 'api_key_restricted', 'insurance_policy_viewed', 'security_prompt_completed']
+[DynamicLoader] Loaded platform: coinbase
+[AdapterShim] Wrapped Coursera (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_enrolled', 'lecture_watched', 'reading_completed', 'peer_review_submitted', 'certificate_earned', 'quiz_attempted', 'programming_assignment_submitted', 'exam_proctored', 'grade_received', 'mastery_achieved', 'discussion_posted', 'mentor_consulted', 'study_group_joined', 'mobile_app_downloaded', 'degree_applied']
+[DynamicLoader] Loaded platform: coursera
+[AdapterShim] Wrapped Datadog (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['agent_installed', 'dashboard_created', 'monitor_configured', 'log_pipeline_set_up', 'apm_instrumented', 'alert_triggered', 'synthetic_test_created', 'rum_session_replay_viewed', 'slo_defined', 'incident_declared', 'security_signal_investigated', 'compliance_monitor_enabled', 'cloud_security_posture_managed', 'application_vulnerability_detected']
+[DynamicLoader] Loaded platform: datadog
+[AdapterShim] Wrapped Delta (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flight_booked', 'seat_selected', 'check_in_completed', 'boarding_pass_accessed', 'upgrade_requested', 'skymiles_earned', 'delta_sync_used', 'fly_ready_confirmed', 'rebooking_requested', 'unaccompanied_minor_service_booked', 'medallion_status_achieved', 'companion_certificate_used', 'delta_sky_club_accessed', 'upgrade_clearance_received', 'mileage_run_calculated']
+[DynamicLoader] Loaded platform: delta
+[AdapterShim] Wrapped Discord (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'server_joined', 'channel_created', 'role_assigned', 'nitro_subscribed', 'boost_applied', 'stage_channel_started', 'thread_created', 'slash_command_used', 'bot_added', 'emoji_uploaded', 'server_template_used']
+[DynamicLoader] Loaded platform: discord
+[AdapterShim] Wrapped Disney+ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_played', 'groupwatch_started', 'download_added', 'continue_watching_resumed', 'profile_created', 'parental_controls_set', 'watchlist_added', 'star_content_enabled', 'bundle_subscribed', 'premier_access_purchased', 'gift_subscription_sent']
+[DynamicLoader] Loaded platform: disneyplus
+[AdapterShim] Wrapped Microsoft Dynamics 365 (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_qualified', 'opportunity_created', 'contact_synchronized', 'account_hierarchy_managed', 'case_routed', 'sales_process_guided', 'quote_generated', 'order_fulfilled', 'invoice_generated', 'relationship_analytics_viewed', 'power_automate_flow_triggered', 'ai_insights_viewed', 'workflow_executed', 'business_process_flow_completed', 'power_bi_report_embedded']
+[DynamicLoader] Loaded platform: dynamics365
+[AdapterShim] Wrapped eBay (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['auction_bid_placed', 'buy_it_now_clicked', 'offer_made', 'watch_list_added', 'listing_created', 'store_subscription_started', 'promoted_listing_used', 'shipping_label_printed', 'best_offer_accepted', 'global_shipping_used', 'authenticity_guaranteed_purchased', 'ebay_money_back_claimed']
+[DynamicLoader] Loaded platform: ebay
+[AdapterShim] Wrapped edX (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_audited', 'verified_certificate_purchased', 'program_enrolled', 'micromasters_started', 'professional_certificate_earned', 'proctored_exam_taken', 'lab_completed', 'peer_assessment_reviewed', 'final_exam_passed', 'transcript_downloaded', 'discussion_forum_used', 'wiki_contributed', 'social_media_shared', 'mobile_app_synced', 'corporate_training_accessed']
+[DynamicLoader] Loaded platform: edx
+[AdapterShim] Wrapped Eloqua (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_orchestrated', 'email_deployed', 'form_created', 'microsite_built', 'program_builder_used', 'contact_segmented', 'lead_scoring_model_applied', 'profiler_used', 'web_tracking_verified', 'subscription_center_managed', 'insight_analyzed', 'dashboard_customized', 'report_scheduled', 'a_b_test_executed', 'revenue_analytics_viewed']
+[DynamicLoader] Loaded platform: eloqua
+[AdapterShim] Wrapped Epic Games Store (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['free_game_claimed', 'purchase_made', 'library_managed', 'download_scheduled', 'friend_added', 'party_formed', 'voice_chat_used', 'screenshot_shared', 'creator_code_used', 'epic_coupon_applied', 'refund_requested', 'supporter_pack_purchased']
+[DynamicLoader] Loaded platform: epic_games
+[AdapterShim] Wrapped E*Trade (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stock_ordered', 'option_contract_traded', 'mutual_fund_purchased', 'bond_laddered', 'futures_contract_initiated', 'portfolio_analyzed', 'watch_list_created', 'paper_trading_used', 'margin_account_enabled', 'ira_opened', 'market_news_read', 'analyst_report_viewed', 'earnings_calendar_checked', 'stock_screener_used', 'educational_video_watched']
+[DynamicLoader] Loaded platform: etrade
+[AdapterShim] Wrapped Etsy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['handmade_item_listed', 'vintage_item_searched', 'custom_request_sent', 'favorite_shop_added', 'pattern_website_created', 'etsy_ads_started', 'deposit_scheduled', 'shop_policies_updated', 'etsy_payments_onboarded', 'etsy_shipping_labels_purchased', 'etsy_plus_subscribed', 'star_seller_achieved']
+[DynamicLoader] Loaded platform: etsy
+[AdapterShim] Wrapped Expedia (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flight_booked', 'hotel_reserved', 'package_purchased', 'activity_booked', 'cruise_reserved', 'itinerary_viewed', 'price_drop_alert_set', 'loyalty_points_redeemed', 'mobile_exclusive_deal_claimed', 'travel_insurance_added', 'expedia_rewards_enrolled', 'gold_status_achieved', 'vip_access_property_booked', 'member_price_used', 'point_purchase_made']
+[DynamicLoader] Loaded platform: expedia
+[AdapterShim] Wrapped Windows Explorer (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['open_folder']
+[DynamicLoader] Loaded platform: explorer
+[AdapterShim] Wrapped Facebook (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_created', 'post_shared', 'post_liked', 'comment_added', 'friend_request_sent', 'friend_request_accepted', 'group_joined', 'event_created', 'story_viewed', 'live_stream_started', 'marketplace_item_listed', 'fundraiser_created']
+[DynamicLoader] Loaded platform: facebook
+[AdapterShim] Wrapped Fidelity (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['trade_executed', 'order_type_selected', 'automatic_investment_set', 'dividend_reinvestment_enabled', 'esg_fund_invested', 'portfolio_rebalanced', 'retirement_planner_used', 'full_view_aggregated', 'wealth_management_consulted', 'plan_529_managed', 'research_report_accessed', 'stock_comparison_tool_used', 'fixed_income_analysis_viewed', 'market_monitor_watched', 'learning_center_accessed']
+[DynamicLoader] Loaded platform: fidelity
+[AdapterShim] Wrapped Fitbit (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['activity_tracked', 'sleep_logged', 'food_logged', 'water_logged', 'weight_logged', 'exercise_auto_recognized', 'heart_rate_variability_measured', 'spo2_monitored', 'skin_temperature_tracked', 'stress_management_score_calculated', 'premium_trial_started', 'health_metrics_dashboard_viewed', 'wellness_report_generated', 'coach_guidance_received', 'family_account_created']
+[DynamicLoader] Loaded platform: fitbit
+[AdapterShim] Wrapped Freshsales (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_scored', 'contact_enriched', 'account_hierarchy_built', 'deal_qualified', 'appointment_scheduled', 'sales_sequence_initiated', 'territory_auto_assigned', 'forecast_generated', 'document_shared', 'quote_created', 'workflow_automated', 'chat_triggered', 'email_tracking_enabled', 'phone_call_logged', 'api_integrated']
+[DynamicLoader] Loaded platform: freshsales
+[AdapterShim] Wrapped Google Cloud Platform (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['compute_engine_vm_started', 'cloud_function_deployed', 'gke_cluster_created', 'cloud_run_service_deployed', 'batch_job_submitted', 'cloud_storage_bucket_created', 'persistent_disk_attached', 'filestore_instance_mounted', 'archive_storage_used', 'transfer_service_job_run', 'vpc_network_created', 'firewall_rule_configured', 'cloud_load_balancing_set_up', 'cloud_cdn_enabled', 'cloud_interconnect_established']
+[DynamicLoader] Loaded platform: gcp
+[AdapterShim] Wrapped GitHub (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_created', 'commit_pushed', 'pull_request_opened', 'branch_merged', 'issue_created', 'action_workflow_triggered', 'package_published', 'page_deployed', 'release_published', 'security_advisory_addressed', 'fork_created', 'star_given', 'wiki_edited', 'discussion_started', 'sponsorship_set_up']
+[DynamicLoader] Loaded platform: github
+[AdapterShim] Wrapped GitHub Desktop (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_cloned', 'repository_added_from_local', 'repository_created', 'repository_opened', 'branch_created', 'branch_switched', 'branch_renamed', 'branch_deleted', 'commit_created', 'commit_amended', 'commit_undone', 'changes_staged', 'changes_unstaged', 'changes_discarded', 'push_executed', 'pull_executed', 'fetch_executed', 'pull_request_created', 'merge_branch_executed', 'conflict_resolved', 'stash_created', 'stash_restored', 'diff_viewed', 'history_viewed', 'blame_viewed']
+[DynamicLoader] Loaded platform: github_desktop
+[AdapterShim] Wrapped GitLab (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_initialized', 'merge_request_submitted', 'pipeline_triggered', 'container_image_built', 'security_scan_run', 'auto_devops_enabled', 'kubernetes_cluster_connected', 'page_deployed', 'release_created', 'infrastructure_as_code_managed', 'epic_created', 'roadmap_planned', 'wiki_documented', 'snippet_shared', 'group_managed']
+[DynamicLoader] Loaded platform: gitlab
+[AdapterShim] Wrapped Git CLI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['git_init_executed', 'git_clone_executed', 'git_add_file_executed', 'git_add_all_executed', 'git_add_interactive_executed', 'git_status_executed', 'git_diff_executed', 'git_diff_cached_staged_executed', 'git_commit_executed', 'git_commit_amend_executed', 'git_log_viewed', 'git_blame_viewed', 'git_branch_created', 'git_branch_deleted', 'git_branch_renamed', 'git_branch_list_shown', 'git_checkout_branch_executed', 'git_checkout_new_branch_executed', 'git_merge_branch_executed', 'git_merge_abort_executed', 'git_rebase_branch_executed', 'git_rebase_interactive_executed', 'git_rebase_continue_executed', 'git_rebase_abort_executed', 'git_cherry_pick_commit_executed', 'git_fetch_executed', 'git_pull_executed', 'git_push_executed', 'git_push_force_executed', 'git_remote_add_executed', 'git_remote_remove_executed', 'git_stash_push_executed', 'git_stash_pop_executed', 'git_stash_list_shown', 'git_stash_apply_executed', 'git_tag_annotated_created', 'git_tag_lightweight_created', 'git_tag_delete_executed', 'git_tag_list_shown', 'git_reset_soft_executed', 'git_reset_mixed_executed', 'git_reset_hard_executed', 'git_revert_commit_executed', 'git_bisect_start_executed', 'git_bisect_bad_executed', 'git_bisect_good_executed', 'git_bisect_reset_executed', 'git_submodule_add_executed', 'git_submodule_update_executed', 'git_config_global_set', 'git_config_local_set']
+[DynamicLoader] Loaded platform: git_cli
+[AdapterShim] Wrapped Gmail (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['send_email']
+[DynamicLoader] Loaded platform: gmail
+[AdapterShim] Wrapped Google Search (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['search']
+[DynamicLoader] Loaded platform: google
+[AdapterShim] Wrapped Google Classroom (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['class_joined', 'assignment_viewed', 'work_submitted', 'material_accessed', 'question_posted', 'assignment_returned', 'grade_posted', 'originality_report_viewed', 'rubric_graded', 'late_work_flagged', 'announcement_created', 'meet_link_generated', 'guardian_summary_enabled', 'calendar_synced', 'drive_folder_organized']
+[DynamicLoader] Loaded platform: google_classroom
+[AdapterShim] Wrapped HBO Max (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['content_streamed', 'discovery_plus_content_accessed', 'profile_customized', 'download_managed', 'my_list_curated', 'series_reminder_set', 'parental_pin_enabled', 'audio_language_changed', 'ad_free_plan_upgraded', 'annual_plan_subscribed', 'gift_card_redeemed']
+[DynamicLoader] Loaded platform: hbomax
+[AdapterShim] Wrapped Headspace (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meditation_completed', 'sleep_cast_played', 'focus_music_listened', 'course_started', 'mindful_moment_taken', 'progress_tracked', 'streak_extended', 'reminder_set', 'buddy_added', 'session_downloaded', 'subscription_gifted', 'work_plan_accessed', 'family_plan_joined', 'sleep_analysis_viewed', 'sos_session_used']
+[DynamicLoader] Loaded platform: headspace
+[AdapterShim] Wrapped Hinge (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'match_made', 'message_sent', 'like_sent', 'comment_added', 'rose_sent']
+[DynamicLoader] Loaded platform: hinge
+[AdapterShim] Wrapped HubSpot (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['contact_imported', 'company_associated', 'deal_stage_updated', 'ticket_created', 'conversation_logged', 'pipeline_managed', 'sequence_enrolled', 'meeting_scheduled', 'document_tracked', 'quote_approved', 'workflow_enrolled', 'list_segmented', 'email_automated', 'chatbot_deployed', 'attribution_reported']
+[DynamicLoader] Loaded platform: hubspot
+[AdapterShim] Wrapped Hulu (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['episode_watched', 'live_tv_tuned', 'dvr_recording_set', 'profile_switched', 'watchlist_added', 'my_stuff_organized', 'no_ads_plan_upgraded', 'live_tv_guide_customized', 'disney_bundle_subscribed', 'hulu_plus_live_tv_upgraded', 'add_on_premium_channel_added']
+[DynamicLoader] Loaded platform: hulu
+[AdapterShim] Wrapped IBM Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['virtual_server_provisioned', 'cloud_function_action_created', 'openshift_cluster_deployed', 'bare_metal_server_reserved', 'power_systems_virtual_server_created', 'cloud_object_storage_bucket_created', 'block_storage_volume_attached', 'file_storage_share_mounted', 'mass_migration_service_used', 'cloud_backup_configured', 'vpc_created', 'security_group_rule_added', 'load_balancer_as_a_service_deployed', 'cdn_implemented', 'direct_link_established']
+[DynamicLoader] Loaded platform: ibm_cloud
+[AdapterShim] Wrapped Instagram (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['photo_posted', 'story_posted', 'reel_shared', 'post_liked', 'direct_message_sent', 'story_replied', 'live_started', 'close_friend_added', 'shop_product_viewed', 'filter_applied', 'music_added', 'collaboration_posted']
+[DynamicLoader] Loaded platform: instagram
+[AdapterShim] Wrapped JD.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_searched', 'flash_sale_joined', 'plus_membership_subscribed', 'group_buy_initiated', 'store_opened', 'jd_logistics_used', 'jd_cloud_service_accessed', 'advertising_purchased', 'jd_health_consulted', 'jd_finance_used', 'jd_property_viewed', 'jd_auction_participated']
+[DynamicLoader] Loaded platform: jdcom
+[AdapterShim] Wrapped Jenkins (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['job_created', 'build_triggered', 'pipeline_scripted', 'plugin_installed', 'node_configured', 'deployment_stage_executed', 'artifact_archived', 'test_report_generated', 'credential_managed', 'backup_scheduled', 'user_permission_assigned', 'audit_trail_reviewed', 'distributed_build_configured', 'cloud_agent_provisioned', 'update_center_accessed']
+[DynamicLoader] Loaded platform: jenkins
+[AdapterShim] Wrapped Jira (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['issue_created', 'sprint_started', 'epic_linked', 'story_point_estimated', 'bug_reported', 'project_configured', 'workflow_customized', 'scrum_board_managed', 'kanban_used', 'roadmap_planned', 'developer_assigned', 'watcher_added', 'comment_logged', 'attachment_added', 'time_logged']
+[DynamicLoader] Loaded platform: jira
+[AdapterShim] Wrapped Khan Academy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_watched', 'exercise_completed', 'article_read', 'mission_started', 'mastery_points_earned', 'unit_test_taken', 'course_challenge_attempted', 'hint_used', 'scratchpad_utilized', 'coach_invited', 'parent_account_linked', 'teacher_dashboard_used', 'class_code_joined', 'discussion_participated', 'badge_earned']
+[DynamicLoader] Loaded platform: khan_academy
+[AdapterShim] Wrapped Klaviyo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['flow_created', 'campaign_scheduled', 'segment_built', 'template_edited', 'signup_form_published', 'profile_enriched', 'list_cleaned', 'predictive_analytics_viewed', 'back_in_stock_flow_triggered', 'price_drop_alert_sent', 'benchmark_report_viewed', 'cohort_analysis_run', 'ltv_calculated', 'churn_risk_identified', 'a_b_test_analyzed']
+[DynamicLoader] Loaded platform: klaviyo
+[AdapterShim] Wrapped LINE (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'timeline_posted', 'sticker_purchased', 'official_account_added', 'line_pay_used', 'line_music_played', 'line_manga_read', 'line_taxi_called', 'openchat_joined', 'line_shopping_used', 'line_game_played', 'line_tv_watched']
+[DynamicLoader] Loaded platform: line
+[AdapterShim] Wrapped LinkedIn (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_shared', 'article_published', 'connection_request_sent', 'job_applied', 'endorsement_given', 'recommendation_written', 'event_registered', 'learning_course_started', 'sales_navigator_used', 'recruiter_lite_used', 'company_page_followed', 'pulse_article_commented']
+[DynamicLoader] Loaded platform: linkedin
+[AdapterShim] Wrapped LM Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_downloaded', 'model_loaded', 'model_unloaded', 'chat_session_started', 'chat_message_sent', 'chat_response_received', 'system_prompt_set', 'temperature_adjusted', 'max_tokens_set', 'local_server_started', 'local_server_stopped', 'api_endpoint_configured', 'model_quantization_selected', 'context_length_set', 'gpu_layers_configured', 'chat_history_exported']
+[DynamicLoader] Loaded platform: lm_studio
+[AdapterShim] Wrapped Lyft (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ride_requested', 'shared_ride_taken', 'bike_scooter_unlocked', 'scheduled_ride_set', 'transit_info_viewed', 'lyft_pink_subscribed', 'bike_lane_navigation_used', 'safety_features_used', 'driver_tipped', 'lost_item_reported', 'rewards_points_earned', 'challenge_completed', 'partnership_perk_claimed', 'business_profile_managed', 'healthcare_ride_scheduled']
+[DynamicLoader] Loaded platform: lyft
+[AdapterShim] Wrapped Magento (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: magento
+[AdapterShim] Wrapped Mailchimp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_created', 'audience_segmented', 'template_designed', 'automation_configured', 'landing_page_published', 'subscriber_imported', 'tag_applied', 'signup_form_embedded', 'preference_center_customized', 'cleaning_recommended', 'report_viewed', 'a_b_test_analyzed', 'send_time_optimization_used', 'comparative_report_generated', 'social_post_scheduled']
+[DynamicLoader] Loaded platform: mailchimp
+[AdapterShim] Wrapped Marketo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['program_created', 'smart_campaign_executed', 'email_asset_approved', 'landing_page_tested', 'nurture_stream_activated', 'lead_scored', 'segment_smart_list_created', 'form_filled', 'munchkin_tracking_verified', 'rce_report_viewed', 'revenue_cycle_modeler_used', 'success_path_analyzer_viewed', 'email_insights_analyzed', 'web_personalization_enabled', 'account_profiling_used']
+[DynamicLoader] Loaded platform: marketo
+[AdapterShim] Wrapped Mattermost (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated']
+[DynamicLoader] Loaded platform: mattermost
+[AdapterShim] Wrapped Meetup (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['event_rsvped', 'group_joined', 'event_created', 'message_sent', 'introduction_requested', 'salary_shared', 'interview_scheduled']
+[DynamicLoader] Loaded platform: meetup
+[AdapterShim] Wrapped Mercado Libre (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['publication_created', 'question_answered', 'sale_completed', 'reputation_earned', 'mercado_shops_activated', 'mercado_envios_used', 'mercado_pago_integrated', 'official_store_applied', 'mercado_credito_used', 'mercado_ads_managed', 'classified_ad_posted', 'vehicle_listed']
+[DynamicLoader] Loaded platform: mercadolibre
+[AdapterShim] Wrapped Microsoft Teams (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated', 'meeting_started', 'screen_shared']
+[DynamicLoader] Loaded platform: microsoft_teams
+[AdapterShim] Wrapped Monday.com (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pulse_created', 'column_customized', 'status_updated', 'automation_triggered', 'integration_connected', 'board_duplicated', 'template_gallery_used', 'workdoc_created', 'gantt_chart_viewed', 'dashboard_built', 'team_member_invited', 'guest_added', 'notification_customized', 'time_tracking_enabled', 'inbox_zero_achieved']
+[DynamicLoader] Loaded platform: monday
+[AdapterShim] Wrapped Moodle (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['resource_viewed', 'activity_completed', 'forum_posted', 'wiki_edited', 'glossary_entry_added', 'quiz_attempted', 'assignment_submitted', 'workshop_peer_assessed', 'lesson_completed', 'scorm_package_tracked', 'badge_awarded', 'competency_achieved', 'learning_plan_created', 'cohort_joined', 'mobile_app_offline_used']
+[DynamicLoader] Loaded platform: moodle
+[AdapterShim] Wrapped Microsoft Excel (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_workbook_created', 'workbook_from_template_created', 'workbook_saved', 'workbook_saved_as', 'workbook_saved_as_pdf', 'workbook_closed', 'cell_value_entered', 'cell_formula_entered', 'cell_format_changed', 'row_inserted', 'row_deleted', 'column_inserted', 'column_deleted', 'sheet_added', 'sheet_renamed', 'sheet_deleted', 'sheet_moved', 'range_selected', 'range_copied', 'range_pasted', 'range_cut', 'auto_fill_applied', 'flash_fill_used', 'sort_applied', 'filter_applied', 'advanced_filter_applied', 'pivot_table_created', 'pivot_chart_created', 'chart_created', 'chart_type_changed', 'chart_data_range_modified', 'conditional_formatting_applied', 'data_validation_applied', 'vlookup_formula_used', 'index_match_formula_used', 'sumif_formula_used', 'macro_recorded', 'macro_run', 'vba_editor_opened', 'freeze_panes_applied', 'split_window_applied', 'name_manager_opened', 'named_range_created', 'data_connection_created', 'power_query_opened', 'protect_sheet_applied', 'protect_workbook_applied']
+[DynamicLoader] Loaded platform: ms_excel
+[AdapterShim] Wrapped Microsoft PowerPoint (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_presentation_created', 'presentation_from_template_created', 'presentation_saved', 'presentation_saved_as', 'presentation_saved_as_pdf', 'presentation_closed', 'slide_added', 'slide_deleted', 'slide_duplicated', 'slide_moved', 'slide_layout_changed', 'slide_design_applied', 'text_typed', 'text_formatted', 'text_box_inserted', 'image_inserted', 'shape_inserted', 'chart_inserted', 'table_inserted', 'video_inserted', 'audio_inserted', 'icon_inserted', 'animation_applied', 'animation_removed', 'animation_reordered', 'transition_applied', 'transition_timing_set', 'slide_show_started', 'slide_show_from_beginning', 'slide_show_from_current_slide', 'presenter_view_used', 'notes_added', 'comments_added', 'comments_resolved', 'slide_master_edited', 'custom_layout_created', 'hyperlink_inserted', 'action_button_added', 'section_added', 'section_renamed', 'rehearse_timings_used', 'record_slide_show_used', 'export_to_video_executed']
+[DynamicLoader] Loaded platform: ms_powerpoint
+[AdapterShim] Wrapped Microsoft Word (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_document_created', 'document_from_template_created', 'document_saved', 'document_saved_as', 'document_saved_as_pdf', 'document_auto_saved', 'document_closed', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'text_undo_executed', 'text_redo_executed', 'text_find_executed', 'text_replace_executed', 'text_bold_applied', 'text_italic_applied', 'text_underline_applied', 'text_font_changed', 'text_font_size_changed', 'text_font_color_changed', 'text_paragraph_alignment_set_left', 'text_paragraph_alignment_set_center', 'text_paragraph_alignment_set_right', 'text_paragraph_alignment_set_justified', 'text_styles_applied', 'text_numbering_applied', 'text_bullets_applied', 'text_header_inserted', 'text_footer_inserted', 'text_page_break_inserted', 'text_page_setup_margins_set', 'text_page_setup_orientation_set_portrait', 'text_page_setup_orientation_set_landscape', 'text_footnote_inserted', 'text_citation_inserted', 'text_bookmark_inserted', 'text_cross_reference_inserted', 'text_index_and_tables_table_of_contents_inserted', 'text_check_accessibility_used', 'text_check_compatibility_used', 'text_macro_recorded', 'text_macro_run', 'document_password_protection_applied', 'document_marked_as_final', 'document_compare_executed', 'document_combine_executed']
+[DynamicLoader] Loaded platform: ms_word
+[AdapterShim] Wrapped MyFitnessPal (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meal_logged', 'exercise_recorded', 'water_tracked', 'weight_entered', 'goal_set', 'barcode_scanned', 'recipe_imported', 'nutrition_analyzed', 'streak_maintained', 'progress_photo_uploaded', 'community_posted', 'friend_challenged', 'premium_subscribed', 'report_generated', 'coach_consulted']
+[DynamicLoader] Loaded platform: myfitnesspal
+[AdapterShim] Wrapped Netflix (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_played', 'episode_completed', 'season_binged', 'download_initiated', 'profile_switched', 'my_list_added', 'rating_given', 'subtitle_preference_set', 'playback_speed_changed', 'subscription_upgraded', 'dvd_plan_added', 'gift_card_redeemed', 'extra_member_added']
+[DynamicLoader] Loaded platform: netflix
+[AdapterShim] Wrapped New Relic (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['agent_deployed', 'dashboard_built', 'alert_condition_created', 'nrql_query_written', 'log_forwarded', 'apm_transaction_traced', 'infrastructure_host_monitored', 'browser_monitoring_enabled', 'mobile_crash_analyzed', 'synthetic_monitor_checked', 'vulnerability_management_scan_run', 'security_audit_log_reviewed', 'user_permissions_managed', 'api_key_rotated']
+[DynamicLoader] Loaded platform: new_relic
+[AdapterShim] Wrapped Nintendo eShop (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_purchased', 'wish_list_added', 'gold_points_redeemed', 'nintendo_switch_online_subscribed', 'friend_code_exchanged', 'screenshot_shared', 'user_page_customized', 'parental_controls_set', 'nintendo_switch_expansion_pack_upgraded', 'game_voucher_used', 'dlc_purchased']
+[DynamicLoader] Loaded platform: nintendo
+[AdapterShim] Wrapped Node.js Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'repl_started', 'npm_init_executed', 'npm_install_executed', 'npm_uninstall_executed', 'npm_update_executed', 'npm_run_script_executed', 'npm_publish_executed', 'npm_audit_executed', 'npx_command_executed', 'package_json_edited', 'module_required', 'module_imported_esm', 'express_server_started', 'http_server_started', 'jest_test_run', 'mocha_test_run', 'webpack_build_executed', 'vite_dev_server_started', 'typescript_compiled', 'eslint_executed', 'nodemon_started', 'pm2_process_managed']
+[DynamicLoader] Loaded platform: nodejs_runtime
+[AdapterShim] Wrapped Notepad (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['type_text', 'save_file']
+[DynamicLoader] Loaded platform: notepad
+[AdapterShim] Wrapped Notion (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['page_created', 'database_set_up', 'block_edited', 'template_duplicated', 'relation_linked', 'workspace_organized', 'teamspace_created', 'permission_managed', 'integration_connected', 'api_accessed', 'member_invited', 'comment_threaded', 'mention_used', 'page_shared_publicly', 'export_generated']
+[DynamicLoader] Loaded platform: notion
+[AdapterShim] Wrapped OkCupid (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'match_made', 'message_sent', 'like_sent', 'question_answered']
+[DynamicLoader] Loaded platform: okcupid
+[AdapterShim] Wrapped Ollama (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_pulled', 'model_removed', 'model_list_shown', 'model_run_started', 'model_run_stopped', 'chat_message_sent', 'chat_response_received', 'api_server_started', 'api_request_processed', 'modelfile_created', 'custom_model_built', 'model_copied', 'model_pushed', 'system_prompt_set', 'temperature_set', 'embedding_generated']
+[DynamicLoader] Loaded platform: ollama
+[AdapterShim] Wrapped Microsoft OneDrive (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['file_uploaded', 'folder_uploaded', 'multiple_files_uploaded', 'file_downloaded', 'folder_downloaded', 'file_synced_up', 'file_synced_down', 'file_sync_conflict_detected', 'file_sync_conflict_resolved_keep_both', 'file_sync_paused', 'file_sync_resumed', 'file_shared_link_created', 'file_shared_link_deleted', 'file_shared_link_permission_set_view', 'file_shared_link_permission_set_edit', 'file_shared_directly_to_user', 'file_shared_to_group', 'file_version_created', 'file_version_restored', 'folder_created', 'folder_renamed', 'folder_moved', 'folder_deleted', 'file_renamed', 'file_moved', 'file_deleted', 'file_restored_from_recycle_bin', 'file_search_executed', 'file_filter_applied', 'document_opened_for_editing', 'document_edited_simultaneously_by_multiple_users', 'comment_added', 'comment_resolved', 'file_sync_on_demand_files_enabled', 'file_sync_free_up_space_used', 'user_signed_in', 'user_signed_out', 'retention_policy_applied', 'dlp_policy_triggered']
+[DynamicLoader] Loaded platform: onedrive
+[AdapterShim] Wrapped Oracle Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['compute_instance_launched', 'function_deployed', 'container_engine_kubernetes_cluster_created', 'autonomous_database_provisioned', 'analytics_cloud_instance_started', 'object_storage_bucket_created', 'block_volume_attached', 'file_storage_system_mounted', 'archive_storage_used', 'data_transfer_service_used', 'virtual_cloud_network_created', 'security_list_configured', 'load_balancer_set_up', 'dns_zone_managed', 'fast_connect_established']
+[DynamicLoader] Loaded platform: oracle_cloud
+[AdapterShim] Wrapped Outlook (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['email_composed', 'email_sent', 'email_opened', 'attachment_added', 'label_applied', 'filter_created', 'vacation_responder_enabled', 'signature_updated']
+[DynamicLoader] Loaded platform: outlook
+[AdapterShim] Wrapped PagerDuty (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['service_created', 'escalation_policy_configured', 'schedule_managed', 'integration_added', 'automation_action_created', 'incident_triggered', 'on_call_rotation_started', 'status_update_published', 'post_mortem_documented', 'business_service_mapped', 'event_intelligence_used', 'automation_triggered', 'permissions_managed', 'audit_log_reviewed']
+[DynamicLoader] Loaded platform: pagerduty
+[AdapterShim] Wrapped Pardot (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['campaign_launched', 'landing_page_published', 'form_handler_created', 'dynamic_content_enabled', 'engagement_program_built', 'prospect_scored', 'grading_profile_applied', 'assignment_rule_triggered', 'tag_added', 'list_email_sent', 'lifecycle_report_viewed', 'roi_calculator_used', 'connected_campaign_enabled', 'einstein_behavior_scoring_viewed', 'b2b_marketing_analytics_used']
+[DynamicLoader] Loaded platform: pardot
+[AdapterShim] Wrapped PayPal (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_sent', 'payment_received', 'invoice_created', 'subscription_managed', 'money_pooled', 'account_verified', 'bank_linked', 'card_added', 'balance_managed', 'currency_converted', 'two_factor_authentication_enabled', 'security_questions_set', 'device_trusted', 'login_alert_reviewed', 'dispute_filed']
+[DynamicLoader] Loaded platform: paypal
+[AdapterShim] Wrapped Peloton (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['class_taken', 'milestone_achieved', 'high_five_exchanged', 'stack_created', 'challenge_joined', 'output_tracked', 'heart_rate_monitored', 'personal_record_set', 'streak_maintained', 'achievement_badge_earned', 'membership_paused', 'apparel_purchased', 'referral_code_used', 'scenic_content_ridden', 'lanebreak_game_played']
+[DynamicLoader] Loaded platform: peloton
+[AdapterShim] Wrapped Pinterest (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pin_created', 'board_created', 'pin_saved', 'pin_tried', 'section_added', 'shopping_list_created', 'idea_pin_created', 'tag_followed', 'visual_search_used', 'shop_tab_visited', 'merchant_followed', 'try_on_feature_used']
+[DynamicLoader] Loaded platform: pinterest
+[AdapterShim] Wrapped Pipedrive (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_captured', 'deal_added', 'activity_scheduled', 'contact_mapped', 'email_synced', 'pipeline_stages_managed', 'probability_updated', 'forecast_viewed', 'goal_set', 'report_customized', 'workflow_automation_triggered', 'email_template_used', 'web_form_submitted', 'import_completed', 'api_call_made']
+[DynamicLoader] Loaded platform: pipedrive
+[AdapterShim] Wrapped PlayStation Network (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['trophy_earned', 'game_downloaded', 'remote_play_used', 'share_play_initiated', 'party_created', 'community_joined', 'broadcast_started', 'messages_sent', 'playstation_plus_subscribed', 'wallet_funded', 'pre_order_placed', 'playstation_stars_enrolled']
+[DynamicLoader] Loaded platform: playstation
+[AdapterShim] Wrapped Amazon Prime Video (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['title_streamed', 'channel_subscribed', 'video_purchased', 'rent_completed', 'watchlist_managed', 'x_ray_feature_used', 'imdb_integration_viewed', 'audio_description_enabled', 'prime_membership_managed', 'video_direct_publishing_used', 'amazon_channels_managed']
+[DynamicLoader] Loaded platform: prime_video
+[AdapterShim] Wrapped ProtonMail (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['email_composed', 'email_sent', 'email_opened', 'attachment_added', 'label_applied', 'filter_created', 'vacation_responder_enabled', 'signature_updated']
+[DynamicLoader] Loaded platform: protonmail
+[AdapterShim] Wrapped PyCharm (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_file_created', 'new_python_file_created', 'new_python_package_created', 'new_jupyter_notebook_created', 'project_opened', 'file_opened', 'file_saved', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'code_completion_basic_invoked', 'code_completion_smart_invoked', 'quick_fix_applied', 'intention_action_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'go_to_class_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_executed', 'extract_variable_executed', 'inline_refactoring_executed', 'reformat_code_executed', 'optimize_imports_executed', 'run_configuration_executed', 'debug_configuration_executed', 'breakpoint_toggled', 'step_over_executed', 'step_into_executed', 'evaluate_expression_executed', 'watch_added', 'python_interpreter_configured', 'virtualenv_created', 'pip_package_installed', 'pip_package_uninstalled', 'pytest_run_executed', 'unittest_run_executed', 'coverage_analysis_run', 'test_results_viewed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed', 'terminal_opened', 'python_console_opened', 'jupyter_notebook_cell_executed', 'jupyter_kernel_restarted']
+[DynamicLoader] Loaded platform: pycharm
+[AdapterShim] Wrapped Python Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'interactive_shell_started', 'module_imported', 'pip_install_executed', 'pip_uninstall_executed', 'pip_list_shown', 'pip_freeze_executed', 'virtualenv_created', 'virtualenv_activated', 'virtualenv_deactivated', 'package_built', 'package_published', 'unittest_run', 'pytest_run', 'pdb_debugger_started', 'breakpoint_hit', 'type_checking_executed', 'linting_executed', 'jupyter_notebook_started', 'jupyter_cell_executed', 'requirements_installed', 'setup_py_executed']
+[DynamicLoader] Loaded platform: python_runtime
+[AdapterShim] Wrapped QQ (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'qzone_posted', 'group_joined', 'file_transferred', 'qq_wallet_used', 'qq_music_played', 'qq_game_launched', 'qq_mail_sent', 'qq_live_watched', 'qq_read_used', 'qq_shopping_visited', 'qq_health_synced']
+[DynamicLoader] Loaded platform: qq
+[AdapterShim] Wrapped Rakuten (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['item_purchased', 'super_points_earned', 'shop_discovered', 'coupon_clipped', 'store_opened', 'item_management_bulk_uploaded', 'rms_advertising_used', 'settlement_confirmed', 'rakuten_edy_charged', 'rakuten_bank_linked', 'travel_booked', 'insurance_quoted']
+[DynamicLoader] Loaded platform: rakuten
+[AdapterShim] Wrapped Recharge (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['subscription_created', 'billing_cycle_managed', 'dunning_email_sent', 'plan_upgraded', 'plan_downgraded', 'churn_prevented', 'metered_billing_calculated']
+[DynamicLoader] Loaded platform: recharge
+[AdapterShim] Wrapped Reddit (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_submitted', 'comment_posted', 'upvote_given', 'downvote_given', 'subreddit_joined', 'award_given', 'crosspost_created', 'wiki_edited', 'poll_voted', 'prediction_made', 'avatar_customized', 'community_chat_joined']
+[DynamicLoader] Loaded platform: reddit
+[AdapterShim] Wrapped Revolut (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['transfer_made', 'card_payment_processed', 'vault_created', 'crypto_exchanged', 'stock_traded', 'account_upgraded', 'physical_card_ordered', 'virtual_card_created', 'salary_advanced', 'insurance_purchased', 'security_feature_enabled', 'location_based_security_set', 'disposable_virtual_card_used', 'pin_changed', 'unauthorized_transaction_disputed']
+[DynamicLoader] Loaded platform: revolut
+[AdapterShim] Wrapped Robinhood (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stock_purchased', 'stock_sold', 'option_traded', 'crypto_bought', 'recurring_investment_set', 'account_funded', 'bank_linked', 'gold_subscribed', 'cash_card_requested', 'dividend_reinvested', 'two_factor_authentication_enabled', 'device_authorized', 'login_notification_received', 'account_restrictions_reviewed', 'tax_document_downloaded']
+[DynamicLoader] Loaded platform: robinhood
+[AdapterShim] Wrapped Roblox (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_joined', 'avatar_customized', 'place_created', 'robux_earned', 'friend_request_sent', 'group_joined', 'private_server_created', 'trade_request_sent', 'robux_purchased', 'premium_subscription_purchased', 'game_pass_sold', 'developer_exchange_used']
+[DynamicLoader] Loaded platform: roblox
+[AdapterShim] Wrapped Salesforce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_created', 'contact_enriched', 'account_mapped', 'opportunity_qualified', 'case_escalated', 'forecast_submitted', 'quote_generated', 'contract_negotiated', 'order_processed', 'renewal_managed', 'workflow_rule_triggered', 'process_builder_executed', 'flow_automated', 'apex_trigger_fired', 'einstein_prediction_used']
+[DynamicLoader] Loaded platform: salesforce
+[AdapterShim] Wrapped SAP Sales Cloud (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_qualified', 'account_360_viewed', 'opportunity_managed', 'quote_configured', 'contract_executed', 'sales_plan_activated', 'territory_aligned', 'forecast_committed', 'sales_performance_managed', 'rebate_program_executed', 'workflow_triggered', 'machine_learning_recommendation_used', 'integration_flow_executed', 'analytics_dashboard_viewed', 'mobile_app_synced']
+[DynamicLoader] Loaded platform: sap_sales
+[AdapterShim] Wrapped Schoology (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_material_accessed', 'assignment_submitted', 'test_completed', 'discussion_participated', 'folder_created', 'grade_viewed', 'attendance_marked', 'learning_objective_mastered', 'mastery_report_generated', 'portfolio_assembled', 'message_sent', 'group_joined', 'calendar_event_added', 'resource_appended', 'parent_access_granted']
+[DynamicLoader] Loaded platform: schoology
+[AdapterShim] Wrapped Charles Schwab (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['equity_traded', 'fixed_income_purchased', 'etf_bought', 'margin_loan_utilized', 'ipo_access_requested', 'portfolio_checkup_completed', 'financial_plan_created', 'robo_advisor_used', 'trust_account_opened', 'charitable_giving_account_managed', 'market_insight_read', 'stock_rating_viewed', 'international_research_accessed', 'learning_portal_visited', 'podcast_listened']
+[DynamicLoader] Loaded platform: schwab
+[AdapterShim] Wrapped ServiceNow (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['instance_requested', 'application_installed', 'workflow_created', 'catalog_item_published', 'integration_hub_spoke_used', 'incident_created', 'problem_investigated', 'change_request_approved', 'service_catalog_ordered', 'cmdb_populated', 'security_incident_responded', 'vulnerability_response_managed', 'grc_control_attested', 'soar_playbook_executed']
+[DynamicLoader] Loaded platform: servicenow
+[AdapterShim] Wrapped Shopify (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['store_created', 'product_added', 'theme_customized', 'order_processed', 'app_installed', 'payment_gateway_configured', 'discount_code_created', 'abandoned_cart_recovery_set', 'shopify_payments_activated', 'shopify_shipping_used', 'shopify_capital_accessed', 'shopify_email_sent']
+[DynamicLoader] Loaded platform: shopify
+[AdapterShim] Wrapped Skype (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['call_initiated', 'video_enabled', 'group_call_started', 'message_recorded', 'effect_applied', 'screen_shared', 'contact_invited', 'call_history_cleared']
+[DynamicLoader] Loaded platform: skype
+[AdapterShim] Wrapped Slack (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['workspace_created', 'channel_joined', 'message_threaded', 'file_uploaded', 'integration_added', 'workflow_automated', 'huddle_started', 'canvas_created']
+[DynamicLoader] Loaded platform: slack
+[AdapterShim] Wrapped Smartsheet (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['row_added', 'column_formula_created', 'gantt_chart_enabled', 'card_view_used', 'form_connected', 'workspace_created', 'template_applied', 'automation_workflow_built', 'dashboard_widget_added', 'report_scheduled', 'collaborator_invited', 'proofing_requested', 'update_request_sent', 'publish_enabled', 'calendar_integrated']
+[DynamicLoader] Loaded platform: smartsheet
+[AdapterShim] Wrapped Snapchat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['snap_sent', 'story_posted', 'streak_maintained', 'filter_applied', 'spotlight_viewed', 'map_location_shared', 'bitmoji_customized', 'memory_saved', 'snapcash_sent', 'lens_created', 'discover_subscribed', 'friendship_profile_viewed']
+[DynamicLoader] Loaded platform: snapchat
+[AdapterShim] Wrapped Splunk (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['forwarder_installed', 'index_created', 'search_head_cluster_deployed', 'dashboard_published', 'alert_configured', 'search_ran', 'report_scheduled', 'machine_learning_model_applied', 'it_service_intelligence_enabled', 'phantom_playbook_executed', 'security_event_investigated', 'user_behavior_analytics_enabled', 'risk_score_calculated', 'compliance_report_generated']
+[DynamicLoader] Loaded platform: splunk
+[AdapterShim] Wrapped Spotify (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['play_music', 'search_music']
+[DynamicLoader] Loaded platform: spotify
+[AdapterShim] Wrapped Square (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_processed', 'invoice_sent', 'gift_card_sold', 'appointment_booked', 'online_order_received', 'hardware_paired', 'team_member_added', 'inventory_managed', 'customer_directory_built', 'loyalty_program_enabled', 'security_settings_reviewed', 'two_step_verification_enabled', 'privacy_settings_managed', 'data_export_requested', 'account_deactivated']
+[DynamicLoader] Loaded platform: square
+[AdapterShim] Wrapped Steam (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_purchased', 'library_organized', 'achievement_unlocked', 'cloud_save_synced', 'friend_invited', 'group_joined', 'review_posted', 'workshop_item_subscribed', 'broadcast_watched', 'steam_wallet_funded', 'market_transaction_completed', 'trading_card_exchanged', 'hardware_purchased']
+[DynamicLoader] Loaded platform: steam
+[AdapterShim] Wrapped Strava (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['activity_recorded', 'route_planned', 'segment_raced', 'kudos_given', 'club_joined', 'gear_logged', 'training_log_updated', 'fitness_freshness_tracked', 'relative_effort_calculated', 'power_curve_analyzed', 'beacon_enabled', 'route_shared', 'subscription_upgraded', 'summit_feature_used', 'partner_perk_claimed']
+[DynamicLoader] Loaded platform: strava
+[AdapterShim] Wrapped Stripe (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['charge_created', 'customer_created', 'subscription_started', 'invoice_paid', 'refund_issued', 'account_onboarded', 'api_key_generated', 'webhook_configured', 'connect_account_created', 'radar_rule_set', 'dispute_managed', 'pci_compliance_verified', 'two_factor_authentication_enabled', 'team_member_invited', 'api_version_updated']
+[DynamicLoader] Loaded platform: stripe
+[AdapterShim] Wrapped Teladoc (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['consultation_scheduled', 'video_visit_started', 'prescription_sent', 'medical_record_accessed', 'follow_up_booked', 'symptom_checker_used', 'health_record_synced', 'biometric_device_connected', 'medication_reminder_set', 'care_plan_accessed', 'therapist_matched', 'psychiatrist_consulted', 'dermatologist_visit_completed', 'nutritionist_advised', 'specialist_referred']
+[DynamicLoader] Loaded platform: teladoc
+[AdapterShim] Wrapped Telegram (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['message_sent', 'channel_created', 'group_formed', 'bot_started', 'voice_chat_started', 'poll_created', 'story_posted', 'username_claimed', 'passport_verified', 'giveaway_created', 'quiz_initiated', 'slow_mode_enabled']
+[DynamicLoader] Loaded platform: telegram
+[AdapterShim] Wrapped TikTok (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_posted', 'video_liked', 'comment_posted', 'sound_used', 'duet_created', 'stitch_created', 'live_streamed', 'effect_applied', 'collection_saved', 'creator_followed', 'q_and_a_posted', 'series_created']
+[DynamicLoader] Loaded platform: tiktok
+[AdapterShim] Wrapped Tinder (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['profile_created', 'swipe_right', 'swipe_left', 'match_made', 'message_sent', 'super_like_used', 'boost_applied', 'date_scheduled']
+[DynamicLoader] Loaded platform: tinder
+[AdapterShim] Wrapped Travis CI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_activated', 'build_triggered', 'matrix_build_configured', 'deployment_released', 'cron_job_scheduled', 'github_releases_deployed', 'heroku_application_pushed', 'aws_s3_uploaded', 'docker_hub_pushed', 'pypi_package_published', 'organization_managed', 'billing_updated', 'log_accessed', 'cache_cleared', 'debug_mode_activated']
+[DynamicLoader] Loaded platform: travisci
+[AdapterShim] Wrapped Trello (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['card_created', 'checklist_added', 'label_applied', 'due_date_reminder_set', 'attachment_uploaded', 'board_created', 'power_up_enabled', 'automation_rule_set', 'template_applied', 'workspace_managed', 'member_invited', 'card_shared', 'voting_initiated', 'calendar_view_enabled', 'dashboard_viewed']
+[DynamicLoader] Loaded platform: trello
+[AdapterShim] Wrapped Twitch (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['stream_watched', 'follow_clicked', 'subscription_gifted', 'bits_cheered', 'channel_points_redeemed', 'raid_initiated', 'clip_created', 'extension_interacted', 'prediction_participated', 'turbo_subscription_purchased', 'gifted_sub_sent', 'bits_purchased', 'hype_train_contributed', 'creator_camp_completed']
+[DynamicLoader] Loaded platform: twitch
+[AdapterShim] Wrapped Twitter/X (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['post_tweet']
+[DynamicLoader] Loaded platform: twitter
+[AdapterShim] Wrapped Uber (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['ride_requested', 'trip_completed', 'fare_split', 'scheduled_ride_set', 'pool_joined', 'uber_eats_ordered', 'freight_shipment_created', 'business_profile_switched', 'safety_toolkit_used', 'rating_given', 'uber_rewards_enrolled', 'uber_cash_purchased', 'uber_pass_subscribed', 'vip_support_accessed', 'jump_bike_rented']
+[DynamicLoader] Loaded platform: uber
+[AdapterShim] Wrapped Udemy (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['course_purchased', 'lecture_completed', 'note_taken', 'q_and_a_asked', 'certificate_downloaded', 'coding_exercise_completed', 'practice_test_taken', 'progress_tracked', 'lifetime_access_granted', 'wishlist_added', 'instructor_followed', 'review_posted', 'mobile_download_enabled', 'business_account_managed', 'learning_path_created']
+[DynamicLoader] Loaded platform: udemy
+[AdapterShim] Wrapped Unity (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_created', 'asset_imported', 'scene_built', 'game_deployed', 'asset_store_purchase_made', 'collaborate_feature_used', 'plastic_scm_used', 'analytics_dashboard_viewed', 'unity_plus_subscribed', 'unity_pro_purchased', 'asset_store_publisher_approved', 'certification_exam_taken']
+[DynamicLoader] Loaded platform: unity
+[AdapterShim] Wrapped Unreal Engine (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['project_started', 'blueprint_created', 'nanite_enabled', 'lumen_activated', 'marketplace_asset_purchased', 'quixel_bridge_used', 'metahuman_created', 'learning_platform_accessed', 'unreal_engine_license_purchased', 'fab_marketplace_used', 'enterprise_support_contracted']
+[DynamicLoader] Loaded platform: unreal_engine
+[AdapterShim] Wrapped Venmo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['payment_made', 'payment_requested', 'split_bill_initiated', 'qr_code_scanned', 'instant_transfer_used', 'bank_account_linked', 'debit_card_added', 'profile_customized', 'privacy_setting_adjusted', 'direct_deposit_set_up', 'pin_code_set', 'face_id_enabled', 'transaction_alert_received', 'card_frozen', 'unauthorized_activity_reported']
+[DynamicLoader] Loaded platform: venmo
+[AdapterShim] Wrapped Viber (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['call_initiated', 'video_enabled', 'group_call_started', 'message_recorded', 'effect_applied', 'screen_shared', 'contact_invited', 'call_history_cleared']
+[DynamicLoader] Loaded platform: viber
+[AdapterShim] Wrapped Vimeo (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['video_uploaded', 'portfolio_created', 'review_page_shared', 'live_event_streamed', 'video_replaced', 'privacy_settings_adjusted', 'custom_player_embedded', 'analytics_reviewed', 'vimeo_plus_upgraded', 'vimeo_pro_subscribed', 'vimeo_business_enrolled', 'ott_platform_launched', 'stock_footage_purchased']
+[DynamicLoader] Loaded platform: vimeo
+[AdapterShim] Wrapped VKontakte (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['wall_post_created', 'photo_uploaded', 'group_joined', 'story_posted', 'vk_pay_used', 'vk_clips_watched', 'vk_music_played', 'market_item_listed', 'live_stream_started', 'podcast_listened', 'vk_dating_used', 'mini_app_opened']
+[DynamicLoader] Loaded platform: vkontakte
+[AdapterShim] Wrapped VS Code (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_file_created', 'new_folder_created', 'new_workspace_created', 'file_opened', 'file_saved', 'file_saved_as', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'undo_executed', 'redo_executed', 'find_executed', 'replace_executed', 'find_in_files_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'go_to_line_executed', 'go_to_definition_executed', 'go_to_references_executed', 'peek_definition_executed', 'peek_references_executed', 'code_completion_triggered', 'quick_fix_applied', 'rename_symbol_executed', 'extract_method_executed', 'format_document_executed', 'format_selection_executed', 'toggle_comment_executed', 'toggle_block_comment_executed', 'extension_installed', 'extension_uninstalled', 'extension_updated', 'terminal_opened', 'terminal_command_executed', 'debug_session_started', 'breakpoint_toggled', 'git_stage_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_checkout_executed', 'task_run_executed', 'settings_changed', 'keybinding_changed', 'snippet_inserted', 'emmet_expanded', 'split_editor_opened', 'editor_group_created', 'command_palette_opened', 'workspace_settings_changed']
+[DynamicLoader] Loaded platform: vscode
+[AdapterShim] Wrapped Walmart Marketplace (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['product_listed', 'fulfillment_service_used', 'advertising_campaign_managed', 'return_processed', 'seller_account_approved', 'walmart_fulfillment_services_enrolled', 'repricer_tool_used', 'performance_metrics_viewed', 'pro_seller_badge_earned', 'walmart_connect_advertising_used', 'seller_support_ticket_created']
+[DynamicLoader] Loaded platform: walmart
+[AdapterShim] Wrapped Wealthfront (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['account_funded', 'portfolio_automated', 'auto_deposit_scheduled', 'tax_loss_harvesting_enabled', 'home_planning_started', 'risk_tolerance_assessed', 'financial_plan_projected', 'plan_529_recommended', 'high_yield_cash_account_opened', 'line_of_credit_accessed', 'investment_explanation_read', 'historical_performance_viewed', 'methodology_whitepaper_downloaded', 'faq_consulted', 'support_contacted']
+[DynamicLoader] Loaded platform: wealthfront
+[AdapterShim] Wrapped WeChat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['moment_posted', 'mini_program_opened', 'payment_made', 'official_account_followed', 'red_packet_sent', 'sticker_purchased', 'top_story_read', 'wechat_pay_used', 'channel_live_started', 'video_call_group_started', 'favorites_added', 'people_nearby_used']
+[DynamicLoader] Loaded platform: wechat
+[AdapterShim] Wrapped WhatsApp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['send_message', 'attach_photo']
+[DynamicLoader] Loaded platform: whatsapp
+[AdapterShim] Wrapped WinRAR (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['archive_created', 'archive_opened', 'archive_extracted', 'files_added_to_archive', 'files_deleted_from_archive', 'archive_tested', 'archive_repaired', 'compression_method_selected_store', 'compression_method_selected_fastest', 'compression_method_selected_normal', 'compression_method_selected_best', 'archive_format_rar_selected', 'archive_format_zip_selected', 'password_protection_applied', 'split_archive_created', 'self_extracting_archive_created', 'comment_added_to_archive']
+[DynamicLoader] Loaded platform: winrar
+[AdapterShim] Wrapped Wise (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['transfer_initiated', 'recipient_added', 'rate_alert_set', 'wise_card_used', 'business_account_opened', 'verification_document_uploaded', 'bank_details_shared', 'jar_created', 'direct_debit_set_up', 'api_integrated', 'two_factor_authentication_enabled', 'login_alert_reviewed', 'card_frozen', 'statement_downloaded', 'account_closure_requested']
+[DynamicLoader] Loaded platform: wise
+[AdapterShim] Wrapped WooCommerce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: woocommerce
+[AdapterShim] Wrapped Wrike (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'custom_workflow_applied', 'time_tracked', 'request_form_submitted', 'proof_approved', 'project_space_created', 'blueprint_used', 'report_built', 'resource_management_viewed', 'calendar_synced', 'user_invited', 'at_mention_used', 'approval_workflow_initiated', 'share_link_generated', 'mobile_app_used']
+[DynamicLoader] Loaded platform: wrike
+[AdapterShim] Wrapped Xbox Live (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_pass_game_installed', 'achievement_earned', 'gamerscore_increased', 'cloud_gaming_used', 'party_chat_joined', 'looking_for_group_posted', 'club_joined', 'activity_feed_updated', 'microsoft_points_redeemed', 'game_pass_subscription_managed', 'xbox_design_lab_used', 'elite_controller_customized']
+[DynamicLoader] Loaded platform: xbox_live
+[AdapterShim] Wrapped YouTube (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['play_video', 'search_video']
+[DynamicLoader] Loaded platform: youtube
+[AdapterShim] Wrapped Zoho CRM (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_converted', 'account_hierarchy_managed', 'contact_enriched', 'potential_created', 'case_resolved', 'blueprint_executed', 'canvas_view_designed', 'forecast_adjusted', 'territory_assigned', 'social_twitter_integrated', 'workflow_rule_triggered', 'scheduled_function_executed', 'web_form_captured', 'email_sent', 'zia_ai_used']
+[DynamicLoader] Loaded platform: zoho_crm
+[AdapterShim] Wrapped Zoom (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meeting_started', 'meeting_joined', 'screen_shared', 'recording_started', 'breakout_room_created', 'poll_launched', 'whiteboard_used', 'virtual_background_applied']
+[DynamicLoader] Loaded platform: zoom
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+[UIAgent] Processing instruction: Open WhatsApp and click Status (eb9b5c3a-ecf9-4ffc-bd5f-639d4d87c514)
+[ActionPlanner] Planning for action='click', platform='whatsapp'
+[ActionPlanner] Selected adapter: GenericDesktopAdapter
+[ActionExecutor] Attempting Native Execution via GenericDesktopAdapter
+[ActionExecutor] Escalating to UI layer (level: ui)
+[UIExecutor] Executing plan (dry_run=False)
+Stage 1: MEMORY (Selector Cache)
+Stage 2: ACCESS (Accessibility Exact Match)
+[Accessibility] Performing click on Status
+  [Ladder] Stage 2 Succeeded for Status
+  [EXEC] Performed click on Status
+[UIAudit] Logged action eb9b5c3a-ecf9-4ffc-bd5f-639d4d87c514
+--- Execution Trace ---
+[ui] click on Status: OK

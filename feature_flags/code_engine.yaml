@@ -1,0 +1,4 @@
+enabled: false
+owner_allowed_hosts: ["localhost"]
+auto_write: true     # if true, writes files; default false (dry_run)
+sandbox_root: "projects/sandbox"

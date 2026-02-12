@@ -1,0 +1,139 @@
+{
+    "platform": "Airtable",
+    "platform_urls": [
+        "https://airtable.com"
+    ],
+    "supported_actions": {
+        "record_created": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "field_customized": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "view_filtered": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_scripted": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "interface_designed": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "base_created": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_gallery_used": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sync_integration_set": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "extension_installed": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_shared": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collaborator_invited": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_threaded": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "revision_history_viewed": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "snapshot_taken": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "enterprise_admin_managed": {
+            "sources": [
+                "https://airtable.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/airtable/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/airtable/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added record_created",
+        "added field_customized",
+        "added view_filtered",
+        "added automation_scripted",
+        "added interface_designed",
+        "added base_created",
+        "added template_gallery_used",
+        "added sync_integration_set",
+        "added extension_installed",
+        "added form_shared",
+        "added collaborator_invited",
+        "added comment_threaded",
+        "added revision_history_viewed",
+        "added snapshot_taken",
+        "added enterprise_admin_managed"
+    ],
+    "citations": [
+        "https://airtable.com"
+    ]
+}

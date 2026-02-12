@@ -1,0 +1,108 @@
+{
+    "platform": "Node.js Runtime",
+    "platform_type": "local_application",
+    "executable": "node.exe",
+    "supported_actions": {
+        "script_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "repl_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_init_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_install_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_uninstall_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_update_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_run_script_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_publish_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npm_audit_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "npx_command_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "package_json_edited": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "module_required": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "module_imported_esm": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "express_server_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "http_server_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "jest_test_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "mocha_test_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "webpack_build_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "vite_dev_server_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "typescript_compiled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "eslint_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "nodemon_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pm2_process_managed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/nodejs_runtime/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 23,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

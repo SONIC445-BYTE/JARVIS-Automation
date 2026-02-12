@@ -1,0 +1,19 @@
+# Code Ownership Registry
+# Defines modification permissions by domain.
+
+domains:
+  # Core Infrastructure: READ-ONLY by automated tools
+  - path: "AgentCore/code_engine/"
+    policy: "read-only"
+  - path: "AgentCore/advanced/level4/"
+    policy: "read-only"
+  - path: "jarvis.py"
+    policy: "read-only"
+
+  # Extensions: MODIFIABLE with review
+  - path: "extensions/"
+    policy: "supervised"
+
+  # Experimental: AUTONOMOUS allowed
+  - path: "experimental/"
+    policy: "autonomous"

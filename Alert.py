@@ -3,7 +3,9 @@ from winotify import Notification, audio
 from os import getcwd
 
 def Alert(Text):
-    icon_path = r"C:\Users\chatu\OneDrive\Desktop\Jarvis\logo.png"
+    icon_path = f"{getcwd()}\\logo.png"
+    if not os.path.exists(icon_path):
+        icon_path = ""
 
     toast = Notification(
         app_id="🟢 J.A.R.V.I.S.",

@@ -1,0 +1,139 @@
+{
+    "platform": "Google Cloud Platform",
+    "platform_urls": [
+        "https://cloud.google.com"
+    ],
+    "supported_actions": {
+        "compute_engine_vm_started": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_function_deployed": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gke_cluster_created": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_run_service_deployed": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "batch_job_submitted": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_storage_bucket_created": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "persistent_disk_attached": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "filestore_instance_mounted": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "archive_storage_used": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transfer_service_job_run": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vpc_network_created": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "firewall_rule_configured": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_load_balancing_set_up": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_cdn_enabled": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_interconnect_established": {
+            "sources": [
+                "https://cloud.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/gcp/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/gcp/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added compute_engine_vm_started",
+        "added cloud_function_deployed",
+        "added gke_cluster_created",
+        "added cloud_run_service_deployed",
+        "added batch_job_submitted",
+        "added cloud_storage_bucket_created",
+        "added persistent_disk_attached",
+        "added filestore_instance_mounted",
+        "added archive_storage_used",
+        "added transfer_service_job_run",
+        "added vpc_network_created",
+        "added firewall_rule_configured",
+        "added cloud_load_balancing_set_up",
+        "added cloud_cdn_enabled",
+        "added cloud_interconnect_established"
+    ],
+    "citations": [
+        "https://cloud.google.com"
+    ]
+}

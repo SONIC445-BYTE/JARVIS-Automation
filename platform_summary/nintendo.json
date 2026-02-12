@@ -1,0 +1,107 @@
+{
+    "platform": "Nintendo eShop",
+    "platform_urls": [
+        "https://nintendo.com"
+    ],
+    "supported_actions": {
+        "game_purchased": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wish_list_added": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gold_points_redeemed": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nintendo_switch_online_subscribed": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_code_exchanged": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "screenshot_shared": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "user_page_customized": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parental_controls_set": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nintendo_switch_expansion_pack_upgraded": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "game_voucher_used": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dlc_purchased": {
+            "sources": [
+                "https://nintendo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/nintendo/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/nintendo/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added game_purchased",
+        "added wish_list_added",
+        "added gold_points_redeemed",
+        "added nintendo_switch_online_subscribed",
+        "added friend_code_exchanged",
+        "added screenshot_shared",
+        "added user_page_customized",
+        "added parental_controls_set",
+        "added nintendo_switch_expansion_pack_upgraded",
+        "added game_voucher_used",
+        "added dlc_purchased"
+    ],
+    "citations": [
+        "https://nintendo.com"
+    ]
+}

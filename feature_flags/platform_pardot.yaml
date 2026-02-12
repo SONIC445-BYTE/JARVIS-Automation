@@ -1,0 +1,5 @@
+# Feature Flag: Pardot Adapter
+enabled: false
+owner: admin
+risk_level: elevated
+rollout_percentage: 0

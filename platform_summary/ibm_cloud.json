@@ -1,0 +1,139 @@
+{
+    "platform": "IBM Cloud",
+    "platform_urls": [
+        "https://cloud.ibm.com"
+    ],
+    "supported_actions": {
+        "virtual_server_provisioned": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_function_action_created": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "openshift_cluster_deployed": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bare_metal_server_reserved": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "power_systems_virtual_server_created": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_object_storage_bucket_created": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "block_storage_volume_attached": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_storage_share_mounted": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mass_migration_service_used": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_backup_configured": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vpc_created": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_group_rule_added": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "load_balancer_as_a_service_deployed": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cdn_implemented": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_link_established": {
+            "sources": [
+                "https://cloud.ibm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ibm_cloud/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/ibm_cloud/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added virtual_server_provisioned",
+        "added cloud_function_action_created",
+        "added openshift_cluster_deployed",
+        "added bare_metal_server_reserved",
+        "added power_systems_virtual_server_created",
+        "added cloud_object_storage_bucket_created",
+        "added block_storage_volume_attached",
+        "added file_storage_share_mounted",
+        "added mass_migration_service_used",
+        "added cloud_backup_configured",
+        "added vpc_created",
+        "added security_group_rule_added",
+        "added load_balancer_as_a_service_deployed",
+        "added cdn_implemented",
+        "added direct_link_established"
+    ],
+    "citations": [
+        "https://cloud.ibm.com"
+    ]
+}

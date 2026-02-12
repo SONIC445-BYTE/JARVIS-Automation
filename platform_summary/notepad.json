@@ -1,0 +1,35 @@
+{
+    "platform": "Notepad",
+    "platform_urls": [
+        "https://apps.microsoft.com/detail/9msmlrh6lzf3"
+    ],
+    "supported_actions": {
+        "type_text": {
+            "sources": [
+                "Internal Windows Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "Standard text input"
+        },
+        "save_file": {
+            "sources": [
+                "Internal Windows Docs"
+            ],
+            "confidence": 0.8,
+            "notes": "File > Save flow (Inferred)"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/notepad/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/notepad/tests/test_adapter.py",
+    "permissions": [
+        "None"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added type_text",
+        "added save_file"
+    ],
+    "citations": [
+        "https://support.microsoft.com/en-us/windows/help-in-notepad-c6039564-9ceb-240a-5c3a-d476602050f2"
+    ]
+}

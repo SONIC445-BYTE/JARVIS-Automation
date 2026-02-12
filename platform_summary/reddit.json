@@ -1,0 +1,115 @@
+{
+    "platform": "Reddit",
+    "platform_urls": [
+        "https://reddit.com"
+    ],
+    "supported_actions": {
+        "post_submitted": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_posted": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "upvote_given": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "downvote_given": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subreddit_joined": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "award_given": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crosspost_created": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_edited": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "poll_voted": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "prediction_made": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "avatar_customized": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "community_chat_joined": {
+            "sources": [
+                "https://reddit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/reddit/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/reddit/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added post_submitted",
+        "added comment_posted",
+        "added upvote_given",
+        "added downvote_given",
+        "added subreddit_joined",
+        "added award_given",
+        "added crosspost_created",
+        "added wiki_edited",
+        "added poll_voted",
+        "added prediction_made",
+        "added avatar_customized",
+        "added community_chat_joined"
+    ],
+    "citations": [
+        "https://reddit.com"
+    ]
+}

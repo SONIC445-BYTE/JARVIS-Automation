@@ -1,0 +1,139 @@
+{
+    "platform": "Monday.com",
+    "platform_urls": [
+        "https://monday.com"
+    ],
+    "supported_actions": {
+        "pulse_created": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "column_customized": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "status_updated": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_triggered": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_connected": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "board_duplicated": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_gallery_used": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workdoc_created": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gantt_chart_viewed": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_built": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_member_invited": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "guest_added": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "notification_customized": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "time_tracking_enabled": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "inbox_zero_achieved": {
+            "sources": [
+                "https://monday.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/monday/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/monday/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added pulse_created",
+        "added column_customized",
+        "added status_updated",
+        "added automation_triggered",
+        "added integration_connected",
+        "added board_duplicated",
+        "added template_gallery_used",
+        "added workdoc_created",
+        "added gantt_chart_viewed",
+        "added dashboard_built",
+        "added team_member_invited",
+        "added guest_added",
+        "added notification_customized",
+        "added time_tracking_enabled",
+        "added inbox_zero_achieved"
+    ],
+    "citations": [
+        "https://monday.com"
+    ]
+}

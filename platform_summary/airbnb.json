@@ -1,0 +1,139 @@
+{
+    "platform": "Airbnb",
+    "platform_urls": [
+        "https://airbnb.com"
+    ],
+    "supported_actions": {
+        "listing_searched": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "booking_requested": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reservation_confirmed": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "check_in_completed": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "review_left": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "experience_booked": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wishlist_created": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "co_host_invited": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "guidebook_accessed": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_sent": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "superguest_status_earned": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "referral_credit_earned": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "airbnb_plus_explored": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "luxe_property_viewed": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "long_term_stay_discount_applied": {
+            "sources": [
+                "https://airbnb.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/airbnb/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/airbnb/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added listing_searched",
+        "added booking_requested",
+        "added reservation_confirmed",
+        "added check_in_completed",
+        "added review_left",
+        "added experience_booked",
+        "added wishlist_created",
+        "added co_host_invited",
+        "added guidebook_accessed",
+        "added message_sent",
+        "added superguest_status_earned",
+        "added referral_credit_earned",
+        "added airbnb_plus_explored",
+        "added luxe_property_viewed",
+        "added long_term_stay_discount_applied"
+    ],
+    "citations": [
+        "https://airbnb.com"
+    ]
+}

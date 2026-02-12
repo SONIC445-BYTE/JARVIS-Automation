@@ -1,0 +1,1 @@
+Analyze the proposed patch. If it includes file deletions, credential exposure, network modifications, or privileged OS calls, return verdict "forbidden" and list flagged lines. Otherwise return "safe" or "risky" with rationale.

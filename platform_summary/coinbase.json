@@ -1,0 +1,139 @@
+{
+    "platform": "Coinbase",
+    "platform_urls": [
+        "https://coinbase.com"
+    ],
+    "supported_actions": {
+        "crypto_bought": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_sold": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_sent": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_received": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "staking_rewards_earned": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wallet_created": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vault_set_up": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recurring_buy_scheduled": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_deposit_enabled": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coinbase_card_used": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_step_verification_enabled": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "address_whitelisted": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_key_restricted": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "insurance_policy_viewed": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_prompt_completed": {
+            "sources": [
+                "https://coinbase.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/coinbase/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/coinbase/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added crypto_bought",
+        "added crypto_sold",
+        "added crypto_sent",
+        "added crypto_received",
+        "added staking_rewards_earned",
+        "added wallet_created",
+        "added vault_set_up",
+        "added recurring_buy_scheduled",
+        "added direct_deposit_enabled",
+        "added coinbase_card_used",
+        "added two_step_verification_enabled",
+        "added address_whitelisted",
+        "added api_key_restricted",
+        "added insurance_policy_viewed",
+        "added security_prompt_completed"
+    ],
+    "citations": [
+        "https://coinbase.com"
+    ]
+}

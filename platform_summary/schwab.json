@@ -1,0 +1,139 @@
+{
+    "platform": "Charles Schwab",
+    "platform_urls": [
+        "https://schwab.com"
+    ],
+    "supported_actions": {
+        "equity_traded": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fixed_income_purchased": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "etf_bought": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "margin_loan_utilized": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ipo_access_requested": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_checkup_completed": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "financial_plan_created": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "robo_advisor_used": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trust_account_opened": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "charitable_giving_account_managed": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_insight_read": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_rating_viewed": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "international_research_accessed": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_portal_visited": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "podcast_listened": {
+            "sources": [
+                "https://schwab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/schwab/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/schwab/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added equity_traded",
+        "added fixed_income_purchased",
+        "added etf_bought",
+        "added margin_loan_utilized",
+        "added ipo_access_requested",
+        "added portfolio_checkup_completed",
+        "added financial_plan_created",
+        "added robo_advisor_used",
+        "added trust_account_opened",
+        "added charitable_giving_account_managed",
+        "added market_insight_read",
+        "added stock_rating_viewed",
+        "added international_research_accessed",
+        "added learning_portal_visited",
+        "added podcast_listened"
+    ],
+    "citations": [
+        "https://schwab.com"
+    ]
+}

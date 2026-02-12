@@ -1,0 +1,6 @@
+# Feature Flag: Python Runtime Adapter
+enabled: false
+owner: admin
+risk_level: standard
+rollout_percentage: 0
+platform_type: local_application

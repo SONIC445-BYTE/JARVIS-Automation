@@ -1,0 +1,131 @@
+{
+    "platform": "Splunk",
+    "platform_urls": [
+        "https://splunk.com"
+    ],
+    "supported_actions": {
+        "forwarder_installed": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "index_created": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "search_head_cluster_deployed": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_published": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "alert_configured": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "search_ran": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_scheduled": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "machine_learning_model_applied": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "it_service_intelligence_enabled": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "phantom_playbook_executed": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_event_investigated": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "user_behavior_analytics_enabled": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "risk_score_calculated": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "compliance_report_generated": {
+            "sources": [
+                "https://splunk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/splunk/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/splunk/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added forwarder_installed",
+        "added index_created",
+        "added search_head_cluster_deployed",
+        "added dashboard_published",
+        "added alert_configured",
+        "added search_ran",
+        "added report_scheduled",
+        "added machine_learning_model_applied",
+        "added it_service_intelligence_enabled",
+        "added phantom_playbook_executed",
+        "added security_event_investigated",
+        "added user_behavior_analytics_enabled",
+        "added risk_score_calculated",
+        "added compliance_report_generated"
+    ],
+    "citations": [
+        "https://splunk.com"
+    ]
+}

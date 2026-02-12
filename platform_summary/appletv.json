@@ -1,0 +1,107 @@
+{
+    "platform": "Apple TV+",
+    "platform_urls": [
+        "https://tv.apple.com"
+    ],
+    "supported_actions": {
+        "original_watched": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "family_sharing_enabled": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "download_saved": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "up_next_added": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apple_tv_channel_subscribed": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "itunes_movie_purchased": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "library_synced": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "airplay_used": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apple_one_bundle_subscribed": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apple_tv_plus_free_trial_started": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apple_gift_card_used": {
+            "sources": [
+                "https://tv.apple.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/appletv/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/appletv/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added original_watched",
+        "added family_sharing_enabled",
+        "added download_saved",
+        "added up_next_added",
+        "added apple_tv_channel_subscribed",
+        "added itunes_movie_purchased",
+        "added library_synced",
+        "added airplay_used",
+        "added apple_one_bundle_subscribed",
+        "added apple_tv_plus_free_trial_started",
+        "added apple_gift_card_used"
+    ],
+    "citations": [
+        "https://tv.apple.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Basecamp",
+    "platform_urls": [
+        "https://basecamp.com"
+    ],
+    "supported_actions": {
+        "to_do_list_created": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_board_posted": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "schedule_added": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "document_uploaded": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automatic_check_in_set": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "project_created": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hill_chart_updated": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "client_access_enabled": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_project_used": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "progress_reported": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "person_invited": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ping_sent": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "campfire_chat_used": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "doorbell_rung": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "boost_given": {
+            "sources": [
+                "https://basecamp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/basecamp/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/basecamp/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added to_do_list_created",
+        "added message_board_posted",
+        "added schedule_added",
+        "added document_uploaded",
+        "added automatic_check_in_set",
+        "added project_created",
+        "added hill_chart_updated",
+        "added client_access_enabled",
+        "added template_project_used",
+        "added progress_reported",
+        "added person_invited",
+        "added ping_sent",
+        "added campfire_chat_used",
+        "added doorbell_rung",
+        "added boost_given"
+    ],
+    "citations": [
+        "https://basecamp.com"
+    ]
+}

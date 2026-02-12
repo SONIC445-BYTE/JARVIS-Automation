@@ -1,0 +1,115 @@
+{
+    "platform": "VKontakte",
+    "platform_urls": [
+        "https://vk.com"
+    ],
+    "supported_actions": {
+        "wall_post_created": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "photo_uploaded": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_posted": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vk_pay_used": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vk_clips_watched": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vk_music_played": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_item_listed": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_stream_started": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "podcast_listened": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vk_dating_used": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mini_app_opened": {
+            "sources": [
+                "https://vk.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/vkontakte/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/vkontakte/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added wall_post_created",
+        "added photo_uploaded",
+        "added group_joined",
+        "added story_posted",
+        "added vk_pay_used",
+        "added vk_clips_watched",
+        "added vk_music_played",
+        "added market_item_listed",
+        "added live_stream_started",
+        "added podcast_listened",
+        "added vk_dating_used",
+        "added mini_app_opened"
+    ],
+    "citations": [
+        "https://vk.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Square",
+    "platform_urls": [
+        "https://squareup.com"
+    ],
+    "supported_actions": {
+        "payment_processed": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "invoice_sent": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_card_sold": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "appointment_booked": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "online_order_received": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hardware_paired": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_member_added": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "inventory_managed": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "customer_directory_built": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "loyalty_program_enabled": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_settings_reviewed": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_step_verification_enabled": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "privacy_settings_managed": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "data_export_requested": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_deactivated": {
+            "sources": [
+                "https://squareup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/square/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/square/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added payment_processed",
+        "added invoice_sent",
+        "added gift_card_sold",
+        "added appointment_booked",
+        "added online_order_received",
+        "added hardware_paired",
+        "added team_member_added",
+        "added inventory_managed",
+        "added customer_directory_built",
+        "added loyalty_program_enabled",
+        "added security_settings_reviewed",
+        "added two_step_verification_enabled",
+        "added privacy_settings_managed",
+        "added data_export_requested",
+        "added account_deactivated"
+    ],
+    "citations": [
+        "https://squareup.com"
+    ]
+}

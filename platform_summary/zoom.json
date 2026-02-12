@@ -1,0 +1,83 @@
+{
+    "platform": "Zoom",
+    "platform_urls": [
+        "https://zoom.us"
+    ],
+    "supported_actions": {
+        "meeting_started": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "meeting_joined": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "screen_shared": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recording_started": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "breakout_room_created": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "poll_launched": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "whiteboard_used": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "virtual_background_applied": {
+            "sources": [
+                "https://zoom.us"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/zoom/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/zoom/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added meeting_started",
+        "added meeting_joined",
+        "added screen_shared",
+        "added recording_started",
+        "added breakout_room_created",
+        "added poll_launched",
+        "added whiteboard_used",
+        "added virtual_background_applied"
+    ],
+    "citations": [
+        "https://zoom.us"
+    ]
+}

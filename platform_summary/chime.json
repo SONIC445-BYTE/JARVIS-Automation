@@ -1,0 +1,139 @@
+{
+    "platform": "Chime",
+    "platform_urls": [
+        "https://chime.com"
+    ],
+    "supported_actions": {
+        "direct_deposit_received": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "spot_me_used": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "credit_builder_secured": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "savings_rounded_up": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "check_deposited": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_opened": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "debit_card_activated": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "credit_builder_card_requested": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "atm_located": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_referred": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transaction_alert_enabled": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_locked": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_factor_authentication_set": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_settings_updated": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "support_contacted": {
+            "sources": [
+                "https://chime.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/chime/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/chime/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added direct_deposit_received",
+        "added spot_me_used",
+        "added credit_builder_secured",
+        "added savings_rounded_up",
+        "added check_deposited",
+        "added account_opened",
+        "added debit_card_activated",
+        "added credit_builder_card_requested",
+        "added atm_located",
+        "added friend_referred",
+        "added transaction_alert_enabled",
+        "added card_locked",
+        "added two_factor_authentication_set",
+        "added account_settings_updated",
+        "added support_contacted"
+    ],
+    "citations": [
+        "https://chime.com"
+    ]
+}

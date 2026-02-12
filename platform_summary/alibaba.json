@@ -1,0 +1,115 @@
+{
+    "platform": "Alibaba",
+    "platform_urls": [
+        "https://alibaba.com"
+    ],
+    "supported_actions": {
+        "product_sourced": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "inquiry_sent": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trade_assurance_order_placed": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "supplier_contacted": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "company_profile_created": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "product_showcase_uploaded": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rfq_responded": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gold_supplier_subscribed": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "taobao_product_imported": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "logistics_service_booked": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "inspection_service_ordered": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trade_show_registered": {
+            "sources": [
+                "https://alibaba.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/alibaba/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/alibaba/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added product_sourced",
+        "added inquiry_sent",
+        "added trade_assurance_order_placed",
+        "added supplier_contacted",
+        "added company_profile_created",
+        "added product_showcase_uploaded",
+        "added rfq_responded",
+        "added gold_supplier_subscribed",
+        "added taobao_product_imported",
+        "added logistics_service_booked",
+        "added inspection_service_ordered",
+        "added trade_show_registered"
+    ],
+    "citations": [
+        "https://alibaba.com"
+    ]
+}

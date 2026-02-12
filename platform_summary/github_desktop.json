@@ -1,0 +1,116 @@
+{
+    "platform": "GitHub Desktop",
+    "platform_type": "local_application",
+    "executable": "GitHubDesktop.exe",
+    "supported_actions": {
+        "repository_cloned": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "repository_added_from_local": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "repository_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "repository_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "branch_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "branch_switched": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "branch_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "branch_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "commit_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "commit_amended": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "commit_undone": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "changes_staged": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "changes_unstaged": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "changes_discarded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "push_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pull_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "fetch_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pull_request_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "merge_branch_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "conflict_resolved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "stash_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "stash_restored": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "diff_viewed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "history_viewed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "blame_viewed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/github_desktop/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 25,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

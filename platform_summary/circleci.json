@@ -1,0 +1,139 @@
+{
+    "platform": "CircleCI",
+    "platform_urls": [
+        "https://circleci.com"
+    ],
+    "supported_actions": {
+        "config_validated": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_triggered": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "orb_used": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "context_created": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "schedule_configured": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "docker_image_built": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "kubernetes_deployment_made": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "artifact_stored": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "test_parallelization_run": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_scan_integrated": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_member_invited": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "project_followed": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "insights_viewed": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plan_upgraded": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "support_ticket_created": {
+            "sources": [
+                "https://circleci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/circleci/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/circleci/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added config_validated",
+        "added workflow_triggered",
+        "added orb_used",
+        "added context_created",
+        "added schedule_configured",
+        "added docker_image_built",
+        "added kubernetes_deployment_made",
+        "added artifact_stored",
+        "added test_parallelization_run",
+        "added security_scan_integrated",
+        "added team_member_invited",
+        "added project_followed",
+        "added insights_viewed",
+        "added plan_upgraded",
+        "added support_ticket_created"
+    ],
+    "citations": [
+        "https://circleci.com"
+    ]
+}

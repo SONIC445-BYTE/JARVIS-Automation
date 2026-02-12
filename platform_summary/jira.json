@@ -1,0 +1,139 @@
+{
+    "platform": "Jira",
+    "platform_urls": [
+        "https://atlassian.net"
+    ],
+    "supported_actions": {
+        "issue_created": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sprint_started": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "epic_linked": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_point_estimated": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bug_reported": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "project_configured": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_customized": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scrum_board_managed": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "kanban_used": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "roadmap_planned": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "developer_assigned": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watcher_added": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_logged": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attachment_added": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "time_logged": {
+            "sources": [
+                "https://atlassian.net"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/jira/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/jira/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added issue_created",
+        "added sprint_started",
+        "added epic_linked",
+        "added story_point_estimated",
+        "added bug_reported",
+        "added project_configured",
+        "added workflow_customized",
+        "added scrum_board_managed",
+        "added kanban_used",
+        "added roadmap_planned",
+        "added developer_assigned",
+        "added watcher_added",
+        "added comment_logged",
+        "added attachment_added",
+        "added time_logged"
+    ],
+    "citations": [
+        "https://atlassian.net"
+    ]
+}

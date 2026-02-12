@@ -1,0 +1,139 @@
+{
+    "platform": "Venmo",
+    "platform_urls": [
+        "https://venmo.com"
+    ],
+    "supported_actions": {
+        "payment_made": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "payment_requested": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "split_bill_initiated": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qr_code_scanned": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "instant_transfer_used": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bank_account_linked": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "debit_card_added": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_customized": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "privacy_setting_adjusted": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_deposit_set_up": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pin_code_set": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "face_id_enabled": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transaction_alert_received": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_frozen": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unauthorized_activity_reported": {
+            "sources": [
+                "https://venmo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/venmo/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/venmo/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added payment_made",
+        "added payment_requested",
+        "added split_bill_initiated",
+        "added qr_code_scanned",
+        "added instant_transfer_used",
+        "added bank_account_linked",
+        "added debit_card_added",
+        "added profile_customized",
+        "added privacy_setting_adjusted",
+        "added direct_deposit_set_up",
+        "added pin_code_set",
+        "added face_id_enabled",
+        "added transaction_alert_received",
+        "added card_frozen",
+        "added unauthorized_activity_reported"
+    ],
+    "citations": [
+        "https://venmo.com"
+    ]
+}

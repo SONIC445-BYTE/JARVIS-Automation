@@ -1,0 +1,18 @@
+﻿[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'hotkey', 'wait']
+[AdapterRegistry] Registered GenericBrowserAdapter for ['open_url', 'click_element', 'type_text']
+[AdapterRegistry] Registered SystemDialogAdapter for ['confirm_dialog', 'dismiss_dialog']
+[AdapterRegistry] Registered UnknownAppFallbackAdapter for ['any']
+
+--- Testing Unknown App Fallback ---
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+Instruction: Type hello in Notepad
+[UIAgent] Processing instruction: Type hello in Notepad (462016d8-7004-470e-9e91-19007ec874e3)
+Success: False
+Error: No adapter found for type
+Steps: []
+TEST FAILED: 

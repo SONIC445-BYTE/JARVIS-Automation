@@ -1,0 +1,139 @@
+{
+    "platform": "Alibaba Cloud",
+    "platform_urls": [
+        "https://alibabacloud.com"
+    ],
+    "supported_actions": {
+        "ecs_instance_created": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "function_compute_service_deployed": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "container_service_kubernetes_cluster_created": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "batch_compute_job_submitted": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "elastic_gpu_service_activated": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "oss_bucket_created": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nas_file_system_mounted": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ebs_block_storage_attached": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "archive_storage_used": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "data_transport_solution_used": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vpc_established": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_group_rule_configured": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "server_load_balancer_deployed": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cdn_domain_added": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "express_connect_established": {
+            "sources": [
+                "https://alibabacloud.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/alibaba_cloud/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/alibaba_cloud/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added ecs_instance_created",
+        "added function_compute_service_deployed",
+        "added container_service_kubernetes_cluster_created",
+        "added batch_compute_job_submitted",
+        "added elastic_gpu_service_activated",
+        "added oss_bucket_created",
+        "added nas_file_system_mounted",
+        "added ebs_block_storage_attached",
+        "added archive_storage_used",
+        "added data_transport_solution_used",
+        "added vpc_established",
+        "added security_group_rule_configured",
+        "added server_load_balancer_deployed",
+        "added cdn_domain_added",
+        "added express_connect_established"
+    ],
+    "citations": [
+        "https://alibabacloud.com"
+    ]
+}

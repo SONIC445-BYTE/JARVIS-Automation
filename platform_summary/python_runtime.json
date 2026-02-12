@@ -1,0 +1,104 @@
+{
+    "platform": "Python Runtime",
+    "platform_type": "local_application",
+    "executable": "python.exe",
+    "supported_actions": {
+        "script_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "interactive_shell_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "module_imported": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_install_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_uninstall_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_list_shown": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_freeze_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "virtualenv_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "virtualenv_activated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "virtualenv_deactivated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "package_built": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "package_published": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "unittest_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pytest_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pdb_debugger_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "breakpoint_hit": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "type_checking_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "linting_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "jupyter_notebook_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "jupyter_cell_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "requirements_installed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "setup_py_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/python_runtime/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 22,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

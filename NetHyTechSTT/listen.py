@@ -4,14 +4,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from os import getcwd
+
 # Setting up Chrome options with specific arguments
 chrome_options = Options()
 chrome_options.add_argument("--use-fake-ui-for-media-stream")
-chrome_options.add_argument("--headless=old")  # Remove this if you want to see the browser UI
-# Manually set the path to the ChromeDriver executable
-chrome_driver_path = f"{getcwd()}\\chromedriver.exe"
-service = Service(executable_path=chrome_driver_path)
+chrome_options.add_argument("--headless=new")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage") 
+
+service = Service(ChromeDriverManager().install())
 # Setting up the Chrome driver with the service and options
 driver = webdriver.Chrome(service=service, options=chrome_options)
 # Creating the URL for the website using the current working directory
@@ -20,7 +23,6 @@ website = "https://allorizenproject1.netlify.app/"
 driver.get(website)
 Recog_File = f"{getcwd()}\\input.txt"
 def listen():
-    print("Support in Youtube @NetHyTech")
     try:
         start_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'startButton')))
         start_button.click()

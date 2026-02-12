@@ -1,0 +1,123 @@
+{
+    "platform": "Netflix",
+    "platform_urls": [
+        "https://netflix.com"
+    ],
+    "supported_actions": {
+        "title_played": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "episode_completed": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "season_binged": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "download_initiated": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_switched": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "my_list_added": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rating_given": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subtitle_preference_set": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "playback_speed_changed": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_upgraded": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dvd_plan_added": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_card_redeemed": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "extra_member_added": {
+            "sources": [
+                "https://netflix.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/netflix/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/netflix/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added title_played",
+        "added episode_completed",
+        "added season_binged",
+        "added download_initiated",
+        "added profile_switched",
+        "added my_list_added",
+        "added rating_given",
+        "added subtitle_preference_set",
+        "added playback_speed_changed",
+        "added subscription_upgraded",
+        "added dvd_plan_added",
+        "added gift_card_redeemed",
+        "added extra_member_added"
+    ],
+    "citations": [
+        "https://netflix.com"
+    ]
+}

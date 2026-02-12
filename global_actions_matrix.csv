@@ -1,0 +1,2359 @@
+platform,action_key,confidence,adapter_impl_status,notes,citations
+Facebook,post_created,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,post_shared,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,post_liked,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,comment_added,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,friend_request_sent,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,friend_request_accepted,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,group_joined,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,event_created,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,story_viewed,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,live_stream_started,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,marketplace_item_listed,0.85,implemented,Auto-discovered,https://facebook.com
+Facebook,fundraiser_created,0.85,implemented,Auto-discovered,https://facebook.com
+Instagram,photo_posted,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,story_posted,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,reel_shared,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,post_liked,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,direct_message_sent,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,story_replied,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,live_started,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,close_friend_added,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,shop_product_viewed,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,filter_applied,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,music_added,0.85,implemented,Auto-discovered,https://instagram.com
+Instagram,collaboration_posted,0.85,implemented,Auto-discovered,https://instagram.com
+TikTok,video_posted,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,video_liked,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,comment_posted,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,sound_used,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,duet_created,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,stitch_created,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,live_streamed,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,effect_applied,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,collection_saved,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,creator_followed,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,q_and_a_posted,0.85,implemented,Auto-discovered,https://tiktok.com
+TikTok,series_created,0.85,implemented,Auto-discovered,https://tiktok.com
+LinkedIn,post_shared,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,article_published,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,connection_request_sent,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,job_applied,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,endorsement_given,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,recommendation_written,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,event_registered,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,learning_course_started,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,sales_navigator_used,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,recruiter_lite_used,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,company_page_followed,0.85,implemented,Auto-discovered,https://linkedin.com
+LinkedIn,pulse_article_commented,0.85,implemented,Auto-discovered,https://linkedin.com
+Snapchat,snap_sent,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,story_posted,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,streak_maintained,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,filter_applied,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,spotlight_viewed,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,map_location_shared,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,bitmoji_customized,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,memory_saved,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,snapcash_sent,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,lens_created,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,discover_subscribed,0.85,implemented,Auto-discovered,https://snapchat.com
+Snapchat,friendship_profile_viewed,0.85,implemented,Auto-discovered,https://snapchat.com
+Pinterest,pin_created,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,board_created,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,pin_saved,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,pin_tried,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,section_added,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,shopping_list_created,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,idea_pin_created,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,tag_followed,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,visual_search_used,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,shop_tab_visited,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,merchant_followed,0.85,implemented,Auto-discovered,https://pinterest.com
+Pinterest,try_on_feature_used,0.85,implemented,Auto-discovered,https://pinterest.com
+Reddit,post_submitted,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,comment_posted,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,upvote_given,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,downvote_given,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,subreddit_joined,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,award_given,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,crosspost_created,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,wiki_edited,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,poll_voted,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,prediction_made,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,avatar_customized,0.85,implemented,Auto-discovered,https://reddit.com
+Reddit,community_chat_joined,0.85,implemented,Auto-discovered,https://reddit.com
+Discord,message_sent,0.85,implemented,Auto-discovered,https://discord.com
+Discord,server_joined,0.85,implemented,Auto-discovered,https://discord.com
+Discord,channel_created,0.85,implemented,Auto-discovered,https://discord.com
+Discord,role_assigned,0.85,implemented,Auto-discovered,https://discord.com
+Discord,nitro_subscribed,0.85,implemented,Auto-discovered,https://discord.com
+Discord,boost_applied,0.85,implemented,Auto-discovered,https://discord.com
+Discord,stage_channel_started,0.85,implemented,Auto-discovered,https://discord.com
+Discord,thread_created,0.85,implemented,Auto-discovered,https://discord.com
+Discord,slash_command_used,0.85,implemented,Auto-discovered,https://discord.com
+Discord,bot_added,0.85,implemented,Auto-discovered,https://discord.com
+Discord,emoji_uploaded,0.85,implemented,Auto-discovered,https://discord.com
+Discord,server_template_used,0.85,implemented,Auto-discovered,https://discord.com
+Telegram,message_sent,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,channel_created,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,group_formed,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,bot_started,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,voice_chat_started,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,poll_created,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,story_posted,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,username_claimed,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,passport_verified,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,giveaway_created,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,quiz_initiated,0.85,implemented,Auto-discovered,https://telegram.org
+Telegram,slow_mode_enabled,0.85,implemented,Auto-discovered,https://telegram.org
+WeChat,moment_posted,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,mini_program_opened,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,payment_made,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,official_account_followed,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,red_packet_sent,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,sticker_purchased,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,top_story_read,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,wechat_pay_used,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,channel_live_started,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,video_call_group_started,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,favorites_added,0.85,implemented,Auto-discovered,https://wechat.com
+WeChat,people_nearby_used,0.85,implemented,Auto-discovered,https://wechat.com
+LINE,message_sent,0.85,implemented,Auto-discovered,https://line.me
+LINE,timeline_posted,0.85,implemented,Auto-discovered,https://line.me
+LINE,sticker_purchased,0.85,implemented,Auto-discovered,https://line.me
+LINE,official_account_added,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_pay_used,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_music_played,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_manga_read,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_taxi_called,0.85,implemented,Auto-discovered,https://line.me
+LINE,openchat_joined,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_shopping_used,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_game_played,0.85,implemented,Auto-discovered,https://line.me
+LINE,line_tv_watched,0.85,implemented,Auto-discovered,https://line.me
+VKontakte,wall_post_created,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,photo_uploaded,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,group_joined,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,story_posted,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,vk_pay_used,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,vk_clips_watched,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,vk_music_played,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,market_item_listed,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,live_stream_started,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,podcast_listened,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,vk_dating_used,0.85,implemented,Auto-discovered,https://vk.com
+VKontakte,mini_app_opened,0.85,implemented,Auto-discovered,https://vk.com
+QQ,message_sent,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qzone_posted,0.85,implemented,Auto-discovered,https://qq.com
+QQ,group_joined,0.85,implemented,Auto-discovered,https://qq.com
+QQ,file_transferred,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_wallet_used,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_music_played,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_game_launched,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_mail_sent,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_live_watched,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_read_used,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_shopping_visited,0.85,implemented,Auto-discovered,https://qq.com
+QQ,qq_health_synced,0.85,implemented,Auto-discovered,https://qq.com
+Zoom,meeting_started,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,meeting_joined,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,screen_shared,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,recording_started,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,breakout_room_created,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,poll_launched,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,whiteboard_used,0.85,implemented,Auto-discovered,https://zoom.us
+Zoom,virtual_background_applied,0.85,implemented,Auto-discovered,https://zoom.us
+Slack,workspace_created,0.85,implemented,Auto-discovered,https://slack.com
+Slack,channel_joined,0.85,implemented,Auto-discovered,https://slack.com
+Slack,message_threaded,0.85,implemented,Auto-discovered,https://slack.com
+Slack,file_uploaded,0.85,implemented,Auto-discovered,https://slack.com
+Slack,integration_added,0.85,implemented,Auto-discovered,https://slack.com
+Slack,workflow_automated,0.85,implemented,Auto-discovered,https://slack.com
+Slack,huddle_started,0.85,implemented,Auto-discovered,https://slack.com
+Slack,canvas_created,0.85,implemented,Auto-discovered,https://slack.com
+Microsoft Teams,workspace_created,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,channel_joined,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,message_threaded,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,file_uploaded,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,integration_added,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,workflow_automated,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,meeting_started,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Microsoft Teams,screen_shared,0.85,implemented,Auto-discovered,https://teams.microsoft.com
+Mattermost,workspace_created,0.85,implemented,Auto-discovered,https://mattermost.com
+Mattermost,channel_joined,0.85,implemented,Auto-discovered,https://mattermost.com
+Mattermost,message_threaded,0.85,implemented,Auto-discovered,https://mattermost.com
+Mattermost,file_uploaded,0.85,implemented,Auto-discovered,https://mattermost.com
+Mattermost,integration_added,0.85,implemented,Auto-discovered,https://mattermost.com
+Mattermost,workflow_automated,0.85,implemented,Auto-discovered,https://mattermost.com
+Outlook,email_composed,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,email_sent,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,email_opened,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,attachment_added,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,label_applied,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,filter_created,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,vacation_responder_enabled,0.85,implemented,Auto-discovered,https://outlook.live.com
+Outlook,signature_updated,0.85,implemented,Auto-discovered,https://outlook.live.com
+ProtonMail,email_composed,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,email_sent,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,email_opened,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,attachment_added,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,label_applied,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,filter_created,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,vacation_responder_enabled,0.85,implemented,Auto-discovered,https://proton.me
+ProtonMail,signature_updated,0.85,implemented,Auto-discovered,https://proton.me
+Skype,call_initiated,0.85,implemented,Auto-discovered,https://skype.com
+Skype,video_enabled,0.85,implemented,Auto-discovered,https://skype.com
+Skype,group_call_started,0.85,implemented,Auto-discovered,https://skype.com
+Skype,message_recorded,0.85,implemented,Auto-discovered,https://skype.com
+Skype,effect_applied,0.85,implemented,Auto-discovered,https://skype.com
+Skype,screen_shared,0.85,implemented,Auto-discovered,https://skype.com
+Skype,contact_invited,0.85,implemented,Auto-discovered,https://skype.com
+Skype,call_history_cleared,0.85,implemented,Auto-discovered,https://skype.com
+Viber,call_initiated,0.85,implemented,Auto-discovered,https://viber.com
+Viber,video_enabled,0.85,implemented,Auto-discovered,https://viber.com
+Viber,group_call_started,0.85,implemented,Auto-discovered,https://viber.com
+Viber,message_recorded,0.85,implemented,Auto-discovered,https://viber.com
+Viber,effect_applied,0.85,implemented,Auto-discovered,https://viber.com
+Viber,screen_shared,0.85,implemented,Auto-discovered,https://viber.com
+Viber,contact_invited,0.85,implemented,Auto-discovered,https://viber.com
+Viber,call_history_cleared,0.85,implemented,Auto-discovered,https://viber.com
+Tinder,profile_created,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,swipe_right,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,swipe_left,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,match_made,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,message_sent,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,super_like_used,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,boost_applied,0.85,implemented,Auto-discovered,https://tinder.com
+Tinder,date_scheduled,0.85,implemented,Auto-discovered,https://tinder.com
+Bumble,profile_created,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,swipe_right,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,swipe_left,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,match_made,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,message_sent,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,super_like_used,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,boost_applied,0.85,implemented,Auto-discovered,https://bumble.com
+Bumble,date_scheduled,0.85,implemented,Auto-discovered,https://bumble.com
+Hinge,profile_created,0.85,implemented,Auto-discovered,https://hinge.co
+Hinge,match_made,0.85,implemented,Auto-discovered,https://hinge.co
+Hinge,message_sent,0.85,implemented,Auto-discovered,https://hinge.co
+Hinge,like_sent,0.85,implemented,Auto-discovered,https://hinge.co
+Hinge,comment_added,0.85,implemented,Auto-discovered,https://hinge.co
+Hinge,rose_sent,0.85,implemented,Auto-discovered,https://hinge.co
+OkCupid,profile_created,0.85,implemented,Auto-discovered,https://okcupid.com
+OkCupid,match_made,0.85,implemented,Auto-discovered,https://okcupid.com
+OkCupid,message_sent,0.85,implemented,Auto-discovered,https://okcupid.com
+OkCupid,like_sent,0.85,implemented,Auto-discovered,https://okcupid.com
+OkCupid,question_answered,0.85,implemented,Auto-discovered,https://okcupid.com
+Meetup,event_rsvped,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,group_joined,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,event_created,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,message_sent,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,introduction_requested,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,salary_shared,0.85,implemented,Auto-discovered,https://meetup.com
+Meetup,interview_scheduled,0.85,implemented,Auto-discovered,https://meetup.com
+eBay,auction_bid_placed,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,buy_it_now_clicked,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,offer_made,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,watch_list_added,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,listing_created,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,store_subscription_started,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,promoted_listing_used,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,shipping_label_printed,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,best_offer_accepted,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,global_shipping_used,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,authenticity_guaranteed_purchased,0.85,implemented,Auto-discovered,https://ebay.com
+eBay,ebay_money_back_claimed,0.85,implemented,Auto-discovered,https://ebay.com
+Alibaba,product_sourced,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,inquiry_sent,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,trade_assurance_order_placed,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,supplier_contacted,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,company_profile_created,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,product_showcase_uploaded,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,rfq_responded,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,gold_supplier_subscribed,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,taobao_product_imported,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,logistics_service_booked,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,inspection_service_ordered,0.85,implemented,Auto-discovered,https://alibaba.com
+Alibaba,trade_show_registered,0.85,implemented,Auto-discovered,https://alibaba.com
+Shopify,store_created,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,product_added,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,theme_customized,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,order_processed,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,app_installed,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,payment_gateway_configured,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,discount_code_created,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,abandoned_cart_recovery_set,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,shopify_payments_activated,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,shopify_shipping_used,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,shopify_capital_accessed,0.85,implemented,Auto-discovered,https://shopify.com
+Shopify,shopify_email_sent,0.85,implemented,Auto-discovered,https://shopify.com
+Etsy,handmade_item_listed,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,vintage_item_searched,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,custom_request_sent,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,favorite_shop_added,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,pattern_website_created,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,etsy_ads_started,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,deposit_scheduled,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,shop_policies_updated,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,etsy_payments_onboarded,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,etsy_shipping_labels_purchased,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,etsy_plus_subscribed,0.85,implemented,Auto-discovered,https://etsy.com
+Etsy,star_seller_achieved,0.85,implemented,Auto-discovered,https://etsy.com
+Walmart Marketplace,product_listed,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,fulfillment_service_used,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,advertising_campaign_managed,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,return_processed,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,seller_account_approved,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,walmart_fulfillment_services_enrolled,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,repricer_tool_used,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,performance_metrics_viewed,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,pro_seller_badge_earned,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,walmart_connect_advertising_used,0.85,implemented,Auto-discovered,https://walmart.com
+Walmart Marketplace,seller_support_ticket_created,0.85,implemented,Auto-discovered,https://walmart.com
+Rakuten,item_purchased,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,super_points_earned,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,shop_discovered,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,coupon_clipped,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,store_opened,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,item_management_bulk_uploaded,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,rms_advertising_used,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,settlement_confirmed,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,rakuten_edy_charged,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,rakuten_bank_linked,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,travel_booked,0.85,implemented,Auto-discovered,https://rakuten.com
+Rakuten,insurance_quoted,0.85,implemented,Auto-discovered,https://rakuten.com
+Mercado Libre,publication_created,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,question_answered,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,sale_completed,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,reputation_earned,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,mercado_shops_activated,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,mercado_envios_used,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,mercado_pago_integrated,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,official_store_applied,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,mercado_credito_used,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,mercado_ads_managed,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,classified_ad_posted,0.85,implemented,Auto-discovered,https://mercadolibre.com
+Mercado Libre,vehicle_listed,0.85,implemented,Auto-discovered,https://mercadolibre.com
+JD.com,product_searched,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,flash_sale_joined,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,plus_membership_subscribed,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,group_buy_initiated,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,store_opened,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_logistics_used,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_cloud_service_accessed,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,advertising_purchased,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_health_consulted,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_finance_used,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_property_viewed,0.85,implemented,Auto-discovered,https://jd.com
+JD.com,jd_auction_participated,0.85,implemented,Auto-discovered,https://jd.com
+WooCommerce,cart_viewed,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,checkout_initiated,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,payment_info_added,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,shipping_method_selected,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,order_reviewed,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,purchase_completed,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,account_created,0.85,implemented,Auto-discovered,https://woocommerce.com
+WooCommerce,guest_checkout_used,0.85,implemented,Auto-discovered,https://woocommerce.com
+BigCommerce,cart_viewed,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,checkout_initiated,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,payment_info_added,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,shipping_method_selected,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,order_reviewed,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,purchase_completed,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,account_created,0.85,implemented,Auto-discovered,https://bigcommerce.com
+BigCommerce,guest_checkout_used,0.85,implemented,Auto-discovered,https://bigcommerce.com
+Magento,cart_viewed,0.85,implemented,Auto-discovered,https://magento.com
+Magento,checkout_initiated,0.85,implemented,Auto-discovered,https://magento.com
+Magento,payment_info_added,0.85,implemented,Auto-discovered,https://magento.com
+Magento,shipping_method_selected,0.85,implemented,Auto-discovered,https://magento.com
+Magento,order_reviewed,0.85,implemented,Auto-discovered,https://magento.com
+Magento,purchase_completed,0.85,implemented,Auto-discovered,https://magento.com
+Magento,account_created,0.85,implemented,Auto-discovered,https://magento.com
+Magento,guest_checkout_used,0.85,implemented,Auto-discovered,https://magento.com
+Recharge,subscription_created,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,billing_cycle_managed,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,dunning_email_sent,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,plan_upgraded,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,plan_downgraded,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,churn_prevented,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Recharge,metered_billing_calculated,0.85,implemented,Auto-discovered,https://rechargepayments.com
+Chargebee,subscription_created,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,billing_cycle_managed,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,dunning_email_sent,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,plan_upgraded,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,plan_downgraded,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,churn_prevented,0.85,implemented,Auto-discovered,https://chargebee.com
+Chargebee,metered_billing_calculated,0.85,implemented,Auto-discovered,https://chargebee.com
+Netflix,title_played,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,episode_completed,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,season_binged,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,download_initiated,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,profile_switched,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,my_list_added,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,rating_given,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,subtitle_preference_set,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,playback_speed_changed,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,subscription_upgraded,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,dvd_plan_added,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,gift_card_redeemed,0.85,implemented,Auto-discovered,https://netflix.com
+Netflix,extra_member_added,0.85,implemented,Auto-discovered,https://netflix.com
+Disney+,title_played,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,groupwatch_started,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,download_added,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,continue_watching_resumed,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,profile_created,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,parental_controls_set,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,watchlist_added,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,star_content_enabled,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,bundle_subscribed,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,premier_access_purchased,0.85,implemented,Auto-discovered,https://disneyplus.com
+Disney+,gift_subscription_sent,0.85,implemented,Auto-discovered,https://disneyplus.com
+Amazon Prime Video,title_streamed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,channel_subscribed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,video_purchased,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,rent_completed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,watchlist_managed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,x_ray_feature_used,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,imdb_integration_viewed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,audio_description_enabled,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,prime_membership_managed,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,video_direct_publishing_used,0.85,implemented,Auto-discovered,https://primevideo.com
+Amazon Prime Video,amazon_channels_managed,0.85,implemented,Auto-discovered,https://primevideo.com
+Hulu,episode_watched,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,live_tv_tuned,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,dvr_recording_set,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,profile_switched,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,watchlist_added,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,my_stuff_organized,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,no_ads_plan_upgraded,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,live_tv_guide_customized,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,disney_bundle_subscribed,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,hulu_plus_live_tv_upgraded,0.85,implemented,Auto-discovered,https://hulu.com
+Hulu,add_on_premium_channel_added,0.85,implemented,Auto-discovered,https://hulu.com
+HBO Max,content_streamed,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,discovery_plus_content_accessed,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,profile_customized,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,download_managed,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,my_list_curated,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,series_reminder_set,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,parental_pin_enabled,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,audio_language_changed,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,ad_free_plan_upgraded,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,annual_plan_subscribed,0.85,implemented,Auto-discovered,https://max.com
+HBO Max,gift_card_redeemed,0.85,implemented,Auto-discovered,https://max.com
+Apple TV+,original_watched,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,family_sharing_enabled,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,download_saved,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,up_next_added,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,apple_tv_channel_subscribed,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,itunes_movie_purchased,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,library_synced,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,airplay_used,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,apple_one_bundle_subscribed,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,apple_tv_plus_free_trial_started,0.85,implemented,Auto-discovered,https://tv.apple.com
+Apple TV+,apple_gift_card_used,0.85,implemented,Auto-discovered,https://tv.apple.com
+Twitch,stream_watched,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,follow_clicked,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,subscription_gifted,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,bits_cheered,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,channel_points_redeemed,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,raid_initiated,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,clip_created,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,extension_interacted,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,prediction_participated,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,turbo_subscription_purchased,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,gifted_sub_sent,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,bits_purchased,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,hype_train_contributed,0.85,implemented,Auto-discovered,https://twitch.tv
+Twitch,creator_camp_completed,0.85,implemented,Auto-discovered,https://twitch.tv
+Vimeo,video_uploaded,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,portfolio_created,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,review_page_shared,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,live_event_streamed,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,video_replaced,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,privacy_settings_adjusted,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,custom_player_embedded,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,analytics_reviewed,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,vimeo_plus_upgraded,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,vimeo_pro_subscribed,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,vimeo_business_enrolled,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,ott_platform_launched,0.85,implemented,Auto-discovered,https://vimeo.com
+Vimeo,stock_footage_purchased,0.85,implemented,Auto-discovered,https://vimeo.com
+Steam,game_purchased,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,library_organized,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,achievement_unlocked,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,cloud_save_synced,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,friend_invited,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,group_joined,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,review_posted,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,workshop_item_subscribed,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,broadcast_watched,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,steam_wallet_funded,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,market_transaction_completed,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,trading_card_exchanged,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Steam,hardware_purchased,0.85,implemented,Auto-discovered,https://store.steampowered.com
+Epic Games Store,free_game_claimed,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,purchase_made,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,library_managed,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,download_scheduled,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,friend_added,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,party_formed,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,voice_chat_used,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,screenshot_shared,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,creator_code_used,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,epic_coupon_applied,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,refund_requested,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Epic Games Store,supporter_pack_purchased,0.85,implemented,Auto-discovered,https://store.epicgames.com
+Xbox Live,game_pass_game_installed,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,achievement_earned,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,gamerscore_increased,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,cloud_gaming_used,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,party_chat_joined,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,looking_for_group_posted,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,club_joined,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,activity_feed_updated,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,microsoft_points_redeemed,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,game_pass_subscription_managed,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,xbox_design_lab_used,0.85,implemented,Auto-discovered,https://xbox.com
+Xbox Live,elite_controller_customized,0.85,implemented,Auto-discovered,https://xbox.com
+PlayStation Network,trophy_earned,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,game_downloaded,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,remote_play_used,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,share_play_initiated,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,party_created,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,community_joined,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,broadcast_started,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,messages_sent,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,playstation_plus_subscribed,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,wallet_funded,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,pre_order_placed,0.85,implemented,Auto-discovered,https://playstation.com
+PlayStation Network,playstation_stars_enrolled,0.85,implemented,Auto-discovered,https://playstation.com
+Nintendo eShop,game_purchased,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,wish_list_added,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,gold_points_redeemed,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,nintendo_switch_online_subscribed,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,friend_code_exchanged,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,screenshot_shared,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,user_page_customized,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,parental_controls_set,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,nintendo_switch_expansion_pack_upgraded,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,game_voucher_used,0.85,implemented,Auto-discovered,https://nintendo.com
+Nintendo eShop,dlc_purchased,0.85,implemented,Auto-discovered,https://nintendo.com
+Roblox,game_joined,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,avatar_customized,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,place_created,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,robux_earned,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,friend_request_sent,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,group_joined,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,private_server_created,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,trade_request_sent,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,robux_purchased,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,premium_subscription_purchased,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,game_pass_sold,0.85,implemented,Auto-discovered,https://roblox.com
+Roblox,developer_exchange_used,0.85,implemented,Auto-discovered,https://roblox.com
+Unity,project_created,0.85,implemented,Auto-discovered,https://unity.com
+Unity,asset_imported,0.85,implemented,Auto-discovered,https://unity.com
+Unity,scene_built,0.85,implemented,Auto-discovered,https://unity.com
+Unity,game_deployed,0.85,implemented,Auto-discovered,https://unity.com
+Unity,asset_store_purchase_made,0.85,implemented,Auto-discovered,https://unity.com
+Unity,collaborate_feature_used,0.85,implemented,Auto-discovered,https://unity.com
+Unity,plastic_scm_used,0.85,implemented,Auto-discovered,https://unity.com
+Unity,analytics_dashboard_viewed,0.85,implemented,Auto-discovered,https://unity.com
+Unity,unity_plus_subscribed,0.85,implemented,Auto-discovered,https://unity.com
+Unity,unity_pro_purchased,0.85,implemented,Auto-discovered,https://unity.com
+Unity,asset_store_publisher_approved,0.85,implemented,Auto-discovered,https://unity.com
+Unity,certification_exam_taken,0.85,implemented,Auto-discovered,https://unity.com
+Unreal Engine,project_started,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,blueprint_created,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,nanite_enabled,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,lumen_activated,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,marketplace_asset_purchased,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,quixel_bridge_used,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,metahuman_created,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,learning_platform_accessed,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,unreal_engine_license_purchased,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,fab_marketplace_used,0.85,implemented,Auto-discovered,https://unrealengine.com
+Unreal Engine,enterprise_support_contracted,0.85,implemented,Auto-discovered,https://unrealengine.com
+Asana,task_created,0.85,implemented,Auto-discovered,https://asana.com
+Asana,subtask_added,0.85,implemented,Auto-discovered,https://asana.com
+Asana,due_date_set,0.85,implemented,Auto-discovered,https://asana.com
+Asana,assignee_designated,0.85,implemented,Auto-discovered,https://asana.com
+Asana,custom_field_updated,0.85,implemented,Auto-discovered,https://asana.com
+Asana,project_created,0.85,implemented,Auto-discovered,https://asana.com
+Asana,timeline_viewed,0.85,implemented,Auto-discovered,https://asana.com
+Asana,portfolio_managed,0.85,implemented,Auto-discovered,https://asana.com
+Asana,goal_set,0.85,implemented,Auto-discovered,https://asana.com
+Asana,workload_balanced,0.85,implemented,Auto-discovered,https://asana.com
+Asana,team_invited,0.85,implemented,Auto-discovered,https://asana.com
+Asana,comment_added,0.85,implemented,Auto-discovered,https://asana.com
+Asana,proofing_used,0.85,implemented,Auto-discovered,https://asana.com
+Asana,approval_requested,0.85,implemented,Auto-discovered,https://asana.com
+Asana,form_submitted,0.85,implemented,Auto-discovered,https://asana.com
+Trello,card_created,0.85,implemented,Auto-discovered,https://trello.com
+Trello,checklist_added,0.85,implemented,Auto-discovered,https://trello.com
+Trello,label_applied,0.85,implemented,Auto-discovered,https://trello.com
+Trello,due_date_reminder_set,0.85,implemented,Auto-discovered,https://trello.com
+Trello,attachment_uploaded,0.85,implemented,Auto-discovered,https://trello.com
+Trello,board_created,0.85,implemented,Auto-discovered,https://trello.com
+Trello,power_up_enabled,0.85,implemented,Auto-discovered,https://trello.com
+Trello,automation_rule_set,0.85,implemented,Auto-discovered,https://trello.com
+Trello,template_applied,0.85,implemented,Auto-discovered,https://trello.com
+Trello,workspace_managed,0.85,implemented,Auto-discovered,https://trello.com
+Trello,member_invited,0.85,implemented,Auto-discovered,https://trello.com
+Trello,card_shared,0.85,implemented,Auto-discovered,https://trello.com
+Trello,voting_initiated,0.85,implemented,Auto-discovered,https://trello.com
+Trello,calendar_view_enabled,0.85,implemented,Auto-discovered,https://trello.com
+Trello,dashboard_viewed,0.85,implemented,Auto-discovered,https://trello.com
+Monday.com,pulse_created,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,column_customized,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,status_updated,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,automation_triggered,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,integration_connected,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,board_duplicated,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,template_gallery_used,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,workdoc_created,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,gantt_chart_viewed,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,dashboard_built,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,team_member_invited,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,guest_added,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,notification_customized,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,time_tracking_enabled,0.85,implemented,Auto-discovered,https://monday.com
+Monday.com,inbox_zero_achieved,0.85,implemented,Auto-discovered,https://monday.com
+Notion,page_created,0.85,implemented,Auto-discovered,https://notion.so
+Notion,database_set_up,0.85,implemented,Auto-discovered,https://notion.so
+Notion,block_edited,0.85,implemented,Auto-discovered,https://notion.so
+Notion,template_duplicated,0.85,implemented,Auto-discovered,https://notion.so
+Notion,relation_linked,0.85,implemented,Auto-discovered,https://notion.so
+Notion,workspace_organized,0.85,implemented,Auto-discovered,https://notion.so
+Notion,teamspace_created,0.85,implemented,Auto-discovered,https://notion.so
+Notion,permission_managed,0.85,implemented,Auto-discovered,https://notion.so
+Notion,integration_connected,0.85,implemented,Auto-discovered,https://notion.so
+Notion,api_accessed,0.85,implemented,Auto-discovered,https://notion.so
+Notion,member_invited,0.85,implemented,Auto-discovered,https://notion.so
+Notion,comment_threaded,0.85,implemented,Auto-discovered,https://notion.so
+Notion,mention_used,0.85,implemented,Auto-discovered,https://notion.so
+Notion,page_shared_publicly,0.85,implemented,Auto-discovered,https://notion.so
+Notion,export_generated,0.85,implemented,Auto-discovered,https://notion.so
+ClickUp,task_created,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,custom_status_applied,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,time_estimated,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,sprint_managed,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,dependency_linked,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,space_created,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,folder_organized,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,list_viewed,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,goal_tracked,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,dashboard_customized,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,assignee_added,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,watcher_set,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,comment_resolved,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,proofing_annotated,0.85,implemented,Auto-discovered,https://clickup.com
+ClickUp,email_integration_used,0.85,implemented,Auto-discovered,https://clickup.com
+Jira,issue_created,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,sprint_started,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,epic_linked,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,story_point_estimated,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,bug_reported,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,project_configured,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,workflow_customized,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,scrum_board_managed,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,kanban_used,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,roadmap_planned,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,developer_assigned,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,watcher_added,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,comment_logged,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,attachment_added,0.85,implemented,Auto-discovered,https://atlassian.net
+Jira,time_logged,0.85,implemented,Auto-discovered,https://atlassian.net
+Basecamp,to_do_list_created,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,message_board_posted,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,schedule_added,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,document_uploaded,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,automatic_check_in_set,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,project_created,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,hill_chart_updated,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,client_access_enabled,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,template_project_used,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,progress_reported,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,person_invited,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,ping_sent,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,campfire_chat_used,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,doorbell_rung,0.85,implemented,Auto-discovered,https://basecamp.com
+Basecamp,boost_given,0.85,implemented,Auto-discovered,https://basecamp.com
+Wrike,task_created,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,custom_workflow_applied,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,time_tracked,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,request_form_submitted,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,proof_approved,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,project_space_created,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,blueprint_used,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,report_built,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,resource_management_viewed,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,calendar_synced,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,user_invited,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,at_mention_used,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,approval_workflow_initiated,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,share_link_generated,0.85,implemented,Auto-discovered,https://wrike.com
+Wrike,mobile_app_used,0.85,implemented,Auto-discovered,https://wrike.com
+Smartsheet,row_added,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,column_formula_created,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,gantt_chart_enabled,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,card_view_used,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,form_connected,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,workspace_created,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,template_applied,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,automation_workflow_built,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,dashboard_widget_added,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,report_scheduled,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,collaborator_invited,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,proofing_requested,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,update_request_sent,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,publish_enabled,0.85,implemented,Auto-discovered,https://smartsheet.com
+Smartsheet,calendar_integrated,0.85,implemented,Auto-discovered,https://smartsheet.com
+Airtable,record_created,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,field_customized,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,view_filtered,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,automation_scripted,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,interface_designed,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,base_created,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,template_gallery_used,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,sync_integration_set,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,extension_installed,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,form_shared,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,collaborator_invited,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,comment_threaded,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,revision_history_viewed,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,snapshot_taken,0.85,implemented,Auto-discovered,https://airtable.com
+Airtable,enterprise_admin_managed,0.85,implemented,Auto-discovered,https://airtable.com
+Salesforce,lead_created,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,contact_enriched,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,account_mapped,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,opportunity_qualified,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,case_escalated,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,forecast_submitted,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,quote_generated,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,contract_negotiated,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,order_processed,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,renewal_managed,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,workflow_rule_triggered,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,process_builder_executed,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,flow_automated,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,apex_trigger_fired,0.85,implemented,Auto-discovered,https://salesforce.com
+Salesforce,einstein_prediction_used,0.85,implemented,Auto-discovered,https://salesforce.com
+HubSpot,contact_imported,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,company_associated,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,deal_stage_updated,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,ticket_created,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,conversation_logged,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,pipeline_managed,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,sequence_enrolled,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,meeting_scheduled,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,document_tracked,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,quote_approved,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,workflow_enrolled,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,list_segmented,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,email_automated,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,chatbot_deployed,0.85,implemented,Auto-discovered,https://hubspot.com
+HubSpot,attribution_reported,0.85,implemented,Auto-discovered,https://hubspot.com
+Pipedrive,lead_captured,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,deal_added,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,activity_scheduled,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,contact_mapped,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,email_synced,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,pipeline_stages_managed,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,probability_updated,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,forecast_viewed,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,goal_set,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,report_customized,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,workflow_automation_triggered,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,email_template_used,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,web_form_submitted,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,import_completed,0.85,implemented,Auto-discovered,https://pipedrive.com
+Pipedrive,api_call_made,0.85,implemented,Auto-discovered,https://pipedrive.com
+Zoho CRM,lead_converted,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,account_hierarchy_managed,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,contact_enriched,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,potential_created,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,case_resolved,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,blueprint_executed,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,canvas_view_designed,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,forecast_adjusted,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,territory_assigned,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,social_twitter_integrated,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,workflow_rule_triggered,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,scheduled_function_executed,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,web_form_captured,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,email_sent,0.85,implemented,Auto-discovered,https://zoho.com
+Zoho CRM,zia_ai_used,0.85,implemented,Auto-discovered,https://zoho.com
+Freshsales,lead_scored,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,contact_enriched,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,account_hierarchy_built,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,deal_qualified,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,appointment_scheduled,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,sales_sequence_initiated,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,territory_auto_assigned,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,forecast_generated,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,document_shared,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,quote_created,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,workflow_automated,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,chat_triggered,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,email_tracking_enabled,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,phone_call_logged,0.85,implemented,Auto-discovered,https://freshworks.com
+Freshsales,api_integrated,0.85,implemented,Auto-discovered,https://freshworks.com
+Microsoft Dynamics 365,lead_qualified,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,opportunity_created,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,contact_synchronized,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,account_hierarchy_managed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,case_routed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,sales_process_guided,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,quote_generated,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,order_fulfilled,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,invoice_generated,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,relationship_analytics_viewed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,power_automate_flow_triggered,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,ai_insights_viewed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,workflow_executed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,business_process_flow_completed,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+Microsoft Dynamics 365,power_bi_report_embedded,0.85,implemented,Auto-discovered,https://dynamics.microsoft.com
+SAP Sales Cloud,lead_qualified,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,account_360_viewed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,opportunity_managed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,quote_configured,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,contract_executed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,sales_plan_activated,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,territory_aligned,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,forecast_committed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,sales_performance_managed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,rebate_program_executed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,workflow_triggered,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,machine_learning_recommendation_used,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,integration_flow_executed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,analytics_dashboard_viewed,0.85,implemented,Auto-discovered,https://sap.com
+SAP Sales Cloud,mobile_app_synced,0.85,implemented,Auto-discovered,https://sap.com
+Mailchimp,campaign_created,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,audience_segmented,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,template_designed,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,automation_configured,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,landing_page_published,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,subscriber_imported,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,tag_applied,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,signup_form_embedded,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,preference_center_customized,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,cleaning_recommended,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,report_viewed,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,a_b_test_analyzed,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,send_time_optimization_used,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,comparative_report_generated,0.85,implemented,Auto-discovered,https://mailchimp.com
+Mailchimp,social_post_scheduled,0.85,implemented,Auto-discovered,https://mailchimp.com
+Marketo,program_created,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,smart_campaign_executed,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,email_asset_approved,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,landing_page_tested,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,nurture_stream_activated,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,lead_scored,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,segment_smart_list_created,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,form_filled,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,munchkin_tracking_verified,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,rce_report_viewed,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,revenue_cycle_modeler_used,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,success_path_analyzer_viewed,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,email_insights_analyzed,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,web_personalization_enabled,0.85,implemented,Auto-discovered,https://marketo.com
+Marketo,account_profiling_used,0.85,implemented,Auto-discovered,https://marketo.com
+ActiveCampaign,automation_built,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,campaign_sent,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,deal_created,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,chat_conversation_started,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,site_tracking_enabled,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,contact_tagged,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,list_managed,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,form_submitted,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,goal_achieved,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,sms_sent,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,report_analyzed,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,split_test_reviewed,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,attribution_tracked,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,predictive_sending_used,0.85,implemented,Auto-discovered,https://activecampaign.com
+ActiveCampaign,crm_synced,0.85,implemented,Auto-discovered,https://activecampaign.com
+Klaviyo,flow_created,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,campaign_scheduled,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,segment_built,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,template_edited,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,signup_form_published,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,profile_enriched,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,list_cleaned,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,predictive_analytics_viewed,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,back_in_stock_flow_triggered,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,price_drop_alert_sent,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,benchmark_report_viewed,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,cohort_analysis_run,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,ltv_calculated,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,churn_risk_identified,0.85,implemented,Auto-discovered,https://klaviyo.com
+Klaviyo,a_b_test_analyzed,0.85,implemented,Auto-discovered,https://klaviyo.com
+Pardot,campaign_launched,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,landing_page_published,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,form_handler_created,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,dynamic_content_enabled,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,engagement_program_built,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,prospect_scored,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,grading_profile_applied,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,assignment_rule_triggered,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,tag_added,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,list_email_sent,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,lifecycle_report_viewed,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,roi_calculator_used,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,connected_campaign_enabled,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,einstein_behavior_scoring_viewed,0.85,implemented,Auto-discovered,https://pardot.com
+Pardot,b2b_marketing_analytics_used,0.85,implemented,Auto-discovered,https://pardot.com
+Eloqua,campaign_orchestrated,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,email_deployed,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,form_created,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,microsite_built,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,program_builder_used,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,contact_segmented,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,lead_scoring_model_applied,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,profiler_used,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,web_tracking_verified,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,subscription_center_managed,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,insight_analyzed,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,dashboard_customized,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,report_scheduled,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,a_b_test_executed,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+Eloqua,revenue_analytics_viewed,0.85,implemented,Auto-discovered,https://oracle.com/eloqua
+PayPal,payment_sent,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,payment_received,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,invoice_created,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,subscription_managed,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,money_pooled,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,account_verified,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,bank_linked,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,card_added,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,balance_managed,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,currency_converted,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,two_factor_authentication_enabled,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,security_questions_set,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,device_trusted,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,login_alert_reviewed,0.85,implemented,Auto-discovered,https://paypal.com
+PayPal,dispute_filed,0.85,implemented,Auto-discovered,https://paypal.com
+Venmo,payment_made,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,payment_requested,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,split_bill_initiated,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,qr_code_scanned,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,instant_transfer_used,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,bank_account_linked,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,debit_card_added,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,profile_customized,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,privacy_setting_adjusted,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,direct_deposit_set_up,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,pin_code_set,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,face_id_enabled,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,transaction_alert_received,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,card_frozen,0.85,implemented,Auto-discovered,https://venmo.com
+Venmo,unauthorized_activity_reported,0.85,implemented,Auto-discovered,https://venmo.com
+Cash App,cash_sent,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,cash_received,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,bitcoin_purchased,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,stock_bought,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,direct_deposit_received,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,cash_card_activated,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,boost_applied,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,routing_number_copied,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,paper_money_deposited,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,tax_refund_deposited,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,security_lock_enabled,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,notification_preference_set,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,pin_changed,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,account_closed,0.85,implemented,Auto-discovered,https://cash.app
+Cash App,fraud_reported,0.85,implemented,Auto-discovered,https://cash.app
+Stripe,charge_created,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,customer_created,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,subscription_started,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,invoice_paid,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,refund_issued,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,account_onboarded,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,api_key_generated,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,webhook_configured,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,connect_account_created,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,radar_rule_set,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,dispute_managed,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,pci_compliance_verified,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,two_factor_authentication_enabled,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,team_member_invited,0.85,implemented,Auto-discovered,https://stripe.com
+Stripe,api_version_updated,0.85,implemented,Auto-discovered,https://stripe.com
+Square,payment_processed,0.85,implemented,Auto-discovered,https://squareup.com
+Square,invoice_sent,0.85,implemented,Auto-discovered,https://squareup.com
+Square,gift_card_sold,0.85,implemented,Auto-discovered,https://squareup.com
+Square,appointment_booked,0.85,implemented,Auto-discovered,https://squareup.com
+Square,online_order_received,0.85,implemented,Auto-discovered,https://squareup.com
+Square,hardware_paired,0.85,implemented,Auto-discovered,https://squareup.com
+Square,team_member_added,0.85,implemented,Auto-discovered,https://squareup.com
+Square,inventory_managed,0.85,implemented,Auto-discovered,https://squareup.com
+Square,customer_directory_built,0.85,implemented,Auto-discovered,https://squareup.com
+Square,loyalty_program_enabled,0.85,implemented,Auto-discovered,https://squareup.com
+Square,security_settings_reviewed,0.85,implemented,Auto-discovered,https://squareup.com
+Square,two_step_verification_enabled,0.85,implemented,Auto-discovered,https://squareup.com
+Square,privacy_settings_managed,0.85,implemented,Auto-discovered,https://squareup.com
+Square,data_export_requested,0.85,implemented,Auto-discovered,https://squareup.com
+Square,account_deactivated,0.85,implemented,Auto-discovered,https://squareup.com
+Robinhood,stock_purchased,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,stock_sold,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,option_traded,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,crypto_bought,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,recurring_investment_set,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,account_funded,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,bank_linked,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,gold_subscribed,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,cash_card_requested,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,dividend_reinvested,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,two_factor_authentication_enabled,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,device_authorized,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,login_notification_received,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,account_restrictions_reviewed,0.85,implemented,Auto-discovered,https://robinhood.com
+Robinhood,tax_document_downloaded,0.85,implemented,Auto-discovered,https://robinhood.com
+Coinbase,crypto_bought,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,crypto_sold,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,crypto_sent,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,crypto_received,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,staking_rewards_earned,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,wallet_created,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,vault_set_up,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,recurring_buy_scheduled,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,direct_deposit_enabled,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,coinbase_card_used,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,two_step_verification_enabled,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,address_whitelisted,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,api_key_restricted,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,insurance_policy_viewed,0.85,implemented,Auto-discovered,https://coinbase.com
+Coinbase,security_prompt_completed,0.85,implemented,Auto-discovered,https://coinbase.com
+Wise,transfer_initiated,0.85,implemented,Auto-discovered,https://wise.com
+Wise,recipient_added,0.85,implemented,Auto-discovered,https://wise.com
+Wise,rate_alert_set,0.85,implemented,Auto-discovered,https://wise.com
+Wise,wise_card_used,0.85,implemented,Auto-discovered,https://wise.com
+Wise,business_account_opened,0.85,implemented,Auto-discovered,https://wise.com
+Wise,verification_document_uploaded,0.85,implemented,Auto-discovered,https://wise.com
+Wise,bank_details_shared,0.85,implemented,Auto-discovered,https://wise.com
+Wise,jar_created,0.85,implemented,Auto-discovered,https://wise.com
+Wise,direct_debit_set_up,0.85,implemented,Auto-discovered,https://wise.com
+Wise,api_integrated,0.85,implemented,Auto-discovered,https://wise.com
+Wise,two_factor_authentication_enabled,0.85,implemented,Auto-discovered,https://wise.com
+Wise,login_alert_reviewed,0.85,implemented,Auto-discovered,https://wise.com
+Wise,card_frozen,0.85,implemented,Auto-discovered,https://wise.com
+Wise,statement_downloaded,0.85,implemented,Auto-discovered,https://wise.com
+Wise,account_closure_requested,0.85,implemented,Auto-discovered,https://wise.com
+Revolut,transfer_made,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,card_payment_processed,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,vault_created,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,crypto_exchanged,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,stock_traded,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,account_upgraded,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,physical_card_ordered,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,virtual_card_created,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,salary_advanced,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,insurance_purchased,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,security_feature_enabled,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,location_based_security_set,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,disposable_virtual_card_used,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,pin_changed,0.85,implemented,Auto-discovered,https://revolut.com
+Revolut,unauthorized_transaction_disputed,0.85,implemented,Auto-discovered,https://revolut.com
+Chime,direct_deposit_received,0.85,implemented,Auto-discovered,https://chime.com
+Chime,spot_me_used,0.85,implemented,Auto-discovered,https://chime.com
+Chime,credit_builder_secured,0.85,implemented,Auto-discovered,https://chime.com
+Chime,savings_rounded_up,0.85,implemented,Auto-discovered,https://chime.com
+Chime,check_deposited,0.85,implemented,Auto-discovered,https://chime.com
+Chime,account_opened,0.85,implemented,Auto-discovered,https://chime.com
+Chime,debit_card_activated,0.85,implemented,Auto-discovered,https://chime.com
+Chime,credit_builder_card_requested,0.85,implemented,Auto-discovered,https://chime.com
+Chime,atm_located,0.85,implemented,Auto-discovered,https://chime.com
+Chime,friend_referred,0.85,implemented,Auto-discovered,https://chime.com
+Chime,transaction_alert_enabled,0.85,implemented,Auto-discovered,https://chime.com
+Chime,card_locked,0.85,implemented,Auto-discovered,https://chime.com
+Chime,two_factor_authentication_set,0.85,implemented,Auto-discovered,https://chime.com
+Chime,account_settings_updated,0.85,implemented,Auto-discovered,https://chime.com
+Chime,support_contacted,0.85,implemented,Auto-discovered,https://chime.com
+E*Trade,stock_ordered,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,option_contract_traded,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,mutual_fund_purchased,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,bond_laddered,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,futures_contract_initiated,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,portfolio_analyzed,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,watch_list_created,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,paper_trading_used,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,margin_account_enabled,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,ira_opened,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,market_news_read,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,analyst_report_viewed,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,earnings_calendar_checked,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,stock_screener_used,0.85,implemented,Auto-discovered,https://etrade.com
+E*Trade,educational_video_watched,0.85,implemented,Auto-discovered,https://etrade.com
+Fidelity,trade_executed,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,order_type_selected,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,automatic_investment_set,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,dividend_reinvestment_enabled,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,esg_fund_invested,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,portfolio_rebalanced,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,retirement_planner_used,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,full_view_aggregated,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,wealth_management_consulted,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,plan_529_managed,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,research_report_accessed,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,stock_comparison_tool_used,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,fixed_income_analysis_viewed,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,market_monitor_watched,0.85,implemented,Auto-discovered,https://fidelity.com
+Fidelity,learning_center_accessed,0.85,implemented,Auto-discovered,https://fidelity.com
+Charles Schwab,equity_traded,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,fixed_income_purchased,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,etf_bought,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,margin_loan_utilized,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,ipo_access_requested,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,portfolio_checkup_completed,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,financial_plan_created,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,robo_advisor_used,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,trust_account_opened,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,charitable_giving_account_managed,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,market_insight_read,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,stock_rating_viewed,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,international_research_accessed,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,learning_portal_visited,0.85,implemented,Auto-discovered,https://schwab.com
+Charles Schwab,podcast_listened,0.85,implemented,Auto-discovered,https://schwab.com
+Wealthfront,account_funded,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,portfolio_automated,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,auto_deposit_scheduled,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,tax_loss_harvesting_enabled,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,home_planning_started,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,risk_tolerance_assessed,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,financial_plan_projected,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,plan_529_recommended,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,high_yield_cash_account_opened,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,line_of_credit_accessed,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,investment_explanation_read,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,historical_performance_viewed,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,methodology_whitepaper_downloaded,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,faq_consulted,0.85,implemented,Auto-discovered,https://wealthfront.com
+Wealthfront,support_contacted,0.85,implemented,Auto-discovered,https://wealthfront.com
+Betterment,goal_based_investing_started,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,portfolio_deposited,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,rebalancing_automated,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,tax_coordinated_portfolio_enabled,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,crypto_invested,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,goal_projected,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,advice_accessed,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,checking_account_opened,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,joint_account_created,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,trust_account_established,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,educational_article_read,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,tool_used,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,performance_analyzed,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,fee_comparison_made,0.85,implemented,Auto-discovered,https://betterment.com
+Betterment,customer_support_chatted,0.85,implemented,Auto-discovered,https://betterment.com
+Acorns,round_up_invested,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,recurring_investment_set,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,found_money_earned,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,later_account_opened,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,early_account_managed,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,portfolio_selected,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,aggressive_conservative_slider_adjusted,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,gift_card_purchased,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,referral_bonus_earned,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,financial_literacy_content_consumed,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,market_explained_read,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,grow_magazine_article_viewed,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,money_lesson_completed,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,news_updated_checked,0.85,implemented,Auto-discovered,https://acorns.com
+Acorns,support_ticket_submitted,0.85,implemented,Auto-discovered,https://acorns.com
+AWS,ec2_instance_launched,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,lambda_function_deployed,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,ecs_task_run,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,eks_cluster_created,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,batch_job_submitted,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,s3_bucket_created,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,ebs_volume_attached,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,efs_file_system_mounted,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,glacier_archive_uploaded,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,storage_gateway_configured,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,vpc_created,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,route_table_configured,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,load_balancer_deployed,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,cloudfront_distribution_created,0.85,implemented,Auto-discovered,https://aws.amazon.com
+AWS,transit_gateway_established,0.85,implemented,Auto-discovered,https://aws.amazon.com
+Microsoft Azure,virtual_machine_deployed,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,function_app_created,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,aks_cluster_provisioned,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,app_service_published,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,container_instance_run,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,blob_storage_created,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,managed_disk_attached,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,file_share_mapped,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,archive_tier_set,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,data_lake_storage_gen2_enabled,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,virtual_network_created,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,network_security_group_configured,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,application_gateway_deployed,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,cdn_endpoint_created,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Microsoft Azure,express_route_circuit_provisioned,0.85,implemented,Auto-discovered,https://azure.microsoft.com
+Google Cloud Platform,compute_engine_vm_started,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_function_deployed,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,gke_cluster_created,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_run_service_deployed,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,batch_job_submitted,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_storage_bucket_created,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,persistent_disk_attached,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,filestore_instance_mounted,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,archive_storage_used,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,transfer_service_job_run,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,vpc_network_created,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,firewall_rule_configured,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_load_balancing_set_up,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_cdn_enabled,0.85,implemented,Auto-discovered,https://cloud.google.com
+Google Cloud Platform,cloud_interconnect_established,0.85,implemented,Auto-discovered,https://cloud.google.com
+IBM Cloud,virtual_server_provisioned,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,cloud_function_action_created,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,openshift_cluster_deployed,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,bare_metal_server_reserved,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,power_systems_virtual_server_created,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,cloud_object_storage_bucket_created,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,block_storage_volume_attached,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,file_storage_share_mounted,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,mass_migration_service_used,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,cloud_backup_configured,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,vpc_created,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,security_group_rule_added,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,load_balancer_as_a_service_deployed,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,cdn_implemented,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+IBM Cloud,direct_link_established,0.85,implemented,Auto-discovered,https://cloud.ibm.com
+Oracle Cloud,compute_instance_launched,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,function_deployed,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,container_engine_kubernetes_cluster_created,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,autonomous_database_provisioned,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,analytics_cloud_instance_started,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,object_storage_bucket_created,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,block_volume_attached,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,file_storage_system_mounted,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,archive_storage_used,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,data_transfer_service_used,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,virtual_cloud_network_created,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,security_list_configured,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,load_balancer_set_up,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,dns_zone_managed,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Oracle Cloud,fast_connect_established,0.85,implemented,Auto-discovered,https://cloud.oracle.com
+Alibaba Cloud,ecs_instance_created,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,function_compute_service_deployed,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,container_service_kubernetes_cluster_created,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,batch_compute_job_submitted,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,elastic_gpu_service_activated,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,oss_bucket_created,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,nas_file_system_mounted,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,ebs_block_storage_attached,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,archive_storage_used,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,data_transport_solution_used,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,vpc_established,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,security_group_rule_configured,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,server_load_balancer_deployed,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,cdn_domain_added,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Alibaba Cloud,express_connect_established,0.85,implemented,Auto-discovered,https://alibabacloud.com
+Datadog,agent_installed,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,dashboard_created,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,monitor_configured,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,log_pipeline_set_up,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,apm_instrumented,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,alert_triggered,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,synthetic_test_created,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,rum_session_replay_viewed,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,slo_defined,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,incident_declared,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,security_signal_investigated,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,compliance_monitor_enabled,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,cloud_security_posture_managed,0.85,implemented,Auto-discovered,https://datadoghq.com
+Datadog,application_vulnerability_detected,0.85,implemented,Auto-discovered,https://datadoghq.com
+New Relic,agent_deployed,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,dashboard_built,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,alert_condition_created,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,nrql_query_written,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,log_forwarded,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,apm_transaction_traced,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,infrastructure_host_monitored,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,browser_monitoring_enabled,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,mobile_crash_analyzed,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,synthetic_monitor_checked,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,vulnerability_management_scan_run,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,security_audit_log_reviewed,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,user_permissions_managed,0.85,implemented,Auto-discovered,https://newrelic.com
+New Relic,api_key_rotated,0.85,implemented,Auto-discovered,https://newrelic.com
+Splunk,forwarder_installed,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,index_created,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,search_head_cluster_deployed,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,dashboard_published,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,alert_configured,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,search_ran,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,report_scheduled,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,machine_learning_model_applied,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,it_service_intelligence_enabled,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,phantom_playbook_executed,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,security_event_investigated,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,user_behavior_analytics_enabled,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,risk_score_calculated,0.85,implemented,Auto-discovered,https://splunk.com
+Splunk,compliance_report_generated,0.85,implemented,Auto-discovered,https://splunk.com
+ServiceNow,instance_requested,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,application_installed,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,workflow_created,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,catalog_item_published,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,integration_hub_spoke_used,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,incident_created,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,problem_investigated,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,change_request_approved,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,service_catalog_ordered,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,cmdb_populated,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,security_incident_responded,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,vulnerability_response_managed,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,grc_control_attested,0.85,implemented,Auto-discovered,https://servicenow.com
+ServiceNow,soar_playbook_executed,0.85,implemented,Auto-discovered,https://servicenow.com
+PagerDuty,service_created,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,escalation_policy_configured,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,schedule_managed,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,integration_added,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,automation_action_created,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,incident_triggered,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,on_call_rotation_started,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,status_update_published,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,post_mortem_documented,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,business_service_mapped,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,event_intelligence_used,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,automation_triggered,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,permissions_managed,0.85,implemented,Auto-discovered,https://pagerduty.com
+PagerDuty,audit_log_reviewed,0.85,implemented,Auto-discovered,https://pagerduty.com
+Coursera,course_enrolled,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,lecture_watched,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,reading_completed,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,peer_review_submitted,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,certificate_earned,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,quiz_attempted,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,programming_assignment_submitted,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,exam_proctored,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,grade_received,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,mastery_achieved,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,discussion_posted,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,mentor_consulted,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,study_group_joined,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,mobile_app_downloaded,0.85,implemented,Auto-discovered,https://coursera.org
+Coursera,degree_applied,0.85,implemented,Auto-discovered,https://coursera.org
+Udemy,course_purchased,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,lecture_completed,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,note_taken,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,q_and_a_asked,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,certificate_downloaded,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,coding_exercise_completed,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,practice_test_taken,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,progress_tracked,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,lifetime_access_granted,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,wishlist_added,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,instructor_followed,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,review_posted,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,mobile_download_enabled,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,business_account_managed,0.85,implemented,Auto-discovered,https://udemy.com
+Udemy,learning_path_created,0.85,implemented,Auto-discovered,https://udemy.com
+Khan Academy,video_watched,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,exercise_completed,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,article_read,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,mission_started,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,mastery_points_earned,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,unit_test_taken,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,course_challenge_attempted,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,hint_used,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,scratchpad_utilized,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,coach_invited,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,parent_account_linked,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,teacher_dashboard_used,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,class_code_joined,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,discussion_participated,0.85,implemented,Auto-discovered,https://khanacademy.org
+Khan Academy,badge_earned,0.85,implemented,Auto-discovered,https://khanacademy.org
+edX,course_audited,0.85,implemented,Auto-discovered,https://edx.org
+edX,verified_certificate_purchased,0.85,implemented,Auto-discovered,https://edx.org
+edX,program_enrolled,0.85,implemented,Auto-discovered,https://edx.org
+edX,micromasters_started,0.85,implemented,Auto-discovered,https://edx.org
+edX,professional_certificate_earned,0.85,implemented,Auto-discovered,https://edx.org
+edX,proctored_exam_taken,0.85,implemented,Auto-discovered,https://edx.org
+edX,lab_completed,0.85,implemented,Auto-discovered,https://edx.org
+edX,peer_assessment_reviewed,0.85,implemented,Auto-discovered,https://edx.org
+edX,final_exam_passed,0.85,implemented,Auto-discovered,https://edx.org
+edX,transcript_downloaded,0.85,implemented,Auto-discovered,https://edx.org
+edX,discussion_forum_used,0.85,implemented,Auto-discovered,https://edx.org
+edX,wiki_contributed,0.85,implemented,Auto-discovered,https://edx.org
+edX,social_media_shared,0.85,implemented,Auto-discovered,https://edx.org
+edX,mobile_app_synced,0.85,implemented,Auto-discovered,https://edx.org
+edX,corporate_training_accessed,0.85,implemented,Auto-discovered,https://edx.org
+Canvas,course_accessed,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,assignment_submitted,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,module_completed,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,collaboration_used,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,eportfolio_created,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,quiz_taken,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,rubric_viewed,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,feedback_received,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,gradebook_checked,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,late_policy_applied,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,announcement_read,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,calendar_event_added,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,conference_joined,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,mobile_notification_received,0.85,implemented,Auto-discovered,https://instructure.com
+Canvas,parent_observer_added,0.85,implemented,Auto-discovered,https://instructure.com
+Blackboard,content_item_opened,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,assignment_uploaded,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,test_submitted,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,discussion_board_posted,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,journal_entry_created,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,safeassign_report_viewed,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,rubric_assessed,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,attempt_graded,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,feedback_released,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,external_tool_launched,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,course_announcement_received,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,email_sent,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,group_workspace_accessed,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,mobile_app_logged_in,0.85,implemented,Auto-discovered,https://blackboard.com
+Blackboard,student_preview_used,0.85,implemented,Auto-discovered,https://blackboard.com
+Moodle,resource_viewed,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,activity_completed,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,forum_posted,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,wiki_edited,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,glossary_entry_added,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,quiz_attempted,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,assignment_submitted,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,workshop_peer_assessed,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,lesson_completed,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,scorm_package_tracked,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,badge_awarded,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,competency_achieved,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,learning_plan_created,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,cohort_joined,0.85,implemented,Auto-discovered,https://moodle.org
+Moodle,mobile_app_offline_used,0.85,implemented,Auto-discovered,https://moodle.org
+Google Classroom,class_joined,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,assignment_viewed,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,work_submitted,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,material_accessed,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,question_posted,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,assignment_returned,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,grade_posted,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,originality_report_viewed,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,rubric_graded,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,late_work_flagged,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,announcement_created,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,meet_link_generated,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,guardian_summary_enabled,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,calendar_synced,0.85,implemented,Auto-discovered,https://classroom.google.com
+Google Classroom,drive_folder_organized,0.85,implemented,Auto-discovered,https://classroom.google.com
+Schoology,course_material_accessed,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,assignment_submitted,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,test_completed,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,discussion_participated,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,folder_created,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,grade_viewed,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,attendance_marked,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,learning_objective_mastered,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,mastery_report_generated,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,portfolio_assembled,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,message_sent,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,group_joined,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,calendar_event_added,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,resource_appended,0.85,implemented,Auto-discovered,https://schoology.com
+Schoology,parent_access_granted,0.85,implemented,Auto-discovered,https://schoology.com
+Teladoc,consultation_scheduled,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,video_visit_started,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,prescription_sent,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,medical_record_accessed,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,follow_up_booked,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,symptom_checker_used,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,health_record_synced,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,biometric_device_connected,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,medication_reminder_set,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,care_plan_accessed,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,therapist_matched,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,psychiatrist_consulted,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,dermatologist_visit_completed,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,nutritionist_advised,0.85,implemented,Auto-discovered,https://teladoc.com
+Teladoc,specialist_referred,0.85,implemented,Auto-discovered,https://teladoc.com
+MyFitnessPal,meal_logged,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,exercise_recorded,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,water_tracked,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,weight_entered,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,goal_set,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,barcode_scanned,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,recipe_imported,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,nutrition_analyzed,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,streak_maintained,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,progress_photo_uploaded,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,community_posted,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,friend_challenged,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,premium_subscribed,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,report_generated,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+MyFitnessPal,coach_consulted,0.85,implemented,Auto-discovered,https://myfitnesspal.com
+Strava,activity_recorded,0.85,implemented,Auto-discovered,https://strava.com
+Strava,route_planned,0.85,implemented,Auto-discovered,https://strava.com
+Strava,segment_raced,0.85,implemented,Auto-discovered,https://strava.com
+Strava,kudos_given,0.85,implemented,Auto-discovered,https://strava.com
+Strava,club_joined,0.85,implemented,Auto-discovered,https://strava.com
+Strava,gear_logged,0.85,implemented,Auto-discovered,https://strava.com
+Strava,training_log_updated,0.85,implemented,Auto-discovered,https://strava.com
+Strava,fitness_freshness_tracked,0.85,implemented,Auto-discovered,https://strava.com
+Strava,relative_effort_calculated,0.85,implemented,Auto-discovered,https://strava.com
+Strava,power_curve_analyzed,0.85,implemented,Auto-discovered,https://strava.com
+Strava,beacon_enabled,0.85,implemented,Auto-discovered,https://strava.com
+Strava,route_shared,0.85,implemented,Auto-discovered,https://strava.com
+Strava,subscription_upgraded,0.85,implemented,Auto-discovered,https://strava.com
+Strava,summit_feature_used,0.85,implemented,Auto-discovered,https://strava.com
+Strava,partner_perk_claimed,0.85,implemented,Auto-discovered,https://strava.com
+Headspace,meditation_completed,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,sleep_cast_played,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,focus_music_listened,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,course_started,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,mindful_moment_taken,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,progress_tracked,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,streak_extended,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,reminder_set,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,buddy_added,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,session_downloaded,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,subscription_gifted,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,work_plan_accessed,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,family_plan_joined,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,sleep_analysis_viewed,0.85,implemented,Auto-discovered,https://headspace.com
+Headspace,sos_session_used,0.85,implemented,Auto-discovered,https://headspace.com
+Calm,meditation_played,0.85,implemented,Auto-discovered,https://calm.com
+Calm,sleep_story_listened,0.85,implemented,Auto-discovered,https://calm.com
+Calm,masterclass_watched,0.85,implemented,Auto-discovered,https://calm.com
+Calm,breathing_exercise_completed,0.85,implemented,Auto-discovered,https://calm.com
+Calm,music_track_played,0.85,implemented,Auto-discovered,https://calm.com
+Calm,mood_check_in_logged,0.85,implemented,Auto-discovered,https://calm.com
+Calm,streak_tracked,0.85,implemented,Auto-discovered,https://calm.com
+Calm,reminder_customized,0.85,implemented,Auto-discovered,https://calm.com
+Calm,favorite_added,0.85,implemented,Auto-discovered,https://calm.com
+Calm,offline_content_downloaded,0.85,implemented,Auto-discovered,https://calm.com
+Calm,subscription_purchased,0.85,implemented,Auto-discovered,https://calm.com
+Calm,gift_card_redeemed,0.85,implemented,Auto-discovered,https://calm.com
+Calm,corporate_wellness_accessed,0.85,implemented,Auto-discovered,https://calm.com
+Calm,kids_section_used,0.85,implemented,Auto-discovered,https://calm.com
+Calm,breathe_bubble_customized,0.85,implemented,Auto-discovered,https://calm.com
+Peloton,class_taken,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,milestone_achieved,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,high_five_exchanged,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,stack_created,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,challenge_joined,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,output_tracked,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,heart_rate_monitored,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,personal_record_set,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,streak_maintained,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,achievement_badge_earned,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,membership_paused,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,apparel_purchased,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,referral_code_used,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,scenic_content_ridden,0.85,implemented,Auto-discovered,https://onepeloton.com
+Peloton,lanebreak_game_played,0.85,implemented,Auto-discovered,https://onepeloton.com
+Fitbit,activity_tracked,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,sleep_logged,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,food_logged,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,water_logged,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,weight_logged,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,exercise_auto_recognized,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,heart_rate_variability_measured,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,spo2_monitored,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,skin_temperature_tracked,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,stress_management_score_calculated,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,premium_trial_started,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,health_metrics_dashboard_viewed,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,wellness_report_generated,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,coach_guidance_received,0.85,implemented,Auto-discovered,https://fitbit.com
+Fitbit,family_account_created,0.85,implemented,Auto-discovered,https://fitbit.com
+Booking.com,property_searched,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,reservation_made,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,modification_requested,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,cancellation_processed,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,review_posted,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,genius_program_joined,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,trip_planner_used,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,airport_transfer_booked,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,car_rental_reserved,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,flight_searched,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,genius_level_achieved,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,reward_claimed,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,mobile_app_exclusive_used,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,secret_deal_unlocked,0.85,implemented,Auto-discovered,https://booking.com
+Booking.com,partner_offer_redeemed,0.85,implemented,Auto-discovered,https://booking.com
+Airbnb,listing_searched,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,booking_requested,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,reservation_confirmed,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,check_in_completed,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,review_left,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,experience_booked,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,wishlist_created,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,co_host_invited,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,guidebook_accessed,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,message_sent,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,superguest_status_earned,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,referral_credit_earned,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,airbnb_plus_explored,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,luxe_property_viewed,0.85,implemented,Auto-discovered,https://airbnb.com
+Airbnb,long_term_stay_discount_applied,0.85,implemented,Auto-discovered,https://airbnb.com
+Expedia,flight_booked,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,hotel_reserved,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,package_purchased,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,activity_booked,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,cruise_reserved,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,itinerary_viewed,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,price_drop_alert_set,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,loyalty_points_redeemed,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,mobile_exclusive_deal_claimed,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,travel_insurance_added,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,expedia_rewards_enrolled,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,gold_status_achieved,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,vip_access_property_booked,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,member_price_used,0.85,implemented,Auto-discovered,https://expedia.com
+Expedia,point_purchase_made,0.85,implemented,Auto-discovered,https://expedia.com
+Uber,ride_requested,0.85,implemented,Auto-discovered,https://uber.com
+Uber,trip_completed,0.85,implemented,Auto-discovered,https://uber.com
+Uber,fare_split,0.85,implemented,Auto-discovered,https://uber.com
+Uber,scheduled_ride_set,0.85,implemented,Auto-discovered,https://uber.com
+Uber,pool_joined,0.85,implemented,Auto-discovered,https://uber.com
+Uber,uber_eats_ordered,0.85,implemented,Auto-discovered,https://uber.com
+Uber,freight_shipment_created,0.85,implemented,Auto-discovered,https://uber.com
+Uber,business_profile_switched,0.85,implemented,Auto-discovered,https://uber.com
+Uber,safety_toolkit_used,0.85,implemented,Auto-discovered,https://uber.com
+Uber,rating_given,0.85,implemented,Auto-discovered,https://uber.com
+Uber,uber_rewards_enrolled,0.85,implemented,Auto-discovered,https://uber.com
+Uber,uber_cash_purchased,0.85,implemented,Auto-discovered,https://uber.com
+Uber,uber_pass_subscribed,0.85,implemented,Auto-discovered,https://uber.com
+Uber,vip_support_accessed,0.85,implemented,Auto-discovered,https://uber.com
+Uber,jump_bike_rented,0.85,implemented,Auto-discovered,https://uber.com
+Lyft,ride_requested,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,shared_ride_taken,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,bike_scooter_unlocked,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,scheduled_ride_set,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,transit_info_viewed,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,lyft_pink_subscribed,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,bike_lane_navigation_used,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,safety_features_used,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,driver_tipped,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,lost_item_reported,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,rewards_points_earned,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,challenge_completed,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,partnership_perk_claimed,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,business_profile_managed,0.85,implemented,Auto-discovered,https://lyft.com
+Lyft,healthcare_ride_scheduled,0.85,implemented,Auto-discovered,https://lyft.com
+Delta,flight_booked,0.85,implemented,Auto-discovered,https://delta.com
+Delta,seat_selected,0.85,implemented,Auto-discovered,https://delta.com
+Delta,check_in_completed,0.85,implemented,Auto-discovered,https://delta.com
+Delta,boarding_pass_accessed,0.85,implemented,Auto-discovered,https://delta.com
+Delta,upgrade_requested,0.85,implemented,Auto-discovered,https://delta.com
+Delta,skymiles_earned,0.85,implemented,Auto-discovered,https://delta.com
+Delta,delta_sync_used,0.85,implemented,Auto-discovered,https://delta.com
+Delta,fly_ready_confirmed,0.85,implemented,Auto-discovered,https://delta.com
+Delta,rebooking_requested,0.85,implemented,Auto-discovered,https://delta.com
+Delta,unaccompanied_minor_service_booked,0.85,implemented,Auto-discovered,https://delta.com
+Delta,medallion_status_achieved,0.85,implemented,Auto-discovered,https://delta.com
+Delta,companion_certificate_used,0.85,implemented,Auto-discovered,https://delta.com
+Delta,delta_sky_club_accessed,0.85,implemented,Auto-discovered,https://delta.com
+Delta,upgrade_clearance_received,0.85,implemented,Auto-discovered,https://delta.com
+Delta,mileage_run_calculated,0.85,implemented,Auto-discovered,https://delta.com
+GitHub,repository_created,0.85,implemented,Auto-discovered,https://github.com
+GitHub,commit_pushed,0.85,implemented,Auto-discovered,https://github.com
+GitHub,pull_request_opened,0.85,implemented,Auto-discovered,https://github.com
+GitHub,branch_merged,0.85,implemented,Auto-discovered,https://github.com
+GitHub,issue_created,0.85,implemented,Auto-discovered,https://github.com
+GitHub,action_workflow_triggered,0.85,implemented,Auto-discovered,https://github.com
+GitHub,package_published,0.85,implemented,Auto-discovered,https://github.com
+GitHub,page_deployed,0.85,implemented,Auto-discovered,https://github.com
+GitHub,release_published,0.85,implemented,Auto-discovered,https://github.com
+GitHub,security_advisory_addressed,0.85,implemented,Auto-discovered,https://github.com
+GitHub,fork_created,0.85,implemented,Auto-discovered,https://github.com
+GitHub,star_given,0.85,implemented,Auto-discovered,https://github.com
+GitHub,wiki_edited,0.85,implemented,Auto-discovered,https://github.com
+GitHub,discussion_started,0.85,implemented,Auto-discovered,https://github.com
+GitHub,sponsorship_set_up,0.85,implemented,Auto-discovered,https://github.com
+GitLab,project_initialized,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,merge_request_submitted,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,pipeline_triggered,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,container_image_built,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,security_scan_run,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,auto_devops_enabled,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,kubernetes_cluster_connected,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,page_deployed,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,release_created,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,infrastructure_as_code_managed,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,epic_created,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,roadmap_planned,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,wiki_documented,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,snippet_shared,0.85,implemented,Auto-discovered,https://gitlab.com
+GitLab,group_managed,0.85,implemented,Auto-discovered,https://gitlab.com
+Bitbucket,repository_created,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,pull_request_created,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,pipeline_executed,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,deployment_triggered,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,branch_permission_set,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,bitbucket_pipelines_enabled,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,deployment_environment_configured,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,jira_issue_linked,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,slack_notification_set,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,merge_check_configured,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,team_invited,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,access_control_managed,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,fork_synced,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,wiki_enabled,0.85,implemented,Auto-discovered,https://bitbucket.org
+Bitbucket,smart_mirror_configured,0.85,implemented,Auto-discovered,https://bitbucket.org
+Jenkins,job_created,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,build_triggered,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,pipeline_scripted,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,plugin_installed,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,node_configured,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,deployment_stage_executed,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,artifact_archived,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,test_report_generated,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,credential_managed,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,backup_scheduled,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,user_permission_assigned,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,audit_trail_reviewed,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,distributed_build_configured,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,cloud_agent_provisioned,0.85,implemented,Auto-discovered,https://jenkins.io
+Jenkins,update_center_accessed,0.85,implemented,Auto-discovered,https://jenkins.io
+CircleCI,config_validated,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,workflow_triggered,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,orb_used,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,context_created,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,schedule_configured,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,docker_image_built,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,kubernetes_deployment_made,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,artifact_stored,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,test_parallelization_run,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,security_scan_integrated,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,team_member_invited,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,project_followed,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,insights_viewed,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,plan_upgraded,0.85,implemented,Auto-discovered,https://circleci.com
+CircleCI,support_ticket_created,0.85,implemented,Auto-discovered,https://circleci.com
+Travis CI,repository_activated,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,build_triggered,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,matrix_build_configured,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,deployment_released,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,cron_job_scheduled,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,github_releases_deployed,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,heroku_application_pushed,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,aws_s3_uploaded,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,docker_hub_pushed,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,pypi_package_published,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,organization_managed,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,billing_updated,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,log_accessed,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,cache_cleared,0.85,implemented,Auto-discovered,https://travis-ci.com
+Travis CI,debug_mode_activated,0.85,implemented,Auto-discovered,https://travis-ci.com
+YouTube,play_video,0.95,implemented,Navigates to search results,https://support.google.com/youtube
+YouTube,search_video,0.95,implemented,Navigates to search results,https://support.google.com/youtube
+WhatsApp,send_message,0.9,stub,Type and enter,https://faq.whatsapp.com
+WhatsApp,attach_photo,0.6,stub,Complex UI flow inferred,https://faq.whatsapp.com
+Notepad,type_text,1.0,implemented,Standard typing,https://support.microsoft.com
+Notepad,save_file,0.8,implemented,Menu clicking inferred,https://support.microsoft.com
+Spotify,play_music,0.9,implemented,Web player URL,https://support.spotify.com
+Spotify,search_music,0.9,implemented,Web player URL,https://support.spotify.com
+Google Chrome,open_url,1.0,implemented,Navigate,https://support.google.com/chrome
+Google Chrome,new_tab,1.0,implemented,Ctrl+T,https://support.google.com/chrome
+Google Chrome,close_tab,1.0,implemented,Ctrl+W,https://support.google.com/chrome
+Windows Explorer,open_folder,1.0,implemented,System Call,https://support.microsoft.com
+Calculator,calculate,1.0,implemented,Type expression,https://support.microsoft.com
+Google Search,search,1.0,implemented,Web Query,https://google.com
+Gmail,send_email,0.9,implemented,Compose URL,https://mail.google.com
+Twitter/X,post_tweet,0.9,implemented,Intent URL,https://help.twitter.com
+Amazon,search_product,0.95,implemented,Search URL,https://amazon.com
+Android Studio,new_project_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_module_added,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_file_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_class_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_activity_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_fragment_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_service_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_layout_file_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,new_resource_file_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,project_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,recent_project_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,project_imported,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_saved,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,all_files_saved,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_closed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,project_closed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_renamed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,class_renamed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,method_renamed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,variable_renamed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_deleted,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_moved,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,file_copied,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,code_typed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,paste_operation_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,undo_operation_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,redo_operation_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,reformat_code_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,optimize_imports_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,completion_basic_triggered,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,completion_smart_type_triggered,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,go_to_class_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,go_to_file_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,go_to_declaration_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,go_to_implementation_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,search_everywhere_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,find_in_path_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,find_usages_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,rename_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,extract_method_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,extract_variable_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,inline_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,generate_constructor_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,generate_getter_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,generate_setter_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,generate_override_methods_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,make_project_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,rebuild_project_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,clean_project_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,build_apk_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,generate_signed_bundle_or_apk_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,gradle_sync_started,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,gradle_sync_finished_successfully,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,run_app_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,debug_app_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,app_run_on_emulator,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,app_run_on_physical_device,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,virtual_device_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,virtual_device_launched,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,emulator_screen_capture_taken,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,layout_editor_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,design_view_selected,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,code_view_selected,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,cpu_profiler_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,memory_profiler_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,network_profiler_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,database_inspector_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,layout_inspector_opened,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,unit_test_run_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,unit_test_debug_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,git_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,git_push_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,git_pull_executed,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,git_branch_created,0.80,implemented,Local app - comprehensive DB,local
+Android Studio,git_merge_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,new_project_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,new_file_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,new_python_file_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,new_python_package_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,new_jupyter_notebook_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,project_opened,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_opened,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_saved,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_closed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_renamed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_moved,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,file_deleted,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,code_completion_basic_invoked,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,code_completion_smart_invoked,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,quick_fix_applied,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,intention_action_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,go_to_declaration_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,go_to_implementation_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,go_to_class_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,go_to_file_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,go_to_symbol_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,search_everywhere_opened,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,find_in_path_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,find_usages_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,rename_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,extract_method_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,extract_variable_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,inline_refactoring_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,reformat_code_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,optimize_imports_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,run_configuration_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,debug_configuration_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,breakpoint_toggled,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,step_over_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,step_into_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,evaluate_expression_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,watch_added,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,python_interpreter_configured,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,virtualenv_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,pip_package_installed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,pip_package_uninstalled,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,pytest_run_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,unittest_run_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,coverage_analysis_run,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,test_results_viewed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,git_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,git_push_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,git_pull_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,git_branch_created,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,git_merge_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,terminal_opened,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,python_console_opened,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,jupyter_notebook_cell_executed,0.80,implemented,Local app - comprehensive DB,local
+PyCharm,jupyter_kernel_restarted,0.80,implemented,Local app - comprehensive DB,local
+VS Code,new_file_created,0.80,implemented,Local app - comprehensive DB,local
+VS Code,new_folder_created,0.80,implemented,Local app - comprehensive DB,local
+VS Code,new_workspace_created,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_opened,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_saved,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_saved_as,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_closed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_renamed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_moved,0.80,implemented,Local app - comprehensive DB,local
+VS Code,file_deleted,0.80,implemented,Local app - comprehensive DB,local
+VS Code,text_typed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,text_pasted,0.80,implemented,Local app - comprehensive DB,local
+VS Code,text_cut,0.80,implemented,Local app - comprehensive DB,local
+VS Code,text_copied,0.80,implemented,Local app - comprehensive DB,local
+VS Code,undo_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,redo_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,find_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,replace_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,find_in_files_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,go_to_file_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,go_to_symbol_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,go_to_line_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,go_to_definition_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,go_to_references_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,peek_definition_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,peek_references_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,code_completion_triggered,0.80,implemented,Local app - comprehensive DB,local
+VS Code,quick_fix_applied,0.80,implemented,Local app - comprehensive DB,local
+VS Code,rename_symbol_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,extract_method_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,format_document_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,format_selection_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,toggle_comment_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,toggle_block_comment_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,extension_installed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,extension_uninstalled,0.80,implemented,Local app - comprehensive DB,local
+VS Code,extension_updated,0.80,implemented,Local app - comprehensive DB,local
+VS Code,terminal_opened,0.80,implemented,Local app - comprehensive DB,local
+VS Code,terminal_command_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,debug_session_started,0.80,implemented,Local app - comprehensive DB,local
+VS Code,breakpoint_toggled,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_stage_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_push_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_pull_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_branch_created,0.80,implemented,Local app - comprehensive DB,local
+VS Code,git_checkout_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,task_run_executed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,settings_changed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,keybinding_changed,0.80,implemented,Local app - comprehensive DB,local
+VS Code,snippet_inserted,0.80,implemented,Local app - comprehensive DB,local
+VS Code,emmet_expanded,0.80,implemented,Local app - comprehensive DB,local
+VS Code,split_editor_opened,0.80,implemented,Local app - comprehensive DB,local
+VS Code,editor_group_created,0.80,implemented,Local app - comprehensive DB,local
+VS Code,command_palette_opened,0.80,implemented,Local app - comprehensive DB,local
+VS Code,workspace_settings_changed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,new_sketch_created,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,sketch_opened,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,sketch_saved,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,sketch_saved_as,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,sketch_closed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,example_sketch_opened,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,code_typed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,code_pasted,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,undo_executed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,redo_executed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,verify_compile_executed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,upload_executed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,upload_using_programmer_executed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,board_selected,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,port_selected,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,programmer_selected,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,library_installed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,library_removed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,library_updated,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,board_manager_opened,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,board_package_installed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,serial_monitor_opened,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,serial_plotter_opened,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,serial_data_sent,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,baud_rate_changed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,preferences_changed,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,verbose_output_enabled,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,include_library_added,0.80,implemented,Local app - comprehensive DB,local
+Arduino IDE,sketch_exported_compiled_binary,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_init_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_clone_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_add_file_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_add_all_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_add_interactive_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_status_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_diff_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_diff_cached_staged_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_commit_amend_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_log_viewed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_blame_viewed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_branch_created,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_branch_deleted,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_branch_renamed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_branch_list_shown,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_checkout_branch_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_checkout_new_branch_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_merge_branch_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_merge_abort_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_rebase_branch_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_rebase_interactive_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_rebase_continue_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_rebase_abort_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_cherry_pick_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_fetch_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_pull_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_push_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_push_force_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_remote_add_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_remote_remove_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_stash_push_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_stash_pop_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_stash_list_shown,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_stash_apply_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_tag_annotated_created,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_tag_lightweight_created,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_tag_delete_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_tag_list_shown,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_reset_soft_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_reset_mixed_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_reset_hard_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_revert_commit_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_bisect_start_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_bisect_bad_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_bisect_good_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_bisect_reset_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_submodule_add_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_submodule_update_executed,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_config_global_set,0.80,implemented,Local app - comprehensive DB,local
+Git CLI,git_config_local_set,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,repository_cloned,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,repository_added_from_local,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,repository_created,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,repository_opened,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,branch_created,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,branch_switched,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,branch_renamed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,branch_deleted,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,commit_created,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,commit_amended,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,commit_undone,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,changes_staged,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,changes_unstaged,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,changes_discarded,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,push_executed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,pull_executed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,fetch_executed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,pull_request_created,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,merge_branch_executed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,conflict_resolved,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,stash_created,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,stash_restored,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,diff_viewed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,history_viewed,0.80,implemented,Local app - comprehensive DB,local
+GitHub Desktop,blame_viewed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_uploaded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_uploaded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,multiple_files_uploaded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_downloaded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_downloaded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_synced_up,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_synced_down,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_conflict_detected,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_conflict_resolved_keep_both,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_paused,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_resumed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_link_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_link_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_link_permission_set_view,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_link_permission_set_edit,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_directly_to_user,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_shared_to_group,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_version_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_version_restored,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_renamed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_moved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,folder_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_renamed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_moved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_restored_from_recycle_bin,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_search_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_filter_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,document_opened_for_editing,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,document_edited_simultaneously_by_multiple_users,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,comment_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,comment_resolved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_on_demand_files_enabled,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,file_sync_free_up_space_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,user_signed_in,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,user_signed_out,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,retention_policy_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft OneDrive,dlp_policy_triggered,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,blank_document_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_from_template_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_saved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_saved_as,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_saved_as_pdf,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_auto_saved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_closed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_typed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_pasted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_cut,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_copied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_undo_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_redo_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_find_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_replace_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_bold_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_italic_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_underline_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_font_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_font_size_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_font_color_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_paragraph_alignment_set_left,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_paragraph_alignment_set_center,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_paragraph_alignment_set_right,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_paragraph_alignment_set_justified,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_styles_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_numbering_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_bullets_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_header_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_footer_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_page_break_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_page_setup_margins_set,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_page_setup_orientation_set_portrait,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_page_setup_orientation_set_landscape,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_footnote_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_citation_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_bookmark_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_cross_reference_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_index_and_tables_table_of_contents_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_check_accessibility_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_check_compatibility_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_macro_recorded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,text_macro_run,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_password_protection_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_marked_as_final,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_compare_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Word,document_combine_executed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,blank_workbook_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,workbook_from_template_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,workbook_saved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,workbook_saved_as,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,workbook_saved_as_pdf,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,workbook_closed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,cell_value_entered,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,cell_formula_entered,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,cell_format_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,row_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,row_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,column_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,column_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sheet_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sheet_renamed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sheet_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sheet_moved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,range_selected,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,range_copied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,range_pasted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,range_cut,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,auto_fill_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,flash_fill_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sort_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,filter_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,advanced_filter_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,pivot_table_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,pivot_chart_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,chart_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,chart_type_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,chart_data_range_modified,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,conditional_formatting_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,data_validation_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,vlookup_formula_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,index_match_formula_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,sumif_formula_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,macro_recorded,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,macro_run,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,vba_editor_opened,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,freeze_panes_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,split_window_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,name_manager_opened,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,named_range_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,data_connection_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,power_query_opened,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,protect_sheet_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft Excel,protect_workbook_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,blank_presentation_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presentation_from_template_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presentation_saved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presentation_saved_as,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presentation_saved_as_pdf,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presentation_closed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_deleted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_duplicated,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_moved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_layout_changed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_design_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,text_typed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,text_formatted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,text_box_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,image_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,shape_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,chart_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,table_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,video_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,audio_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,icon_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,animation_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,animation_removed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,animation_reordered,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,transition_applied,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,transition_timing_set,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_show_started,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_show_from_beginning,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_show_from_current_slide,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,presenter_view_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,notes_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,comments_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,comments_resolved,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,slide_master_edited,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,custom_layout_created,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,hyperlink_inserted,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,action_button_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,section_added,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,section_renamed,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,rehearse_timings_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,record_slide_show_used,0.80,implemented,Local app - comprehensive DB,local
+Microsoft PowerPoint,export_to_video_executed,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_opened,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_created_from_file,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_created_from_scanner,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_saved,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_saved_as,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_closed,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_printed,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_exported_to_word,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_exported_to_excel,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_exported_to_powerpoint,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_exported_to_image,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,text_selected,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,text_copied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,text_highlighted,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,comment_added,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,sticky_note_added,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,text_markup_applied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,stamp_added,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,drawing_markup_added,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,form_field_created,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,form_field_filled,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,form_submitted,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,digital_signature_applied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,certificate_based_signature_applied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,password_security_applied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,permissions_set,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_inserted,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_deleted,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_rotated,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_extracted,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_replaced,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pages_reordered,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_merged,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_split,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,ocr_text_recognition_executed,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,redaction_applied,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,bookmark_created,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,link_created,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,accessibility_check_executed,0.80,implemented,Local app - comprehensive DB,local
+Adobe Acrobat,pdf_optimized,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_created,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_opened,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_extracted,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,files_added_to_archive,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,files_deleted_from_archive,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_tested,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_repaired,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,compression_method_selected_store,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,compression_method_selected_fastest,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,compression_method_selected_normal,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,compression_method_selected_best,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_format_rar_selected,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,archive_format_zip_selected,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,password_protection_applied,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,split_archive_created,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,self_extracting_archive_created,0.80,implemented,Local app - comprehensive DB,local
+WinRAR,comment_added_to_archive,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,script_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,interactive_shell_started,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,module_imported,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pip_install_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pip_uninstall_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pip_list_shown,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pip_freeze_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,virtualenv_created,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,virtualenv_activated,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,virtualenv_deactivated,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,package_built,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,package_published,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,unittest_run,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pytest_run,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,pdb_debugger_started,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,breakpoint_hit,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,type_checking_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,linting_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,jupyter_notebook_started,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,jupyter_cell_executed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,requirements_installed,0.80,implemented,Local app - comprehensive DB,local
+Python Runtime,setup_py_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,script_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,repl_started,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_init_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_install_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_uninstall_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_update_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_run_script_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_publish_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npm_audit_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,npx_command_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,package_json_edited,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,module_required,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,module_imported_esm,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,express_server_started,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,http_server_started,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,jest_test_run,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,mocha_test_run,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,webpack_build_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,vite_dev_server_started,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,typescript_compiled,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,eslint_executed,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,nodemon_started,0.80,implemented,Local app - comprehensive DB,local
+Node.js Runtime,pm2_process_managed,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,model_downloaded,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,model_loaded,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,model_unloaded,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,chat_session_started,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,chat_message_sent,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,chat_response_received,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,system_prompt_set,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,temperature_adjusted,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,max_tokens_set,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,local_server_started,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,local_server_stopped,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,api_endpoint_configured,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,model_quantization_selected,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,context_length_set,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,gpu_layers_configured,0.80,implemented,Local app - comprehensive DB,local
+LM Studio,chat_history_exported,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_pulled,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_removed,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_list_shown,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_run_started,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_run_stopped,0.80,implemented,Local app - comprehensive DB,local
+Ollama,chat_message_sent,0.80,implemented,Local app - comprehensive DB,local
+Ollama,chat_response_received,0.80,implemented,Local app - comprehensive DB,local
+Ollama,api_server_started,0.80,implemented,Local app - comprehensive DB,local
+Ollama,api_request_processed,0.80,implemented,Local app - comprehensive DB,local
+Ollama,modelfile_created,0.80,implemented,Local app - comprehensive DB,local
+Ollama,custom_model_built,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_copied,0.80,implemented,Local app - comprehensive DB,local
+Ollama,model_pushed,0.80,implemented,Local app - comprehensive DB,local
+Ollama,system_prompt_set,0.80,implemented,Local app - comprehensive DB,local
+Ollama,temperature_set,0.80,implemented,Local app - comprehensive DB,local
+Ollama,embedding_generated,0.80,implemented,Local app - comprehensive DB,local

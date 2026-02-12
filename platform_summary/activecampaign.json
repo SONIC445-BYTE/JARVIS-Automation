@@ -1,0 +1,139 @@
+{
+    "platform": "ActiveCampaign",
+    "platform_urls": [
+        "https://activecampaign.com"
+    ],
+    "supported_actions": {
+        "automation_built": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "campaign_sent": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deal_created": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "chat_conversation_started": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "site_tracking_enabled": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_tagged": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "list_managed": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_submitted": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_achieved": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sms_sent": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_analyzed": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "split_test_reviewed": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attribution_tracked": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "predictive_sending_used": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crm_synced": {
+            "sources": [
+                "https://activecampaign.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/activecampaign/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/activecampaign/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added automation_built",
+        "added campaign_sent",
+        "added deal_created",
+        "added chat_conversation_started",
+        "added site_tracking_enabled",
+        "added contact_tagged",
+        "added list_managed",
+        "added form_submitted",
+        "added goal_achieved",
+        "added sms_sent",
+        "added report_analyzed",
+        "added split_test_reviewed",
+        "added attribution_tracked",
+        "added predictive_sending_used",
+        "added crm_synced"
+    ],
+    "citations": [
+        "https://activecampaign.com"
+    ]
+}

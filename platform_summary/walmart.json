@@ -1,0 +1,107 @@
+{
+    "platform": "Walmart Marketplace",
+    "platform_urls": [
+        "https://walmart.com"
+    ],
+    "supported_actions": {
+        "product_listed": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fulfillment_service_used": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "advertising_campaign_managed": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "return_processed": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "seller_account_approved": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "walmart_fulfillment_services_enrolled": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "repricer_tool_used": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "performance_metrics_viewed": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pro_seller_badge_earned": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "walmart_connect_advertising_used": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "seller_support_ticket_created": {
+            "sources": [
+                "https://walmart.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/walmart/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/walmart/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added product_listed",
+        "added fulfillment_service_used",
+        "added advertising_campaign_managed",
+        "added return_processed",
+        "added seller_account_approved",
+        "added walmart_fulfillment_services_enrolled",
+        "added repricer_tool_used",
+        "added performance_metrics_viewed",
+        "added pro_seller_badge_earned",
+        "added walmart_connect_advertising_used",
+        "added seller_support_ticket_created"
+    ],
+    "citations": [
+        "https://walmart.com"
+    ]
+}

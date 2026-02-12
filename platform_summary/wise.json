@@ -1,0 +1,139 @@
+{
+    "platform": "Wise",
+    "platform_urls": [
+        "https://wise.com"
+    ],
+    "supported_actions": {
+        "transfer_initiated": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recipient_added": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rate_alert_set": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wise_card_used": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_account_opened": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "verification_document_uploaded": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bank_details_shared": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jar_created": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_debit_set_up": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_integrated": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_factor_authentication_enabled": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "login_alert_reviewed": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_frozen": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "statement_downloaded": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_closure_requested": {
+            "sources": [
+                "https://wise.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/wise/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/wise/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added transfer_initiated",
+        "added recipient_added",
+        "added rate_alert_set",
+        "added wise_card_used",
+        "added business_account_opened",
+        "added verification_document_uploaded",
+        "added bank_details_shared",
+        "added jar_created",
+        "added direct_debit_set_up",
+        "added api_integrated",
+        "added two_factor_authentication_enabled",
+        "added login_alert_reviewed",
+        "added card_frozen",
+        "added statement_downloaded",
+        "added account_closure_requested"
+    ],
+    "citations": [
+        "https://wise.com"
+    ]
+}

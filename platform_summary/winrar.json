@@ -1,0 +1,84 @@
+{
+    "platform": "WinRAR",
+    "platform_type": "local_application",
+    "executable": "WinRAR.exe",
+    "supported_actions": {
+        "archive_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_extracted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "files_added_to_archive": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "files_deleted_from_archive": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_tested": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_repaired": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "compression_method_selected_store": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "compression_method_selected_fastest": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "compression_method_selected_normal": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "compression_method_selected_best": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_format_rar_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "archive_format_zip_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "password_protection_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "split_archive_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "self_extracting_archive_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comment_added_to_archive": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/winrar/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 17,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

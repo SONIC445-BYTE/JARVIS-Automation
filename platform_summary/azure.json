@@ -1,0 +1,139 @@
+{
+    "platform": "Microsoft Azure",
+    "platform_urls": [
+        "https://azure.microsoft.com"
+    ],
+    "supported_actions": {
+        "virtual_machine_deployed": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "function_app_created": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "aks_cluster_provisioned": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "app_service_published": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "container_instance_run": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "blob_storage_created": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "managed_disk_attached": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_share_mapped": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "archive_tier_set": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "data_lake_storage_gen2_enabled": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "virtual_network_created": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "network_security_group_configured": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "application_gateway_deployed": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cdn_endpoint_created": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "express_route_circuit_provisioned": {
+            "sources": [
+                "https://azure.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/azure/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/azure/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added virtual_machine_deployed",
+        "added function_app_created",
+        "added aks_cluster_provisioned",
+        "added app_service_published",
+        "added container_instance_run",
+        "added blob_storage_created",
+        "added managed_disk_attached",
+        "added file_share_mapped",
+        "added archive_tier_set",
+        "added data_lake_storage_gen2_enabled",
+        "added virtual_network_created",
+        "added network_security_group_configured",
+        "added application_gateway_deployed",
+        "added cdn_endpoint_created",
+        "added express_route_circuit_provisioned"
+    ],
+    "citations": [
+        "https://azure.microsoft.com"
+    ]
+}

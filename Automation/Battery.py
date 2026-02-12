@@ -13,6 +13,7 @@ battery = psutil.sensors_battery()
 def battery_Alert():
     while True:
         time.sleep(3)
+        battery = psutil.sensors_battery()
         percentage = int(battery.percent)
         if percentage == 100:
             t1 = threading.Thread(target=Alert,args=("100%charge",))

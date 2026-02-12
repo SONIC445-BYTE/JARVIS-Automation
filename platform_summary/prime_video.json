@@ -1,0 +1,107 @@
+{
+    "platform": "Amazon Prime Video",
+    "platform_urls": [
+        "https://primevideo.com"
+    ],
+    "supported_actions": {
+        "title_streamed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_subscribed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_purchased": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rent_completed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watchlist_managed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "x_ray_feature_used": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "imdb_integration_viewed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "audio_description_enabled": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "prime_membership_managed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_direct_publishing_used": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "amazon_channels_managed": {
+            "sources": [
+                "https://primevideo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/prime_video/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/prime_video/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added title_streamed",
+        "added channel_subscribed",
+        "added video_purchased",
+        "added rent_completed",
+        "added watchlist_managed",
+        "added x_ray_feature_used",
+        "added imdb_integration_viewed",
+        "added audio_description_enabled",
+        "added prime_membership_managed",
+        "added video_direct_publishing_used",
+        "added amazon_channels_managed"
+    ],
+    "citations": [
+        "https://primevideo.com"
+    ]
+}

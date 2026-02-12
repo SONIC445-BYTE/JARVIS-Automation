@@ -1,0 +1,4157 @@
+{
+  "Acorns": {
+    "actions": [
+      "aggressive_conservative_slider_adjusted",
+      "early_account_managed",
+      "financial_literacy_content_consumed",
+      "found_money_earned",
+      "gift_card_purchased",
+      "grow_magazine_article_viewed",
+      "later_account_opened",
+      "market_explained_read",
+      "money_lesson_completed",
+      "news_updated_checked",
+      "portfolio_selected",
+      "recurring_investment_set",
+      "referral_bonus_earned",
+      "round_up_invested",
+      "support_ticket_submitted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "ActiveCampaign": {
+    "actions": [
+      "attribution_tracked",
+      "automation_built",
+      "campaign_sent",
+      "chat_conversation_started",
+      "contact_tagged",
+      "crm_synced",
+      "deal_created",
+      "form_submitted",
+      "goal_achieved",
+      "list_managed",
+      "predictive_sending_used",
+      "report_analyzed",
+      "site_tracking_enabled",
+      "sms_sent",
+      "split_test_reviewed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Adobe Acrobat": {
+    "actions": [
+      "accessibility_check_executed",
+      "bookmark_created",
+      "certificate_based_signature_applied",
+      "comment_added",
+      "digital_signature_applied",
+      "drawing_markup_added",
+      "form_field_created",
+      "form_field_filled",
+      "form_submitted",
+      "link_created",
+      "ocr_text_recognition_executed",
+      "pages_deleted",
+      "pages_extracted",
+      "pages_inserted",
+      "pages_reordered",
+      "pages_replaced",
+      "pages_rotated",
+      "password_security_applied",
+      "pdf_closed",
+      "pdf_created_from_file",
+      "pdf_created_from_scanner",
+      "pdf_exported_to_excel",
+      "pdf_exported_to_image",
+      "pdf_exported_to_powerpoint",
+      "pdf_exported_to_word",
+      "pdf_merged",
+      "pdf_opened",
+      "pdf_optimized",
+      "pdf_printed",
+      "pdf_saved",
+      "pdf_saved_as",
+      "pdf_split",
+      "permissions_set",
+      "redaction_applied",
+      "stamp_added",
+      "sticky_note_added",
+      "text_copied",
+      "text_highlighted",
+      "text_markup_applied",
+      "text_selected"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Airbnb": {
+    "actions": [
+      "airbnb_plus_explored",
+      "booking_requested",
+      "check_in_completed",
+      "co_host_invited",
+      "experience_booked",
+      "guidebook_accessed",
+      "listing_searched",
+      "long_term_stay_discount_applied",
+      "luxe_property_viewed",
+      "message_sent",
+      "referral_credit_earned",
+      "reservation_confirmed",
+      "review_left",
+      "superguest_status_earned",
+      "wishlist_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Airtable": {
+    "actions": [
+      "automation_scripted",
+      "base_created",
+      "collaborator_invited",
+      "comment_threaded",
+      "enterprise_admin_managed",
+      "extension_installed",
+      "field_customized",
+      "form_shared",
+      "interface_designed",
+      "record_created",
+      "revision_history_viewed",
+      "snapshot_taken",
+      "sync_integration_set",
+      "template_gallery_used",
+      "view_filtered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Alibaba": {
+    "actions": [
+      "company_profile_created",
+      "gold_supplier_subscribed",
+      "inquiry_sent",
+      "inspection_service_ordered",
+      "logistics_service_booked",
+      "product_showcase_uploaded",
+      "product_sourced",
+      "rfq_responded",
+      "supplier_contacted",
+      "taobao_product_imported",
+      "trade_assurance_order_placed",
+      "trade_show_registered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Alibaba Cloud": {
+    "actions": [
+      "archive_storage_used",
+      "batch_compute_job_submitted",
+      "cdn_domain_added",
+      "container_service_kubernetes_cluster_created",
+      "data_transport_solution_used",
+      "ebs_block_storage_attached",
+      "ecs_instance_created",
+      "elastic_gpu_service_activated",
+      "express_connect_established",
+      "function_compute_service_deployed",
+      "nas_file_system_mounted",
+      "oss_bucket_created",
+      "security_group_rule_configured",
+      "server_load_balancer_deployed",
+      "vpc_established"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Amazon": {
+    "actions": [
+      "search_product"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Android Studio": {
+    "actions": [
+      "all_files_saved",
+      "app_run_on_emulator",
+      "app_run_on_physical_device",
+      "build_apk_executed",
+      "class_renamed",
+      "clean_project_executed",
+      "code_typed",
+      "code_view_selected",
+      "completion_basic_triggered",
+      "completion_smart_type_triggered",
+      "cpu_profiler_opened",
+      "database_inspector_opened",
+      "debug_app_executed",
+      "design_view_selected",
+      "emulator_screen_capture_taken",
+      "extract_method_refactoring_executed",
+      "extract_variable_refactoring_executed",
+      "file_closed",
+      "file_copied",
+      "file_deleted",
+      "file_moved",
+      "file_opened",
+      "file_renamed",
+      "file_saved",
+      "find_in_path_executed",
+      "find_usages_executed",
+      "generate_constructor_executed",
+      "generate_getter_executed",
+      "generate_override_methods_executed",
+      "generate_setter_executed",
+      "generate_signed_bundle_or_apk_executed",
+      "git_branch_created",
+      "git_commit_executed",
+      "git_merge_executed",
+      "git_pull_executed",
+      "git_push_executed",
+      "go_to_class_executed",
+      "go_to_declaration_executed",
+      "go_to_file_executed",
+      "go_to_implementation_executed",
+      "gradle_sync_finished_successfully",
+      "gradle_sync_started",
+      "inline_refactoring_executed",
+      "layout_editor_opened",
+      "layout_inspector_opened",
+      "make_project_executed",
+      "memory_profiler_opened",
+      "method_renamed",
+      "network_profiler_opened",
+      "new_activity_created",
+      "new_class_created",
+      "new_file_created",
+      "new_fragment_created",
+      "new_layout_file_created",
+      "new_module_added",
+      "new_project_created",
+      "new_resource_file_created",
+      "new_service_created",
+      "optimize_imports_executed",
+      "paste_operation_executed",
+      "project_closed",
+      "project_imported",
+      "project_opened",
+      "rebuild_project_executed",
+      "recent_project_opened",
+      "redo_operation_executed",
+      "reformat_code_executed",
+      "rename_refactoring_executed",
+      "run_app_executed",
+      "search_everywhere_opened",
+      "undo_operation_executed",
+      "unit_test_debug_executed",
+      "unit_test_run_executed",
+      "variable_renamed",
+      "virtual_device_created",
+      "virtual_device_launched"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Apple TV+": {
+    "actions": [
+      "airplay_used",
+      "apple_gift_card_used",
+      "apple_one_bundle_subscribed",
+      "apple_tv_channel_subscribed",
+      "apple_tv_plus_free_trial_started",
+      "download_saved",
+      "family_sharing_enabled",
+      "itunes_movie_purchased",
+      "library_synced",
+      "original_watched",
+      "up_next_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Arduino IDE": {
+    "actions": [
+      "baud_rate_changed",
+      "board_manager_opened",
+      "board_package_installed",
+      "board_selected",
+      "code_pasted",
+      "code_typed",
+      "example_sketch_opened",
+      "include_library_added",
+      "library_installed",
+      "library_removed",
+      "library_updated",
+      "new_sketch_created",
+      "port_selected",
+      "preferences_changed",
+      "programmer_selected",
+      "redo_executed",
+      "serial_data_sent",
+      "serial_monitor_opened",
+      "serial_plotter_opened",
+      "sketch_closed",
+      "sketch_exported_compiled_binary",
+      "sketch_opened",
+      "sketch_saved",
+      "sketch_saved_as",
+      "undo_executed",
+      "upload_executed",
+      "upload_using_programmer_executed",
+      "verbose_output_enabled",
+      "verify_compile_executed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Asana": {
+    "actions": [
+      "approval_requested",
+      "assignee_designated",
+      "comment_added",
+      "custom_field_updated",
+      "due_date_set",
+      "form_submitted",
+      "goal_set",
+      "portfolio_managed",
+      "project_created",
+      "proofing_used",
+      "subtask_added",
+      "task_created",
+      "team_invited",
+      "timeline_viewed",
+      "workload_balanced"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "AWS": {
+    "actions": [
+      "batch_job_submitted",
+      "cloudfront_distribution_created",
+      "ebs_volume_attached",
+      "ec2_instance_launched",
+      "ecs_task_run",
+      "efs_file_system_mounted",
+      "eks_cluster_created",
+      "glacier_archive_uploaded",
+      "lambda_function_deployed",
+      "load_balancer_deployed",
+      "route_table_configured",
+      "s3_bucket_created",
+      "storage_gateway_configured",
+      "transit_gateway_established",
+      "vpc_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft Azure": {
+    "actions": [
+      "aks_cluster_provisioned",
+      "app_service_published",
+      "application_gateway_deployed",
+      "archive_tier_set",
+      "blob_storage_created",
+      "cdn_endpoint_created",
+      "container_instance_run",
+      "data_lake_storage_gen2_enabled",
+      "express_route_circuit_provisioned",
+      "file_share_mapped",
+      "function_app_created",
+      "managed_disk_attached",
+      "network_security_group_configured",
+      "virtual_machine_deployed",
+      "virtual_network_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Basecamp": {
+    "actions": [
+      "automatic_check_in_set",
+      "boost_given",
+      "campfire_chat_used",
+      "client_access_enabled",
+      "document_uploaded",
+      "doorbell_rung",
+      "hill_chart_updated",
+      "message_board_posted",
+      "person_invited",
+      "ping_sent",
+      "progress_reported",
+      "project_created",
+      "schedule_added",
+      "template_project_used",
+      "to_do_list_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Betterment": {
+    "actions": [
+      "advice_accessed",
+      "checking_account_opened",
+      "crypto_invested",
+      "customer_support_chatted",
+      "educational_article_read",
+      "fee_comparison_made",
+      "goal_based_investing_started",
+      "goal_projected",
+      "joint_account_created",
+      "performance_analyzed",
+      "portfolio_deposited",
+      "rebalancing_automated",
+      "tax_coordinated_portfolio_enabled",
+      "tool_used",
+      "trust_account_established"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "BigCommerce": {
+    "actions": [
+      "account_created",
+      "cart_viewed",
+      "checkout_initiated",
+      "guest_checkout_used",
+      "order_reviewed",
+      "payment_info_added",
+      "purchase_completed",
+      "shipping_method_selected"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Bitbucket": {
+    "actions": [
+      "access_control_managed",
+      "bitbucket_pipelines_enabled",
+      "branch_permission_set",
+      "deployment_environment_configured",
+      "deployment_triggered",
+      "fork_synced",
+      "jira_issue_linked",
+      "merge_check_configured",
+      "pipeline_executed",
+      "pull_request_created",
+      "repository_created",
+      "slack_notification_set",
+      "smart_mirror_configured",
+      "team_invited",
+      "wiki_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Blackboard": {
+    "actions": [
+      "assignment_uploaded",
+      "attempt_graded",
+      "content_item_opened",
+      "course_announcement_received",
+      "discussion_board_posted",
+      "email_sent",
+      "external_tool_launched",
+      "feedback_released",
+      "group_workspace_accessed",
+      "journal_entry_created",
+      "mobile_app_logged_in",
+      "rubric_assessed",
+      "safeassign_report_viewed",
+      "student_preview_used",
+      "test_submitted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Booking.com": {
+    "actions": [
+      "airport_transfer_booked",
+      "cancellation_processed",
+      "car_rental_reserved",
+      "flight_searched",
+      "genius_level_achieved",
+      "genius_program_joined",
+      "mobile_app_exclusive_used",
+      "modification_requested",
+      "partner_offer_redeemed",
+      "property_searched",
+      "reservation_made",
+      "review_posted",
+      "reward_claimed",
+      "secret_deal_unlocked",
+      "trip_planner_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Bumble": {
+    "actions": [
+      "boost_applied",
+      "date_scheduled",
+      "match_made",
+      "message_sent",
+      "profile_created",
+      "super_like_used",
+      "swipe_left",
+      "swipe_right"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Calculator": {
+    "actions": [
+      "calculate"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Calm": {
+    "actions": [
+      "breathe_bubble_customized",
+      "breathing_exercise_completed",
+      "corporate_wellness_accessed",
+      "favorite_added",
+      "gift_card_redeemed",
+      "kids_section_used",
+      "masterclass_watched",
+      "meditation_played",
+      "mood_check_in_logged",
+      "music_track_played",
+      "offline_content_downloaded",
+      "reminder_customized",
+      "sleep_story_listened",
+      "streak_tracked",
+      "subscription_purchased"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Canvas": {
+    "actions": [
+      "announcement_read",
+      "assignment_submitted",
+      "calendar_event_added",
+      "collaboration_used",
+      "conference_joined",
+      "course_accessed",
+      "eportfolio_created",
+      "feedback_received",
+      "gradebook_checked",
+      "late_policy_applied",
+      "mobile_notification_received",
+      "module_completed",
+      "parent_observer_added",
+      "quiz_taken",
+      "rubric_viewed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Cash App": {
+    "actions": [
+      "account_closed",
+      "bitcoin_purchased",
+      "boost_applied",
+      "cash_card_activated",
+      "cash_received",
+      "cash_sent",
+      "direct_deposit_received",
+      "fraud_reported",
+      "notification_preference_set",
+      "paper_money_deposited",
+      "pin_changed",
+      "routing_number_copied",
+      "security_lock_enabled",
+      "stock_bought",
+      "tax_refund_deposited"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Chargebee": {
+    "actions": [
+      "billing_cycle_managed",
+      "churn_prevented",
+      "dunning_email_sent",
+      "metered_billing_calculated",
+      "plan_downgraded",
+      "plan_upgraded",
+      "subscription_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Chime": {
+    "actions": [
+      "account_opened",
+      "account_settings_updated",
+      "atm_located",
+      "card_locked",
+      "check_deposited",
+      "credit_builder_card_requested",
+      "credit_builder_secured",
+      "debit_card_activated",
+      "direct_deposit_received",
+      "friend_referred",
+      "savings_rounded_up",
+      "spot_me_used",
+      "support_contacted",
+      "transaction_alert_enabled",
+      "two_factor_authentication_set"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Google Chrome": {
+    "actions": [
+      "close_tab",
+      "new_tab",
+      "open_url"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "CircleCI": {
+    "actions": [
+      "artifact_stored",
+      "config_validated",
+      "context_created",
+      "docker_image_built",
+      "insights_viewed",
+      "kubernetes_deployment_made",
+      "orb_used",
+      "plan_upgraded",
+      "project_followed",
+      "schedule_configured",
+      "security_scan_integrated",
+      "support_ticket_created",
+      "team_member_invited",
+      "test_parallelization_run",
+      "workflow_triggered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "ClickUp": {
+    "actions": [
+      "assignee_added",
+      "comment_resolved",
+      "custom_status_applied",
+      "dashboard_customized",
+      "dependency_linked",
+      "email_integration_used",
+      "folder_organized",
+      "goal_tracked",
+      "list_viewed",
+      "proofing_annotated",
+      "space_created",
+      "sprint_managed",
+      "task_created",
+      "time_estimated",
+      "watcher_set"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Coinbase": {
+    "actions": [
+      "address_whitelisted",
+      "api_key_restricted",
+      "coinbase_card_used",
+      "crypto_bought",
+      "crypto_received",
+      "crypto_sent",
+      "crypto_sold",
+      "direct_deposit_enabled",
+      "insurance_policy_viewed",
+      "recurring_buy_scheduled",
+      "security_prompt_completed",
+      "staking_rewards_earned",
+      "two_step_verification_enabled",
+      "vault_set_up",
+      "wallet_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Coursera": {
+    "actions": [
+      "certificate_earned",
+      "course_enrolled",
+      "degree_applied",
+      "discussion_posted",
+      "exam_proctored",
+      "grade_received",
+      "lecture_watched",
+      "mastery_achieved",
+      "mentor_consulted",
+      "mobile_app_downloaded",
+      "peer_review_submitted",
+      "programming_assignment_submitted",
+      "quiz_attempted",
+      "reading_completed",
+      "study_group_joined"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Datadog": {
+    "actions": [
+      "agent_installed",
+      "alert_triggered",
+      "apm_instrumented",
+      "application_vulnerability_detected",
+      "cloud_security_posture_managed",
+      "compliance_monitor_enabled",
+      "dashboard_created",
+      "incident_declared",
+      "log_pipeline_set_up",
+      "monitor_configured",
+      "rum_session_replay_viewed",
+      "security_signal_investigated",
+      "slo_defined",
+      "synthetic_test_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Delta": {
+    "actions": [
+      "boarding_pass_accessed",
+      "check_in_completed",
+      "companion_certificate_used",
+      "delta_sky_club_accessed",
+      "delta_sync_used",
+      "flight_booked",
+      "fly_ready_confirmed",
+      "medallion_status_achieved",
+      "mileage_run_calculated",
+      "rebooking_requested",
+      "seat_selected",
+      "skymiles_earned",
+      "unaccompanied_minor_service_booked",
+      "upgrade_clearance_received",
+      "upgrade_requested"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Discord": {
+    "actions": [
+      "boost_applied",
+      "bot_added",
+      "channel_created",
+      "emoji_uploaded",
+      "message_sent",
+      "nitro_subscribed",
+      "role_assigned",
+      "server_joined",
+      "server_template_used",
+      "slash_command_used",
+      "stage_channel_started",
+      "thread_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Disney+": {
+    "actions": [
+      "bundle_subscribed",
+      "continue_watching_resumed",
+      "download_added",
+      "gift_subscription_sent",
+      "groupwatch_started",
+      "parental_controls_set",
+      "premier_access_purchased",
+      "profile_created",
+      "star_content_enabled",
+      "title_played",
+      "watchlist_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft Dynamics 365": {
+    "actions": [
+      "account_hierarchy_managed",
+      "ai_insights_viewed",
+      "business_process_flow_completed",
+      "case_routed",
+      "contact_synchronized",
+      "invoice_generated",
+      "lead_qualified",
+      "opportunity_created",
+      "order_fulfilled",
+      "power_automate_flow_triggered",
+      "power_bi_report_embedded",
+      "quote_generated",
+      "relationship_analytics_viewed",
+      "sales_process_guided",
+      "workflow_executed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "eBay": {
+    "actions": [
+      "auction_bid_placed",
+      "authenticity_guaranteed_purchased",
+      "best_offer_accepted",
+      "buy_it_now_clicked",
+      "ebay_money_back_claimed",
+      "global_shipping_used",
+      "listing_created",
+      "offer_made",
+      "promoted_listing_used",
+      "shipping_label_printed",
+      "store_subscription_started",
+      "watch_list_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "edX": {
+    "actions": [
+      "corporate_training_accessed",
+      "course_audited",
+      "discussion_forum_used",
+      "final_exam_passed",
+      "lab_completed",
+      "micromasters_started",
+      "mobile_app_synced",
+      "peer_assessment_reviewed",
+      "proctored_exam_taken",
+      "professional_certificate_earned",
+      "program_enrolled",
+      "social_media_shared",
+      "transcript_downloaded",
+      "verified_certificate_purchased",
+      "wiki_contributed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Eloqua": {
+    "actions": [
+      "a_b_test_executed",
+      "campaign_orchestrated",
+      "contact_segmented",
+      "dashboard_customized",
+      "email_deployed",
+      "form_created",
+      "insight_analyzed",
+      "lead_scoring_model_applied",
+      "microsite_built",
+      "profiler_used",
+      "program_builder_used",
+      "report_scheduled",
+      "revenue_analytics_viewed",
+      "subscription_center_managed",
+      "web_tracking_verified"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Epic Games Store": {
+    "actions": [
+      "creator_code_used",
+      "download_scheduled",
+      "epic_coupon_applied",
+      "free_game_claimed",
+      "friend_added",
+      "library_managed",
+      "party_formed",
+      "purchase_made",
+      "refund_requested",
+      "screenshot_shared",
+      "supporter_pack_purchased",
+      "voice_chat_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "E*Trade": {
+    "actions": [
+      "analyst_report_viewed",
+      "bond_laddered",
+      "earnings_calendar_checked",
+      "educational_video_watched",
+      "futures_contract_initiated",
+      "ira_opened",
+      "margin_account_enabled",
+      "market_news_read",
+      "mutual_fund_purchased",
+      "option_contract_traded",
+      "paper_trading_used",
+      "portfolio_analyzed",
+      "stock_ordered",
+      "stock_screener_used",
+      "watch_list_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Etsy": {
+    "actions": [
+      "custom_request_sent",
+      "deposit_scheduled",
+      "etsy_ads_started",
+      "etsy_payments_onboarded",
+      "etsy_plus_subscribed",
+      "etsy_shipping_labels_purchased",
+      "favorite_shop_added",
+      "handmade_item_listed",
+      "pattern_website_created",
+      "shop_policies_updated",
+      "star_seller_achieved",
+      "vintage_item_searched"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Expedia": {
+    "actions": [
+      "activity_booked",
+      "cruise_reserved",
+      "expedia_rewards_enrolled",
+      "flight_booked",
+      "gold_status_achieved",
+      "hotel_reserved",
+      "itinerary_viewed",
+      "loyalty_points_redeemed",
+      "member_price_used",
+      "mobile_exclusive_deal_claimed",
+      "package_purchased",
+      "point_purchase_made",
+      "price_drop_alert_set",
+      "travel_insurance_added",
+      "vip_access_property_booked"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Windows Explorer": {
+    "actions": [
+      "open_folder"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Facebook": {
+    "actions": [
+      "comment_added",
+      "event_created",
+      "friend_request_accepted",
+      "friend_request_sent",
+      "fundraiser_created",
+      "group_joined",
+      "live_stream_started",
+      "marketplace_item_listed",
+      "post_created",
+      "post_liked",
+      "post_shared",
+      "story_viewed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Fidelity": {
+    "actions": [
+      "automatic_investment_set",
+      "dividend_reinvestment_enabled",
+      "esg_fund_invested",
+      "fixed_income_analysis_viewed",
+      "full_view_aggregated",
+      "learning_center_accessed",
+      "market_monitor_watched",
+      "order_type_selected",
+      "plan_529_managed",
+      "portfolio_rebalanced",
+      "research_report_accessed",
+      "retirement_planner_used",
+      "stock_comparison_tool_used",
+      "trade_executed",
+      "wealth_management_consulted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Fitbit": {
+    "actions": [
+      "activity_tracked",
+      "coach_guidance_received",
+      "exercise_auto_recognized",
+      "family_account_created",
+      "food_logged",
+      "health_metrics_dashboard_viewed",
+      "heart_rate_variability_measured",
+      "premium_trial_started",
+      "skin_temperature_tracked",
+      "sleep_logged",
+      "spo2_monitored",
+      "stress_management_score_calculated",
+      "water_logged",
+      "weight_logged",
+      "wellness_report_generated"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Freshsales": {
+    "actions": [
+      "account_hierarchy_built",
+      "api_integrated",
+      "appointment_scheduled",
+      "chat_triggered",
+      "contact_enriched",
+      "deal_qualified",
+      "document_shared",
+      "email_tracking_enabled",
+      "forecast_generated",
+      "lead_scored",
+      "phone_call_logged",
+      "quote_created",
+      "sales_sequence_initiated",
+      "territory_auto_assigned",
+      "workflow_automated"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Google Cloud Platform": {
+    "actions": [
+      "archive_storage_used",
+      "batch_job_submitted",
+      "cloud_cdn_enabled",
+      "cloud_function_deployed",
+      "cloud_interconnect_established",
+      "cloud_load_balancing_set_up",
+      "cloud_run_service_deployed",
+      "cloud_storage_bucket_created",
+      "compute_engine_vm_started",
+      "filestore_instance_mounted",
+      "firewall_rule_configured",
+      "gke_cluster_created",
+      "persistent_disk_attached",
+      "transfer_service_job_run",
+      "vpc_network_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "GitHub": {
+    "actions": [
+      "action_workflow_triggered",
+      "branch_merged",
+      "commit_pushed",
+      "discussion_started",
+      "fork_created",
+      "issue_created",
+      "package_published",
+      "page_deployed",
+      "pull_request_opened",
+      "release_published",
+      "repository_created",
+      "security_advisory_addressed",
+      "sponsorship_set_up",
+      "star_given",
+      "wiki_edited"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "GitHub Desktop": {
+    "actions": [
+      "blame_viewed",
+      "branch_created",
+      "branch_deleted",
+      "branch_renamed",
+      "branch_switched",
+      "changes_discarded",
+      "changes_staged",
+      "changes_unstaged",
+      "commit_amended",
+      "commit_created",
+      "commit_undone",
+      "conflict_resolved",
+      "diff_viewed",
+      "fetch_executed",
+      "history_viewed",
+      "merge_branch_executed",
+      "pull_executed",
+      "pull_request_created",
+      "push_executed",
+      "repository_added_from_local",
+      "repository_cloned",
+      "repository_created",
+      "repository_opened",
+      "stash_created",
+      "stash_restored"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "GitLab": {
+    "actions": [
+      "auto_devops_enabled",
+      "container_image_built",
+      "epic_created",
+      "group_managed",
+      "infrastructure_as_code_managed",
+      "kubernetes_cluster_connected",
+      "merge_request_submitted",
+      "page_deployed",
+      "pipeline_triggered",
+      "project_initialized",
+      "release_created",
+      "roadmap_planned",
+      "security_scan_run",
+      "snippet_shared",
+      "wiki_documented"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Git CLI": {
+    "actions": [
+      "git_add_all_executed",
+      "git_add_file_executed",
+      "git_add_interactive_executed",
+      "git_bisect_bad_executed",
+      "git_bisect_good_executed",
+      "git_bisect_reset_executed",
+      "git_bisect_start_executed",
+      "git_blame_viewed",
+      "git_branch_created",
+      "git_branch_deleted",
+      "git_branch_list_shown",
+      "git_branch_renamed",
+      "git_checkout_branch_executed",
+      "git_checkout_new_branch_executed",
+      "git_cherry_pick_commit_executed",
+      "git_clone_executed",
+      "git_commit_amend_executed",
+      "git_commit_executed",
+      "git_config_global_set",
+      "git_config_local_set",
+      "git_diff_cached_staged_executed",
+      "git_diff_executed",
+      "git_fetch_executed",
+      "git_init_executed",
+      "git_log_viewed",
+      "git_merge_abort_executed",
+      "git_merge_branch_executed",
+      "git_pull_executed",
+      "git_push_executed",
+      "git_push_force_executed",
+      "git_rebase_abort_executed",
+      "git_rebase_branch_executed",
+      "git_rebase_continue_executed",
+      "git_rebase_interactive_executed",
+      "git_remote_add_executed",
+      "git_remote_remove_executed",
+      "git_reset_hard_executed",
+      "git_reset_mixed_executed",
+      "git_reset_soft_executed",
+      "git_revert_commit_executed",
+      "git_stash_apply_executed",
+      "git_stash_list_shown",
+      "git_stash_pop_executed",
+      "git_stash_push_executed",
+      "git_status_executed",
+      "git_submodule_add_executed",
+      "git_submodule_update_executed",
+      "git_tag_annotated_created",
+      "git_tag_delete_executed",
+      "git_tag_lightweight_created",
+      "git_tag_list_shown"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Gmail": {
+    "actions": [
+      "send_email"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Google Search": {
+    "actions": [
+      "search"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Google Classroom": {
+    "actions": [
+      "announcement_created",
+      "assignment_returned",
+      "assignment_viewed",
+      "calendar_synced",
+      "class_joined",
+      "drive_folder_organized",
+      "grade_posted",
+      "guardian_summary_enabled",
+      "late_work_flagged",
+      "material_accessed",
+      "meet_link_generated",
+      "originality_report_viewed",
+      "question_posted",
+      "rubric_graded",
+      "work_submitted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "HBO Max": {
+    "actions": [
+      "ad_free_plan_upgraded",
+      "annual_plan_subscribed",
+      "audio_language_changed",
+      "content_streamed",
+      "discovery_plus_content_accessed",
+      "download_managed",
+      "gift_card_redeemed",
+      "my_list_curated",
+      "parental_pin_enabled",
+      "profile_customized",
+      "series_reminder_set"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Headspace": {
+    "actions": [
+      "buddy_added",
+      "course_started",
+      "family_plan_joined",
+      "focus_music_listened",
+      "meditation_completed",
+      "mindful_moment_taken",
+      "progress_tracked",
+      "reminder_set",
+      "session_downloaded",
+      "sleep_analysis_viewed",
+      "sleep_cast_played",
+      "sos_session_used",
+      "streak_extended",
+      "subscription_gifted",
+      "work_plan_accessed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Hinge": {
+    "actions": [
+      "comment_added",
+      "like_sent",
+      "match_made",
+      "message_sent",
+      "profile_created",
+      "rose_sent"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "HubSpot": {
+    "actions": [
+      "attribution_reported",
+      "chatbot_deployed",
+      "company_associated",
+      "contact_imported",
+      "conversation_logged",
+      "deal_stage_updated",
+      "document_tracked",
+      "email_automated",
+      "list_segmented",
+      "meeting_scheduled",
+      "pipeline_managed",
+      "quote_approved",
+      "sequence_enrolled",
+      "ticket_created",
+      "workflow_enrolled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Hulu": {
+    "actions": [
+      "add_on_premium_channel_added",
+      "disney_bundle_subscribed",
+      "dvr_recording_set",
+      "episode_watched",
+      "hulu_plus_live_tv_upgraded",
+      "live_tv_guide_customized",
+      "live_tv_tuned",
+      "my_stuff_organized",
+      "no_ads_plan_upgraded",
+      "profile_switched",
+      "watchlist_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "IBM Cloud": {
+    "actions": [
+      "bare_metal_server_reserved",
+      "block_storage_volume_attached",
+      "cdn_implemented",
+      "cloud_backup_configured",
+      "cloud_function_action_created",
+      "cloud_object_storage_bucket_created",
+      "direct_link_established",
+      "file_storage_share_mounted",
+      "load_balancer_as_a_service_deployed",
+      "mass_migration_service_used",
+      "openshift_cluster_deployed",
+      "power_systems_virtual_server_created",
+      "security_group_rule_added",
+      "virtual_server_provisioned",
+      "vpc_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Instagram": {
+    "actions": [
+      "close_friend_added",
+      "collaboration_posted",
+      "direct_message_sent",
+      "filter_applied",
+      "live_started",
+      "music_added",
+      "photo_posted",
+      "post_liked",
+      "reel_shared",
+      "shop_product_viewed",
+      "story_posted",
+      "story_replied"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "JD.com": {
+    "actions": [
+      "advertising_purchased",
+      "flash_sale_joined",
+      "group_buy_initiated",
+      "jd_auction_participated",
+      "jd_cloud_service_accessed",
+      "jd_finance_used",
+      "jd_health_consulted",
+      "jd_logistics_used",
+      "jd_property_viewed",
+      "plus_membership_subscribed",
+      "product_searched",
+      "store_opened"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Jenkins": {
+    "actions": [
+      "artifact_archived",
+      "audit_trail_reviewed",
+      "backup_scheduled",
+      "build_triggered",
+      "cloud_agent_provisioned",
+      "credential_managed",
+      "deployment_stage_executed",
+      "distributed_build_configured",
+      "job_created",
+      "node_configured",
+      "pipeline_scripted",
+      "plugin_installed",
+      "test_report_generated",
+      "update_center_accessed",
+      "user_permission_assigned"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Jira": {
+    "actions": [
+      "attachment_added",
+      "bug_reported",
+      "comment_logged",
+      "developer_assigned",
+      "epic_linked",
+      "issue_created",
+      "kanban_used",
+      "project_configured",
+      "roadmap_planned",
+      "scrum_board_managed",
+      "sprint_started",
+      "story_point_estimated",
+      "time_logged",
+      "watcher_added",
+      "workflow_customized"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Khan Academy": {
+    "actions": [
+      "article_read",
+      "badge_earned",
+      "class_code_joined",
+      "coach_invited",
+      "course_challenge_attempted",
+      "discussion_participated",
+      "exercise_completed",
+      "hint_used",
+      "mastery_points_earned",
+      "mission_started",
+      "parent_account_linked",
+      "scratchpad_utilized",
+      "teacher_dashboard_used",
+      "unit_test_taken",
+      "video_watched"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Klaviyo": {
+    "actions": [
+      "a_b_test_analyzed",
+      "back_in_stock_flow_triggered",
+      "benchmark_report_viewed",
+      "campaign_scheduled",
+      "churn_risk_identified",
+      "cohort_analysis_run",
+      "flow_created",
+      "list_cleaned",
+      "ltv_calculated",
+      "predictive_analytics_viewed",
+      "price_drop_alert_sent",
+      "profile_enriched",
+      "segment_built",
+      "signup_form_published",
+      "template_edited"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "LINE": {
+    "actions": [
+      "line_game_played",
+      "line_manga_read",
+      "line_music_played",
+      "line_pay_used",
+      "line_shopping_used",
+      "line_taxi_called",
+      "line_tv_watched",
+      "message_sent",
+      "official_account_added",
+      "openchat_joined",
+      "sticker_purchased",
+      "timeline_posted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "LinkedIn": {
+    "actions": [
+      "article_published",
+      "company_page_followed",
+      "connection_request_sent",
+      "endorsement_given",
+      "event_registered",
+      "job_applied",
+      "learning_course_started",
+      "post_shared",
+      "pulse_article_commented",
+      "recommendation_written",
+      "recruiter_lite_used",
+      "sales_navigator_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "LM Studio": {
+    "actions": [
+      "api_endpoint_configured",
+      "chat_history_exported",
+      "chat_message_sent",
+      "chat_response_received",
+      "chat_session_started",
+      "context_length_set",
+      "gpu_layers_configured",
+      "local_server_started",
+      "local_server_stopped",
+      "max_tokens_set",
+      "model_downloaded",
+      "model_loaded",
+      "model_quantization_selected",
+      "model_unloaded",
+      "system_prompt_set",
+      "temperature_adjusted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Lyft": {
+    "actions": [
+      "bike_lane_navigation_used",
+      "bike_scooter_unlocked",
+      "business_profile_managed",
+      "challenge_completed",
+      "driver_tipped",
+      "healthcare_ride_scheduled",
+      "lost_item_reported",
+      "lyft_pink_subscribed",
+      "partnership_perk_claimed",
+      "rewards_points_earned",
+      "ride_requested",
+      "safety_features_used",
+      "scheduled_ride_set",
+      "shared_ride_taken",
+      "transit_info_viewed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Magento": {
+    "actions": [
+      "account_created",
+      "cart_viewed",
+      "checkout_initiated",
+      "guest_checkout_used",
+      "order_reviewed",
+      "payment_info_added",
+      "purchase_completed",
+      "shipping_method_selected"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Mailchimp": {
+    "actions": [
+      "a_b_test_analyzed",
+      "audience_segmented",
+      "automation_configured",
+      "campaign_created",
+      "cleaning_recommended",
+      "comparative_report_generated",
+      "landing_page_published",
+      "preference_center_customized",
+      "report_viewed",
+      "send_time_optimization_used",
+      "signup_form_embedded",
+      "social_post_scheduled",
+      "subscriber_imported",
+      "tag_applied",
+      "template_designed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Marketo": {
+    "actions": [
+      "account_profiling_used",
+      "email_asset_approved",
+      "email_insights_analyzed",
+      "form_filled",
+      "landing_page_tested",
+      "lead_scored",
+      "munchkin_tracking_verified",
+      "nurture_stream_activated",
+      "program_created",
+      "rce_report_viewed",
+      "revenue_cycle_modeler_used",
+      "segment_smart_list_created",
+      "smart_campaign_executed",
+      "success_path_analyzer_viewed",
+      "web_personalization_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Mattermost": {
+    "actions": [
+      "channel_joined",
+      "file_uploaded",
+      "integration_added",
+      "message_threaded",
+      "workflow_automated",
+      "workspace_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Meetup": {
+    "actions": [
+      "event_created",
+      "event_rsvped",
+      "group_joined",
+      "interview_scheduled",
+      "introduction_requested",
+      "message_sent",
+      "salary_shared"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Mercado Libre": {
+    "actions": [
+      "classified_ad_posted",
+      "mercado_ads_managed",
+      "mercado_credito_used",
+      "mercado_envios_used",
+      "mercado_pago_integrated",
+      "mercado_shops_activated",
+      "official_store_applied",
+      "publication_created",
+      "question_answered",
+      "reputation_earned",
+      "sale_completed",
+      "vehicle_listed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft Teams": {
+    "actions": [
+      "channel_joined",
+      "file_uploaded",
+      "integration_added",
+      "meeting_started",
+      "message_threaded",
+      "screen_shared",
+      "workflow_automated",
+      "workspace_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Monday.com": {
+    "actions": [
+      "automation_triggered",
+      "board_duplicated",
+      "column_customized",
+      "dashboard_built",
+      "gantt_chart_viewed",
+      "guest_added",
+      "inbox_zero_achieved",
+      "integration_connected",
+      "notification_customized",
+      "pulse_created",
+      "status_updated",
+      "team_member_invited",
+      "template_gallery_used",
+      "time_tracking_enabled",
+      "workdoc_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Moodle": {
+    "actions": [
+      "activity_completed",
+      "assignment_submitted",
+      "badge_awarded",
+      "cohort_joined",
+      "competency_achieved",
+      "forum_posted",
+      "glossary_entry_added",
+      "learning_plan_created",
+      "lesson_completed",
+      "mobile_app_offline_used",
+      "quiz_attempted",
+      "resource_viewed",
+      "scorm_package_tracked",
+      "wiki_edited",
+      "workshop_peer_assessed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft Excel": {
+    "actions": [
+      "advanced_filter_applied",
+      "auto_fill_applied",
+      "blank_workbook_created",
+      "cell_format_changed",
+      "cell_formula_entered",
+      "cell_value_entered",
+      "chart_created",
+      "chart_data_range_modified",
+      "chart_type_changed",
+      "column_deleted",
+      "column_inserted",
+      "conditional_formatting_applied",
+      "data_connection_created",
+      "data_validation_applied",
+      "filter_applied",
+      "flash_fill_used",
+      "freeze_panes_applied",
+      "index_match_formula_used",
+      "macro_recorded",
+      "macro_run",
+      "name_manager_opened",
+      "named_range_created",
+      "pivot_chart_created",
+      "pivot_table_created",
+      "power_query_opened",
+      "protect_sheet_applied",
+      "protect_workbook_applied",
+      "range_copied",
+      "range_cut",
+      "range_pasted",
+      "range_selected",
+      "row_deleted",
+      "row_inserted",
+      "sheet_added",
+      "sheet_deleted",
+      "sheet_moved",
+      "sheet_renamed",
+      "sort_applied",
+      "split_window_applied",
+      "sumif_formula_used",
+      "vba_editor_opened",
+      "vlookup_formula_used",
+      "workbook_closed",
+      "workbook_from_template_created",
+      "workbook_saved",
+      "workbook_saved_as",
+      "workbook_saved_as_pdf"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft PowerPoint": {
+    "actions": [
+      "action_button_added",
+      "animation_applied",
+      "animation_removed",
+      "animation_reordered",
+      "audio_inserted",
+      "blank_presentation_created",
+      "chart_inserted",
+      "comments_added",
+      "comments_resolved",
+      "custom_layout_created",
+      "export_to_video_executed",
+      "hyperlink_inserted",
+      "icon_inserted",
+      "image_inserted",
+      "notes_added",
+      "presentation_closed",
+      "presentation_from_template_created",
+      "presentation_saved",
+      "presentation_saved_as",
+      "presentation_saved_as_pdf",
+      "presenter_view_used",
+      "record_slide_show_used",
+      "rehearse_timings_used",
+      "section_added",
+      "section_renamed",
+      "shape_inserted",
+      "slide_added",
+      "slide_deleted",
+      "slide_design_applied",
+      "slide_duplicated",
+      "slide_layout_changed",
+      "slide_master_edited",
+      "slide_moved",
+      "slide_show_from_beginning",
+      "slide_show_from_current_slide",
+      "slide_show_started",
+      "table_inserted",
+      "text_box_inserted",
+      "text_formatted",
+      "text_typed",
+      "transition_applied",
+      "transition_timing_set",
+      "video_inserted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft Word": {
+    "actions": [
+      "blank_document_created",
+      "document_auto_saved",
+      "document_closed",
+      "document_combine_executed",
+      "document_compare_executed",
+      "document_from_template_created",
+      "document_marked_as_final",
+      "document_password_protection_applied",
+      "document_saved",
+      "document_saved_as",
+      "document_saved_as_pdf",
+      "text_bold_applied",
+      "text_bookmark_inserted",
+      "text_bullets_applied",
+      "text_check_accessibility_used",
+      "text_check_compatibility_used",
+      "text_citation_inserted",
+      "text_copied",
+      "text_cross_reference_inserted",
+      "text_cut",
+      "text_find_executed",
+      "text_font_changed",
+      "text_font_color_changed",
+      "text_font_size_changed",
+      "text_footer_inserted",
+      "text_footnote_inserted",
+      "text_header_inserted",
+      "text_index_and_tables_table_of_contents_inserted",
+      "text_italic_applied",
+      "text_macro_recorded",
+      "text_macro_run",
+      "text_numbering_applied",
+      "text_page_break_inserted",
+      "text_page_setup_margins_set",
+      "text_page_setup_orientation_set_landscape",
+      "text_page_setup_orientation_set_portrait",
+      "text_paragraph_alignment_set_center",
+      "text_paragraph_alignment_set_justified",
+      "text_paragraph_alignment_set_left",
+      "text_paragraph_alignment_set_right",
+      "text_pasted",
+      "text_redo_executed",
+      "text_replace_executed",
+      "text_styles_applied",
+      "text_typed",
+      "text_underline_applied",
+      "text_undo_executed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "MyFitnessPal": {
+    "actions": [
+      "barcode_scanned",
+      "coach_consulted",
+      "community_posted",
+      "exercise_recorded",
+      "friend_challenged",
+      "goal_set",
+      "meal_logged",
+      "nutrition_analyzed",
+      "premium_subscribed",
+      "progress_photo_uploaded",
+      "recipe_imported",
+      "report_generated",
+      "streak_maintained",
+      "water_tracked",
+      "weight_entered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Netflix": {
+    "actions": [
+      "download_initiated",
+      "dvd_plan_added",
+      "episode_completed",
+      "extra_member_added",
+      "gift_card_redeemed",
+      "my_list_added",
+      "playback_speed_changed",
+      "profile_switched",
+      "rating_given",
+      "season_binged",
+      "subscription_upgraded",
+      "subtitle_preference_set",
+      "title_played"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "New Relic": {
+    "actions": [
+      "agent_deployed",
+      "alert_condition_created",
+      "api_key_rotated",
+      "apm_transaction_traced",
+      "browser_monitoring_enabled",
+      "dashboard_built",
+      "infrastructure_host_monitored",
+      "log_forwarded",
+      "mobile_crash_analyzed",
+      "nrql_query_written",
+      "security_audit_log_reviewed",
+      "synthetic_monitor_checked",
+      "user_permissions_managed",
+      "vulnerability_management_scan_run"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Nintendo eShop": {
+    "actions": [
+      "dlc_purchased",
+      "friend_code_exchanged",
+      "game_purchased",
+      "game_voucher_used",
+      "gold_points_redeemed",
+      "nintendo_switch_expansion_pack_upgraded",
+      "nintendo_switch_online_subscribed",
+      "parental_controls_set",
+      "screenshot_shared",
+      "user_page_customized",
+      "wish_list_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Node.js Runtime": {
+    "actions": [
+      "eslint_executed",
+      "express_server_started",
+      "http_server_started",
+      "jest_test_run",
+      "mocha_test_run",
+      "module_imported_esm",
+      "module_required",
+      "nodemon_started",
+      "npm_audit_executed",
+      "npm_init_executed",
+      "npm_install_executed",
+      "npm_publish_executed",
+      "npm_run_script_executed",
+      "npm_uninstall_executed",
+      "npm_update_executed",
+      "npx_command_executed",
+      "package_json_edited",
+      "pm2_process_managed",
+      "repl_started",
+      "script_executed",
+      "typescript_compiled",
+      "vite_dev_server_started",
+      "webpack_build_executed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Notepad": {
+    "actions": [
+      "save_file",
+      "type_text"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Notion": {
+    "actions": [
+      "api_accessed",
+      "block_edited",
+      "comment_threaded",
+      "database_set_up",
+      "export_generated",
+      "integration_connected",
+      "member_invited",
+      "mention_used",
+      "page_created",
+      "page_shared_publicly",
+      "permission_managed",
+      "relation_linked",
+      "teamspace_created",
+      "template_duplicated",
+      "workspace_organized"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "OkCupid": {
+    "actions": [
+      "like_sent",
+      "match_made",
+      "message_sent",
+      "profile_created",
+      "question_answered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Ollama": {
+    "actions": [
+      "api_request_processed",
+      "api_server_started",
+      "chat_message_sent",
+      "chat_response_received",
+      "custom_model_built",
+      "embedding_generated",
+      "model_copied",
+      "model_list_shown",
+      "model_pulled",
+      "model_pushed",
+      "model_removed",
+      "model_run_started",
+      "model_run_stopped",
+      "modelfile_created",
+      "system_prompt_set",
+      "temperature_set"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Microsoft OneDrive": {
+    "actions": [
+      "comment_added",
+      "comment_resolved",
+      "dlp_policy_triggered",
+      "document_edited_simultaneously_by_multiple_users",
+      "document_opened_for_editing",
+      "file_deleted",
+      "file_downloaded",
+      "file_filter_applied",
+      "file_moved",
+      "file_renamed",
+      "file_restored_from_recycle_bin",
+      "file_search_executed",
+      "file_shared_directly_to_user",
+      "file_shared_link_created",
+      "file_shared_link_deleted",
+      "file_shared_link_permission_set_edit",
+      "file_shared_link_permission_set_view",
+      "file_shared_to_group",
+      "file_sync_conflict_detected",
+      "file_sync_conflict_resolved_keep_both",
+      "file_sync_free_up_space_used",
+      "file_sync_on_demand_files_enabled",
+      "file_sync_paused",
+      "file_sync_resumed",
+      "file_synced_down",
+      "file_synced_up",
+      "file_uploaded",
+      "file_version_created",
+      "file_version_restored",
+      "folder_created",
+      "folder_deleted",
+      "folder_downloaded",
+      "folder_moved",
+      "folder_renamed",
+      "folder_uploaded",
+      "multiple_files_uploaded",
+      "retention_policy_applied",
+      "user_signed_in",
+      "user_signed_out"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Oracle Cloud": {
+    "actions": [
+      "analytics_cloud_instance_started",
+      "archive_storage_used",
+      "autonomous_database_provisioned",
+      "block_volume_attached",
+      "compute_instance_launched",
+      "container_engine_kubernetes_cluster_created",
+      "data_transfer_service_used",
+      "dns_zone_managed",
+      "fast_connect_established",
+      "file_storage_system_mounted",
+      "function_deployed",
+      "load_balancer_set_up",
+      "object_storage_bucket_created",
+      "security_list_configured",
+      "virtual_cloud_network_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Outlook": {
+    "actions": [
+      "attachment_added",
+      "email_composed",
+      "email_opened",
+      "email_sent",
+      "filter_created",
+      "label_applied",
+      "signature_updated",
+      "vacation_responder_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "PagerDuty": {
+    "actions": [
+      "audit_log_reviewed",
+      "automation_action_created",
+      "automation_triggered",
+      "business_service_mapped",
+      "escalation_policy_configured",
+      "event_intelligence_used",
+      "incident_triggered",
+      "integration_added",
+      "on_call_rotation_started",
+      "permissions_managed",
+      "post_mortem_documented",
+      "schedule_managed",
+      "service_created",
+      "status_update_published"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Pardot": {
+    "actions": [
+      "assignment_rule_triggered",
+      "b2b_marketing_analytics_used",
+      "campaign_launched",
+      "connected_campaign_enabled",
+      "dynamic_content_enabled",
+      "einstein_behavior_scoring_viewed",
+      "engagement_program_built",
+      "form_handler_created",
+      "grading_profile_applied",
+      "landing_page_published",
+      "lifecycle_report_viewed",
+      "list_email_sent",
+      "prospect_scored",
+      "roi_calculator_used",
+      "tag_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "PayPal": {
+    "actions": [
+      "account_verified",
+      "balance_managed",
+      "bank_linked",
+      "card_added",
+      "currency_converted",
+      "device_trusted",
+      "dispute_filed",
+      "invoice_created",
+      "login_alert_reviewed",
+      "money_pooled",
+      "payment_received",
+      "payment_sent",
+      "security_questions_set",
+      "subscription_managed",
+      "two_factor_authentication_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Peloton": {
+    "actions": [
+      "achievement_badge_earned",
+      "apparel_purchased",
+      "challenge_joined",
+      "class_taken",
+      "heart_rate_monitored",
+      "high_five_exchanged",
+      "lanebreak_game_played",
+      "membership_paused",
+      "milestone_achieved",
+      "output_tracked",
+      "personal_record_set",
+      "referral_code_used",
+      "scenic_content_ridden",
+      "stack_created",
+      "streak_maintained"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Pinterest": {
+    "actions": [
+      "board_created",
+      "idea_pin_created",
+      "merchant_followed",
+      "pin_created",
+      "pin_saved",
+      "pin_tried",
+      "section_added",
+      "shop_tab_visited",
+      "shopping_list_created",
+      "tag_followed",
+      "try_on_feature_used",
+      "visual_search_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Pipedrive": {
+    "actions": [
+      "activity_scheduled",
+      "api_call_made",
+      "contact_mapped",
+      "deal_added",
+      "email_synced",
+      "email_template_used",
+      "forecast_viewed",
+      "goal_set",
+      "import_completed",
+      "lead_captured",
+      "pipeline_stages_managed",
+      "probability_updated",
+      "report_customized",
+      "web_form_submitted",
+      "workflow_automation_triggered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "PlayStation Network": {
+    "actions": [
+      "broadcast_started",
+      "community_joined",
+      "game_downloaded",
+      "messages_sent",
+      "party_created",
+      "playstation_plus_subscribed",
+      "playstation_stars_enrolled",
+      "pre_order_placed",
+      "remote_play_used",
+      "share_play_initiated",
+      "trophy_earned",
+      "wallet_funded"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Amazon Prime Video": {
+    "actions": [
+      "amazon_channels_managed",
+      "audio_description_enabled",
+      "channel_subscribed",
+      "imdb_integration_viewed",
+      "prime_membership_managed",
+      "rent_completed",
+      "title_streamed",
+      "video_direct_publishing_used",
+      "video_purchased",
+      "watchlist_managed",
+      "x_ray_feature_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "ProtonMail": {
+    "actions": [
+      "attachment_added",
+      "email_composed",
+      "email_opened",
+      "email_sent",
+      "filter_created",
+      "label_applied",
+      "signature_updated",
+      "vacation_responder_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "PyCharm": {
+    "actions": [
+      "breakpoint_toggled",
+      "code_completion_basic_invoked",
+      "code_completion_smart_invoked",
+      "coverage_analysis_run",
+      "debug_configuration_executed",
+      "evaluate_expression_executed",
+      "extract_method_executed",
+      "extract_variable_executed",
+      "file_closed",
+      "file_deleted",
+      "file_moved",
+      "file_opened",
+      "file_renamed",
+      "file_saved",
+      "find_in_path_executed",
+      "find_usages_executed",
+      "git_branch_created",
+      "git_commit_executed",
+      "git_merge_executed",
+      "git_pull_executed",
+      "git_push_executed",
+      "go_to_class_executed",
+      "go_to_declaration_executed",
+      "go_to_file_executed",
+      "go_to_implementation_executed",
+      "go_to_symbol_executed",
+      "inline_refactoring_executed",
+      "intention_action_executed",
+      "jupyter_kernel_restarted",
+      "jupyter_notebook_cell_executed",
+      "new_file_created",
+      "new_jupyter_notebook_created",
+      "new_project_created",
+      "new_python_file_created",
+      "new_python_package_created",
+      "optimize_imports_executed",
+      "pip_package_installed",
+      "pip_package_uninstalled",
+      "project_opened",
+      "pytest_run_executed",
+      "python_console_opened",
+      "python_interpreter_configured",
+      "quick_fix_applied",
+      "reformat_code_executed",
+      "rename_refactoring_executed",
+      "run_configuration_executed",
+      "search_everywhere_opened",
+      "step_into_executed",
+      "step_over_executed",
+      "terminal_opened",
+      "test_results_viewed",
+      "unittest_run_executed",
+      "virtualenv_created",
+      "watch_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Python Runtime": {
+    "actions": [
+      "breakpoint_hit",
+      "interactive_shell_started",
+      "jupyter_cell_executed",
+      "jupyter_notebook_started",
+      "linting_executed",
+      "module_imported",
+      "package_built",
+      "package_published",
+      "pdb_debugger_started",
+      "pip_freeze_executed",
+      "pip_install_executed",
+      "pip_list_shown",
+      "pip_uninstall_executed",
+      "pytest_run",
+      "requirements_installed",
+      "script_executed",
+      "setup_py_executed",
+      "type_checking_executed",
+      "unittest_run",
+      "virtualenv_activated",
+      "virtualenv_created",
+      "virtualenv_deactivated"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "QQ": {
+    "actions": [
+      "file_transferred",
+      "group_joined",
+      "message_sent",
+      "qq_game_launched",
+      "qq_health_synced",
+      "qq_live_watched",
+      "qq_mail_sent",
+      "qq_music_played",
+      "qq_read_used",
+      "qq_shopping_visited",
+      "qq_wallet_used",
+      "qzone_posted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Rakuten": {
+    "actions": [
+      "coupon_clipped",
+      "insurance_quoted",
+      "item_management_bulk_uploaded",
+      "item_purchased",
+      "rakuten_bank_linked",
+      "rakuten_edy_charged",
+      "rms_advertising_used",
+      "settlement_confirmed",
+      "shop_discovered",
+      "store_opened",
+      "super_points_earned",
+      "travel_booked"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Recharge": {
+    "actions": [
+      "billing_cycle_managed",
+      "churn_prevented",
+      "dunning_email_sent",
+      "metered_billing_calculated",
+      "plan_downgraded",
+      "plan_upgraded",
+      "subscription_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Reddit": {
+    "actions": [
+      "avatar_customized",
+      "award_given",
+      "comment_posted",
+      "community_chat_joined",
+      "crosspost_created",
+      "downvote_given",
+      "poll_voted",
+      "post_submitted",
+      "prediction_made",
+      "subreddit_joined",
+      "upvote_given",
+      "wiki_edited"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Revolut": {
+    "actions": [
+      "account_upgraded",
+      "card_payment_processed",
+      "crypto_exchanged",
+      "disposable_virtual_card_used",
+      "insurance_purchased",
+      "location_based_security_set",
+      "physical_card_ordered",
+      "pin_changed",
+      "salary_advanced",
+      "security_feature_enabled",
+      "stock_traded",
+      "transfer_made",
+      "unauthorized_transaction_disputed",
+      "vault_created",
+      "virtual_card_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Robinhood": {
+    "actions": [
+      "account_funded",
+      "account_restrictions_reviewed",
+      "bank_linked",
+      "cash_card_requested",
+      "crypto_bought",
+      "device_authorized",
+      "dividend_reinvested",
+      "gold_subscribed",
+      "login_notification_received",
+      "option_traded",
+      "recurring_investment_set",
+      "stock_purchased",
+      "stock_sold",
+      "tax_document_downloaded",
+      "two_factor_authentication_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Roblox": {
+    "actions": [
+      "avatar_customized",
+      "developer_exchange_used",
+      "friend_request_sent",
+      "game_joined",
+      "game_pass_sold",
+      "group_joined",
+      "place_created",
+      "premium_subscription_purchased",
+      "private_server_created",
+      "robux_earned",
+      "robux_purchased",
+      "trade_request_sent"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Salesforce": {
+    "actions": [
+      "account_mapped",
+      "apex_trigger_fired",
+      "case_escalated",
+      "contact_enriched",
+      "contract_negotiated",
+      "einstein_prediction_used",
+      "flow_automated",
+      "forecast_submitted",
+      "lead_created",
+      "opportunity_qualified",
+      "order_processed",
+      "process_builder_executed",
+      "quote_generated",
+      "renewal_managed",
+      "workflow_rule_triggered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "SAP Sales Cloud": {
+    "actions": [
+      "account_360_viewed",
+      "analytics_dashboard_viewed",
+      "contract_executed",
+      "forecast_committed",
+      "integration_flow_executed",
+      "lead_qualified",
+      "machine_learning_recommendation_used",
+      "mobile_app_synced",
+      "opportunity_managed",
+      "quote_configured",
+      "rebate_program_executed",
+      "sales_performance_managed",
+      "sales_plan_activated",
+      "territory_aligned",
+      "workflow_triggered"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Schoology": {
+    "actions": [
+      "assignment_submitted",
+      "attendance_marked",
+      "calendar_event_added",
+      "course_material_accessed",
+      "discussion_participated",
+      "folder_created",
+      "grade_viewed",
+      "group_joined",
+      "learning_objective_mastered",
+      "mastery_report_generated",
+      "message_sent",
+      "parent_access_granted",
+      "portfolio_assembled",
+      "resource_appended",
+      "test_completed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Charles Schwab": {
+    "actions": [
+      "charitable_giving_account_managed",
+      "equity_traded",
+      "etf_bought",
+      "financial_plan_created",
+      "fixed_income_purchased",
+      "international_research_accessed",
+      "ipo_access_requested",
+      "learning_portal_visited",
+      "margin_loan_utilized",
+      "market_insight_read",
+      "podcast_listened",
+      "portfolio_checkup_completed",
+      "robo_advisor_used",
+      "stock_rating_viewed",
+      "trust_account_opened"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "ServiceNow": {
+    "actions": [
+      "application_installed",
+      "catalog_item_published",
+      "change_request_approved",
+      "cmdb_populated",
+      "grc_control_attested",
+      "incident_created",
+      "instance_requested",
+      "integration_hub_spoke_used",
+      "problem_investigated",
+      "security_incident_responded",
+      "service_catalog_ordered",
+      "soar_playbook_executed",
+      "vulnerability_response_managed",
+      "workflow_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Shopify": {
+    "actions": [
+      "abandoned_cart_recovery_set",
+      "app_installed",
+      "discount_code_created",
+      "order_processed",
+      "payment_gateway_configured",
+      "product_added",
+      "shopify_capital_accessed",
+      "shopify_email_sent",
+      "shopify_payments_activated",
+      "shopify_shipping_used",
+      "store_created",
+      "theme_customized"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Skype": {
+    "actions": [
+      "call_history_cleared",
+      "call_initiated",
+      "contact_invited",
+      "effect_applied",
+      "group_call_started",
+      "message_recorded",
+      "screen_shared",
+      "video_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Slack": {
+    "actions": [
+      "canvas_created",
+      "channel_joined",
+      "file_uploaded",
+      "huddle_started",
+      "integration_added",
+      "message_threaded",
+      "workflow_automated",
+      "workspace_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Smartsheet": {
+    "actions": [
+      "automation_workflow_built",
+      "calendar_integrated",
+      "card_view_used",
+      "collaborator_invited",
+      "column_formula_created",
+      "dashboard_widget_added",
+      "form_connected",
+      "gantt_chart_enabled",
+      "proofing_requested",
+      "publish_enabled",
+      "report_scheduled",
+      "row_added",
+      "template_applied",
+      "update_request_sent",
+      "workspace_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Snapchat": {
+    "actions": [
+      "bitmoji_customized",
+      "discover_subscribed",
+      "filter_applied",
+      "friendship_profile_viewed",
+      "lens_created",
+      "map_location_shared",
+      "memory_saved",
+      "snap_sent",
+      "snapcash_sent",
+      "spotlight_viewed",
+      "story_posted",
+      "streak_maintained"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Splunk": {
+    "actions": [
+      "alert_configured",
+      "compliance_report_generated",
+      "dashboard_published",
+      "forwarder_installed",
+      "index_created",
+      "it_service_intelligence_enabled",
+      "machine_learning_model_applied",
+      "phantom_playbook_executed",
+      "report_scheduled",
+      "risk_score_calculated",
+      "search_head_cluster_deployed",
+      "search_ran",
+      "security_event_investigated",
+      "user_behavior_analytics_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Spotify": {
+    "actions": [
+      "play_music",
+      "search_music"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Square": {
+    "actions": [
+      "account_deactivated",
+      "appointment_booked",
+      "customer_directory_built",
+      "data_export_requested",
+      "gift_card_sold",
+      "hardware_paired",
+      "inventory_managed",
+      "invoice_sent",
+      "loyalty_program_enabled",
+      "online_order_received",
+      "payment_processed",
+      "privacy_settings_managed",
+      "security_settings_reviewed",
+      "team_member_added",
+      "two_step_verification_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Steam": {
+    "actions": [
+      "achievement_unlocked",
+      "broadcast_watched",
+      "cloud_save_synced",
+      "friend_invited",
+      "game_purchased",
+      "group_joined",
+      "hardware_purchased",
+      "library_organized",
+      "market_transaction_completed",
+      "review_posted",
+      "steam_wallet_funded",
+      "trading_card_exchanged",
+      "workshop_item_subscribed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Strava": {
+    "actions": [
+      "activity_recorded",
+      "beacon_enabled",
+      "club_joined",
+      "fitness_freshness_tracked",
+      "gear_logged",
+      "kudos_given",
+      "partner_perk_claimed",
+      "power_curve_analyzed",
+      "relative_effort_calculated",
+      "route_planned",
+      "route_shared",
+      "segment_raced",
+      "subscription_upgraded",
+      "summit_feature_used",
+      "training_log_updated"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Stripe": {
+    "actions": [
+      "account_onboarded",
+      "api_key_generated",
+      "api_version_updated",
+      "charge_created",
+      "connect_account_created",
+      "customer_created",
+      "dispute_managed",
+      "invoice_paid",
+      "pci_compliance_verified",
+      "radar_rule_set",
+      "refund_issued",
+      "subscription_started",
+      "team_member_invited",
+      "two_factor_authentication_enabled",
+      "webhook_configured"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Teladoc": {
+    "actions": [
+      "biometric_device_connected",
+      "care_plan_accessed",
+      "consultation_scheduled",
+      "dermatologist_visit_completed",
+      "follow_up_booked",
+      "health_record_synced",
+      "medical_record_accessed",
+      "medication_reminder_set",
+      "nutritionist_advised",
+      "prescription_sent",
+      "psychiatrist_consulted",
+      "specialist_referred",
+      "symptom_checker_used",
+      "therapist_matched",
+      "video_visit_started"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Telegram": {
+    "actions": [
+      "bot_started",
+      "channel_created",
+      "giveaway_created",
+      "group_formed",
+      "message_sent",
+      "passport_verified",
+      "poll_created",
+      "quiz_initiated",
+      "slow_mode_enabled",
+      "story_posted",
+      "username_claimed",
+      "voice_chat_started"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "TikTok": {
+    "actions": [
+      "collection_saved",
+      "comment_posted",
+      "creator_followed",
+      "duet_created",
+      "effect_applied",
+      "live_streamed",
+      "q_and_a_posted",
+      "series_created",
+      "sound_used",
+      "stitch_created",
+      "video_liked",
+      "video_posted"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Tinder": {
+    "actions": [
+      "boost_applied",
+      "date_scheduled",
+      "match_made",
+      "message_sent",
+      "profile_created",
+      "super_like_used",
+      "swipe_left",
+      "swipe_right"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Travis CI": {
+    "actions": [
+      "aws_s3_uploaded",
+      "billing_updated",
+      "build_triggered",
+      "cache_cleared",
+      "cron_job_scheduled",
+      "debug_mode_activated",
+      "deployment_released",
+      "docker_hub_pushed",
+      "github_releases_deployed",
+      "heroku_application_pushed",
+      "log_accessed",
+      "matrix_build_configured",
+      "organization_managed",
+      "pypi_package_published",
+      "repository_activated"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Trello": {
+    "actions": [
+      "attachment_uploaded",
+      "automation_rule_set",
+      "board_created",
+      "calendar_view_enabled",
+      "card_created",
+      "card_shared",
+      "checklist_added",
+      "dashboard_viewed",
+      "due_date_reminder_set",
+      "label_applied",
+      "member_invited",
+      "power_up_enabled",
+      "template_applied",
+      "voting_initiated",
+      "workspace_managed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Twitch": {
+    "actions": [
+      "bits_cheered",
+      "bits_purchased",
+      "channel_points_redeemed",
+      "clip_created",
+      "creator_camp_completed",
+      "extension_interacted",
+      "follow_clicked",
+      "gifted_sub_sent",
+      "hype_train_contributed",
+      "prediction_participated",
+      "raid_initiated",
+      "stream_watched",
+      "subscription_gifted",
+      "turbo_subscription_purchased"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Twitter/X": {
+    "actions": [
+      "post_tweet"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Uber": {
+    "actions": [
+      "business_profile_switched",
+      "fare_split",
+      "freight_shipment_created",
+      "jump_bike_rented",
+      "pool_joined",
+      "rating_given",
+      "ride_requested",
+      "safety_toolkit_used",
+      "scheduled_ride_set",
+      "trip_completed",
+      "uber_cash_purchased",
+      "uber_eats_ordered",
+      "uber_pass_subscribed",
+      "uber_rewards_enrolled",
+      "vip_support_accessed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Udemy": {
+    "actions": [
+      "business_account_managed",
+      "certificate_downloaded",
+      "coding_exercise_completed",
+      "course_purchased",
+      "instructor_followed",
+      "learning_path_created",
+      "lecture_completed",
+      "lifetime_access_granted",
+      "mobile_download_enabled",
+      "note_taken",
+      "practice_test_taken",
+      "progress_tracked",
+      "q_and_a_asked",
+      "review_posted",
+      "wishlist_added"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Unity": {
+    "actions": [
+      "analytics_dashboard_viewed",
+      "asset_imported",
+      "asset_store_publisher_approved",
+      "asset_store_purchase_made",
+      "certification_exam_taken",
+      "collaborate_feature_used",
+      "game_deployed",
+      "plastic_scm_used",
+      "project_created",
+      "scene_built",
+      "unity_plus_subscribed",
+      "unity_pro_purchased"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Unreal Engine": {
+    "actions": [
+      "blueprint_created",
+      "enterprise_support_contracted",
+      "fab_marketplace_used",
+      "learning_platform_accessed",
+      "lumen_activated",
+      "marketplace_asset_purchased",
+      "metahuman_created",
+      "nanite_enabled",
+      "project_started",
+      "quixel_bridge_used",
+      "unreal_engine_license_purchased"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Venmo": {
+    "actions": [
+      "bank_account_linked",
+      "card_frozen",
+      "debit_card_added",
+      "direct_deposit_set_up",
+      "face_id_enabled",
+      "instant_transfer_used",
+      "payment_made",
+      "payment_requested",
+      "pin_code_set",
+      "privacy_setting_adjusted",
+      "profile_customized",
+      "qr_code_scanned",
+      "split_bill_initiated",
+      "transaction_alert_received",
+      "unauthorized_activity_reported"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Viber": {
+    "actions": [
+      "call_history_cleared",
+      "call_initiated",
+      "contact_invited",
+      "effect_applied",
+      "group_call_started",
+      "message_recorded",
+      "screen_shared",
+      "video_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Vimeo": {
+    "actions": [
+      "analytics_reviewed",
+      "custom_player_embedded",
+      "live_event_streamed",
+      "ott_platform_launched",
+      "portfolio_created",
+      "privacy_settings_adjusted",
+      "review_page_shared",
+      "stock_footage_purchased",
+      "video_replaced",
+      "video_uploaded",
+      "vimeo_business_enrolled",
+      "vimeo_plus_upgraded",
+      "vimeo_pro_subscribed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "VKontakte": {
+    "actions": [
+      "group_joined",
+      "live_stream_started",
+      "market_item_listed",
+      "mini_app_opened",
+      "photo_uploaded",
+      "podcast_listened",
+      "story_posted",
+      "vk_clips_watched",
+      "vk_dating_used",
+      "vk_music_played",
+      "vk_pay_used",
+      "wall_post_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "VS Code": {
+    "actions": [
+      "breakpoint_toggled",
+      "code_completion_triggered",
+      "command_palette_opened",
+      "debug_session_started",
+      "editor_group_created",
+      "emmet_expanded",
+      "extension_installed",
+      "extension_uninstalled",
+      "extension_updated",
+      "extract_method_executed",
+      "file_closed",
+      "file_deleted",
+      "file_moved",
+      "file_opened",
+      "file_renamed",
+      "file_saved",
+      "file_saved_as",
+      "find_executed",
+      "find_in_files_executed",
+      "format_document_executed",
+      "format_selection_executed",
+      "git_branch_created",
+      "git_checkout_executed",
+      "git_commit_executed",
+      "git_pull_executed",
+      "git_push_executed",
+      "git_stage_executed",
+      "go_to_definition_executed",
+      "go_to_file_executed",
+      "go_to_line_executed",
+      "go_to_references_executed",
+      "go_to_symbol_executed",
+      "keybinding_changed",
+      "new_file_created",
+      "new_folder_created",
+      "new_workspace_created",
+      "peek_definition_executed",
+      "peek_references_executed",
+      "quick_fix_applied",
+      "redo_executed",
+      "rename_symbol_executed",
+      "replace_executed",
+      "settings_changed",
+      "snippet_inserted",
+      "split_editor_opened",
+      "task_run_executed",
+      "terminal_command_executed",
+      "terminal_opened",
+      "text_copied",
+      "text_cut",
+      "text_pasted",
+      "text_typed",
+      "toggle_block_comment_executed",
+      "toggle_comment_executed",
+      "undo_executed",
+      "workspace_settings_changed"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Walmart Marketplace": {
+    "actions": [
+      "advertising_campaign_managed",
+      "fulfillment_service_used",
+      "performance_metrics_viewed",
+      "pro_seller_badge_earned",
+      "product_listed",
+      "repricer_tool_used",
+      "return_processed",
+      "seller_account_approved",
+      "seller_support_ticket_created",
+      "walmart_connect_advertising_used",
+      "walmart_fulfillment_services_enrolled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Wealthfront": {
+    "actions": [
+      "account_funded",
+      "auto_deposit_scheduled",
+      "faq_consulted",
+      "financial_plan_projected",
+      "high_yield_cash_account_opened",
+      "historical_performance_viewed",
+      "home_planning_started",
+      "investment_explanation_read",
+      "line_of_credit_accessed",
+      "methodology_whitepaper_downloaded",
+      "plan_529_recommended",
+      "portfolio_automated",
+      "risk_tolerance_assessed",
+      "support_contacted",
+      "tax_loss_harvesting_enabled"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "WeChat": {
+    "actions": [
+      "channel_live_started",
+      "favorites_added",
+      "mini_program_opened",
+      "moment_posted",
+      "official_account_followed",
+      "payment_made",
+      "people_nearby_used",
+      "red_packet_sent",
+      "sticker_purchased",
+      "top_story_read",
+      "video_call_group_started",
+      "wechat_pay_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "WhatsApp": {
+    "actions": [
+      "attach_photo",
+      "send_message"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "WinRAR": {
+    "actions": [
+      "archive_created",
+      "archive_extracted",
+      "archive_format_rar_selected",
+      "archive_format_zip_selected",
+      "archive_opened",
+      "archive_repaired",
+      "archive_tested",
+      "comment_added_to_archive",
+      "compression_method_selected_best",
+      "compression_method_selected_fastest",
+      "compression_method_selected_normal",
+      "compression_method_selected_store",
+      "files_added_to_archive",
+      "files_deleted_from_archive",
+      "password_protection_applied",
+      "self_extracting_archive_created",
+      "split_archive_created"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Wise": {
+    "actions": [
+      "account_closure_requested",
+      "api_integrated",
+      "bank_details_shared",
+      "business_account_opened",
+      "card_frozen",
+      "direct_debit_set_up",
+      "jar_created",
+      "login_alert_reviewed",
+      "rate_alert_set",
+      "recipient_added",
+      "statement_downloaded",
+      "transfer_initiated",
+      "two_factor_authentication_enabled",
+      "verification_document_uploaded",
+      "wise_card_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "WooCommerce": {
+    "actions": [
+      "account_created",
+      "cart_viewed",
+      "checkout_initiated",
+      "guest_checkout_used",
+      "order_reviewed",
+      "payment_info_added",
+      "purchase_completed",
+      "shipping_method_selected"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Wrike": {
+    "actions": [
+      "approval_workflow_initiated",
+      "at_mention_used",
+      "blueprint_used",
+      "calendar_synced",
+      "custom_workflow_applied",
+      "mobile_app_used",
+      "project_space_created",
+      "proof_approved",
+      "report_built",
+      "request_form_submitted",
+      "resource_management_viewed",
+      "share_link_generated",
+      "task_created",
+      "time_tracked",
+      "user_invited"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Xbox Live": {
+    "actions": [
+      "achievement_earned",
+      "activity_feed_updated",
+      "cloud_gaming_used",
+      "club_joined",
+      "elite_controller_customized",
+      "game_pass_game_installed",
+      "game_pass_subscription_managed",
+      "gamerscore_increased",
+      "looking_for_group_posted",
+      "microsoft_points_redeemed",
+      "party_chat_joined",
+      "xbox_design_lab_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "YouTube": {
+    "actions": [
+      "play_video",
+      "search_video"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Zoho CRM": {
+    "actions": [
+      "account_hierarchy_managed",
+      "blueprint_executed",
+      "canvas_view_designed",
+      "case_resolved",
+      "contact_enriched",
+      "email_sent",
+      "forecast_adjusted",
+      "lead_converted",
+      "potential_created",
+      "scheduled_function_executed",
+      "social_twitter_integrated",
+      "territory_assigned",
+      "web_form_captured",
+      "workflow_rule_triggered",
+      "zia_ai_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "Zoom": {
+    "actions": [
+      "breakout_room_created",
+      "meeting_joined",
+      "meeting_started",
+      "poll_launched",
+      "recording_started",
+      "screen_shared",
+      "virtual_background_applied",
+      "whiteboard_used"
+    ],
+    "modes": [
+      "native",
+      "ui"
+    ]
+  },
+  "adobe_acrobat": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "alibaba_cloud": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "android_studio": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "appletv": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "arduino_ide": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "azure": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "booking": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "cashapp": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "chrome": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "disneyplus": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "dynamics365": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "epic_games": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "etrade": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "gcp": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "github_desktop": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "git_cli": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "google": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "google_classroom": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "hbomax": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "ibm_cloud": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "jdcom": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "khan_academy": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "lm_studio": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "mercadolibre": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "microsoft_teams": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "monday": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "ms_excel": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "ms_powerpoint": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "ms_word": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "new_relic": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "nintendo": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "nodejs_runtime": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "onedrive": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "oracle_cloud": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "playstation": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "prime_video": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "python_runtime": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "sap_sales": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "schwab": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "travisci": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "twitter": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "unreal_engine": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "vscode": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "walmart": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "xbox_live": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "zoho_crm": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  },
+  "__pycache__": {
+    "actions": [
+      "any",
+      "click",
+      "open",
+      "type"
+    ],
+    "modes": [
+      "ui"
+    ]
+  }
+}

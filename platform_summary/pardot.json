@@ -1,0 +1,139 @@
+{
+    "platform": "Pardot",
+    "platform_urls": [
+        "https://pardot.com"
+    ],
+    "supported_actions": {
+        "campaign_launched": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "landing_page_published": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_handler_created": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dynamic_content_enabled": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "engagement_program_built": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "prospect_scored": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grading_profile_applied": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_rule_triggered": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tag_added": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "list_email_sent": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lifecycle_report_viewed": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "roi_calculator_used": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "connected_campaign_enabled": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "einstein_behavior_scoring_viewed": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "b2b_marketing_analytics_used": {
+            "sources": [
+                "https://pardot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/pardot/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/pardot/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added campaign_launched",
+        "added landing_page_published",
+        "added form_handler_created",
+        "added dynamic_content_enabled",
+        "added engagement_program_built",
+        "added prospect_scored",
+        "added grading_profile_applied",
+        "added assignment_rule_triggered",
+        "added tag_added",
+        "added list_email_sent",
+        "added lifecycle_report_viewed",
+        "added roi_calculator_used",
+        "added connected_campaign_enabled",
+        "added einstein_behavior_scoring_viewed",
+        "added b2b_marketing_analytics_used"
+    ],
+    "citations": [
+        "https://pardot.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Wrike",
+    "platform_urls": [
+        "https://wrike.com"
+    ],
+    "supported_actions": {
+        "task_created": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "custom_workflow_applied": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "time_tracked": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "request_form_submitted": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "proof_approved": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "project_space_created": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "blueprint_used": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_built": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "resource_management_viewed": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_synced": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "user_invited": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "at_mention_used": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "approval_workflow_initiated": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "share_link_generated": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_used": {
+            "sources": [
+                "https://wrike.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/wrike/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/wrike/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added task_created",
+        "added custom_workflow_applied",
+        "added time_tracked",
+        "added request_form_submitted",
+        "added proof_approved",
+        "added project_space_created",
+        "added blueprint_used",
+        "added report_built",
+        "added resource_management_viewed",
+        "added calendar_synced",
+        "added user_invited",
+        "added at_mention_used",
+        "added approval_workflow_initiated",
+        "added share_link_generated",
+        "added mobile_app_used"
+    ],
+    "citations": [
+        "https://wrike.com"
+    ]
+}

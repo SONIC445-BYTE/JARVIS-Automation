@@ -1,0 +1,81 @@
+import subprocess
+import os
+import shutil
+import uuid
+import time
+from pathlib import Path
+from typing import Dict, Any, List
+import sys
+
+class SandboxRunner:
+    def __init__(self, base_path: str = "projects/sandbox_level6"):
+        self.base_path = Path(base_path)
+        self.base_path.mkdir(parents=True, exist_ok=True)
+
+    def run_plan(self, plan: List[Dict], tests: List[Dict], snapshot_id: str) -> Dict[str, Any]:
+        """
+        Execute a plan in a fresh sandbox instance.
+        """
+        # Create isolated sandbox dir
+        sandbox_id = f"{snapshot_id}_{uuid.uuid4().hex[:8]}"
+        sandbox_dir = self.base_path / sandbox_id
+        
+        logs = []
+        try:
+            sandbox_dir.mkdir(parents=True, exist_ok=True)
+            # 1. Apply Plan (Write Files)
+            for item in plan:
+                if item["type"] == "create_file" or item["type"] == "update_file":
+                    p = sandbox_dir / item["target"]
+                    p.parent.mkdir(parents=True, exist_ok=True)
+                    with open(p, "w", encoding="utf-8") as f:
+                        f.write(item.get("content", "")) # 'content' or 'spec' needs detail
+                    logs.append(f"Wrote {item['target']}")
+                # 'ast_edit' handled by ASTFixer in real flow
+
+            # 2. Write Tests
+            for test in tests:
+                p = sandbox_dir / test["path"]
+                p.parent.mkdir(parents=True, exist_ok=True)
+                with open(p, "w", encoding="utf-8") as f:
+                    f.write(test["content"])
+                logs.append(f"Wrote test {test['path']}")
+
+            # 3. Run Tests
+            # Disable network (env var logic)
+            env = os.environ.copy()
+            env["JARVIS_SANDBOX_NETWORK"] = "0"
+            
+            # Find tests
+            test_files = [str(sandbox_dir / t["path"]) for t in tests]
+            if not test_files:
+                return {"passed": True, "logs": logs, "message": "No tests to run", "sandbox_dir": str(sandbox_dir)}
+
+            cmd = [sys.executable, "-m", "pytest"] + test_files
+            result = subprocess.run(
+                cmd, 
+                cwd=str(sandbox_dir),
+                capture_output=True,
+                text=True,
+                timeout=60 # configurable
+            )
+            
+            passed = (result.returncode == 0)
+            logs.append(result.stdout)
+            logs.append(result.stderr)
+            
+            return {
+                "passed": passed,
+                "stdout": result.stdout,
+                "stderr": result.stderr,
+                "sandbox_dir": str(sandbox_dir),
+                "logs": logs
+            }
+
+        except Exception as e:
+            return {"passed": False, "error": str(e), "logs": logs, "sandbox_dir": str(sandbox_dir)}
+        finally:
+            # Cleanup optionally
+            pass
+            
+

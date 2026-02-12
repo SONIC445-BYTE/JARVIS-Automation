@@ -1,0 +1,107 @@
+{
+    "platform": "Hulu",
+    "platform_urls": [
+        "https://hulu.com"
+    ],
+    "supported_actions": {
+        "episode_watched": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_tv_tuned": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dvr_recording_set": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_switched": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watchlist_added": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "my_stuff_organized": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "no_ads_plan_upgraded": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_tv_guide_customized": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "disney_bundle_subscribed": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hulu_plus_live_tv_upgraded": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "add_on_premium_channel_added": {
+            "sources": [
+                "https://hulu.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/hulu/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/hulu/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added episode_watched",
+        "added live_tv_tuned",
+        "added dvr_recording_set",
+        "added profile_switched",
+        "added watchlist_added",
+        "added my_stuff_organized",
+        "added no_ads_plan_upgraded",
+        "added live_tv_guide_customized",
+        "added disney_bundle_subscribed",
+        "added hulu_plus_live_tv_upgraded",
+        "added add_on_premium_channel_added"
+    ],
+    "citations": [
+        "https://hulu.com"
+    ]
+}

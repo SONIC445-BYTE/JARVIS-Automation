@@ -1,0 +1,240 @@
+{
+    "platform": "VS Code",
+    "platform_type": "local_application",
+    "executable": "code.exe",
+    "supported_actions": {
+        "new_file_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_folder_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_workspace_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_typed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_pasted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_cut": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_copied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "undo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "redo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "find_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "replace_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "find_in_files_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_file_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_symbol_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_line_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_definition_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_references_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "peek_definition_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "peek_references_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "code_completion_triggered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "quick_fix_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "rename_symbol_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extract_method_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "format_document_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "format_selection_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "toggle_comment_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "toggle_block_comment_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extension_installed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extension_uninstalled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extension_updated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "terminal_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "terminal_command_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "debug_session_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "breakpoint_toggled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_stage_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_commit_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_push_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_pull_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_branch_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_checkout_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "task_run_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "settings_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "keybinding_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "snippet_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "emmet_expanded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "split_editor_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "editor_group_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "command_palette_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workspace_settings_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/vscode/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 56,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

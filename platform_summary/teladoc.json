@@ -1,0 +1,139 @@
+{
+    "platform": "Teladoc",
+    "platform_urls": [
+        "https://teladoc.com"
+    ],
+    "supported_actions": {
+        "consultation_scheduled": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_visit_started": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "prescription_sent": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "medical_record_accessed": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "follow_up_booked": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "symptom_checker_used": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "health_record_synced": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "biometric_device_connected": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "medication_reminder_set": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "care_plan_accessed": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "therapist_matched": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "psychiatrist_consulted": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dermatologist_visit_completed": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nutritionist_advised": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "specialist_referred": {
+            "sources": [
+                "https://teladoc.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/teladoc/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/teladoc/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added consultation_scheduled",
+        "added video_visit_started",
+        "added prescription_sent",
+        "added medical_record_accessed",
+        "added follow_up_booked",
+        "added symptom_checker_used",
+        "added health_record_synced",
+        "added biometric_device_connected",
+        "added medication_reminder_set",
+        "added care_plan_accessed",
+        "added therapist_matched",
+        "added psychiatrist_consulted",
+        "added dermatologist_visit_completed",
+        "added nutritionist_advised",
+        "added specialist_referred"
+    ],
+    "citations": [
+        "https://teladoc.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "GitLab",
+    "platform_urls": [
+        "https://gitlab.com"
+    ],
+    "supported_actions": {
+        "project_initialized": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "merge_request_submitted": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pipeline_triggered": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "container_image_built": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_scan_run": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "auto_devops_enabled": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "kubernetes_cluster_connected": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "page_deployed": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "release_created": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "infrastructure_as_code_managed": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "epic_created": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "roadmap_planned": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_documented": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "snippet_shared": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_managed": {
+            "sources": [
+                "https://gitlab.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/gitlab/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/gitlab/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added project_initialized",
+        "added merge_request_submitted",
+        "added pipeline_triggered",
+        "added container_image_built",
+        "added security_scan_run",
+        "added auto_devops_enabled",
+        "added kubernetes_cluster_connected",
+        "added page_deployed",
+        "added release_created",
+        "added infrastructure_as_code_managed",
+        "added epic_created",
+        "added roadmap_planned",
+        "added wiki_documented",
+        "added snippet_shared",
+        "added group_managed"
+    ],
+    "citations": [
+        "https://gitlab.com"
+    ]
+}

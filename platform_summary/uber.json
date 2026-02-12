@@ -1,0 +1,139 @@
+{
+    "platform": "Uber",
+    "platform_urls": [
+        "https://uber.com"
+    ],
+    "supported_actions": {
+        "ride_requested": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trip_completed": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fare_split": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scheduled_ride_set": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pool_joined": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "uber_eats_ordered": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "freight_shipment_created": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_profile_switched": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "safety_toolkit_used": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rating_given": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "uber_rewards_enrolled": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "uber_cash_purchased": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "uber_pass_subscribed": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vip_support_accessed": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jump_bike_rented": {
+            "sources": [
+                "https://uber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/uber/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/uber/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added ride_requested",
+        "added trip_completed",
+        "added fare_split",
+        "added scheduled_ride_set",
+        "added pool_joined",
+        "added uber_eats_ordered",
+        "added freight_shipment_created",
+        "added business_profile_switched",
+        "added safety_toolkit_used",
+        "added rating_given",
+        "added uber_rewards_enrolled",
+        "added uber_cash_purchased",
+        "added uber_pass_subscribed",
+        "added vip_support_accessed",
+        "added jump_bike_rented"
+    ],
+    "citations": [
+        "https://uber.com"
+    ]
+}

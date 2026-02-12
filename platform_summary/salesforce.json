@@ -1,0 +1,139 @@
+{
+    "platform": "Salesforce",
+    "platform_urls": [
+        "https://salesforce.com"
+    ],
+    "supported_actions": {
+        "lead_created": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_enriched": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_mapped": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "opportunity_qualified": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "case_escalated": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forecast_submitted": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quote_generated": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contract_negotiated": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "order_processed": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "renewal_managed": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_rule_triggered": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "process_builder_executed": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "flow_automated": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apex_trigger_fired": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "einstein_prediction_used": {
+            "sources": [
+                "https://salesforce.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/salesforce/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/salesforce/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added lead_created",
+        "added contact_enriched",
+        "added account_mapped",
+        "added opportunity_qualified",
+        "added case_escalated",
+        "added forecast_submitted",
+        "added quote_generated",
+        "added contract_negotiated",
+        "added order_processed",
+        "added renewal_managed",
+        "added workflow_rule_triggered",
+        "added process_builder_executed",
+        "added flow_automated",
+        "added apex_trigger_fired",
+        "added einstein_prediction_used"
+    ],
+    "citations": [
+        "https://salesforce.com"
+    ]
+}

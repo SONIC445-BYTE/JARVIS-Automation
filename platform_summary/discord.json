@@ -1,0 +1,115 @@
+{
+    "platform": "Discord",
+    "platform_urls": [
+        "https://discord.com"
+    ],
+    "supported_actions": {
+        "message_sent": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "server_joined": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_created": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "role_assigned": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nitro_subscribed": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "boost_applied": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stage_channel_started": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "thread_created": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "slash_command_used": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bot_added": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "emoji_uploaded": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "server_template_used": {
+            "sources": [
+                "https://discord.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/discord/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/discord/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added message_sent",
+        "added server_joined",
+        "added channel_created",
+        "added role_assigned",
+        "added nitro_subscribed",
+        "added boost_applied",
+        "added stage_channel_started",
+        "added thread_created",
+        "added slash_command_used",
+        "added bot_added",
+        "added emoji_uploaded",
+        "added server_template_used"
+    ],
+    "citations": [
+        "https://discord.com"
+    ]
+}

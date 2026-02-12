@@ -1,0 +1,22 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0
+plugins: anyio-4.12.1
+collected 7 items
+
+AgentCore\ui_agent\tests\test_agent_smoke.py .                           [ 14%]
+AgentCore\ui_agent\tests\test_architectural_fix.py ..                    [ 42%]
+AgentCore\ui_agent\tests\test_executor.py .                              [ 57%]
+AgentCore\ui_agent\tests\test_inspector.py .                             [ 71%]
+AgentCore\ui_agent\tests\test_platform_coverage.py .                     [ 85%]
+AgentCore\ui_agent\tests\test_ui_fallback_unknown_app.py .               [100%]
+
+============================== warnings summary ===============================
+AgentCore/ui_agent/tests/test_agent_smoke.py::test_ui_agent_smoke
+  C:\Users\mukho\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but AgentCore/ui_agent/tests/test_agent_smoke.py::test_ui_agent_smoke returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 7 passed, 1 warning in 7.68s =========================

@@ -1,0 +1,139 @@
+{
+    "platform": "Mailchimp",
+    "platform_urls": [
+        "https://mailchimp.com"
+    ],
+    "supported_actions": {
+        "campaign_created": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "audience_segmented": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_designed": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_configured": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "landing_page_published": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscriber_imported": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tag_applied": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "signup_form_embedded": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "preference_center_customized": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cleaning_recommended": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_viewed": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "a_b_test_analyzed": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "send_time_optimization_used": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comparative_report_generated": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "social_post_scheduled": {
+            "sources": [
+                "https://mailchimp.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/mailchimp/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/mailchimp/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added campaign_created",
+        "added audience_segmented",
+        "added template_designed",
+        "added automation_configured",
+        "added landing_page_published",
+        "added subscriber_imported",
+        "added tag_applied",
+        "added signup_form_embedded",
+        "added preference_center_customized",
+        "added cleaning_recommended",
+        "added report_viewed",
+        "added a_b_test_analyzed",
+        "added send_time_optimization_used",
+        "added comparative_report_generated",
+        "added social_post_scheduled"
+    ],
+    "citations": [
+        "https://mailchimp.com"
+    ]
+}

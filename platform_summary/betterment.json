@@ -1,0 +1,139 @@
+{
+    "platform": "Betterment",
+    "platform_urls": [
+        "https://betterment.com"
+    ],
+    "supported_actions": {
+        "goal_based_investing_started": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_deposited": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rebalancing_automated": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tax_coordinated_portfolio_enabled": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_invested": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_projected": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "advice_accessed": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "checking_account_opened": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "joint_account_created": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trust_account_established": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "educational_article_read": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tool_used": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "performance_analyzed": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fee_comparison_made": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "customer_support_chatted": {
+            "sources": [
+                "https://betterment.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/betterment/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/betterment/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added goal_based_investing_started",
+        "added portfolio_deposited",
+        "added rebalancing_automated",
+        "added tax_coordinated_portfolio_enabled",
+        "added crypto_invested",
+        "added goal_projected",
+        "added advice_accessed",
+        "added checking_account_opened",
+        "added joint_account_created",
+        "added trust_account_established",
+        "added educational_article_read",
+        "added tool_used",
+        "added performance_analyzed",
+        "added fee_comparison_made",
+        "added customer_support_chatted"
+    ],
+    "citations": [
+        "https://betterment.com"
+    ]
+}

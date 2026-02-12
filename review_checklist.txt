@@ -1,0 +1,7 @@
+
+[ ] Review `youtube/adapter.py` - Verify URL query construction.
+[ ] Review `whatsapp/adapter.py` - Confirm stub status is acceptable.
+[ ] Review `notepad/adapter.py` - Verify coordinate guesses for "Save".
+[ ] Review `spotify/adapter.py` - Check URL format.
+[ ] Check permissions: "Internet" used by YouTube/Spotify.
+[ ] Toggle feature flags in `feature_flags/` to TRUE one by one to test.

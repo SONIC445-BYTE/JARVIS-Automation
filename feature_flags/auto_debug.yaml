@@ -1,0 +1,5 @@
+enabled: false
+budget: 5 # max attempts
+strategies: ["ast_fix", "llm_suggestion"]
+auto_apply_safe_fixes: false # Require owner even for safe fixes initially
+rollback_on_failure: true

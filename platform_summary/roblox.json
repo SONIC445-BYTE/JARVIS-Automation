@@ -1,0 +1,115 @@
+{
+    "platform": "Roblox",
+    "platform_urls": [
+        "https://roblox.com"
+    ],
+    "supported_actions": {
+        "game_joined": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "avatar_customized": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "place_created": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "robux_earned": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_request_sent": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "private_server_created": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trade_request_sent": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "robux_purchased": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "premium_subscription_purchased": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "game_pass_sold": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "developer_exchange_used": {
+            "sources": [
+                "https://roblox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/roblox/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/roblox/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added game_joined",
+        "added avatar_customized",
+        "added place_created",
+        "added robux_earned",
+        "added friend_request_sent",
+        "added group_joined",
+        "added private_server_created",
+        "added trade_request_sent",
+        "added robux_purchased",
+        "added premium_subscription_purchased",
+        "added game_pass_sold",
+        "added developer_exchange_used"
+    ],
+    "citations": [
+        "https://roblox.com"
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "platform": "Recharge",
+    "platform_urls": [
+        "https://rechargepayments.com"
+    ],
+    "supported_actions": {
+        "subscription_created": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "billing_cycle_managed": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dunning_email_sent": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plan_upgraded": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plan_downgraded": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "churn_prevented": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "metered_billing_calculated": {
+            "sources": [
+                "https://rechargepayments.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/recharge/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/recharge/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added subscription_created",
+        "added billing_cycle_managed",
+        "added dunning_email_sent",
+        "added plan_upgraded",
+        "added plan_downgraded",
+        "added churn_prevented",
+        "added metered_billing_calculated"
+    ],
+    "citations": [
+        "https://rechargepayments.com"
+    ]
+}

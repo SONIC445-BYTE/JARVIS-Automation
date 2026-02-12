@@ -1,0 +1,139 @@
+{
+    "platform": "Delta",
+    "platform_urls": [
+        "https://delta.com"
+    ],
+    "supported_actions": {
+        "flight_booked": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "seat_selected": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "check_in_completed": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "boarding_pass_accessed": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "upgrade_requested": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "skymiles_earned": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "delta_sync_used": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fly_ready_confirmed": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rebooking_requested": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unaccompanied_minor_service_booked": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "medallion_status_achieved": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "companion_certificate_used": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "delta_sky_club_accessed": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "upgrade_clearance_received": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mileage_run_calculated": {
+            "sources": [
+                "https://delta.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/delta/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/delta/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added flight_booked",
+        "added seat_selected",
+        "added check_in_completed",
+        "added boarding_pass_accessed",
+        "added upgrade_requested",
+        "added skymiles_earned",
+        "added delta_sync_used",
+        "added fly_ready_confirmed",
+        "added rebooking_requested",
+        "added unaccompanied_minor_service_booked",
+        "added medallion_status_achieved",
+        "added companion_certificate_used",
+        "added delta_sky_club_accessed",
+        "added upgrade_clearance_received",
+        "added mileage_run_calculated"
+    ],
+    "citations": [
+        "https://delta.com"
+    ]
+}

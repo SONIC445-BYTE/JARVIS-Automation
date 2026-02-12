@@ -1,0 +1,139 @@
+{
+    "platform": "Fitbit",
+    "platform_urls": [
+        "https://fitbit.com"
+    ],
+    "supported_actions": {
+        "activity_tracked": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sleep_logged": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "food_logged": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "water_logged": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "weight_logged": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "exercise_auto_recognized": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "heart_rate_variability_measured": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "spo2_monitored": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "skin_temperature_tracked": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stress_management_score_calculated": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "premium_trial_started": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "health_metrics_dashboard_viewed": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wellness_report_generated": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coach_guidance_received": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "family_account_created": {
+            "sources": [
+                "https://fitbit.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/fitbit/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/fitbit/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added activity_tracked",
+        "added sleep_logged",
+        "added food_logged",
+        "added water_logged",
+        "added weight_logged",
+        "added exercise_auto_recognized",
+        "added heart_rate_variability_measured",
+        "added spo2_monitored",
+        "added skin_temperature_tracked",
+        "added stress_management_score_calculated",
+        "added premium_trial_started",
+        "added health_metrics_dashboard_viewed",
+        "added wellness_report_generated",
+        "added coach_guidance_received",
+        "added family_account_created"
+    ],
+    "citations": [
+        "https://fitbit.com"
+    ]
+}

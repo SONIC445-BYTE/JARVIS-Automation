@@ -1,0 +1,83 @@
+{
+    "platform": "Tinder",
+    "platform_urls": [
+        "https://tinder.com"
+    ],
+    "supported_actions": {
+        "profile_created": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "swipe_right": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "swipe_left": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "match_made": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_sent": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "super_like_used": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "boost_applied": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "date_scheduled": {
+            "sources": [
+                "https://tinder.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/tinder/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/tinder/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added profile_created",
+        "added swipe_right",
+        "added swipe_left",
+        "added match_made",
+        "added message_sent",
+        "added super_like_used",
+        "added boost_applied",
+        "added date_scheduled"
+    ],
+    "citations": [
+        "https://tinder.com"
+    ]
+}

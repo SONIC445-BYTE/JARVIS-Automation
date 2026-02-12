@@ -1,0 +1,41 @@
+{
+    "platform": "Google Chrome",
+    "platform_urls": [
+        "https://www.google.com/chrome/"
+    ],
+    "supported_actions": {
+        "open_url": {
+            "sources": [
+                "Internal Chrome Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "Navigation"
+        },
+        "new_tab": {
+            "sources": [
+                "Internal Chrome Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "Ctrl+T shortcut"
+        },
+        "close_tab": {
+            "sources": [
+                "Internal Chrome Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "Ctrl+W shortcut"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/chrome/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/chrome/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added basic browser controls"
+    ],
+    "citations": [
+        "https://support.google.com/chrome/answer/157179"
+    ]
+}

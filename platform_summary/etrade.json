@@ -1,0 +1,139 @@
+{
+    "platform": "E*Trade",
+    "platform_urls": [
+        "https://etrade.com"
+    ],
+    "supported_actions": {
+        "stock_ordered": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "option_contract_traded": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mutual_fund_purchased": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bond_laddered": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "futures_contract_initiated": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_analyzed": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watch_list_created": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "paper_trading_used": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "margin_account_enabled": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ira_opened": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_news_read": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "analyst_report_viewed": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "earnings_calendar_checked": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_screener_used": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "educational_video_watched": {
+            "sources": [
+                "https://etrade.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/etrade/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/etrade/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added stock_ordered",
+        "added option_contract_traded",
+        "added mutual_fund_purchased",
+        "added bond_laddered",
+        "added futures_contract_initiated",
+        "added portfolio_analyzed",
+        "added watch_list_created",
+        "added paper_trading_used",
+        "added margin_account_enabled",
+        "added ira_opened",
+        "added market_news_read",
+        "added analyst_report_viewed",
+        "added earnings_calendar_checked",
+        "added stock_screener_used",
+        "added educational_video_watched"
+    ],
+    "citations": [
+        "https://etrade.com"
+    ]
+}

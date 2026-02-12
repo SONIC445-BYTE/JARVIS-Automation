@@ -1,0 +1,83 @@
+{
+    "platform": "Viber",
+    "platform_urls": [
+        "https://viber.com"
+    ],
+    "supported_actions": {
+        "call_initiated": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_enabled": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_call_started": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_recorded": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "effect_applied": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "screen_shared": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_invited": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "call_history_cleared": {
+            "sources": [
+                "https://viber.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/viber/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/viber/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added call_initiated",
+        "added video_enabled",
+        "added group_call_started",
+        "added message_recorded",
+        "added effect_applied",
+        "added screen_shared",
+        "added contact_invited",
+        "added call_history_cleared"
+    ],
+    "citations": [
+        "https://viber.com"
+    ]
+}

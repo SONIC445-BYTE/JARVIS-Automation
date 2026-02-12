@@ -1,0 +1,7 @@
+Create/modify the following function/class to achieve: {goal_description}.
+Context files (concise): {file_summaries}
+Constraints:
+- Keep backward compatibility.
+- Do not remove existing public APIs.
+- Use existing project style and imports.
+- Provide unit tests and run instructions.

@@ -1,0 +1,13 @@
+categories:
+  syntax_error:
+    action: alert
+  test_failure:
+    action: rollback
+  regression:
+    action: rollback
+  performance_degrade:
+    action: alert
+  security_violation:
+    action: escalate
+  data_leak:
+    action: escalate

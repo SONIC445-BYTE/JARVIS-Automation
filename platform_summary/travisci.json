@@ -1,0 +1,139 @@
+{
+    "platform": "Travis CI",
+    "platform_urls": [
+        "https://travis-ci.com"
+    ],
+    "supported_actions": {
+        "repository_activated": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "build_triggered": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "matrix_build_configured": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deployment_released": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cron_job_scheduled": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "github_releases_deployed": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "heroku_application_pushed": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "aws_s3_uploaded": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "docker_hub_pushed": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pypi_package_published": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "organization_managed": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "billing_updated": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "log_accessed": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cache_cleared": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "debug_mode_activated": {
+            "sources": [
+                "https://travis-ci.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/travisci/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/travisci/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added repository_activated",
+        "added build_triggered",
+        "added matrix_build_configured",
+        "added deployment_released",
+        "added cron_job_scheduled",
+        "added github_releases_deployed",
+        "added heroku_application_pushed",
+        "added aws_s3_uploaded",
+        "added docker_hub_pushed",
+        "added pypi_package_published",
+        "added organization_managed",
+        "added billing_updated",
+        "added log_accessed",
+        "added cache_cleared",
+        "added debug_mode_activated"
+    ],
+    "citations": [
+        "https://travis-ci.com"
+    ]
+}

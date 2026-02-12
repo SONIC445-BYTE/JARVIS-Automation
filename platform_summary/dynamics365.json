@@ -1,0 +1,139 @@
+{
+    "platform": "Microsoft Dynamics 365",
+    "platform_urls": [
+        "https://dynamics.microsoft.com"
+    ],
+    "supported_actions": {
+        "lead_qualified": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "opportunity_created": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_synchronized": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_hierarchy_managed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "case_routed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sales_process_guided": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quote_generated": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "order_fulfilled": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "invoice_generated": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "relationship_analytics_viewed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "power_automate_flow_triggered": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ai_insights_viewed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_executed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_process_flow_completed": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "power_bi_report_embedded": {
+            "sources": [
+                "https://dynamics.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/dynamics365/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/dynamics365/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added lead_qualified",
+        "added opportunity_created",
+        "added contact_synchronized",
+        "added account_hierarchy_managed",
+        "added case_routed",
+        "added sales_process_guided",
+        "added quote_generated",
+        "added order_fulfilled",
+        "added invoice_generated",
+        "added relationship_analytics_viewed",
+        "added power_automate_flow_triggered",
+        "added ai_insights_viewed",
+        "added workflow_executed",
+        "added business_process_flow_completed",
+        "added power_bi_report_embedded"
+    ],
+    "citations": [
+        "https://dynamics.microsoft.com"
+    ]
+}

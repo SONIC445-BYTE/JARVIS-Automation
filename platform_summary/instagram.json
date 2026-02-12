@@ -1,0 +1,115 @@
+{
+    "platform": "Instagram",
+    "platform_urls": [
+        "https://instagram.com"
+    ],
+    "supported_actions": {
+        "photo_posted": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_posted": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reel_shared": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "post_liked": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_message_sent": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_replied": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_started": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "close_friend_added": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shop_product_viewed": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "filter_applied": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "music_added": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collaboration_posted": {
+            "sources": [
+                "https://instagram.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/instagram/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/instagram/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added photo_posted",
+        "added story_posted",
+        "added reel_shared",
+        "added post_liked",
+        "added direct_message_sent",
+        "added story_replied",
+        "added live_started",
+        "added close_friend_added",
+        "added shop_product_viewed",
+        "added filter_applied",
+        "added music_added",
+        "added collaboration_posted"
+    ],
+    "citations": [
+        "https://instagram.com"
+    ]
+}

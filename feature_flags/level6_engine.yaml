@@ -1,0 +1,7 @@
+enabled: false
+model: "llama3:latest" # or your local model
+max_iterations: 5
+max_time_per_request_minutes: 15
+sandbox_base_path: "projects/sandbox_level6"
+log_path: "data/level6/metrics.jsonl"
+require_owner_approval_for_apply: true

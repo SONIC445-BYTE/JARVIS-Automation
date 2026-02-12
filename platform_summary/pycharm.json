@@ -1,0 +1,232 @@
+{
+    "platform": "PyCharm",
+    "platform_type": "local_application",
+    "executable": "pycharm64.exe",
+    "supported_actions": {
+        "new_project_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_file_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_python_file_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_python_package_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "new_jupyter_notebook_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "project_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "code_completion_basic_invoked": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "code_completion_smart_invoked": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "quick_fix_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "intention_action_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_declaration_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_implementation_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_class_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_file_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "go_to_symbol_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "search_everywhere_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "find_in_path_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "find_usages_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "rename_refactoring_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extract_method_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "extract_variable_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "inline_refactoring_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "reformat_code_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "optimize_imports_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "run_configuration_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "debug_configuration_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "breakpoint_toggled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "step_over_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "step_into_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "evaluate_expression_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "watch_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "python_interpreter_configured": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "virtualenv_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_package_installed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pip_package_uninstalled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pytest_run_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "unittest_run_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "coverage_analysis_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "test_results_viewed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_commit_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_push_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_pull_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_branch_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "git_merge_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "terminal_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "python_console_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "jupyter_notebook_cell_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "jupyter_kernel_restarted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/pycharm/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 54,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "platform": "Gmail",
+    "platform_urls": [
+        "https://mail.google.com"
+    ],
+    "supported_actions": {
+        "send_email": {
+            "sources": [
+                "https://gmail.com"
+            ],
+            "confidence": 0.9,
+            "notes": "Deep link compose"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/gmail/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/gmail/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "high",
+    "changes_made": [
+        "added send_email"
+    ],
+    "citations": [
+        "https://mail.google.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Schoology",
+    "platform_urls": [
+        "https://schoology.com"
+    ],
+    "supported_actions": {
+        "course_material_accessed": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_submitted": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "test_completed": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_participated": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "folder_created": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grade_viewed": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attendance_marked": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_objective_mastered": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mastery_report_generated": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_assembled": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_sent": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_event_added": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "resource_appended": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parent_access_granted": {
+            "sources": [
+                "https://schoology.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/schoology/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/schoology/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added course_material_accessed",
+        "added assignment_submitted",
+        "added test_completed",
+        "added discussion_participated",
+        "added folder_created",
+        "added grade_viewed",
+        "added attendance_marked",
+        "added learning_objective_mastered",
+        "added mastery_report_generated",
+        "added portfolio_assembled",
+        "added message_sent",
+        "added group_joined",
+        "added calendar_event_added",
+        "added resource_appended",
+        "added parent_access_granted"
+    ],
+    "citations": [
+        "https://schoology.com"
+    ]
+}

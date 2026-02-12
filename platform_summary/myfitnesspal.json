@@ -1,0 +1,139 @@
+{
+    "platform": "MyFitnessPal",
+    "platform_urls": [
+        "https://myfitnesspal.com"
+    ],
+    "supported_actions": {
+        "meal_logged": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "exercise_recorded": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "water_tracked": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "weight_entered": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_set": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "barcode_scanned": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recipe_imported": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nutrition_analyzed": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "streak_maintained": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "progress_photo_uploaded": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "community_posted": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_challenged": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "premium_subscribed": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_generated": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coach_consulted": {
+            "sources": [
+                "https://myfitnesspal.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/myfitnesspal/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/myfitnesspal/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added meal_logged",
+        "added exercise_recorded",
+        "added water_tracked",
+        "added weight_entered",
+        "added goal_set",
+        "added barcode_scanned",
+        "added recipe_imported",
+        "added nutrition_analyzed",
+        "added streak_maintained",
+        "added progress_photo_uploaded",
+        "added community_posted",
+        "added friend_challenged",
+        "added premium_subscribed",
+        "added report_generated",
+        "added coach_consulted"
+    ],
+    "citations": [
+        "https://myfitnesspal.com"
+    ]
+}

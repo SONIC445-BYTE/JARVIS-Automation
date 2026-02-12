@@ -1,0 +1,5 @@
+# Feature Flag: Amazon Prime Video Adapter
+enabled: false
+owner: admin
+risk_level: standard
+rollout_percentage: 0

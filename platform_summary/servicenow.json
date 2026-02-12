@@ -1,0 +1,131 @@
+{
+    "platform": "ServiceNow",
+    "platform_urls": [
+        "https://servicenow.com"
+    ],
+    "supported_actions": {
+        "instance_requested": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "application_installed": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_created": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "catalog_item_published": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_hub_spoke_used": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "incident_created": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "problem_investigated": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "change_request_approved": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "service_catalog_ordered": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cmdb_populated": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_incident_responded": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vulnerability_response_managed": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grc_control_attested": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "soar_playbook_executed": {
+            "sources": [
+                "https://servicenow.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/servicenow/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/servicenow/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added instance_requested",
+        "added application_installed",
+        "added workflow_created",
+        "added catalog_item_published",
+        "added integration_hub_spoke_used",
+        "added incident_created",
+        "added problem_investigated",
+        "added change_request_approved",
+        "added service_catalog_ordered",
+        "added cmdb_populated",
+        "added security_incident_responded",
+        "added vulnerability_response_managed",
+        "added grc_control_attested",
+        "added soar_playbook_executed"
+    ],
+    "citations": [
+        "https://servicenow.com"
+    ]
+}

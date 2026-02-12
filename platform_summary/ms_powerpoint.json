@@ -1,0 +1,188 @@
+{
+    "platform": "Microsoft PowerPoint",
+    "platform_type": "local_application",
+    "executable": "POWERPNT.EXE",
+    "supported_actions": {
+        "blank_presentation_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presentation_from_template_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presentation_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presentation_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presentation_saved_as_pdf": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presentation_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_duplicated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_layout_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_design_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_typed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_formatted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_box_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "image_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "shape_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chart_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "table_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "video_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "audio_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "icon_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "animation_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "animation_removed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "animation_reordered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "transition_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "transition_timing_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_show_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_show_from_beginning": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_show_from_current_slide": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "presenter_view_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "notes_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comments_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comments_resolved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "slide_master_edited": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "custom_layout_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "hyperlink_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "action_button_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "section_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "section_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "rehearse_timings_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "record_slide_show_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "export_to_video_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ms_powerpoint/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 43,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

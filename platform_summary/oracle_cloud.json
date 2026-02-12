@@ -1,0 +1,139 @@
+{
+    "platform": "Oracle Cloud",
+    "platform_urls": [
+        "https://cloud.oracle.com"
+    ],
+    "supported_actions": {
+        "compute_instance_launched": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "function_deployed": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "container_engine_kubernetes_cluster_created": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "autonomous_database_provisioned": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "analytics_cloud_instance_started": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "object_storage_bucket_created": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "block_volume_attached": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_storage_system_mounted": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "archive_storage_used": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "data_transfer_service_used": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "virtual_cloud_network_created": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_list_configured": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "load_balancer_set_up": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dns_zone_managed": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fast_connect_established": {
+            "sources": [
+                "https://cloud.oracle.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/oracle_cloud/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/oracle_cloud/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added compute_instance_launched",
+        "added function_deployed",
+        "added container_engine_kubernetes_cluster_created",
+        "added autonomous_database_provisioned",
+        "added analytics_cloud_instance_started",
+        "added object_storage_bucket_created",
+        "added block_volume_attached",
+        "added file_storage_system_mounted",
+        "added archive_storage_used",
+        "added data_transfer_service_used",
+        "added virtual_cloud_network_created",
+        "added security_list_configured",
+        "added load_balancer_set_up",
+        "added dns_zone_managed",
+        "added fast_connect_established"
+    ],
+    "citations": [
+        "https://cloud.oracle.com"
+    ]
+}

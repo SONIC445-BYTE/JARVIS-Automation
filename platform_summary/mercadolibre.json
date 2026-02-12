@@ -1,0 +1,115 @@
+{
+    "platform": "Mercado Libre",
+    "platform_urls": [
+        "https://mercadolibre.com"
+    ],
+    "supported_actions": {
+        "publication_created": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "question_answered": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sale_completed": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reputation_earned": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mercado_shops_activated": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mercado_envios_used": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mercado_pago_integrated": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "official_store_applied": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mercado_credito_used": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mercado_ads_managed": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "classified_ad_posted": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vehicle_listed": {
+            "sources": [
+                "https://mercadolibre.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/mercadolibre/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/mercadolibre/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added publication_created",
+        "added question_answered",
+        "added sale_completed",
+        "added reputation_earned",
+        "added mercado_shops_activated",
+        "added mercado_envios_used",
+        "added mercado_pago_integrated",
+        "added official_store_applied",
+        "added mercado_credito_used",
+        "added mercado_ads_managed",
+        "added classified_ad_posted",
+        "added vehicle_listed"
+    ],
+    "citations": [
+        "https://mercadolibre.com"
+    ]
+}

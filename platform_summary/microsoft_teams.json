@@ -1,0 +1,83 @@
+{
+    "platform": "Microsoft Teams",
+    "platform_urls": [
+        "https://teams.microsoft.com"
+    ],
+    "supported_actions": {
+        "workspace_created": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_joined": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_threaded": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_uploaded": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_added": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_automated": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "meeting_started": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "screen_shared": {
+            "sources": [
+                "https://teams.microsoft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/microsoft_teams/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/microsoft_teams/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added workspace_created",
+        "added channel_joined",
+        "added message_threaded",
+        "added file_uploaded",
+        "added integration_added",
+        "added workflow_automated",
+        "added meeting_started",
+        "added screen_shared"
+    ],
+    "citations": [
+        "https://teams.microsoft.com"
+    ]
+}

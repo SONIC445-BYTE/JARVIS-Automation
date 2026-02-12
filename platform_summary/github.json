@@ -1,0 +1,139 @@
+{
+    "platform": "GitHub",
+    "platform_urls": [
+        "https://github.com"
+    ],
+    "supported_actions": {
+        "repository_created": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "commit_pushed": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pull_request_opened": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "branch_merged": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "issue_created": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "action_workflow_triggered": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "package_published": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "page_deployed": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "release_published": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_advisory_addressed": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fork_created": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "star_given": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_edited": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_started": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sponsorship_set_up": {
+            "sources": [
+                "https://github.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/github/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/github/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added repository_created",
+        "added commit_pushed",
+        "added pull_request_opened",
+        "added branch_merged",
+        "added issue_created",
+        "added action_workflow_triggered",
+        "added package_published",
+        "added page_deployed",
+        "added release_published",
+        "added security_advisory_addressed",
+        "added fork_created",
+        "added star_given",
+        "added wiki_edited",
+        "added discussion_started",
+        "added sponsorship_set_up"
+    ],
+    "citations": [
+        "https://github.com"
+    ]
+}

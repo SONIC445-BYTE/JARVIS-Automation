@@ -1,0 +1,115 @@
+{
+    "platform": "Xbox Live",
+    "platform_urls": [
+        "https://xbox.com"
+    ],
+    "supported_actions": {
+        "game_pass_game_installed": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "achievement_earned": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gamerscore_increased": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_gaming_used": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "party_chat_joined": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "looking_for_group_posted": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "club_joined": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "activity_feed_updated": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "microsoft_points_redeemed": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "game_pass_subscription_managed": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "xbox_design_lab_used": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "elite_controller_customized": {
+            "sources": [
+                "https://xbox.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/xbox_live/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/xbox_live/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added game_pass_game_installed",
+        "added achievement_earned",
+        "added gamerscore_increased",
+        "added cloud_gaming_used",
+        "added party_chat_joined",
+        "added looking_for_group_posted",
+        "added club_joined",
+        "added activity_feed_updated",
+        "added microsoft_points_redeemed",
+        "added game_pass_subscription_managed",
+        "added xbox_design_lab_used",
+        "added elite_controller_customized"
+    ],
+    "citations": [
+        "https://xbox.com"
+    ]
+}

@@ -1,0 +1,15 @@
+﻿[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+Testing Adapter Registration...
+Registered actions: ['send_message', 'post_status', 'navigate_to', 'select_file', 'create_folder']
+Registration test passed
+Testing Plan Generation...
+[ActionPlanner] Planning for action='send_message', platform='whatsapp'
+[ActionPlanner] Selected adapter: WhatsAppAdapter
+Generated WhatsApp plan: [{'type': 'focus_app', 'target': 'WhatsApp', 'app': 'whatsapp'}, {'type': 'click', 'target': "label[text~='John']", 'app': 'whatsapp'}, {'type': 'type', 'target': 'textbox', 'value': 'Hi', 'app': 'whatsapp'}, {'type': 'hotkey', 'target': 'enter', 'app': 'whatsapp'}]
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+Generated Explorer plan: [{'type': 'hotkey', 'target': 'win+e', 'app': 'explorer'}, {'type': 'wait', 'target': '1', 'app': 'explorer'}, {'type': 'click', 'target': "toolbar > edit[text~='Address']", 'app': 'explorer'}, {'type': 'type', 'target': "edit[text~='Address']", 'value': 'C:\\', 'app': 'explorer'}, {'type': 'hotkey', 'target': 'enter', 'app': 'explorer'}]
+Plan generation test passed
+
+ALL ARCHITECTURAL TESTS PASSED

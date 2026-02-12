@@ -1,0 +1,139 @@
+{
+    "platform": "Cash App",
+    "platform_urls": [
+        "https://cash.app"
+    ],
+    "supported_actions": {
+        "cash_sent": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cash_received": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bitcoin_purchased": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_bought": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "direct_deposit_received": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cash_card_activated": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "boost_applied": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "routing_number_copied": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "paper_money_deposited": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tax_refund_deposited": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_lock_enabled": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "notification_preference_set": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pin_changed": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_closed": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fraud_reported": {
+            "sources": [
+                "https://cash.app"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/cashapp/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/cashapp/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added cash_sent",
+        "added cash_received",
+        "added bitcoin_purchased",
+        "added stock_bought",
+        "added direct_deposit_received",
+        "added cash_card_activated",
+        "added boost_applied",
+        "added routing_number_copied",
+        "added paper_money_deposited",
+        "added tax_refund_deposited",
+        "added security_lock_enabled",
+        "added notification_preference_set",
+        "added pin_changed",
+        "added account_closed",
+        "added fraud_reported"
+    ],
+    "citations": [
+        "https://cash.app"
+    ]
+}

@@ -1,0 +1,115 @@
+{
+    "platform": "JD.com",
+    "platform_urls": [
+        "https://jd.com"
+    ],
+    "supported_actions": {
+        "product_searched": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "flash_sale_joined": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plus_membership_subscribed": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_buy_initiated": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "store_opened": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_logistics_used": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_cloud_service_accessed": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "advertising_purchased": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_health_consulted": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_finance_used": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_property_viewed": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jd_auction_participated": {
+            "sources": [
+                "https://jd.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/jdcom/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/jdcom/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added product_searched",
+        "added flash_sale_joined",
+        "added plus_membership_subscribed",
+        "added group_buy_initiated",
+        "added store_opened",
+        "added jd_logistics_used",
+        "added jd_cloud_service_accessed",
+        "added advertising_purchased",
+        "added jd_health_consulted",
+        "added jd_finance_used",
+        "added jd_property_viewed",
+        "added jd_auction_participated"
+    ],
+    "citations": [
+        "https://jd.com"
+    ]
+}

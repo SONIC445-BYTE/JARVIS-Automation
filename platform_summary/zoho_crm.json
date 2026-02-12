@@ -1,0 +1,139 @@
+{
+    "platform": "Zoho CRM",
+    "platform_urls": [
+        "https://zoho.com"
+    ],
+    "supported_actions": {
+        "lead_converted": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_hierarchy_managed": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_enriched": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "potential_created": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "case_resolved": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "blueprint_executed": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "canvas_view_designed": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forecast_adjusted": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "territory_assigned": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "social_twitter_integrated": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_rule_triggered": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scheduled_function_executed": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "web_form_captured": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_sent": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "zia_ai_used": {
+            "sources": [
+                "https://zoho.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/zoho_crm/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/zoho_crm/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added lead_converted",
+        "added account_hierarchy_managed",
+        "added contact_enriched",
+        "added potential_created",
+        "added case_resolved",
+        "added blueprint_executed",
+        "added canvas_view_designed",
+        "added forecast_adjusted",
+        "added territory_assigned",
+        "added social_twitter_integrated",
+        "added workflow_rule_triggered",
+        "added scheduled_function_executed",
+        "added web_form_captured",
+        "added email_sent",
+        "added zia_ai_used"
+    ],
+    "citations": [
+        "https://zoho.com"
+    ]
+}

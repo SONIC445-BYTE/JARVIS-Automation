@@ -1,0 +1,35 @@
+{
+    "platform": "Spotify",
+    "platform_urls": [
+        "https://open.spotify.com"
+    ],
+    "supported_actions": {
+        "play_music": {
+            "sources": [
+                "https://support.spotify.com"
+            ],
+            "confidence": 0.9,
+            "notes": "Web player deep linking"
+        },
+        "search_music": {
+            "sources": [
+                "https://support.spotify.com"
+            ],
+            "confidence": 0.9,
+            "notes": "Web player search URL"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/spotify/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/spotify/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added play_music",
+        "added search_music"
+    ],
+    "citations": [
+        "https://developer.spotify.com/documentation/web-api"
+    ]
+}

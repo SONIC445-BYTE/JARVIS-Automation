@@ -1,0 +1,115 @@
+{
+    "platform": "eBay",
+    "platform_urls": [
+        "https://ebay.com"
+    ],
+    "supported_actions": {
+        "auction_bid_placed": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "buy_it_now_clicked": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "offer_made": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watch_list_added": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "listing_created": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "store_subscription_started": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "promoted_listing_used": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shipping_label_printed": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "best_offer_accepted": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "global_shipping_used": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "authenticity_guaranteed_purchased": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ebay_money_back_claimed": {
+            "sources": [
+                "https://ebay.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ebay/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/ebay/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added auction_bid_placed",
+        "added buy_it_now_clicked",
+        "added offer_made",
+        "added watch_list_added",
+        "added listing_created",
+        "added store_subscription_started",
+        "added promoted_listing_used",
+        "added shipping_label_printed",
+        "added best_offer_accepted",
+        "added global_shipping_used",
+        "added authenticity_guaranteed_purchased",
+        "added ebay_money_back_claimed"
+    ],
+    "citations": [
+        "https://ebay.com"
+    ]
+}

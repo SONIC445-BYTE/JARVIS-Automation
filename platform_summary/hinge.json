@@ -1,0 +1,67 @@
+{
+    "platform": "Hinge",
+    "platform_urls": [
+        "https://hinge.co"
+    ],
+    "supported_actions": {
+        "profile_created": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "match_made": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_sent": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "like_sent": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_added": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rose_sent": {
+            "sources": [
+                "https://hinge.co"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/hinge/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/hinge/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added profile_created",
+        "added match_made",
+        "added message_sent",
+        "added like_sent",
+        "added comment_added",
+        "added rose_sent"
+    ],
+    "citations": [
+        "https://hinge.co"
+    ]
+}

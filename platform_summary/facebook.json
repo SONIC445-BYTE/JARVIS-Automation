@@ -1,0 +1,115 @@
+{
+    "platform": "Facebook",
+    "platform_urls": [
+        "https://facebook.com"
+    ],
+    "supported_actions": {
+        "post_created": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "post_shared": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "post_liked": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_added": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_request_sent": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_request_accepted": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "event_created": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_viewed": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_stream_started": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "marketplace_item_listed": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fundraiser_created": {
+            "sources": [
+                "https://facebook.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/facebook/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/facebook/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added post_created",
+        "added post_shared",
+        "added post_liked",
+        "added comment_added",
+        "added friend_request_sent",
+        "added friend_request_accepted",
+        "added group_joined",
+        "added event_created",
+        "added story_viewed",
+        "added live_stream_started",
+        "added marketplace_item_listed",
+        "added fundraiser_created"
+    ],
+    "citations": [
+        "https://facebook.com"
+    ]
+}

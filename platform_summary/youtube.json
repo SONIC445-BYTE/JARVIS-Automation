@@ -1,0 +1,35 @@
+{
+    "platform": "YouTube",
+    "platform_urls": [
+        "https://www.youtube.com"
+    ],
+    "supported_actions": {
+        "play_video": {
+            "sources": [
+                "https://support.google.com/youtube/answer/3249127"
+            ],
+            "confidence": 0.95,
+            "notes": "Navigate to search query URL"
+        },
+        "search_video": {
+            "sources": [
+                "https://support.google.com/youtube/answer/3249127"
+            ],
+            "confidence": 0.95,
+            "notes": "Navigate to search query URL"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/youtube/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/youtube/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added play_video handler",
+        "added search_video handler"
+    ],
+    "citations": [
+        "https://www.youtube.com"
+    ]
+}

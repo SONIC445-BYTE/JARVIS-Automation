@@ -1,0 +1,530 @@
+﻿[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'hotkey', 'wait']
+[AdapterRegistry] Registered GenericBrowserAdapter for ['open_url', 'click_element', 'type_text']
+[AdapterRegistry] Registered SystemDialogAdapter for ['confirm_dialog', 'dismiss_dialog']
+[AdapterRegistry] Registered UnknownAppFallbackAdapter for ['any']
+
+--- Testing Full Platform Coverage ---
+[DynamicLoader] Scanning AgentCore/platform_adapters for adapters...
+[DynamicLoader] Failed to load AgentCore/platform_adapters\acorns: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\activecampaign: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Adobe Acrobat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['pdf_opened', 'pdf_created_from_file', 'pdf_created_from_scanner', 'pdf_saved', 'pdf_saved_as', 'pdf_closed', 'pdf_printed', 'pdf_exported_to_word', 'pdf_exported_to_excel', 'pdf_exported_to_powerpoint', 'pdf_exported_to_image', 'text_selected', 'text_copied', 'text_highlighted', 'comment_added', 'sticky_note_added', 'text_markup_applied', 'stamp_added', 'drawing_markup_added', 'form_field_created', 'form_field_filled', 'form_submitted', 'digital_signature_applied', 'certificate_based_signature_applied', 'password_security_applied', 'permissions_set', 'pages_inserted', 'pages_deleted', 'pages_rotated', 'pages_extracted', 'pages_replaced', 'pages_reordered', 'pdf_merged', 'pdf_split', 'ocr_text_recognition_executed', 'redaction_applied', 'bookmark_created', 'link_created', 'accessibility_check_executed', 'pdf_optimized']
+[DynamicLoader] Loaded platform: adobe_acrobat
+[DynamicLoader] Failed to load AgentCore/platform_adapters\airbnb: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\airtable: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\alibaba: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\alibaba_cloud: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\amazon: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Android Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_module_added', 'new_file_created', 'new_class_created', 'new_activity_created', 'new_fragment_created', 'new_service_created', 'new_layout_file_created', 'new_resource_file_created', 'project_opened', 'file_opened', 'recent_project_opened', 'project_imported', 'file_saved', 'all_files_saved', 'file_closed', 'project_closed', 'file_renamed', 'class_renamed', 'method_renamed', 'variable_renamed', 'file_deleted', 'file_moved', 'file_copied', 'code_typed', 'paste_operation_executed', 'undo_operation_executed', 'redo_operation_executed', 'reformat_code_executed', 'optimize_imports_executed', 'completion_basic_triggered', 'completion_smart_type_triggered', 'go_to_class_executed', 'go_to_file_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_refactoring_executed', 'extract_variable_refactoring_executed', 'inline_refactoring_executed', 'generate_constructor_executed', 'generate_getter_executed', 'generate_setter_executed', 'generate_override_methods_executed', 'make_project_executed', 'rebuild_project_executed', 'clean_project_executed', 'build_apk_executed', 'generate_signed_bundle_or_apk_executed', 'gradle_sync_started', 'gradle_sync_finished_successfully', 'run_app_executed', 'debug_app_executed', 'app_run_on_emulator', 'app_run_on_physical_device', 'virtual_device_created', 'virtual_device_launched', 'emulator_screen_capture_taken', 'layout_editor_opened', 'design_view_selected', 'code_view_selected', 'cpu_profiler_opened', 'memory_profiler_opened', 'network_profiler_opened', 'database_inspector_opened', 'layout_inspector_opened', 'unit_test_run_executed', 'unit_test_debug_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed']
+[DynamicLoader] Loaded platform: android_studio
+[DynamicLoader] Failed to load AgentCore/platform_adapters\appletv: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Arduino IDE (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_sketch_created', 'sketch_opened', 'sketch_saved', 'sketch_saved_as', 'sketch_closed', 'example_sketch_opened', 'code_typed', 'code_pasted', 'undo_executed', 'redo_executed', 'verify_compile_executed', 'upload_executed', 'upload_using_programmer_executed', 'board_selected', 'port_selected', 'programmer_selected', 'library_installed', 'library_removed', 'library_updated', 'board_manager_opened', 'board_package_installed', 'serial_monitor_opened', 'serial_plotter_opened', 'serial_data_sent', 'baud_rate_changed', 'preferences_changed', 'verbose_output_enabled', 'include_library_added', 'sketch_exported_compiled_binary']
+[DynamicLoader] Loaded platform: arduino_ide
+[DynamicLoader] Failed to load AgentCore/platform_adapters\asana: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\aws: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\azure: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\basecamp: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\betterment: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\bigcommerce: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\bitbucket: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\blackboard: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\booking: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\bumble: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\calculator: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\calm: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\canvas: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\cashapp: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\chargebee: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\chime: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\chrome: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\circleci: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\clickup: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\coinbase: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\coursera: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\datadog: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\delta: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\discord: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\disneyplus: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\dynamics365: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\ebay: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\edx: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\eloqua: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\epic_games: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\etrade: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\etsy: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\expedia: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\explorer: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\facebook: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\fidelity: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\fitbit: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\freshsales: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\gcp: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\github: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped GitHub Desktop (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['repository_cloned', 'repository_added_from_local', 'repository_created', 'repository_opened', 'branch_created', 'branch_switched', 'branch_renamed', 'branch_deleted', 'commit_created', 'commit_amended', 'commit_undone', 'changes_staged', 'changes_unstaged', 'changes_discarded', 'push_executed', 'pull_executed', 'fetch_executed', 'pull_request_created', 'merge_branch_executed', 'conflict_resolved', 'stash_created', 'stash_restored', 'diff_viewed', 'history_viewed', 'blame_viewed']
+[DynamicLoader] Loaded platform: github_desktop
+[DynamicLoader] Failed to load AgentCore/platform_adapters\gitlab: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Git CLI (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['git_init_executed', 'git_clone_executed', 'git_add_file_executed', 'git_add_all_executed', 'git_add_interactive_executed', 'git_status_executed', 'git_diff_executed', 'git_diff_cached_staged_executed', 'git_commit_executed', 'git_commit_amend_executed', 'git_log_viewed', 'git_blame_viewed', 'git_branch_created', 'git_branch_deleted', 'git_branch_renamed', 'git_branch_list_shown', 'git_checkout_branch_executed', 'git_checkout_new_branch_executed', 'git_merge_branch_executed', 'git_merge_abort_executed', 'git_rebase_branch_executed', 'git_rebase_interactive_executed', 'git_rebase_continue_executed', 'git_rebase_abort_executed', 'git_cherry_pick_commit_executed', 'git_fetch_executed', 'git_pull_executed', 'git_push_executed', 'git_push_force_executed', 'git_remote_add_executed', 'git_remote_remove_executed', 'git_stash_push_executed', 'git_stash_pop_executed', 'git_stash_list_shown', 'git_stash_apply_executed', 'git_tag_annotated_created', 'git_tag_lightweight_created', 'git_tag_delete_executed', 'git_tag_list_shown', 'git_reset_soft_executed', 'git_reset_mixed_executed', 'git_reset_hard_executed', 'git_revert_commit_executed', 'git_bisect_start_executed', 'git_bisect_bad_executed', 'git_bisect_good_executed', 'git_bisect_reset_executed', 'git_submodule_add_executed', 'git_submodule_update_executed', 'git_config_global_set', 'git_config_local_set']
+[DynamicLoader] Loaded platform: git_cli
+[DynamicLoader] Failed to load AgentCore/platform_adapters\gmail: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\google: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\google_classroom: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\hbomax: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\headspace: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\hinge: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\hubspot: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\hulu: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\ibm_cloud: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\instagram: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\jdcom: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\jenkins: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\jira: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\khan_academy: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\klaviyo: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\line: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\linkedin: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped LM Studio (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_downloaded', 'model_loaded', 'model_unloaded', 'chat_session_started', 'chat_message_sent', 'chat_response_received', 'system_prompt_set', 'temperature_adjusted', 'max_tokens_set', 'local_server_started', 'local_server_stopped', 'api_endpoint_configured', 'model_quantization_selected', 'context_length_set', 'gpu_layers_configured', 'chat_history_exported']
+[DynamicLoader] Loaded platform: lm_studio
+[DynamicLoader] Failed to load AgentCore/platform_adapters\lyft: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\magento: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\mailchimp: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\marketo: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\mattermost: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\meetup: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\mercadolibre: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\microsoft_teams: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\monday: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\moodle: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Microsoft Excel (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_workbook_created', 'workbook_from_template_created', 'workbook_saved', 'workbook_saved_as', 'workbook_saved_as_pdf', 'workbook_closed', 'cell_value_entered', 'cell_formula_entered', 'cell_format_changed', 'row_inserted', 'row_deleted', 'column_inserted', 'column_deleted', 'sheet_added', 'sheet_renamed', 'sheet_deleted', 'sheet_moved', 'range_selected', 'range_copied', 'range_pasted', 'range_cut', 'auto_fill_applied', 'flash_fill_used', 'sort_applied', 'filter_applied', 'advanced_filter_applied', 'pivot_table_created', 'pivot_chart_created', 'chart_created', 'chart_type_changed', 'chart_data_range_modified', 'conditional_formatting_applied', 'data_validation_applied', 'vlookup_formula_used', 'index_match_formula_used', 'sumif_formula_used', 'macro_recorded', 'macro_run', 'vba_editor_opened', 'freeze_panes_applied', 'split_window_applied', 'name_manager_opened', 'named_range_created', 'data_connection_created', 'power_query_opened', 'protect_sheet_applied', 'protect_workbook_applied']
+[DynamicLoader] Loaded platform: ms_excel
+[AdapterShim] Wrapped Microsoft PowerPoint (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_presentation_created', 'presentation_from_template_created', 'presentation_saved', 'presentation_saved_as', 'presentation_saved_as_pdf', 'presentation_closed', 'slide_added', 'slide_deleted', 'slide_duplicated', 'slide_moved', 'slide_layout_changed', 'slide_design_applied', 'text_typed', 'text_formatted', 'text_box_inserted', 'image_inserted', 'shape_inserted', 'chart_inserted', 'table_inserted', 'video_inserted', 'audio_inserted', 'icon_inserted', 'animation_applied', 'animation_removed', 'animation_reordered', 'transition_applied', 'transition_timing_set', 'slide_show_started', 'slide_show_from_beginning', 'slide_show_from_current_slide', 'presenter_view_used', 'notes_added', 'comments_added', 'comments_resolved', 'slide_master_edited', 'custom_layout_created', 'hyperlink_inserted', 'action_button_added', 'section_added', 'section_renamed', 'rehearse_timings_used', 'record_slide_show_used', 'export_to_video_executed']
+[DynamicLoader] Loaded platform: ms_powerpoint
+[AdapterShim] Wrapped Microsoft Word (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['blank_document_created', 'document_from_template_created', 'document_saved', 'document_saved_as', 'document_saved_as_pdf', 'document_auto_saved', 'document_closed', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'text_undo_executed', 'text_redo_executed', 'text_find_executed', 'text_replace_executed', 'text_bold_applied', 'text_italic_applied', 'text_underline_applied', 'text_font_changed', 'text_font_size_changed', 'text_font_color_changed', 'text_paragraph_alignment_set_left', 'text_paragraph_alignment_set_center', 'text_paragraph_alignment_set_right', 'text_paragraph_alignment_set_justified', 'text_styles_applied', 'text_numbering_applied', 'text_bullets_applied', 'text_header_inserted', 'text_footer_inserted', 'text_page_break_inserted', 'text_page_setup_margins_set', 'text_page_setup_orientation_set_portrait', 'text_page_setup_orientation_set_landscape', 'text_footnote_inserted', 'text_citation_inserted', 'text_bookmark_inserted', 'text_cross_reference_inserted', 'text_index_and_tables_table_of_contents_inserted', 'text_check_accessibility_used', 'text_check_compatibility_used', 'text_macro_recorded', 'text_macro_run', 'document_password_protection_applied', 'document_marked_as_final', 'document_compare_executed', 'document_combine_executed']
+[DynamicLoader] Loaded platform: ms_word
+[DynamicLoader] Failed to load AgentCore/platform_adapters\myfitnesspal: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\netflix: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\new_relic: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\nintendo: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Node.js Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'repl_started', 'npm_init_executed', 'npm_install_executed', 'npm_uninstall_executed', 'npm_update_executed', 'npm_run_script_executed', 'npm_publish_executed', 'npm_audit_executed', 'npx_command_executed', 'package_json_edited', 'module_required', 'module_imported_esm', 'express_server_started', 'http_server_started', 'jest_test_run', 'mocha_test_run', 'webpack_build_executed', 'vite_dev_server_started', 'typescript_compiled', 'eslint_executed', 'nodemon_started', 'pm2_process_managed']
+[DynamicLoader] Loaded platform: nodejs_runtime
+[DynamicLoader] Failed to load AgentCore/platform_adapters\notepad: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\notion: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\okcupid: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped Ollama (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['model_pulled', 'model_removed', 'model_list_shown', 'model_run_started', 'model_run_stopped', 'chat_message_sent', 'chat_response_received', 'api_server_started', 'api_request_processed', 'modelfile_created', 'custom_model_built', 'model_copied', 'model_pushed', 'system_prompt_set', 'temperature_set', 'embedding_generated']
+[DynamicLoader] Loaded platform: ollama
+[AdapterShim] Wrapped Microsoft OneDrive (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['file_uploaded', 'folder_uploaded', 'multiple_files_uploaded', 'file_downloaded', 'folder_downloaded', 'file_synced_up', 'file_synced_down', 'file_sync_conflict_detected', 'file_sync_conflict_resolved_keep_both', 'file_sync_paused', 'file_sync_resumed', 'file_shared_link_created', 'file_shared_link_deleted', 'file_shared_link_permission_set_view', 'file_shared_link_permission_set_edit', 'file_shared_directly_to_user', 'file_shared_to_group', 'file_version_created', 'file_version_restored', 'folder_created', 'folder_renamed', 'folder_moved', 'folder_deleted', 'file_renamed', 'file_moved', 'file_deleted', 'file_restored_from_recycle_bin', 'file_search_executed', 'file_filter_applied', 'document_opened_for_editing', 'document_edited_simultaneously_by_multiple_users', 'comment_added', 'comment_resolved', 'file_sync_on_demand_files_enabled', 'file_sync_free_up_space_used', 'user_signed_in', 'user_signed_out', 'retention_policy_applied', 'dlp_policy_triggered']
+[DynamicLoader] Loaded platform: onedrive
+[DynamicLoader] Failed to load AgentCore/platform_adapters\oracle_cloud: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\outlook: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\pagerduty: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\pardot: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\paypal: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\peloton: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\pinterest: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\pipedrive: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\playstation: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\prime_video: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\protonmail: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped PyCharm (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_project_created', 'new_file_created', 'new_python_file_created', 'new_python_package_created', 'new_jupyter_notebook_created', 'project_opened', 'file_opened', 'file_saved', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'code_completion_basic_invoked', 'code_completion_smart_invoked', 'quick_fix_applied', 'intention_action_executed', 'go_to_declaration_executed', 'go_to_implementation_executed', 'go_to_class_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'search_everywhere_opened', 'find_in_path_executed', 'find_usages_executed', 'rename_refactoring_executed', 'extract_method_executed', 'extract_variable_executed', 'inline_refactoring_executed', 'reformat_code_executed', 'optimize_imports_executed', 'run_configuration_executed', 'debug_configuration_executed', 'breakpoint_toggled', 'step_over_executed', 'step_into_executed', 'evaluate_expression_executed', 'watch_added', 'python_interpreter_configured', 'virtualenv_created', 'pip_package_installed', 'pip_package_uninstalled', 'pytest_run_executed', 'unittest_run_executed', 'coverage_analysis_run', 'test_results_viewed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_merge_executed', 'terminal_opened', 'python_console_opened', 'jupyter_notebook_cell_executed', 'jupyter_kernel_restarted']
+[DynamicLoader] Loaded platform: pycharm
+[AdapterShim] Wrapped Python Runtime (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['script_executed', 'interactive_shell_started', 'module_imported', 'pip_install_executed', 'pip_uninstall_executed', 'pip_list_shown', 'pip_freeze_executed', 'virtualenv_created', 'virtualenv_activated', 'virtualenv_deactivated', 'package_built', 'package_published', 'unittest_run', 'pytest_run', 'pdb_debugger_started', 'breakpoint_hit', 'type_checking_executed', 'linting_executed', 'jupyter_notebook_started', 'jupyter_cell_executed', 'requirements_installed', 'setup_py_executed']
+[DynamicLoader] Loaded platform: python_runtime
+[DynamicLoader] Failed to load AgentCore/platform_adapters\qq: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\rakuten: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\recharge: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\reddit: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\revolut: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\robinhood: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\roblox: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\salesforce: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\sap_sales: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\schoology: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\schwab: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\servicenow: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\shopify: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\skype: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\slack: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\smartsheet: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\snapchat: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\splunk: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\spotify: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\square: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\steam: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\strava: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\stripe: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\teladoc: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\telegram: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\tiktok: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\tinder: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\travisci: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\trello: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\twitch: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\twitter: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\uber: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\udemy: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\unity: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\unreal_engine: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\venmo: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\viber: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\vimeo: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\vkontakte: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped VS Code (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['new_file_created', 'new_folder_created', 'new_workspace_created', 'file_opened', 'file_saved', 'file_saved_as', 'file_closed', 'file_renamed', 'file_moved', 'file_deleted', 'text_typed', 'text_pasted', 'text_cut', 'text_copied', 'undo_executed', 'redo_executed', 'find_executed', 'replace_executed', 'find_in_files_executed', 'go_to_file_executed', 'go_to_symbol_executed', 'go_to_line_executed', 'go_to_definition_executed', 'go_to_references_executed', 'peek_definition_executed', 'peek_references_executed', 'code_completion_triggered', 'quick_fix_applied', 'rename_symbol_executed', 'extract_method_executed', 'format_document_executed', 'format_selection_executed', 'toggle_comment_executed', 'toggle_block_comment_executed', 'extension_installed', 'extension_uninstalled', 'extension_updated', 'terminal_opened', 'terminal_command_executed', 'debug_session_started', 'breakpoint_toggled', 'git_stage_executed', 'git_commit_executed', 'git_push_executed', 'git_pull_executed', 'git_branch_created', 'git_checkout_executed', 'task_run_executed', 'settings_changed', 'keybinding_changed', 'snippet_inserted', 'emmet_expanded', 'split_editor_opened', 'editor_group_created', 'command_palette_opened', 'workspace_settings_changed']
+[DynamicLoader] Loaded platform: vscode
+[DynamicLoader] Failed to load AgentCore/platform_adapters\walmart: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\wealthfront: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\wechat: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\whatsapp: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[AdapterShim] Wrapped WinRAR (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['archive_created', 'archive_opened', 'archive_extracted', 'files_added_to_archive', 'files_deleted_from_archive', 'archive_tested', 'archive_repaired', 'compression_method_selected_store', 'compression_method_selected_fastest', 'compression_method_selected_normal', 'compression_method_selected_best', 'archive_format_rar_selected', 'archive_format_zip_selected', 'password_protection_applied', 'split_archive_created', 'self_extracting_archive_created', 'comment_added_to_archive']
+[DynamicLoader] Loaded platform: winrar
+[DynamicLoader] Failed to load AgentCore/platform_adapters\wise: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\woocommerce: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\wrike: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\xbox_live: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\youtube: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\zoho_crm: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[DynamicLoader] Failed to load AgentCore/platform_adapters\zoom: cannot import name 'ExecutionStep' from 'AgentCore.intent_planner' (C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0\AgentCore\intent_planner.py)
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: acorns
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: activecampaign
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: adobe_acrobat
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: airbnb
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: airtable
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: alibaba
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: alibaba_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: amazon
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: android_studio
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: appletv
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: arduino_ide
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: asana
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: aws
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: azure
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: basecamp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: betterment
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: bigcommerce
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: bitbucket
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: blackboard
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: booking
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: bumble
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: calculator
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: calm
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: canvas
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: cashapp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: chargebee
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: chime
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: chrome
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: circleci
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: clickup
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: coinbase
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: coursera
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: datadog
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: delta
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: discord
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: disneyplus
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: dynamics365
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ebay
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: edx
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: eloqua
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: epic_games
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: etrade
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: etsy
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: expedia
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: explorer
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: facebook
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: fidelity
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: fitbit
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: freshsales
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: gcp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: github
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: github_desktop
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: gitlab
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: git_cli
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: gmail
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: google
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: google_classroom
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: hbomax
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: headspace
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: hinge
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: hubspot
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: hulu
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ibm_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: instagram
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: jdcom
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: jenkins
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: jira
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: khan_academy
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: klaviyo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: line
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: linkedin
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: lm_studio
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: lyft
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: magento
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: mailchimp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: marketo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: mattermost
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: meetup
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: mercadolibre
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: microsoft_teams
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: monday
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: moodle
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_excel
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_powerpoint
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ms_word
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: myfitnesspal
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: netflix
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: new_relic
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: nintendo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: nodejs_runtime
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: notepad
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: notion
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: okcupid
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: ollama
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: onedrive
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: oracle_cloud
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: outlook
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: pagerduty
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: pardot
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: paypal
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: peloton
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: pinterest
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: pipedrive
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: playstation
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: prime_video
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: protonmail
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: pycharm
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: python_runtime
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: qq
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: rakuten
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: recharge
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: reddit
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: revolut
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: robinhood
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: roblox
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: salesforce
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: sap_sales
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: schoology
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: schwab
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: servicenow
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: shopify
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: skype
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: slack
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: smartsheet
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: snapchat
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: splunk
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: spotify
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: square
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: steam
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: strava
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: stripe
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: teladoc
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: telegram
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: tiktok
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: tinder
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: travisci
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: trello
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: twitch
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: twitter
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: uber
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: udemy
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: unity
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: unreal_engine
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: venmo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: viber
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: vimeo
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: vkontakte
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: vscode
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: walmart
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: wealthfront
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: wechat
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: whatsapp
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: winrar
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: wise
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: woocommerce
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: wrike
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: xbox_live
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: youtube
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: zoho_crm
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: zoom
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[Enforcement] Auto-registering Generic UI Adapter for orphaned folder: __pycache__
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'open', 'any']
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: GenericDesktopAdapter
+[HealthGuard] UI System is healthy.
+Total folders found: 161
+Total platforms registered: 1
+TEST FAILED: Folder 'acorns' was not registered!

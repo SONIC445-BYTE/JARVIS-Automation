@@ -1,0 +1,123 @@
+{
+    "platform": "Vimeo",
+    "platform_urls": [
+        "https://vimeo.com"
+    ],
+    "supported_actions": {
+        "video_uploaded": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_created": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "review_page_shared": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_event_streamed": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_replaced": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "privacy_settings_adjusted": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "custom_player_embedded": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "analytics_reviewed": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vimeo_plus_upgraded": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vimeo_pro_subscribed": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vimeo_business_enrolled": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ott_platform_launched": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_footage_purchased": {
+            "sources": [
+                "https://vimeo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/vimeo/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/vimeo/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added video_uploaded",
+        "added portfolio_created",
+        "added review_page_shared",
+        "added live_event_streamed",
+        "added video_replaced",
+        "added privacy_settings_adjusted",
+        "added custom_player_embedded",
+        "added analytics_reviewed",
+        "added vimeo_plus_upgraded",
+        "added vimeo_pro_subscribed",
+        "added vimeo_business_enrolled",
+        "added ott_platform_launched",
+        "added stock_footage_purchased"
+    ],
+    "citations": [
+        "https://vimeo.com"
+    ]
+}

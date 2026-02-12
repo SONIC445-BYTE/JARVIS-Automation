@@ -1,0 +1,115 @@
+{
+    "platform": "QQ",
+    "platform_urls": [
+        "https://qq.com"
+    ],
+    "supported_actions": {
+        "message_sent": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qzone_posted": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_transferred": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_wallet_used": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_music_played": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_game_launched": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_mail_sent": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_live_watched": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_read_used": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_shopping_visited": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "qq_health_synced": {
+            "sources": [
+                "https://qq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/qq/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/qq/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added message_sent",
+        "added qzone_posted",
+        "added group_joined",
+        "added file_transferred",
+        "added qq_wallet_used",
+        "added qq_music_played",
+        "added qq_game_launched",
+        "added qq_mail_sent",
+        "added qq_live_watched",
+        "added qq_read_used",
+        "added qq_shopping_visited",
+        "added qq_health_synced"
+    ],
+    "citations": [
+        "https://qq.com"
+    ]
+}

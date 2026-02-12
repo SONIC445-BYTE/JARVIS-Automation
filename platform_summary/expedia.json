@@ -1,0 +1,139 @@
+{
+    "platform": "Expedia",
+    "platform_urls": [
+        "https://expedia.com"
+    ],
+    "supported_actions": {
+        "flight_booked": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hotel_reserved": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "package_purchased": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "activity_booked": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cruise_reserved": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "itinerary_viewed": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "price_drop_alert_set": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "loyalty_points_redeemed": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_exclusive_deal_claimed": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "travel_insurance_added": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "expedia_rewards_enrolled": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gold_status_achieved": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vip_access_property_booked": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "member_price_used": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "point_purchase_made": {
+            "sources": [
+                "https://expedia.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/expedia/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/expedia/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added flight_booked",
+        "added hotel_reserved",
+        "added package_purchased",
+        "added activity_booked",
+        "added cruise_reserved",
+        "added itinerary_viewed",
+        "added price_drop_alert_set",
+        "added loyalty_points_redeemed",
+        "added mobile_exclusive_deal_claimed",
+        "added travel_insurance_added",
+        "added expedia_rewards_enrolled",
+        "added gold_status_achieved",
+        "added vip_access_property_booked",
+        "added member_price_used",
+        "added point_purchase_made"
+    ],
+    "citations": [
+        "https://expedia.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Revolut",
+    "platform_urls": [
+        "https://revolut.com"
+    ],
+    "supported_actions": {
+        "transfer_made": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_payment_processed": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vault_created": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_exchanged": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_traded": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_upgraded": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "physical_card_ordered": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "virtual_card_created": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "salary_advanced": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "insurance_purchased": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_feature_enabled": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "location_based_security_set": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "disposable_virtual_card_used": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pin_changed": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unauthorized_transaction_disputed": {
+            "sources": [
+                "https://revolut.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/revolut/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/revolut/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added transfer_made",
+        "added card_payment_processed",
+        "added vault_created",
+        "added crypto_exchanged",
+        "added stock_traded",
+        "added account_upgraded",
+        "added physical_card_ordered",
+        "added virtual_card_created",
+        "added salary_advanced",
+        "added insurance_purchased",
+        "added security_feature_enabled",
+        "added location_based_security_set",
+        "added disposable_virtual_card_used",
+        "added pin_changed",
+        "added unauthorized_transaction_disputed"
+    ],
+    "citations": [
+        "https://revolut.com"
+    ]
+}

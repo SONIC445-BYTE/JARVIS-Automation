@@ -1,0 +1,139 @@
+{
+    "platform": "Moodle",
+    "platform_urls": [
+        "https://moodle.org"
+    ],
+    "supported_actions": {
+        "resource_viewed": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "activity_completed": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forum_posted": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_edited": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "glossary_entry_added": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quiz_attempted": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_submitted": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workshop_peer_assessed": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lesson_completed": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scorm_package_tracked": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "badge_awarded": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "competency_achieved": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_plan_created": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cohort_joined": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_offline_used": {
+            "sources": [
+                "https://moodle.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/moodle/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/moodle/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added resource_viewed",
+        "added activity_completed",
+        "added forum_posted",
+        "added wiki_edited",
+        "added glossary_entry_added",
+        "added quiz_attempted",
+        "added assignment_submitted",
+        "added workshop_peer_assessed",
+        "added lesson_completed",
+        "added scorm_package_tracked",
+        "added badge_awarded",
+        "added competency_achieved",
+        "added learning_plan_created",
+        "added cohort_joined",
+        "added mobile_app_offline_used"
+    ],
+    "citations": [
+        "https://moodle.org"
+    ]
+}

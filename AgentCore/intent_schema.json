@@ -1,0 +1,167 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JARVIS Intent Schema",
+    "description": "Canonical format for parsed intents and action plans",
+    "definitions": {
+        "selector": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Text to match"
+                },
+                "class_name": {
+                    "type": "string",
+                    "description": "UI element class"
+                },
+                "position": {
+                    "type": "string",
+                    "enum": [
+                        "top-left",
+                        "top",
+                        "top-right",
+                        "left",
+                        "center",
+                        "right",
+                        "bottom-left",
+                        "bottom",
+                        "bottom-right"
+                    ]
+                },
+                "nth": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "default": 1
+                },
+                "parent_label": {
+                    "type": "string"
+                },
+                "fuzzy": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        },
+        "action_step": {
+            "type": "object",
+            "required": [
+                "step_id",
+                "action_type"
+            ],
+            "properties": {
+                "step_id": {
+                    "type": "integer"
+                },
+                "action_type": {
+                    "type": "string",
+                    "enum": [
+                        "open_app",
+                        "close_app",
+                        "click",
+                        "type",
+                        "scroll",
+                        "wait",
+                        "navigate",
+                        "search",
+                        "select",
+                        "upload",
+                        "download",
+                        "screenshot"
+                    ]
+                },
+                "target": {
+                    "type": "string",
+                    "description": "App name or element ID"
+                },
+                "selector": {
+                    "$ref": "#/definitions/selector"
+                },
+                "params": {
+                    "type": "object"
+                },
+                "verify_selector": {
+                    "$ref": "#/definitions/selector"
+                },
+                "timeout": {
+                    "type": "number",
+                    "default": 10
+                },
+                "retry_count": {
+                    "type": "integer",
+                    "default": 2
+                }
+            }
+        }
+    },
+    "type": "object",
+    "required": [
+        "intent_id",
+        "user_utterance"
+    ],
+    "properties": {
+        "intent_id": {
+            "type": "string",
+            "description": "Unique identifier for this intent"
+        },
+        "user_utterance": {
+            "type": "string",
+            "description": "Original user command"
+        },
+        "target_app": {
+            "type": "string",
+            "description": "Primary target application"
+        },
+        "action": {
+            "type": "string",
+            "description": "High-level action category"
+        },
+        "source": {
+            "type": "object",
+            "description": "Source app/element for transfers",
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "selector": {
+                    "$ref": "#/definitions/selector"
+                }
+            }
+        },
+        "destination": {
+            "type": "object",
+            "description": "Destination for transfers",
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "steps": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/action_step"
+            },
+            "description": "Ordered list of atomic actions"
+        },
+        "risk": {
+            "type": "string",
+            "enum": [
+                "harmless",
+                "standard",
+                "destructive",
+                "system"
+            ],
+            "default": "standard"
+        },
+        "confirm_required": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

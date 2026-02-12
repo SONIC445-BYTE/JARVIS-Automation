@@ -1,0 +1,115 @@
+{
+    "platform": "Snapchat",
+    "platform_urls": [
+        "https://snapchat.com"
+    ],
+    "supported_actions": {
+        "snap_sent": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_posted": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "streak_maintained": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "filter_applied": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "spotlight_viewed": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "map_location_shared": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bitmoji_customized": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "memory_saved": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "snapcash_sent": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lens_created": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discover_subscribed": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friendship_profile_viewed": {
+            "sources": [
+                "https://snapchat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/snapchat/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/snapchat/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added snap_sent",
+        "added story_posted",
+        "added streak_maintained",
+        "added filter_applied",
+        "added spotlight_viewed",
+        "added map_location_shared",
+        "added bitmoji_customized",
+        "added memory_saved",
+        "added snapcash_sent",
+        "added lens_created",
+        "added discover_subscribed",
+        "added friendship_profile_viewed"
+    ],
+    "citations": [
+        "https://snapchat.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "edX",
+    "platform_urls": [
+        "https://edx.org"
+    ],
+    "supported_actions": {
+        "course_audited": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "verified_certificate_purchased": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "program_enrolled": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "micromasters_started": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "professional_certificate_earned": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "proctored_exam_taken": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lab_completed": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "peer_assessment_reviewed": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "final_exam_passed": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transcript_downloaded": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_forum_used": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_contributed": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "social_media_shared": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_synced": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "corporate_training_accessed": {
+            "sources": [
+                "https://edx.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/edx/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/edx/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added course_audited",
+        "added verified_certificate_purchased",
+        "added program_enrolled",
+        "added micromasters_started",
+        "added professional_certificate_earned",
+        "added proctored_exam_taken",
+        "added lab_completed",
+        "added peer_assessment_reviewed",
+        "added final_exam_passed",
+        "added transcript_downloaded",
+        "added discussion_forum_used",
+        "added wiki_contributed",
+        "added social_media_shared",
+        "added mobile_app_synced",
+        "added corporate_training_accessed"
+    ],
+    "citations": [
+        "https://edx.org"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Eloqua",
+    "platform_urls": [
+        "https://oracle.com/eloqua"
+    ],
+    "supported_actions": {
+        "campaign_orchestrated": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_deployed": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_created": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "microsite_built": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "program_builder_used": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_segmented": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lead_scoring_model_applied": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profiler_used": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "web_tracking_verified": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_center_managed": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "insight_analyzed": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_customized": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_scheduled": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "a_b_test_executed": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "revenue_analytics_viewed": {
+            "sources": [
+                "https://oracle.com/eloqua"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/eloqua/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/eloqua/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added campaign_orchestrated",
+        "added email_deployed",
+        "added form_created",
+        "added microsite_built",
+        "added program_builder_used",
+        "added contact_segmented",
+        "added lead_scoring_model_applied",
+        "added profiler_used",
+        "added web_tracking_verified",
+        "added subscription_center_managed",
+        "added insight_analyzed",
+        "added dashboard_customized",
+        "added report_scheduled",
+        "added a_b_test_executed",
+        "added revenue_analytics_viewed"
+    ],
+    "citations": [
+        "https://oracle.com/eloqua"
+    ]
+}

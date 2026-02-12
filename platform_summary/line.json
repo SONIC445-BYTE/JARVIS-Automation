@@ -1,0 +1,115 @@
+{
+    "platform": "LINE",
+    "platform_urls": [
+        "https://line.me"
+    ],
+    "supported_actions": {
+        "message_sent": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "timeline_posted": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sticker_purchased": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "official_account_added": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_pay_used": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_music_played": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_manga_read": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_taxi_called": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "openchat_joined": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_shopping_used": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_game_played": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_tv_watched": {
+            "sources": [
+                "https://line.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/line/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/line/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added message_sent",
+        "added timeline_posted",
+        "added sticker_purchased",
+        "added official_account_added",
+        "added line_pay_used",
+        "added line_music_played",
+        "added line_manga_read",
+        "added line_taxi_called",
+        "added openchat_joined",
+        "added line_shopping_used",
+        "added line_game_played",
+        "added line_tv_watched"
+    ],
+    "citations": [
+        "https://line.me"
+    ]
+}

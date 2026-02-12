@@ -1,0 +1,29 @@
+
+# Feature Flag: Learning System (master)
+# ============================================================
+# Controls ALL learning sub-modules.  Set enabled: true
+# AND per-module flags below to activate individual features.
+# Default: everything OFF (shadow mode).
+enabled: false
+shadow_mode: true
+owner: admin
+risk_level: standard
+rollout_percentage: 0
+
+# --- per-module flags ---
+flow_instrumentation: false
+action_discovery: false
+pattern_extractor: false
+adapter_generator: false
+adapter_generation: false
+confidence_engine: false
+intent_graph: false
+critic_engine: false
+causal_memory: false
+human_loop: false
+audit_log: false
+
+# --- thresholds (used by policy_store) ---
+auto_execute_threshold: 0.92
+human_confirm_threshold: 0.70
+destructive_threshold: 0.99

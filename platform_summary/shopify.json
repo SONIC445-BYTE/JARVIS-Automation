@@ -1,0 +1,115 @@
+{
+    "platform": "Shopify",
+    "platform_urls": [
+        "https://shopify.com"
+    ],
+    "supported_actions": {
+        "store_created": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "product_added": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "theme_customized": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "order_processed": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "app_installed": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "payment_gateway_configured": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discount_code_created": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "abandoned_cart_recovery_set": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shopify_payments_activated": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shopify_shipping_used": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shopify_capital_accessed": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shopify_email_sent": {
+            "sources": [
+                "https://shopify.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/shopify/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/shopify/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added store_created",
+        "added product_added",
+        "added theme_customized",
+        "added order_processed",
+        "added app_installed",
+        "added payment_gateway_configured",
+        "added discount_code_created",
+        "added abandoned_cart_recovery_set",
+        "added shopify_payments_activated",
+        "added shopify_shipping_used",
+        "added shopify_capital_accessed",
+        "added shopify_email_sent"
+    ],
+    "citations": [
+        "https://shopify.com"
+    ]
+}

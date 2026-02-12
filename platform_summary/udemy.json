@@ -1,0 +1,139 @@
+{
+    "platform": "Udemy",
+    "platform_urls": [
+        "https://udemy.com"
+    ],
+    "supported_actions": {
+        "course_purchased": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lecture_completed": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "note_taken": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "q_and_a_asked": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "certificate_downloaded": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coding_exercise_completed": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "practice_test_taken": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "progress_tracked": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lifetime_access_granted": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wishlist_added": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "instructor_followed": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "review_posted": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_download_enabled": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_account_managed": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_path_created": {
+            "sources": [
+                "https://udemy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/udemy/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/udemy/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added course_purchased",
+        "added lecture_completed",
+        "added note_taken",
+        "added q_and_a_asked",
+        "added certificate_downloaded",
+        "added coding_exercise_completed",
+        "added practice_test_taken",
+        "added progress_tracked",
+        "added lifetime_access_granted",
+        "added wishlist_added",
+        "added instructor_followed",
+        "added review_posted",
+        "added mobile_download_enabled",
+        "added business_account_managed",
+        "added learning_path_created"
+    ],
+    "citations": [
+        "https://udemy.com"
+    ]
+}

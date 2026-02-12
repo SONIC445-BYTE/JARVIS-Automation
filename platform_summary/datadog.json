@@ -1,0 +1,131 @@
+{
+    "platform": "Datadog",
+    "platform_urls": [
+        "https://datadoghq.com"
+    ],
+    "supported_actions": {
+        "agent_installed": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_created": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "monitor_configured": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "log_pipeline_set_up": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apm_instrumented": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "alert_triggered": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "synthetic_test_created": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rum_session_replay_viewed": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "slo_defined": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "incident_declared": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_signal_investigated": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "compliance_monitor_enabled": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_security_posture_managed": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "application_vulnerability_detected": {
+            "sources": [
+                "https://datadoghq.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/datadog/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/datadog/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added agent_installed",
+        "added dashboard_created",
+        "added monitor_configured",
+        "added log_pipeline_set_up",
+        "added apm_instrumented",
+        "added alert_triggered",
+        "added synthetic_test_created",
+        "added rum_session_replay_viewed",
+        "added slo_defined",
+        "added incident_declared",
+        "added security_signal_investigated",
+        "added compliance_monitor_enabled",
+        "added cloud_security_posture_managed",
+        "added application_vulnerability_detected"
+    ],
+    "citations": [
+        "https://datadoghq.com"
+    ]
+}

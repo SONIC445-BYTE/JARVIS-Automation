@@ -1,0 +1,2 @@
+SYSTEM:
+Analyze the provided patch or code. Return "forbidden" if secrets, credentials, or data exfiltration exist; "risky" if network calls or system calls appear without reason; otherwise return "safe".

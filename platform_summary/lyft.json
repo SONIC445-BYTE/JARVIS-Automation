@@ -1,0 +1,139 @@
+{
+    "platform": "Lyft",
+    "platform_urls": [
+        "https://lyft.com"
+    ],
+    "supported_actions": {
+        "ride_requested": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shared_ride_taken": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bike_scooter_unlocked": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scheduled_ride_set": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transit_info_viewed": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lyft_pink_subscribed": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bike_lane_navigation_used": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "safety_features_used": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "driver_tipped": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lost_item_reported": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rewards_points_earned": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "challenge_completed": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "partnership_perk_claimed": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_profile_managed": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "healthcare_ride_scheduled": {
+            "sources": [
+                "https://lyft.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/lyft/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/lyft/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added ride_requested",
+        "added shared_ride_taken",
+        "added bike_scooter_unlocked",
+        "added scheduled_ride_set",
+        "added transit_info_viewed",
+        "added lyft_pink_subscribed",
+        "added bike_lane_navigation_used",
+        "added safety_features_used",
+        "added driver_tipped",
+        "added lost_item_reported",
+        "added rewards_points_earned",
+        "added challenge_completed",
+        "added partnership_perk_claimed",
+        "added business_profile_managed",
+        "added healthcare_ride_scheduled"
+    ],
+    "citations": [
+        "https://lyft.com"
+    ]
+}

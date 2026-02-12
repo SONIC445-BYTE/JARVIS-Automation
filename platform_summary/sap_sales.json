@@ -1,0 +1,139 @@
+{
+    "platform": "SAP Sales Cloud",
+    "platform_urls": [
+        "https://sap.com"
+    ],
+    "supported_actions": {
+        "lead_qualified": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_360_viewed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "opportunity_managed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quote_configured": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contract_executed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sales_plan_activated": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "territory_aligned": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forecast_committed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sales_performance_managed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rebate_program_executed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_triggered": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "machine_learning_recommendation_used": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_flow_executed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "analytics_dashboard_viewed": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_synced": {
+            "sources": [
+                "https://sap.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/sap_sales/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/sap_sales/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added lead_qualified",
+        "added account_360_viewed",
+        "added opportunity_managed",
+        "added quote_configured",
+        "added contract_executed",
+        "added sales_plan_activated",
+        "added territory_aligned",
+        "added forecast_committed",
+        "added sales_performance_managed",
+        "added rebate_program_executed",
+        "added workflow_triggered",
+        "added machine_learning_recommendation_used",
+        "added integration_flow_executed",
+        "added analytics_dashboard_viewed",
+        "added mobile_app_synced"
+    ],
+    "citations": [
+        "https://sap.com"
+    ]
+}

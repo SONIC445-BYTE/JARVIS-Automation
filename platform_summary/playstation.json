@@ -1,0 +1,115 @@
+{
+    "platform": "PlayStation Network",
+    "platform_urls": [
+        "https://playstation.com"
+    ],
+    "supported_actions": {
+        "trophy_earned": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "game_downloaded": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "remote_play_used": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "share_play_initiated": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "party_created": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "community_joined": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "broadcast_started": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "messages_sent": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "playstation_plus_subscribed": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wallet_funded": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pre_order_placed": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "playstation_stars_enrolled": {
+            "sources": [
+                "https://playstation.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/playstation/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/playstation/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added trophy_earned",
+        "added game_downloaded",
+        "added remote_play_used",
+        "added share_play_initiated",
+        "added party_created",
+        "added community_joined",
+        "added broadcast_started",
+        "added messages_sent",
+        "added playstation_plus_subscribed",
+        "added wallet_funded",
+        "added pre_order_placed",
+        "added playstation_stars_enrolled"
+    ],
+    "citations": [
+        "https://playstation.com"
+    ]
+}

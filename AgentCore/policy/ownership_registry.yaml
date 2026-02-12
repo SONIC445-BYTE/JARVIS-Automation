@@ -1,0 +1,13 @@
+domains:
+  core:
+    path_patterns: ["AgentCore/core/**","jarvis.py"]
+    policy: read_only
+    approvers: ["owner"]
+  extensions:
+    path_patterns: ["AgentCore/extensions/**","plugins/**"]
+    policy: modifiable_with_approval
+    approvers: ["owner","lead"]
+  experimental:
+    path_patterns: ["AgentCore/experimental/**","sandbox/**"]
+    policy: auto_allowed
+    approvers: ["owner"]

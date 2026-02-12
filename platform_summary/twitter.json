@@ -1,0 +1,27 @@
+{
+    "platform": "Twitter/X",
+    "platform_urls": [
+        "https://twitter.com"
+    ],
+    "supported_actions": {
+        "post_tweet": {
+            "sources": [
+                "https://developer.twitter.com"
+            ],
+            "confidence": 0.9,
+            "notes": "Intent URL"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/twitter/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/twitter/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added post_tweet"
+    ],
+    "citations": [
+        "https://help.twitter.com"
+    ]
+}

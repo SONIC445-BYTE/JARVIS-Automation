@@ -1,0 +1,115 @@
+{
+    "platform": "Etsy",
+    "platform_urls": [
+        "https://etsy.com"
+    ],
+    "supported_actions": {
+        "handmade_item_listed": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vintage_item_searched": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "custom_request_sent": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "favorite_shop_added": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pattern_website_created": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "etsy_ads_started": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deposit_scheduled": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shop_policies_updated": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "etsy_payments_onboarded": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "etsy_shipping_labels_purchased": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "etsy_plus_subscribed": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "star_seller_achieved": {
+            "sources": [
+                "https://etsy.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/etsy/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/etsy/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added handmade_item_listed",
+        "added vintage_item_searched",
+        "added custom_request_sent",
+        "added favorite_shop_added",
+        "added pattern_website_created",
+        "added etsy_ads_started",
+        "added deposit_scheduled",
+        "added shop_policies_updated",
+        "added etsy_payments_onboarded",
+        "added etsy_shipping_labels_purchased",
+        "added etsy_plus_subscribed",
+        "added star_seller_achieved"
+    ],
+    "citations": [
+        "https://etsy.com"
+    ]
+}

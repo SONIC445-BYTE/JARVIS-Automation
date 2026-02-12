@@ -1,0 +1,139 @@
+{
+    "platform": "Calm",
+    "platform_urls": [
+        "https://calm.com"
+    ],
+    "supported_actions": {
+        "meditation_played": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sleep_story_listened": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "masterclass_watched": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "breathing_exercise_completed": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "music_track_played": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mood_check_in_logged": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "streak_tracked": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reminder_customized": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "favorite_added": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "offline_content_downloaded": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_purchased": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_card_redeemed": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "corporate_wellness_accessed": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "kids_section_used": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "breathe_bubble_customized": {
+            "sources": [
+                "https://calm.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/calm/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/calm/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added meditation_played",
+        "added sleep_story_listened",
+        "added masterclass_watched",
+        "added breathing_exercise_completed",
+        "added music_track_played",
+        "added mood_check_in_logged",
+        "added streak_tracked",
+        "added reminder_customized",
+        "added favorite_added",
+        "added offline_content_downloaded",
+        "added subscription_purchased",
+        "added gift_card_redeemed",
+        "added corporate_wellness_accessed",
+        "added kids_section_used",
+        "added breathe_bubble_customized"
+    ],
+    "citations": [
+        "https://calm.com"
+    ]
+}

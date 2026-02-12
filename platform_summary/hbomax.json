@@ -1,0 +1,107 @@
+{
+    "platform": "HBO Max",
+    "platform_urls": [
+        "https://max.com"
+    ],
+    "supported_actions": {
+        "content_streamed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discovery_plus_content_accessed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_customized": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "download_managed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "my_list_curated": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "series_reminder_set": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parental_pin_enabled": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "audio_language_changed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ad_free_plan_upgraded": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "annual_plan_subscribed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_card_redeemed": {
+            "sources": [
+                "https://max.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/hbomax/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/hbomax/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added content_streamed",
+        "added discovery_plus_content_accessed",
+        "added profile_customized",
+        "added download_managed",
+        "added my_list_curated",
+        "added series_reminder_set",
+        "added parental_pin_enabled",
+        "added audio_language_changed",
+        "added ad_free_plan_upgraded",
+        "added annual_plan_subscribed",
+        "added gift_card_redeemed"
+    ],
+    "citations": [
+        "https://max.com"
+    ]
+}

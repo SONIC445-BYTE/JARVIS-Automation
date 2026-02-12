@@ -1,0 +1,139 @@
+{
+    "platform": "AWS",
+    "platform_urls": [
+        "https://aws.amazon.com"
+    ],
+    "supported_actions": {
+        "ec2_instance_launched": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lambda_function_deployed": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ecs_task_run": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "eks_cluster_created": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "batch_job_submitted": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "s3_bucket_created": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ebs_volume_attached": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "efs_file_system_mounted": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "glacier_archive_uploaded": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "storage_gateway_configured": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vpc_created": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "route_table_configured": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "load_balancer_deployed": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloudfront_distribution_created": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "transit_gateway_established": {
+            "sources": [
+                "https://aws.amazon.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/aws/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/aws/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added ec2_instance_launched",
+        "added lambda_function_deployed",
+        "added ecs_task_run",
+        "added eks_cluster_created",
+        "added batch_job_submitted",
+        "added s3_bucket_created",
+        "added ebs_volume_attached",
+        "added efs_file_system_mounted",
+        "added glacier_archive_uploaded",
+        "added storage_gateway_configured",
+        "added vpc_created",
+        "added route_table_configured",
+        "added load_balancer_deployed",
+        "added cloudfront_distribution_created",
+        "added transit_gateway_established"
+    ],
+    "citations": [
+        "https://aws.amazon.com"
+    ]
+}

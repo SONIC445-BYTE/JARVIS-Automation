@@ -1,0 +1,4 @@
+enabled: false
+disable_when_ui_context_active: true
+description: "Bypass legacy intent router for deterministic commands"
+last_updated: "2026-02-11"

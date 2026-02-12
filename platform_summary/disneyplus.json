@@ -1,0 +1,107 @@
+{
+    "platform": "Disney+",
+    "platform_urls": [
+        "https://disneyplus.com"
+    ],
+    "supported_actions": {
+        "title_played": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "groupwatch_started": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "download_added": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "continue_watching_resumed": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "profile_created": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parental_controls_set": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watchlist_added": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "star_content_enabled": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bundle_subscribed": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "premier_access_purchased": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_subscription_sent": {
+            "sources": [
+                "https://disneyplus.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/disneyplus/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/disneyplus/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added title_played",
+        "added groupwatch_started",
+        "added download_added",
+        "added continue_watching_resumed",
+        "added profile_created",
+        "added parental_controls_set",
+        "added watchlist_added",
+        "added star_content_enabled",
+        "added bundle_subscribed",
+        "added premier_access_purchased",
+        "added gift_subscription_sent"
+    ],
+    "citations": [
+        "https://disneyplus.com"
+    ]
+}

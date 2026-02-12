@@ -1,0 +1,27 @@
+{
+    "platform": "Windows Explorer",
+    "platform_urls": [
+        "ms-windows-store://pdp/?productid=9WZDNCRFJBMP"
+    ],
+    "supported_actions": {
+        "open_folder": {
+            "sources": [
+                "Internal Windows Docs"
+            ],
+            "confidence": 1.0,
+            "notes": "System call"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/explorer/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/explorer/tests/test_adapter.py",
+    "permissions": [
+        "FileSystem"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added open_folder"
+    ],
+    "citations": [
+        "https://support.microsoft.com/en-us/windows/working-with-files-and-folders-in-windows-explorer-83395c02-d996-419b-980e-34676643666f"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Freshsales",
+    "platform_urls": [
+        "https://freshworks.com"
+    ],
+    "supported_actions": {
+        "lead_scored": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_enriched": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_hierarchy_built": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deal_qualified": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "appointment_scheduled": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sales_sequence_initiated": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "territory_auto_assigned": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forecast_generated": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "document_shared": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quote_created": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_automated": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "chat_triggered": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_tracking_enabled": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "phone_call_logged": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_integrated": {
+            "sources": [
+                "https://freshworks.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/freshsales/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/freshsales/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added lead_scored",
+        "added contact_enriched",
+        "added account_hierarchy_built",
+        "added deal_qualified",
+        "added appointment_scheduled",
+        "added sales_sequence_initiated",
+        "added territory_auto_assigned",
+        "added forecast_generated",
+        "added document_shared",
+        "added quote_created",
+        "added workflow_automated",
+        "added chat_triggered",
+        "added email_tracking_enabled",
+        "added phone_call_logged",
+        "added api_integrated"
+    ],
+    "citations": [
+        "https://freshworks.com"
+    ]
+}

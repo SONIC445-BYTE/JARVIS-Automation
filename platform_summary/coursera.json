@@ -1,0 +1,139 @@
+{
+    "platform": "Coursera",
+    "platform_urls": [
+        "https://coursera.org"
+    ],
+    "supported_actions": {
+        "course_enrolled": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lecture_watched": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reading_completed": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "peer_review_submitted": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "certificate_earned": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quiz_attempted": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "programming_assignment_submitted": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "exam_proctored": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grade_received": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mastery_achieved": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_posted": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mentor_consulted": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "study_group_joined": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_downloaded": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "degree_applied": {
+            "sources": [
+                "https://coursera.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/coursera/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/coursera/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added course_enrolled",
+        "added lecture_watched",
+        "added reading_completed",
+        "added peer_review_submitted",
+        "added certificate_earned",
+        "added quiz_attempted",
+        "added programming_assignment_submitted",
+        "added exam_proctored",
+        "added grade_received",
+        "added mastery_achieved",
+        "added discussion_posted",
+        "added mentor_consulted",
+        "added study_group_joined",
+        "added mobile_app_downloaded",
+        "added degree_applied"
+    ],
+    "citations": [
+        "https://coursera.org"
+    ]
+}

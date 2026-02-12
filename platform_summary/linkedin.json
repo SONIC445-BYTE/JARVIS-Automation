@@ -1,0 +1,115 @@
+{
+    "platform": "LinkedIn",
+    "platform_urls": [
+        "https://linkedin.com"
+    ],
+    "supported_actions": {
+        "post_shared": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "article_published": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "connection_request_sent": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "job_applied": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "endorsement_given": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recommendation_written": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "event_registered": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_course_started": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sales_navigator_used": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recruiter_lite_used": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "company_page_followed": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pulse_article_commented": {
+            "sources": [
+                "https://linkedin.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/linkedin/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/linkedin/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added post_shared",
+        "added article_published",
+        "added connection_request_sent",
+        "added job_applied",
+        "added endorsement_given",
+        "added recommendation_written",
+        "added event_registered",
+        "added learning_course_started",
+        "added sales_navigator_used",
+        "added recruiter_lite_used",
+        "added company_page_followed",
+        "added pulse_article_commented"
+    ],
+    "citations": [
+        "https://linkedin.com"
+    ]
+}

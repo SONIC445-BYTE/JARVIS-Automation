@@ -1,0 +1,6 @@
+enabled: true
+intent_confidence_threshold: 0.70
+require_policy_gate: true
+audit_log_path: "data/logs/pipeline_trace.log"
+hmac_env_var: "JARVIS_HMAC_KEY"
+shadow_mode: false

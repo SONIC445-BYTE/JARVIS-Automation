@@ -1,0 +1,80 @@
+{
+    "platform": "Ollama",
+    "platform_type": "local_application",
+    "executable": "ollama.exe",
+    "supported_actions": {
+        "model_pulled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_removed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_list_shown": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_run_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_run_stopped": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_message_sent": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chat_response_received": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "api_server_started": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "api_request_processed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "modelfile_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "custom_model_built": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_copied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "model_pushed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "system_prompt_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "temperature_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "embedding_generated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ollama/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 16,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

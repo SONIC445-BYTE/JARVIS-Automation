@@ -1,0 +1,139 @@
+{
+    "platform": "Canvas",
+    "platform_urls": [
+        "https://instructure.com"
+    ],
+    "supported_actions": {
+        "course_accessed": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_submitted": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "module_completed": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collaboration_used": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "eportfolio_created": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quiz_taken": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rubric_viewed": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "feedback_received": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gradebook_checked": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "late_policy_applied": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "announcement_read": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_event_added": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "conference_joined": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_notification_received": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parent_observer_added": {
+            "sources": [
+                "https://instructure.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/canvas/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/canvas/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added course_accessed",
+        "added assignment_submitted",
+        "added module_completed",
+        "added collaboration_used",
+        "added eportfolio_created",
+        "added quiz_taken",
+        "added rubric_viewed",
+        "added feedback_received",
+        "added gradebook_checked",
+        "added late_policy_applied",
+        "added announcement_read",
+        "added calendar_event_added",
+        "added conference_joined",
+        "added mobile_notification_received",
+        "added parent_observer_added"
+    ],
+    "citations": [
+        "https://instructure.com"
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "platform": "Marketo",
+    "platform_urls": [
+        "https://marketo.com"
+    ],
+    "supported_actions": {
+        "program_created": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "smart_campaign_executed": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_asset_approved": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "landing_page_tested": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nurture_stream_activated": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lead_scored": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "segment_smart_list_created": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_filled": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "munchkin_tracking_verified": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rce_report_viewed": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "revenue_cycle_modeler_used": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "success_path_analyzer_viewed": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_insights_analyzed": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "web_personalization_enabled": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_profiling_used": {
+            "sources": [
+                "https://marketo.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/marketo/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/marketo/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added program_created",
+        "added smart_campaign_executed",
+        "added email_asset_approved",
+        "added landing_page_tested",
+        "added nurture_stream_activated",
+        "added lead_scored",
+        "added segment_smart_list_created",
+        "added form_filled",
+        "added munchkin_tracking_verified",
+        "added rce_report_viewed",
+        "added revenue_cycle_modeler_used",
+        "added success_path_analyzer_viewed",
+        "added email_insights_analyzed",
+        "added web_personalization_enabled",
+        "added account_profiling_used"
+    ],
+    "citations": [
+        "https://marketo.com"
+    ]
+}

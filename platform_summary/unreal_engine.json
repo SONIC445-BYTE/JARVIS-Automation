@@ -1,0 +1,107 @@
+{
+    "platform": "Unreal Engine",
+    "platform_urls": [
+        "https://unrealengine.com"
+    ],
+    "supported_actions": {
+        "project_started": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "blueprint_created": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nanite_enabled": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "lumen_activated": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "marketplace_asset_purchased": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quixel_bridge_used": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "metahuman_created": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_platform_accessed": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unreal_engine_license_purchased": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fab_marketplace_used": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "enterprise_support_contracted": {
+            "sources": [
+                "https://unrealengine.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/unreal_engine/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/unreal_engine/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added project_started",
+        "added blueprint_created",
+        "added nanite_enabled",
+        "added lumen_activated",
+        "added marketplace_asset_purchased",
+        "added quixel_bridge_used",
+        "added metahuman_created",
+        "added learning_platform_accessed",
+        "added unreal_engine_license_purchased",
+        "added fab_marketplace_used",
+        "added enterprise_support_contracted"
+    ],
+    "citations": [
+        "https://unrealengine.com"
+    ]
+}

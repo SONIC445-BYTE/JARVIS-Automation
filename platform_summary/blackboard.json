@@ -1,0 +1,139 @@
+{
+    "platform": "Blackboard",
+    "platform_urls": [
+        "https://blackboard.com"
+    ],
+    "supported_actions": {
+        "content_item_opened": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_uploaded": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "test_submitted": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_board_posted": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "journal_entry_created": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "safeassign_report_viewed": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rubric_assessed": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attempt_graded": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "feedback_released": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "external_tool_launched": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "course_announcement_received": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_sent": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_workspace_accessed": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_logged_in": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "student_preview_used": {
+            "sources": [
+                "https://blackboard.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/blackboard/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/blackboard/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added content_item_opened",
+        "added assignment_uploaded",
+        "added test_submitted",
+        "added discussion_board_posted",
+        "added journal_entry_created",
+        "added safeassign_report_viewed",
+        "added rubric_assessed",
+        "added attempt_graded",
+        "added feedback_released",
+        "added external_tool_launched",
+        "added course_announcement_received",
+        "added email_sent",
+        "added group_workspace_accessed",
+        "added mobile_app_logged_in",
+        "added student_preview_used"
+    ],
+    "citations": [
+        "https://blackboard.com"
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "platform": "Magento",
+    "platform_urls": [
+        "https://magento.com"
+    ],
+    "supported_actions": {
+        "cart_viewed": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "checkout_initiated": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "payment_info_added": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shipping_method_selected": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "order_reviewed": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "purchase_completed": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_created": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "guest_checkout_used": {
+            "sources": [
+                "https://magento.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/magento/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/magento/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added cart_viewed",
+        "added checkout_initiated",
+        "added payment_info_added",
+        "added shipping_method_selected",
+        "added order_reviewed",
+        "added purchase_completed",
+        "added account_created",
+        "added guest_checkout_used"
+    ],
+    "citations": [
+        "https://magento.com"
+    ]
+}

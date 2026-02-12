@@ -1,0 +1,139 @@
+{
+    "platform": "Trello",
+    "platform_urls": [
+        "https://trello.com"
+    ],
+    "supported_actions": {
+        "card_created": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "checklist_added": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "label_applied": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "due_date_reminder_set": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attachment_uploaded": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "board_created": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "power_up_enabled": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_rule_set": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_applied": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workspace_managed": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "member_invited": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_shared": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "voting_initiated": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_view_enabled": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_viewed": {
+            "sources": [
+                "https://trello.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/trello/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/trello/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added card_created",
+        "added checklist_added",
+        "added label_applied",
+        "added due_date_reminder_set",
+        "added attachment_uploaded",
+        "added board_created",
+        "added power_up_enabled",
+        "added automation_rule_set",
+        "added template_applied",
+        "added workspace_managed",
+        "added member_invited",
+        "added card_shared",
+        "added voting_initiated",
+        "added calendar_view_enabled",
+        "added dashboard_viewed"
+    ],
+    "citations": [
+        "https://trello.com"
+    ]
+}

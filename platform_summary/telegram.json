@@ -1,0 +1,115 @@
+{
+    "platform": "Telegram",
+    "platform_urls": [
+        "https://telegram.org"
+    ],
+    "supported_actions": {
+        "message_sent": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_created": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_formed": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bot_started": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "voice_chat_started": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "poll_created": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "story_posted": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "username_claimed": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "passport_verified": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "giveaway_created": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quiz_initiated": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "slow_mode_enabled": {
+            "sources": [
+                "https://telegram.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/telegram/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/telegram/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added message_sent",
+        "added channel_created",
+        "added group_formed",
+        "added bot_started",
+        "added voice_chat_started",
+        "added poll_created",
+        "added story_posted",
+        "added username_claimed",
+        "added passport_verified",
+        "added giveaway_created",
+        "added quiz_initiated",
+        "added slow_mode_enabled"
+    ],
+    "citations": [
+        "https://telegram.org"
+    ]
+}

@@ -1,0 +1,6 @@
+
+# Feature Flag: Gmail Adapter
+enabled: false
+owner: admin
+risk_level: high
+rollout_percentage: 0

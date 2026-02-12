@@ -1,0 +1,139 @@
+{
+    "platform": "Strava",
+    "platform_urls": [
+        "https://strava.com"
+    ],
+    "supported_actions": {
+        "activity_recorded": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "route_planned": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "segment_raced": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "kudos_given": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "club_joined": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gear_logged": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "training_log_updated": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fitness_freshness_tracked": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "relative_effort_calculated": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "power_curve_analyzed": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "beacon_enabled": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "route_shared": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_upgraded": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "summit_feature_used": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "partner_perk_claimed": {
+            "sources": [
+                "https://strava.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/strava/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/strava/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added activity_recorded",
+        "added route_planned",
+        "added segment_raced",
+        "added kudos_given",
+        "added club_joined",
+        "added gear_logged",
+        "added training_log_updated",
+        "added fitness_freshness_tracked",
+        "added relative_effort_calculated",
+        "added power_curve_analyzed",
+        "added beacon_enabled",
+        "added route_shared",
+        "added subscription_upgraded",
+        "added summit_feature_used",
+        "added partner_perk_claimed"
+    ],
+    "citations": [
+        "https://strava.com"
+    ]
+}

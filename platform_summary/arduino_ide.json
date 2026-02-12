@@ -1,0 +1,132 @@
+{
+    "platform": "Arduino IDE",
+    "platform_type": "local_application",
+    "executable": "arduino.exe",
+    "supported_actions": {
+        "new_sketch_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sketch_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sketch_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sketch_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sketch_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "example_sketch_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "code_typed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "code_pasted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "undo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "redo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "verify_compile_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "upload_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "upload_using_programmer_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "board_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "port_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "programmer_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "library_installed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "library_removed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "library_updated": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "board_manager_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "board_package_installed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "serial_monitor_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "serial_plotter_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "serial_data_sent": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "baud_rate_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "preferences_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "verbose_output_enabled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "include_library_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sketch_exported_compiled_binary": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/arduino_ide/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 29,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

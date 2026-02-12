@@ -1,0 +1,139 @@
+{
+    "platform": "Booking.com",
+    "platform_urls": [
+        "https://booking.com"
+    ],
+    "supported_actions": {
+        "property_searched": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reservation_made": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "modification_requested": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cancellation_processed": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "review_posted": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "genius_program_joined": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trip_planner_used": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "airport_transfer_booked": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "car_rental_reserved": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "flight_searched": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "genius_level_achieved": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reward_claimed": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_app_exclusive_used": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "secret_deal_unlocked": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "partner_offer_redeemed": {
+            "sources": [
+                "https://booking.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/booking/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/booking/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added property_searched",
+        "added reservation_made",
+        "added modification_requested",
+        "added cancellation_processed",
+        "added review_posted",
+        "added genius_program_joined",
+        "added trip_planner_used",
+        "added airport_transfer_booked",
+        "added car_rental_reserved",
+        "added flight_searched",
+        "added genius_level_achieved",
+        "added reward_claimed",
+        "added mobile_app_exclusive_used",
+        "added secret_deal_unlocked",
+        "added partner_offer_redeemed"
+    ],
+    "citations": [
+        "https://booking.com"
+    ]
+}

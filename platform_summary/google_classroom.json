@@ -1,0 +1,139 @@
+{
+    "platform": "Google Classroom",
+    "platform_urls": [
+        "https://classroom.google.com"
+    ],
+    "supported_actions": {
+        "class_joined": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_viewed": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "work_submitted": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "material_accessed": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "question_posted": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignment_returned": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grade_posted": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "originality_report_viewed": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rubric_graded": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "late_work_flagged": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "announcement_created": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "meet_link_generated": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "guardian_summary_enabled": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_synced": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "drive_folder_organized": {
+            "sources": [
+                "https://classroom.google.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/google_classroom/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/google_classroom/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added class_joined",
+        "added assignment_viewed",
+        "added work_submitted",
+        "added material_accessed",
+        "added question_posted",
+        "added assignment_returned",
+        "added grade_posted",
+        "added originality_report_viewed",
+        "added rubric_graded",
+        "added late_work_flagged",
+        "added announcement_created",
+        "added meet_link_generated",
+        "added guardian_summary_enabled",
+        "added calendar_synced",
+        "added drive_folder_organized"
+    ],
+    "citations": [
+        "https://classroom.google.com"
+    ]
+}

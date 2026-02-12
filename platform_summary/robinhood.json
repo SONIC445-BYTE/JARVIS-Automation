@@ -1,0 +1,139 @@
+{
+    "platform": "Robinhood",
+    "platform_urls": [
+        "https://robinhood.com"
+    ],
+    "supported_actions": {
+        "stock_purchased": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_sold": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "option_traded": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "crypto_bought": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recurring_investment_set": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_funded": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bank_linked": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gold_subscribed": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cash_card_requested": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dividend_reinvested": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_factor_authentication_enabled": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "device_authorized": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "login_notification_received": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_restrictions_reviewed": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tax_document_downloaded": {
+            "sources": [
+                "https://robinhood.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/robinhood/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/robinhood/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added stock_purchased",
+        "added stock_sold",
+        "added option_traded",
+        "added crypto_bought",
+        "added recurring_investment_set",
+        "added account_funded",
+        "added bank_linked",
+        "added gold_subscribed",
+        "added cash_card_requested",
+        "added dividend_reinvested",
+        "added two_factor_authentication_enabled",
+        "added device_authorized",
+        "added login_notification_received",
+        "added account_restrictions_reviewed",
+        "added tax_document_downloaded"
+    ],
+    "citations": [
+        "https://robinhood.com"
+    ]
+}

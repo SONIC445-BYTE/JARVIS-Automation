@@ -1,0 +1,139 @@
+{
+    "platform": "Notion",
+    "platform_urls": [
+        "https://notion.so"
+    ],
+    "supported_actions": {
+        "page_created": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "database_set_up": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "block_edited": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_duplicated": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "relation_linked": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workspace_organized": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "teamspace_created": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "permission_managed": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_connected": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_accessed": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "member_invited": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_threaded": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mention_used": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "page_shared_publicly": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "export_generated": {
+            "sources": [
+                "https://notion.so"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/notion/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/notion/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added page_created",
+        "added database_set_up",
+        "added block_edited",
+        "added template_duplicated",
+        "added relation_linked",
+        "added workspace_organized",
+        "added teamspace_created",
+        "added permission_managed",
+        "added integration_connected",
+        "added api_accessed",
+        "added member_invited",
+        "added comment_threaded",
+        "added mention_used",
+        "added page_shared_publicly",
+        "added export_generated"
+    ],
+    "citations": [
+        "https://notion.so"
+    ]
+}

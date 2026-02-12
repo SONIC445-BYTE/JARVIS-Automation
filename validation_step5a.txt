@@ -1,0 +1,1 @@
+﻿Screenshot saved to data/screenshots/validation_test.png

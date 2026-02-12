@@ -1,0 +1,107 @@
+﻿Select-String : Cannot bind argument to 
+parameter 'Pattern' because it is an empty 
+string.
+At line:1 char:51
++ Select-String -Path validation_step1.txt 
+-Pattern '', ''; Select-Stri ...
++                                              
+     ~~~~~~
+    + CategoryInfo          : InvalidData: (:) 
+    [Select-String], ParameterBindingValidati  
+  onException
+    + FullyQualifiedErrorId : ParameterArgumen 
+   tValidationErrorEmptyStringNotAllowed,Micr  
+  osoft.PowerShell.Commands.SelectStringComm   
+ and
+ 
+
+validation_step2.txt:582:Total folders found: 
+161
+validation_step2.txt:583:Total platforms 
+registered: 212
+validation_step2.txt:584:Capability index 
+written to data/platform_index.json
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+[ActionPlanner] Planning for action='unknown', platform='unknown_app'
+[ActionPlanner] Selected adapter: UnknownAppFallbackAdapter
+{
+  "plan_length": 1,
+  "fallback_level": "unknown",
+  "adapter": "UnknownAppFallbackAdapter"
+}
+[AdapterRegistry] Registered AdapterShim for ['account_funded', 'portfolio_automated', 'auto_deposit_scheduled', 'tax_loss_harvesting_enabled', 'home_planning_started', 'risk_tolerance_assessed', 'financial_plan_projected', 'plan_529_recommended', 'high_yield_cash_account_opened', 'line_of_credit_accessed', 'investment_explanation_read', 'historical_performance_viewed', 'methodology_whitepaper_downloaded', 'faq_consulted', 'support_contacted']
+[DynamicLoader] Loaded platform: wealthfront
+[AdapterShim] Wrapped WeChat (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['moment_posted', 'mini_program_opened', 'payment_made', 'official_account_followed', 'red_packet_sent', 'sticker_purchased', 'top_story_read', 'wechat_pay_used', 'channel_live_started', 'video_call_group_started', 'favorites_added', 'people_nearby_used']
+[DynamicLoader] Loaded platform: wechat
+[AdapterShim] Wrapped WhatsApp (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['send_message', 'attach_photo']
+[DynamicLoader] Loaded platform: whatsapp
+[AdapterShim] Wrapped WinRAR (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['archive_created', 'archive_opened', 'archive_extracted', 'files_added_to_archive', 'files_deleted_from_archive', 'archive_tested', 'archive_repaired', 'compression_method_selected_store', 'compression_method_selected_fastest', 'compression_method_selected_normal', 'compression_method_selected_best', 'archive_format_rar_selected', 'archive_format_zip_selected', 'password_protection_applied', 'split_archive_created', 'self_extracting_archive_created', 'comment_added_to_archive']
+[DynamicLoader] Loaded platform: winrar
+[AdapterShim] Wrapped Wise (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['transfer_initiated', 'recipient_added', 'rate_alert_set', 'wise_card_used', 'business_account_opened', 'verification_document_uploaded', 'bank_details_shared', 'jar_created', 'direct_debit_set_up', 'api_integrated', 'two_factor_authentication_enabled', 'login_alert_reviewed', 'card_frozen', 'statement_downloaded', 'account_closure_requested']
+[DynamicLoader] Loaded platform: wise
+[AdapterShim] Wrapped WooCommerce (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['cart_viewed', 'checkout_initiated', 'payment_info_added', 'shipping_method_selected', 'order_reviewed', 'purchase_completed', 'account_created', 'guest_checkout_used']
+[DynamicLoader] Loaded platform: woocommerce
+[AdapterShim] Wrapped Wrike (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['task_created', 'custom_workflow_applied', 'time_tracked', 'request_form_submitted', 'proof_approved', 'project_space_created', 'blueprint_used', 'report_built', 'resource_management_viewed', 'calendar_synced', 'user_invited', 'at_mention_used', 'approval_workflow_initiated', 'share_link_generated', 'mobile_app_used']
+[DynamicLoader] Loaded platform: wrike
+[AdapterShim] Wrapped Xbox Live (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['game_pass_game_installed', 'achievement_earned', 'gamerscore_increased', 'cloud_gaming_used', 'party_chat_joined', 'looking_for_group_posted', 'club_joined', 'activity_feed_updated', 'microsoft_points_redeemed', 'game_pass_subscription_managed', 'xbox_design_lab_used', 'elite_controller_customized']
+[DynamicLoader] Loaded platform: xbox_live
+[AdapterShim] Wrapped YouTube (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['play_video', 'search_video']
+[DynamicLoader] Loaded platform: youtube
+[AdapterShim] Wrapped Zoho CRM (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['lead_converted', 'account_hierarchy_managed', 'contact_enriched', 'potential_created', 'case_resolved', 'blueprint_executed', 'canvas_view_designed', 'forecast_adjusted', 'territory_assigned', 'social_twitter_integrated', 'workflow_rule_triggered', 'scheduled_function_executed', 'web_form_captured', 'email_sent', 'zia_ai_used']
+[DynamicLoader] Loaded platform: zoho_crm
+[AdapterShim] Wrapped Zoom (Legacy/Incomplete)
+[AdapterRegistry] Registered AdapterShim for ['meeting_started', 'meeting_joined', 'screen_shared', 'recording_started', 'breakout_room_created', 'poll_launched', 'whiteboard_used', 'virtual_background_applied']
+[DynamicLoader] Loaded platform: zoom
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+[UIAgent] Processing instruction: Open Acorns and click Invest (1f0c58ab-ec31-4e81-a117-d6c6b7785cd5)
+[ActionPlanner] Planning for action='unknown', platform='None'
+[ActionPlanner] Selected adapter: UnknownAppFallbackAdapter
+--- Execution Trace ---
+[OCR] Error: tesseract is not installed or it's not in your PATH. See README file for more information.
+Detected 0 text blocks.
+{"req_id": "1175f34e-c870-43bb-a294-d650b3e366ae", "ts": 1770822471.6575797, "action": {"action": "type", "platform": "notepad", "target": "document", "value": "hello"}, "result": "ExecutionResult(success=True, steps=[{'action': 'type', 'target': 'document', 'ok': True, 'trace': 'Simulated'}], screenshot_after=None, error=None)", "sig": "7cc35d3659b49d258d2bb2e2243f21c1c51d70739d6c234244a7b3fd9fbb595b"}
+{"req_id": "171e33f3-b020-41f9-a3a5-9f78bb732119", "ts": 1770823244.6603966, "action": {"action": "click", "platform": "unknown_app", "target": "Login"}, "result": "ExecutionResult(success=True, steps=[{'action': 'click', 'target': 'Login', 'ok': True, 'trace': 'Simulated', 'platform': 'adobe_acrobat', 'adapter': 'GenericDesktopAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "8e9e66a9cef658b8fb4a57d1e94d95a9895040d69436296fcaeba5842a9cb3d9"}
+{"req_id": "1a10485b-2779-484c-9255-2d8df36584cf", "ts": 1770823273.393297, "action": {"action": "click", "platform": "unknown_app", "target": "Login"}, "result": "ExecutionResult(success=True, steps=[{'action': 'click', 'target': 'Login', 'ok': True, 'trace': 'Simulated', 'platform': 'adobe_acrobat', 'adapter': 'GenericDesktopAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "d0d1a46822e1398d735dcf96379f6733da4ceaa6cdcd92a91dda0244fca71f92"}
+{"req_id": "89ba1fe1-3411-4d24-8126-715d5263c227", "ts": 1770823892.1811094, "action": {"app": "whatsapp", "action": "send_message", "recipient": "myself", "message": "Automated hello"}, "result": "ExecutionResult(success=True, steps=[{'action': 'native', 'ok': True, 'trace': 'SUCCESS: Sent via Native API', 'platform': 'whatsapp', 'adapter': 'WhatsAppAdapter', 'fallback': 'native'}], screenshot_after=None, error=None)", "sig": "462cb87249a7ad016069c6a67ad1b0a142603ba30a753f48e77c20dca7998afd"}
+{"req_id": "76e74957-59c0-433a-99ab-07d869268b9c", "ts": 1770823902.8926682, "action": {"app": "whatsapp", "action": "send_message", "recipient": "myself", "message": "Automated hello"}, "result": "ExecutionResult(success=True, steps=[{'action': 'native', 'ok': True, 'trace': 'SUCCESS: Sent via Native API', 'platform': 'whatsapp', 'adapter': 'WhatsAppAdapter', 'fallback': 'native'}], screenshot_after=None, error=None)", "sig": "9884c72d480b6dc055f66f6fe8f72e3ee0e6c42f5282da85fbc1bf8031ea29a6"}
+{"req_id": "5f571b6d-8471-4605-a8a6-8965f0423a6b", "ts": 1770823902.8937004, "action": {"app": "explorer", "action": "navigate_to", "path": "C:\\"}, "result": "ExecutionResult(success=True, steps=[{'action': 'hotkey', 'target': 'win+e', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'wait', 'target': '1', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'click', 'target': \"toolbar > edit[text~='Address']\", 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'type', 'target': \"edit[text~='Address']\", 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'hotkey', 'target': 'enter', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "5664b3622b7fff0f3ddaf64ecc65ebcb9e88b5468927c64c71e26f13110c79dd"}
+{"req_id": "909aa7da-c7b3-4fe4-be2f-90552547fcb7", "ts": 1770823902.8937004, "action": {"app": "whatsapp", "action": "send_message", "recipient": "myself", "message": "Automated hello"}, "result": "ExecutionResult(success=True, steps=[{'action': 'native', 'ok': True, 'trace': 'SUCCESS: Sent via Native API', 'platform': 'whatsapp', 'adapter': 'WhatsAppAdapter', 'fallback': 'native'}], screenshot_after=None, error=None)", "sig": "979b53db056cc0357233402c4f6ad2294fb9c43ffbacdb7fcd81fd8be50f7c0c"}
+{"req_id": "ce54ab37-c018-412a-8d0e-b5e3de3cfc41", "ts": 1770823902.8947453, "action": {"app": "explorer", "action": "navigate_to", "path": "C:\\"}, "result": "ExecutionResult(success=True, steps=[{'action': 'hotkey', 'target': 'win+e', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'wait', 'target': '1', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'click', 'target': \"toolbar > edit[text~='Address']\", 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'type', 'target': \"edit[text~='Address']\", 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}, {'action': 'hotkey', 'target': 'enter', 'ok': True, 'trace': 'Simulated', 'platform': 'explorer', 'adapter': 'FileExplorerAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "cb7c66164c06fce2095e21d53a7647d0727c78d0e28a20acdaa5eadfe9d8846c"}
+{"req_id": "53df0b4b-a587-4b52-b31e-af7428286544", "ts": 1770823905.7985506, "action": {"action": "click", "platform": "unknown_app", "target": "Login"}, "result": "ExecutionResult(success=True, steps=[{'action': 'click', 'target': 'Login', 'ok': True, 'trace': 'Simulated', 'platform': 'adobe_acrobat', 'adapter': 'GenericDesktopAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "d05488030edf61cb95514f823aa7e41da4f579bcfc1d16059a14f76a519062dc"}
+{"req_id": "7a4df046-68c3-4ad4-a5dc-707f405e9b5b", "ts": 1770823908.1695752, "action": {"action": "type", "platform": "notepad", "target": "document", "value": "hello"}, "result": "ExecutionResult(success=True, steps=[{'action': 'type', 'target': 'document', 'ok': True, 'trace': 'Simulated', 'platform': 'adobe_acrobat', 'adapter': 'GenericDesktopAdapter', 'fallback': 'ui'}], screenshot_after=None, error=None)", "sig": "aa57f46266dd286b86bd536ca634aacffaf0f83cf734dc822e8a0690a801de7e"}
+rootdir: C:\Users\mukho\Desktop\J.A.R.V.I.S.1.0
+plugins: anyio-4.12.1
+collected 7 items
+
+AgentCore\ui_agent\tests\test_agent_smoke.py .                           [ 14%]
+AgentCore\ui_agent\tests\test_architectural_fix.py ..                    [ 42%]
+AgentCore\ui_agent\tests\test_executor.py .                              [ 57%]
+AgentCore\ui_agent\tests\test_inspector.py .                             [ 71%]
+AgentCore\ui_agent\tests\test_platform_coverage.py .                     [ 85%]
+AgentCore\ui_agent\tests\test_ui_fallback_unknown_app.py .               [100%]
+
+============================== warnings summary ===============================
+AgentCore/ui_agent/tests/test_agent_smoke.py::test_ui_agent_smoke
+  C:\Users\mukho\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but AgentCore/ui_agent/tests/test_agent_smoke.py::test_ui_agent_smoke returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 7 passed, 1 warning in 7.68s =========================
+
+

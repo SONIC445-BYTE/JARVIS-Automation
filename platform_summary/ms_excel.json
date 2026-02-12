@@ -1,0 +1,204 @@
+{
+    "platform": "Microsoft Excel",
+    "platform_type": "local_application",
+    "executable": "EXCEL.EXE",
+    "supported_actions": {
+        "blank_workbook_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workbook_from_template_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workbook_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workbook_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workbook_saved_as_pdf": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "workbook_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "cell_value_entered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "cell_formula_entered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "cell_format_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "row_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "row_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "column_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "column_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sheet_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sheet_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sheet_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sheet_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "range_selected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "range_copied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "range_pasted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "range_cut": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "auto_fill_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "flash_fill_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sort_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "filter_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "advanced_filter_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pivot_table_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "pivot_chart_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chart_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chart_type_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "chart_data_range_modified": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "conditional_formatting_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "data_validation_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "vlookup_formula_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "index_match_formula_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "sumif_formula_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "macro_recorded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "macro_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "vba_editor_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "freeze_panes_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "split_window_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "name_manager_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "named_range_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "data_connection_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "power_query_opened": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "protect_sheet_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "protect_workbook_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ms_excel/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 47,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

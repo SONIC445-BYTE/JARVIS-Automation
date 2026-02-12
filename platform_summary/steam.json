@@ -1,0 +1,123 @@
+{
+    "platform": "Steam",
+    "platform_urls": [
+        "https://store.steampowered.com"
+    ],
+    "supported_actions": {
+        "game_purchased": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "library_organized": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "achievement_unlocked": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_save_synced": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_invited": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "review_posted": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workshop_item_subscribed": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "broadcast_watched": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "steam_wallet_funded": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_transaction_completed": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "trading_card_exchanged": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hardware_purchased": {
+            "sources": [
+                "https://store.steampowered.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/steam/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/steam/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added game_purchased",
+        "added library_organized",
+        "added achievement_unlocked",
+        "added cloud_save_synced",
+        "added friend_invited",
+        "added group_joined",
+        "added review_posted",
+        "added workshop_item_subscribed",
+        "added broadcast_watched",
+        "added steam_wallet_funded",
+        "added market_transaction_completed",
+        "added trading_card_exchanged",
+        "added hardware_purchased"
+    ],
+    "citations": [
+        "https://store.steampowered.com"
+    ]
+}

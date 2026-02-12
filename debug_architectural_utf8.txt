@@ -1,0 +1,4 @@
+﻿[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+
+TEST FAILED: name 'ExecutionResult' is not defined

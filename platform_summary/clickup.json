@@ -1,0 +1,139 @@
+{
+    "platform": "ClickUp",
+    "platform_urls": [
+        "https://clickup.com"
+    ],
+    "supported_actions": {
+        "task_created": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "custom_status_applied": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "time_estimated": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sprint_managed": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dependency_linked": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "space_created": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "folder_organized": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "list_viewed": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_tracked": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_customized": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignee_added": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "watcher_set": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_resolved": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "proofing_annotated": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_integration_used": {
+            "sources": [
+                "https://clickup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/clickup/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/clickup/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added task_created",
+        "added custom_status_applied",
+        "added time_estimated",
+        "added sprint_managed",
+        "added dependency_linked",
+        "added space_created",
+        "added folder_organized",
+        "added list_viewed",
+        "added goal_tracked",
+        "added dashboard_customized",
+        "added assignee_added",
+        "added watcher_set",
+        "added comment_resolved",
+        "added proofing_annotated",
+        "added email_integration_used"
+    ],
+    "citations": [
+        "https://clickup.com"
+    ]
+}

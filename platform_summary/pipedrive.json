@@ -1,0 +1,139 @@
+{
+    "platform": "Pipedrive",
+    "platform_urls": [
+        "https://pipedrive.com"
+    ],
+    "supported_actions": {
+        "lead_captured": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deal_added": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "activity_scheduled": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "contact_mapped": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_synced": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pipeline_stages_managed": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "probability_updated": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "forecast_viewed": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_set": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_customized": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_automation_triggered": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_template_used": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "web_form_submitted": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "import_completed": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_call_made": {
+            "sources": [
+                "https://pipedrive.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/pipedrive/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/pipedrive/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added lead_captured",
+        "added deal_added",
+        "added activity_scheduled",
+        "added contact_mapped",
+        "added email_synced",
+        "added pipeline_stages_managed",
+        "added probability_updated",
+        "added forecast_viewed",
+        "added goal_set",
+        "added report_customized",
+        "added workflow_automation_triggered",
+        "added email_template_used",
+        "added web_form_submitted",
+        "added import_completed",
+        "added api_call_made"
+    ],
+    "citations": [
+        "https://pipedrive.com"
+    ]
+}

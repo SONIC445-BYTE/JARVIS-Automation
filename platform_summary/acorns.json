@@ -1,0 +1,139 @@
+{
+    "platform": "Acorns",
+    "platform_urls": [
+        "https://acorns.com"
+    ],
+    "supported_actions": {
+        "round_up_invested": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "recurring_investment_set": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "found_money_earned": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "later_account_opened": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "early_account_managed": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_selected": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "aggressive_conservative_slider_adjusted": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gift_card_purchased": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "referral_bonus_earned": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "financial_literacy_content_consumed": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_explained_read": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "grow_magazine_article_viewed": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "money_lesson_completed": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "news_updated_checked": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "support_ticket_submitted": {
+            "sources": [
+                "https://acorns.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/acorns/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/acorns/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added round_up_invested",
+        "added recurring_investment_set",
+        "added found_money_earned",
+        "added later_account_opened",
+        "added early_account_managed",
+        "added portfolio_selected",
+        "added aggressive_conservative_slider_adjusted",
+        "added gift_card_purchased",
+        "added referral_bonus_earned",
+        "added financial_literacy_content_consumed",
+        "added market_explained_read",
+        "added grow_magazine_article_viewed",
+        "added money_lesson_completed",
+        "added news_updated_checked",
+        "added support_ticket_submitted"
+    ],
+    "citations": [
+        "https://acorns.com"
+    ]
+}

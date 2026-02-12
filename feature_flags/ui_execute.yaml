@@ -1,0 +1,5 @@
+allowlist:
+- whatsapp
+- explorer
+- notepad
+enabled: true

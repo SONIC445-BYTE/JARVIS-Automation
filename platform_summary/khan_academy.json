@@ -1,0 +1,139 @@
+{
+    "platform": "Khan Academy",
+    "platform_urls": [
+        "https://khanacademy.org"
+    ],
+    "supported_actions": {
+        "video_watched": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "exercise_completed": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "article_read": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mission_started": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mastery_points_earned": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unit_test_taken": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "course_challenge_attempted": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hint_used": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scratchpad_utilized": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coach_invited": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "parent_account_linked": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "teacher_dashboard_used": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "class_code_joined": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "discussion_participated": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "badge_earned": {
+            "sources": [
+                "https://khanacademy.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/khan_academy/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/khan_academy/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added video_watched",
+        "added exercise_completed",
+        "added article_read",
+        "added mission_started",
+        "added mastery_points_earned",
+        "added unit_test_taken",
+        "added course_challenge_attempted",
+        "added hint_used",
+        "added scratchpad_utilized",
+        "added coach_invited",
+        "added parent_account_linked",
+        "added teacher_dashboard_used",
+        "added class_code_joined",
+        "added discussion_participated",
+        "added badge_earned"
+    ],
+    "citations": [
+        "https://khanacademy.org"
+    ]
+}

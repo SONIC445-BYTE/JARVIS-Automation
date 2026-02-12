@@ -1,0 +1,83 @@
+{
+    "platform": "ProtonMail",
+    "platform_urls": [
+        "https://proton.me"
+    ],
+    "supported_actions": {
+        "email_composed": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_sent": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_opened": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attachment_added": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "label_applied": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "filter_created": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vacation_responder_enabled": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "signature_updated": {
+            "sources": [
+                "https://proton.me"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/protonmail/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/protonmail/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added email_composed",
+        "added email_sent",
+        "added email_opened",
+        "added attachment_added",
+        "added label_applied",
+        "added filter_created",
+        "added vacation_responder_enabled",
+        "added signature_updated"
+    ],
+    "citations": [
+        "https://proton.me"
+    ]
+}

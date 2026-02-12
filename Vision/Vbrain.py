@@ -78,5 +78,6 @@ def vision_brain(encoded_image):
         return answer
     else:
         print(f"Error: API request failed with status code {response.status_code}")
-        return None
+        print(f"Message: {response.text}")
+        return "I cannot see the image right now due to an API error."
 

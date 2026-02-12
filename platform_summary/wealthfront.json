@@ -1,0 +1,139 @@
+{
+    "platform": "Wealthfront",
+    "platform_urls": [
+        "https://wealthfront.com"
+    ],
+    "supported_actions": {
+        "account_funded": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_automated": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "auto_deposit_scheduled": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tax_loss_harvesting_enabled": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "home_planning_started": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "risk_tolerance_assessed": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "financial_plan_projected": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plan_529_recommended": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "high_yield_cash_account_opened": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "line_of_credit_accessed": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "investment_explanation_read": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "historical_performance_viewed": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "methodology_whitepaper_downloaded": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "faq_consulted": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "support_contacted": {
+            "sources": [
+                "https://wealthfront.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/wealthfront/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/wealthfront/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added account_funded",
+        "added portfolio_automated",
+        "added auto_deposit_scheduled",
+        "added tax_loss_harvesting_enabled",
+        "added home_planning_started",
+        "added risk_tolerance_assessed",
+        "added financial_plan_projected",
+        "added plan_529_recommended",
+        "added high_yield_cash_account_opened",
+        "added line_of_credit_accessed",
+        "added investment_explanation_read",
+        "added historical_performance_viewed",
+        "added methodology_whitepaper_downloaded",
+        "added faq_consulted",
+        "added support_contacted"
+    ],
+    "citations": [
+        "https://wealthfront.com"
+    ]
+}

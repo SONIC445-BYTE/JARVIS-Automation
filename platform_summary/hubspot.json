@@ -1,0 +1,139 @@
+{
+    "platform": "HubSpot",
+    "platform_urls": [
+        "https://hubspot.com"
+    ],
+    "supported_actions": {
+        "contact_imported": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "company_associated": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deal_stage_updated": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "ticket_created": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "conversation_logged": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pipeline_managed": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sequence_enrolled": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "meeting_scheduled": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "document_tracked": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "quote_approved": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_enrolled": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "list_segmented": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "email_automated": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "chatbot_deployed": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "attribution_reported": {
+            "sources": [
+                "https://hubspot.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/hubspot/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/hubspot/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added contact_imported",
+        "added company_associated",
+        "added deal_stage_updated",
+        "added ticket_created",
+        "added conversation_logged",
+        "added pipeline_managed",
+        "added sequence_enrolled",
+        "added meeting_scheduled",
+        "added document_tracked",
+        "added quote_approved",
+        "added workflow_enrolled",
+        "added list_segmented",
+        "added email_automated",
+        "added chatbot_deployed",
+        "added attribution_reported"
+    ],
+    "citations": [
+        "https://hubspot.com"
+    ]
+}

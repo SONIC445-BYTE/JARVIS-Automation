@@ -1,0 +1,115 @@
+{
+    "platform": "Epic Games Store",
+    "platform_urls": [
+        "https://store.epicgames.com"
+    ],
+    "supported_actions": {
+        "free_game_claimed": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "purchase_made": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "library_managed": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "download_scheduled": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "friend_added": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "party_formed": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "voice_chat_used": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "screenshot_shared": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "creator_code_used": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "epic_coupon_applied": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "refund_requested": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "supporter_pack_purchased": {
+            "sources": [
+                "https://store.epicgames.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/epic_games/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/epic_games/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added free_game_claimed",
+        "added purchase_made",
+        "added library_managed",
+        "added download_scheduled",
+        "added friend_added",
+        "added party_formed",
+        "added voice_chat_used",
+        "added screenshot_shared",
+        "added creator_code_used",
+        "added epic_coupon_applied",
+        "added refund_requested",
+        "added supporter_pack_purchased"
+    ],
+    "citations": [
+        "https://store.epicgames.com"
+    ]
+}

@@ -1,0 +1,115 @@
+{
+    "platform": "WeChat",
+    "platform_urls": [
+        "https://wechat.com"
+    ],
+    "supported_actions": {
+        "moment_posted": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mini_program_opened": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "payment_made": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "official_account_followed": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "red_packet_sent": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sticker_purchased": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "top_story_read": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wechat_pay_used": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_live_started": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_call_group_started": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "favorites_added": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "people_nearby_used": {
+            "sources": [
+                "https://wechat.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/wechat/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/wechat/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added moment_posted",
+        "added mini_program_opened",
+        "added payment_made",
+        "added official_account_followed",
+        "added red_packet_sent",
+        "added sticker_purchased",
+        "added top_story_read",
+        "added wechat_pay_used",
+        "added channel_live_started",
+        "added video_call_group_started",
+        "added favorites_added",
+        "added people_nearby_used"
+    ],
+    "citations": [
+        "https://wechat.com"
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "platform": "Slack",
+    "platform_urls": [
+        "https://slack.com"
+    ],
+    "supported_actions": {
+        "workspace_created": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_joined": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_threaded": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "file_uploaded": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_added": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workflow_automated": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "huddle_started": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "canvas_created": {
+            "sources": [
+                "https://slack.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/slack/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/slack/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added workspace_created",
+        "added channel_joined",
+        "added message_threaded",
+        "added file_uploaded",
+        "added integration_added",
+        "added workflow_automated",
+        "added huddle_started",
+        "added canvas_created"
+    ],
+    "citations": [
+        "https://slack.com"
+    ]
+}

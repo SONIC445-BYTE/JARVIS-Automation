@@ -1,0 +1,139 @@
+{
+    "platform": "Asana",
+    "platform_urls": [
+        "https://asana.com"
+    ],
+    "supported_actions": {
+        "task_created": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subtask_added": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "due_date_set": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "assignee_designated": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "custom_field_updated": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "project_created": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "timeline_viewed": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_managed": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "goal_set": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workload_balanced": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_invited": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_added": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "proofing_used": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "approval_requested": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_submitted": {
+            "sources": [
+                "https://asana.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/asana/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/asana/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added task_created",
+        "added subtask_added",
+        "added due_date_set",
+        "added assignee_designated",
+        "added custom_field_updated",
+        "added project_created",
+        "added timeline_viewed",
+        "added portfolio_managed",
+        "added goal_set",
+        "added workload_balanced",
+        "added team_invited",
+        "added comment_added",
+        "added proofing_used",
+        "added approval_requested",
+        "added form_submitted"
+    ],
+    "citations": [
+        "https://asana.com"
+    ]
+}

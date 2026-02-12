@@ -1,0 +1,139 @@
+{
+    "platform": "Fidelity",
+    "platform_urls": [
+        "https://fidelity.com"
+    ],
+    "supported_actions": {
+        "trade_executed": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "order_type_selected": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automatic_investment_set": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dividend_reinvestment_enabled": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "esg_fund_invested": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "portfolio_rebalanced": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "retirement_planner_used": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "full_view_aggregated": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wealth_management_consulted": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plan_529_managed": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "research_report_accessed": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stock_comparison_tool_used": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fixed_income_analysis_viewed": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "market_monitor_watched": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "learning_center_accessed": {
+            "sources": [
+                "https://fidelity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/fidelity/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/fidelity/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added trade_executed",
+        "added order_type_selected",
+        "added automatic_investment_set",
+        "added dividend_reinvestment_enabled",
+        "added esg_fund_invested",
+        "added portfolio_rebalanced",
+        "added retirement_planner_used",
+        "added full_view_aggregated",
+        "added wealth_management_consulted",
+        "added plan_529_managed",
+        "added research_report_accessed",
+        "added stock_comparison_tool_used",
+        "added fixed_income_analysis_viewed",
+        "added market_monitor_watched",
+        "added learning_center_accessed"
+    ],
+    "citations": [
+        "https://fidelity.com"
+    ]
+}

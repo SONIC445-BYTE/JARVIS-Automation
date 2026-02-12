@@ -1,0 +1,172 @@
+{
+    "platform": "Microsoft OneDrive",
+    "platform_type": "local_application",
+    "executable": "OneDrive.exe",
+    "supported_actions": {
+        "file_uploaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_uploaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "multiple_files_uploaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_downloaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_downloaded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_synced_up": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_synced_down": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_conflict_detected": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_conflict_resolved_keep_both": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_paused": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_resumed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_link_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_link_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_link_permission_set_view": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_link_permission_set_edit": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_directly_to_user": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_shared_to_group": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_version_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_version_restored": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "folder_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_renamed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_moved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_deleted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_restored_from_recycle_bin": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_search_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_filter_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_opened_for_editing": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_edited_simultaneously_by_multiple_users": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comment_added": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "comment_resolved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_on_demand_files_enabled": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "file_sync_free_up_space_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "user_signed_in": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "user_signed_out": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "retention_policy_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "dlp_policy_triggered": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/onedrive/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 39,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

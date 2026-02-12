@@ -1,0 +1,139 @@
+{
+    "platform": "Jenkins",
+    "platform_urls": [
+        "https://jenkins.io"
+    ],
+    "supported_actions": {
+        "job_created": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "build_triggered": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pipeline_scripted": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plugin_installed": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "node_configured": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deployment_stage_executed": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "artifact_archived": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "test_report_generated": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "credential_managed": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "backup_scheduled": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "user_permission_assigned": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "audit_trail_reviewed": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "distributed_build_configured": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "cloud_agent_provisioned": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "update_center_accessed": {
+            "sources": [
+                "https://jenkins.io"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/jenkins/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/jenkins/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added job_created",
+        "added build_triggered",
+        "added pipeline_scripted",
+        "added plugin_installed",
+        "added node_configured",
+        "added deployment_stage_executed",
+        "added artifact_archived",
+        "added test_report_generated",
+        "added credential_managed",
+        "added backup_scheduled",
+        "added user_permission_assigned",
+        "added audit_trail_reviewed",
+        "added distributed_build_configured",
+        "added cloud_agent_provisioned",
+        "added update_center_accessed"
+    ],
+    "citations": [
+        "https://jenkins.io"
+    ]
+}

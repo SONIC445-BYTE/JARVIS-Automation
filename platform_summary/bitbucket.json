@@ -1,0 +1,139 @@
+{
+    "platform": "Bitbucket",
+    "platform_urls": [
+        "https://bitbucket.org"
+    ],
+    "supported_actions": {
+        "repository_created": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pull_request_created": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pipeline_executed": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deployment_triggered": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "branch_permission_set": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bitbucket_pipelines_enabled": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "deployment_environment_configured": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "jira_issue_linked": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "slack_notification_set": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "merge_check_configured": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_invited": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "access_control_managed": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "fork_synced": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "wiki_enabled": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "smart_mirror_configured": {
+            "sources": [
+                "https://bitbucket.org"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/bitbucket/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/bitbucket/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added repository_created",
+        "added pull_request_created",
+        "added pipeline_executed",
+        "added deployment_triggered",
+        "added branch_permission_set",
+        "added bitbucket_pipelines_enabled",
+        "added deployment_environment_configured",
+        "added jira_issue_linked",
+        "added slack_notification_set",
+        "added merge_check_configured",
+        "added team_invited",
+        "added access_control_managed",
+        "added fork_synced",
+        "added wiki_enabled",
+        "added smart_mirror_configured"
+    ],
+    "citations": [
+        "https://bitbucket.org"
+    ]
+}

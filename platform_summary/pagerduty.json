@@ -1,0 +1,131 @@
+{
+    "platform": "PagerDuty",
+    "platform_urls": [
+        "https://pagerduty.com"
+    ],
+    "supported_actions": {
+        "service_created": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "escalation_policy_configured": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "schedule_managed": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "integration_added": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_action_created": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "incident_triggered": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "on_call_rotation_started": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "status_update_published": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "post_mortem_documented": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "business_service_mapped": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "event_intelligence_used": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_triggered": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "permissions_managed": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "audit_log_reviewed": {
+            "sources": [
+                "https://pagerduty.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/pagerduty/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/pagerduty/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added service_created",
+        "added escalation_policy_configured",
+        "added schedule_managed",
+        "added integration_added",
+        "added automation_action_created",
+        "added incident_triggered",
+        "added on_call_rotation_started",
+        "added status_update_published",
+        "added post_mortem_documented",
+        "added business_service_mapped",
+        "added event_intelligence_used",
+        "added automation_triggered",
+        "added permissions_managed",
+        "added audit_log_reviewed"
+    ],
+    "citations": [
+        "https://pagerduty.com"
+    ]
+}

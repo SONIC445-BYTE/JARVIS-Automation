@@ -1,0 +1,115 @@
+{
+    "platform": "Unity",
+    "platform_urls": [
+        "https://unity.com"
+    ],
+    "supported_actions": {
+        "project_created": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "asset_imported": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "scene_built": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "game_deployed": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "asset_store_purchase_made": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collaborate_feature_used": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "plastic_scm_used": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "analytics_dashboard_viewed": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unity_plus_subscribed": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "unity_pro_purchased": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "asset_store_publisher_approved": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "certification_exam_taken": {
+            "sources": [
+                "https://unity.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/unity/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/unity/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added project_created",
+        "added asset_imported",
+        "added scene_built",
+        "added game_deployed",
+        "added asset_store_purchase_made",
+        "added collaborate_feature_used",
+        "added plastic_scm_used",
+        "added analytics_dashboard_viewed",
+        "added unity_plus_subscribed",
+        "added unity_pro_purchased",
+        "added asset_store_publisher_approved",
+        "added certification_exam_taken"
+    ],
+    "citations": [
+        "https://unity.com"
+    ]
+}

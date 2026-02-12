@@ -1,0 +1,139 @@
+{
+    "platform": "Headspace",
+    "platform_urls": [
+        "https://headspace.com"
+    ],
+    "supported_actions": {
+        "meditation_completed": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sleep_cast_played": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "focus_music_listened": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "course_started": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mindful_moment_taken": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "progress_tracked": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "streak_extended": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "reminder_set": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "buddy_added": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "session_downloaded": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_gifted": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "work_plan_accessed": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "family_plan_joined": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sleep_analysis_viewed": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sos_session_used": {
+            "sources": [
+                "https://headspace.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/headspace/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/headspace/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added meditation_completed",
+        "added sleep_cast_played",
+        "added focus_music_listened",
+        "added course_started",
+        "added mindful_moment_taken",
+        "added progress_tracked",
+        "added streak_extended",
+        "added reminder_set",
+        "added buddy_added",
+        "added session_downloaded",
+        "added subscription_gifted",
+        "added work_plan_accessed",
+        "added family_plan_joined",
+        "added sleep_analysis_viewed",
+        "added sos_session_used"
+    ],
+    "citations": [
+        "https://headspace.com"
+    ]
+}

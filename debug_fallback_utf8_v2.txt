@@ -1,0 +1,20 @@
+﻿[AdapterRegistry] Registered WhatsAppAdapter for ['send_message', 'post_status']
+[AdapterRegistry] Registered FileExplorerAdapter for ['navigate_to', 'select_file', 'create_folder']
+[AdapterRegistry] Registered GenericDesktopAdapter for ['click', 'type', 'hotkey', 'wait']
+[AdapterRegistry] Registered GenericBrowserAdapter for ['open_url', 'click_element', 'type_text']
+[AdapterRegistry] Registered SystemDialogAdapter for ['confirm_dialog', 'dismiss_dialog']
+[AdapterRegistry] Registered UnknownAppFallbackAdapter for ['any']
+
+--- Testing Unknown App Fallback ---
+[HealthGuard] Starting UI System Integrity Checks...
+[ActionPlanner] Planning for action='navigate_to', platform='explorer'
+[ActionPlanner] Selected adapter: FileExplorerAdapter
+[HealthGuard] UI System is healthy.
+Instruction: Type hello in Notepad
+[UIAgent] Processing instruction: Type hello in Notepad (2d925e28-3158-41ad-820a-4d79f0739812)
+[ActionPlanner] Planning for action='type', platform='notepad'
+[ActionPlanner] Selected adapter: GenericDesktopAdapter
+Success: False
+Error: App notepad not in allowlist.
+Steps: []
+TEST FAILED: 

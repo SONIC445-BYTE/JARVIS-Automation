@@ -1,0 +1,36 @@
+{
+    "platform": "WhatsApp",
+    "platform_urls": [
+        "https://web.whatsapp.com",
+        "https://www.whatsapp.com/download"
+    ],
+    "supported_actions": {
+        "send_message": {
+            "sources": [
+                "https://faq.whatsapp.com/"
+            ],
+            "confidence": 0.90,
+            "notes": "Type text -> Enter"
+        },
+        "attach_photo": {
+            "sources": [
+                "https://faq.whatsapp.com/"
+            ],
+            "confidence": 0.60,
+            "notes": "Click clip -> Gallery -> Select -> Send (Inferred)"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/whatsapp/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/whatsapp/tests/test_adapter.py",
+    "permissions": [
+        "Accessibility"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added send_message handler",
+        "added attach_photo stub"
+    ],
+    "citations": [
+        "https://faq.whatsapp.com"
+    ]
+}

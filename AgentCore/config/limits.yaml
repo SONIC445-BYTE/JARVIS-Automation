@@ -1,0 +1,6 @@
+tier2:
+  max_parallel_requests: 1
+  request_cooldown_s: 300
+experiments:
+  max_parallel: 1
+  cooldown_s: 600

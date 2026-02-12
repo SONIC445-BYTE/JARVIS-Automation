@@ -1,0 +1,115 @@
+{
+    "platform": "Pinterest",
+    "platform_urls": [
+        "https://pinterest.com"
+    ],
+    "supported_actions": {
+        "pin_created": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "board_created": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pin_saved": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pin_tried": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "section_added": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shopping_list_created": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "idea_pin_created": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "tag_followed": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "visual_search_used": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shop_tab_visited": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "merchant_followed": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "try_on_feature_used": {
+            "sources": [
+                "https://pinterest.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/pinterest/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/pinterest/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added pin_created",
+        "added board_created",
+        "added pin_saved",
+        "added pin_tried",
+        "added section_added",
+        "added shopping_list_created",
+        "added idea_pin_created",
+        "added tag_followed",
+        "added visual_search_used",
+        "added shop_tab_visited",
+        "added merchant_followed",
+        "added try_on_feature_used"
+    ],
+    "citations": [
+        "https://pinterest.com"
+    ]
+}

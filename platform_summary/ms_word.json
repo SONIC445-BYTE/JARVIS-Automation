@@ -1,0 +1,204 @@
+{
+    "platform": "Microsoft Word",
+    "platform_type": "local_application",
+    "executable": "WINWORD.EXE",
+    "supported_actions": {
+        "blank_document_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_from_template_created": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_saved_as": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_saved_as_pdf": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_auto_saved": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_closed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_typed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_pasted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_cut": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_copied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_undo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_redo_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_find_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_replace_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_bold_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_italic_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_underline_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_font_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_font_size_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_font_color_changed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_paragraph_alignment_set_left": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_paragraph_alignment_set_center": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_paragraph_alignment_set_right": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_paragraph_alignment_set_justified": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_styles_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_numbering_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_bullets_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_header_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_footer_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_page_break_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_page_setup_margins_set": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_page_setup_orientation_set_portrait": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_page_setup_orientation_set_landscape": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_footnote_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_citation_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_bookmark_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_cross_reference_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_index_and_tables_table_of_contents_inserted": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_check_accessibility_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_check_compatibility_used": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_macro_recorded": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "text_macro_run": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_password_protection_applied": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_marked_as_final": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_compare_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        },
+        "document_combine_executed": {
+            "confidence": 0.8,
+            "notes": "Local app action from comprehensive DB"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/ms_word/adapter.py",
+    "permissions": [
+        "Local System"
+    ],
+    "risk_level": "standard",
+    "action_count": 47,
+    "citations": [
+        "User-provided comprehensive platform action database"
+    ]
+}

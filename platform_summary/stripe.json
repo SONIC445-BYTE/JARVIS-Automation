@@ -1,0 +1,139 @@
+{
+    "platform": "Stripe",
+    "platform_urls": [
+        "https://stripe.com"
+    ],
+    "supported_actions": {
+        "charge_created": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "customer_created": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_started": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "invoice_paid": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "refund_issued": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "account_onboarded": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_key_generated": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "webhook_configured": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "connect_account_created": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "radar_rule_set": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dispute_managed": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "pci_compliance_verified": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "two_factor_authentication_enabled": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "team_member_invited": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_version_updated": {
+            "sources": [
+                "https://stripe.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/stripe/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/stripe/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added charge_created",
+        "added customer_created",
+        "added subscription_started",
+        "added invoice_paid",
+        "added refund_issued",
+        "added account_onboarded",
+        "added api_key_generated",
+        "added webhook_configured",
+        "added connect_account_created",
+        "added radar_rule_set",
+        "added dispute_managed",
+        "added pci_compliance_verified",
+        "added two_factor_authentication_enabled",
+        "added team_member_invited",
+        "added api_version_updated"
+    ],
+    "citations": [
+        "https://stripe.com"
+    ]
+}

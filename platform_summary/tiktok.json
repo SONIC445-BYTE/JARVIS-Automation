@@ -1,0 +1,115 @@
+{
+    "platform": "TikTok",
+    "platform_urls": [
+        "https://tiktok.com"
+    ],
+    "supported_actions": {
+        "video_posted": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "video_liked": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "comment_posted": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "sound_used": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "duet_created": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "stitch_created": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "live_streamed": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "effect_applied": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collection_saved": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "creator_followed": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "q_and_a_posted": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "series_created": {
+            "sources": [
+                "https://tiktok.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/tiktok/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/tiktok/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added video_posted",
+        "added video_liked",
+        "added comment_posted",
+        "added sound_used",
+        "added duet_created",
+        "added stitch_created",
+        "added live_streamed",
+        "added effect_applied",
+        "added collection_saved",
+        "added creator_followed",
+        "added q_and_a_posted",
+        "added series_created"
+    ],
+    "citations": [
+        "https://tiktok.com"
+    ]
+}

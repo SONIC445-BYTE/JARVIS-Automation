@@ -1,0 +1,131 @@
+{
+    "platform": "New Relic",
+    "platform_urls": [
+        "https://newrelic.com"
+    ],
+    "supported_actions": {
+        "agent_deployed": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_built": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "alert_condition_created": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "nrql_query_written": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "log_forwarded": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "apm_transaction_traced": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "infrastructure_host_monitored": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "browser_monitoring_enabled": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "mobile_crash_analyzed": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "synthetic_monitor_checked": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "vulnerability_management_scan_run": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "security_audit_log_reviewed": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "user_permissions_managed": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "api_key_rotated": {
+            "sources": [
+                "https://newrelic.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/new_relic/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/new_relic/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "elevated",
+    "changes_made": [
+        "added agent_deployed",
+        "added dashboard_built",
+        "added alert_condition_created",
+        "added nrql_query_written",
+        "added log_forwarded",
+        "added apm_transaction_traced",
+        "added infrastructure_host_monitored",
+        "added browser_monitoring_enabled",
+        "added mobile_crash_analyzed",
+        "added synthetic_monitor_checked",
+        "added vulnerability_management_scan_run",
+        "added security_audit_log_reviewed",
+        "added user_permissions_managed",
+        "added api_key_rotated"
+    ],
+    "citations": [
+        "https://newrelic.com"
+    ]
+}

@@ -5,14 +5,16 @@ import cv2
 
 def capture_image_and_save(image_path="captured_image.png"):
     # Replace the IP and port with your DroidCam IP and port
-    droidcam_url = "http://192.168.203.6:4747/video"  # Example IP and port, replace with yours
-    cap = cv2.VideoCapture(droidcam_url)
-
-    if not cap.isOpened():
-        print("Error: Could not open camera.")
-        return False
-
+    # You can also read this from a config file if needed
+    droidcam_url = "http://192.168.203.6:4747/video" 
+    
     try:
+        cap = cv2.VideoCapture(droidcam_url)
+        
+        if not cap.isOpened():
+            print(f"Error: Could not open camera at {droidcam_url}. Please check DroidCam IP in Vision/MVbrain.py")
+            return False
+
         # Capture a single frame
         ret, frame = cap.read()
 
@@ -24,6 +26,10 @@ def capture_image_and_save(image_path="captured_image.png"):
         else:
             print("Error: Could not capture image.")
             return False
+            
+    except Exception as e:
+        print(f"Camera Error: {e}")
+        return False
     finally:
         # Release the camera
         cap.release()
@@ -79,7 +85,7 @@ def mobile_vision_brain(encoded_image):
         return answer
     else:
         print(f"Error: API request failed with status code {response.status_code}")
-        return None
+        return "I cannot see the image right now due to an API error."
 
 
 

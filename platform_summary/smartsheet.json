@@ -1,0 +1,139 @@
+{
+    "platform": "Smartsheet",
+    "platform_urls": [
+        "https://smartsheet.com"
+    ],
+    "supported_actions": {
+        "row_added": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "column_formula_created": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gantt_chart_enabled": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "card_view_used": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "form_connected": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "workspace_created": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "template_applied": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "automation_workflow_built": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "dashboard_widget_added": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "report_scheduled": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "collaborator_invited": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "proofing_requested": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "update_request_sent": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "publish_enabled": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "calendar_integrated": {
+            "sources": [
+                "https://smartsheet.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/smartsheet/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/smartsheet/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added row_added",
+        "added column_formula_created",
+        "added gantt_chart_enabled",
+        "added card_view_used",
+        "added form_connected",
+        "added workspace_created",
+        "added template_applied",
+        "added automation_workflow_built",
+        "added dashboard_widget_added",
+        "added report_scheduled",
+        "added collaborator_invited",
+        "added proofing_requested",
+        "added update_request_sent",
+        "added publish_enabled",
+        "added calendar_integrated"
+    ],
+    "citations": [
+        "https://smartsheet.com"
+    ]
+}

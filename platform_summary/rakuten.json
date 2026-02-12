@@ -1,0 +1,115 @@
+{
+    "platform": "Rakuten",
+    "platform_urls": [
+        "https://rakuten.com"
+    ],
+    "supported_actions": {
+        "item_purchased": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "super_points_earned": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "shop_discovered": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "coupon_clipped": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "store_opened": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "item_management_bulk_uploaded": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rms_advertising_used": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "settlement_confirmed": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rakuten_edy_charged": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "rakuten_bank_linked": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "travel_booked": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "insurance_quoted": {
+            "sources": [
+                "https://rakuten.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/rakuten/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/rakuten/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added item_purchased",
+        "added super_points_earned",
+        "added shop_discovered",
+        "added coupon_clipped",
+        "added store_opened",
+        "added item_management_bulk_uploaded",
+        "added rms_advertising_used",
+        "added settlement_confirmed",
+        "added rakuten_edy_charged",
+        "added rakuten_bank_linked",
+        "added travel_booked",
+        "added insurance_quoted"
+    ],
+    "citations": [
+        "https://rakuten.com"
+    ]
+}

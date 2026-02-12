@@ -1,0 +1,131 @@
+{
+    "platform": "Twitch",
+    "platform_urls": [
+        "https://twitch.tv"
+    ],
+    "supported_actions": {
+        "stream_watched": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "follow_clicked": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "subscription_gifted": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bits_cheered": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "channel_points_redeemed": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "raid_initiated": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "clip_created": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "extension_interacted": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "prediction_participated": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "turbo_subscription_purchased": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "gifted_sub_sent": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "bits_purchased": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "hype_train_contributed": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "creator_camp_completed": {
+            "sources": [
+                "https://twitch.tv"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/twitch/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/twitch/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added stream_watched",
+        "added follow_clicked",
+        "added subscription_gifted",
+        "added bits_cheered",
+        "added channel_points_redeemed",
+        "added raid_initiated",
+        "added clip_created",
+        "added extension_interacted",
+        "added prediction_participated",
+        "added turbo_subscription_purchased",
+        "added gifted_sub_sent",
+        "added bits_purchased",
+        "added hype_train_contributed",
+        "added creator_camp_completed"
+    ],
+    "citations": [
+        "https://twitch.tv"
+    ]
+}

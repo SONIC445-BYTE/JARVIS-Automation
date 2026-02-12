@@ -1,0 +1,75 @@
+{
+    "platform": "Meetup",
+    "platform_urls": [
+        "https://meetup.com"
+    ],
+    "supported_actions": {
+        "event_rsvped": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "group_joined": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "event_created": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "message_sent": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "introduction_requested": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "salary_shared": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        },
+        "interview_scheduled": {
+            "sources": [
+                "https://meetup.com"
+            ],
+            "confidence": 0.85,
+            "notes": "Auto-discovered"
+        }
+    },
+    "adapter_path": "AgentCore/platform_adapters/meetup/adapter.py",
+    "tests_path": "AgentCore/platform_adapters/meetup/tests/test_adapter.py",
+    "permissions": [
+        "Internet"
+    ],
+    "risk_level": "standard",
+    "changes_made": [
+        "added event_rsvped",
+        "added group_joined",
+        "added event_created",
+        "added message_sent",
+        "added introduction_requested",
+        "added salary_shared",
+        "added interview_scheduled"
+    ],
+    "citations": [
+        "https://meetup.com"
+    ]
+}
