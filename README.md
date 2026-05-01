@@ -1,30 +1,87 @@
-# J.A.R.V.I.S - Just A Rather Very Intelligent System
+# 🤖 J.A.R.V.I.S — Just A Rather Very Intelligent System
 
-J.A.R.V.I.S is a local-first assistant project. This repository now includes a GUI-automation daemon stack that supports wake-word standby, transcript-driven command dispatch, dry-run safety, and structured action logs.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Local First](https://img.shields.io/badge/Local--First-Privacy-green.svg)](#-why-jarvis)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-## Installation
-1. `pip install -r requirements.txt`
-2. Optional for tests: `pip install pytest`
+**J.A.R.V.I.S** is a cutting-edge, local-first autonomous assistant designed to bring the power of an Iron Man-like AI to your desktop. Unlike cloud-dependent assistants, J.A.R.V.I.S runs entirely on your hardware, prioritizing privacy, speed, and deep system integration.
 
-## Existing Runtime
-- Main app: `python jarvis.py`
-- Existing service modes remain available in `jarvis.py` (`--service`, `--convo`, etc.)
+---
 
-## New Automation Daemon
-The daemon implementation is additive and does not replace existing flows.
+## 🌟 Why J.A.R.V.I.S?
 
-- Start: `python -m daemon.cli start`
-- Stop: `python -m daemon.cli stop`
-- Status: `python -m daemon.cli status`
-- One-shot dry-run check: `python -m daemon.cli dry-run`
-- Foreground service loop: `python -m daemon.cli run-loop`
+Most AI assistants are just chatbots. **J.A.R.V.I.S is an operator.**
 
-### Wake-Word and Transcript Flow
-- Standby wake-word logic is in `daemon/service.py`.
-- Default wake word: `JARVIS` (configurable with `JARVIS_WAKE_WORD`).
-- After wake-word detection, the next transcript is parsed and dispatched.
+- **🔒 Privacy First:** Your data never leaves your machine. Local-first architecture ensures your interactions stay private.
+- **🛠️ Level-6 Autonomous Coding:** Beyond simple code snippets. J.A.R.V.I.S can plan refactors, generate tests, run them in a sandbox, and auto-debug failures.
+- **👁️ UI Vision & Automation:** J.A.R.V.I.S sees what you see. It uses OCR and accessibility trees to automate *any* application—from WhatsApp to File Explorer.
+- **🎙️ Persistent Wake Service:** A low-CPU standby mode that listens for its name and engages in natural, multi-turn conversations.
 
-### STT Integration (Non-Invasive)
+---
+
+## 🚀 Key Features
+
+### 🧠 The Brain (AgentCore)
+- **Autonomous Planning:** Complex intent routing and task decomposition.
+- **Self-Reflection:** Evaluates its own actions to improve accuracy.
+- **Memory Store:** Remembers context across sessions for a truly personal experience.
+
+### 💻 Level-6 Self-Debugging Engine
+The pinnacle of autonomous engineering:
+1. **Plan:** Architect a solution for your request.
+2. **Test:** Generate unit tests *before* writing code.
+3. **Execute:** Run code in an isolated sandbox.
+4. **Debug:** If tests fail, J.A.R.V.I.S analyzes the stack trace and fixes itself.
+
+### 🖱️ UI Agent (Vision + Action)
+- **Multi-Mode Execution:** Tries native API adapters first, then falls back to UI automation (PyAutoGUI/OCR) if needed.
+- **Safety Gated:** Every action is checked against a strict safety policy.
+- **Vision Aware:** Real-time screen capture and element detection.
+
+---
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+- Python 3.8+
+
+### Quick Start
+1. **Clone and Install:**
+   ```bash
+   git clone https://github.com/yourusername/jarvis.git
+   cd jarvis
+   pip install -r requirements.txt
+   ```
+2. **Launch J.A.R.V.I.S:**
+   - **Interactive Mode:** `python jarvis.py`
+   - **Conversational Service:** `python jarvis.py --convo`
+   - **Background Daemon:** `python -m daemon.cli start`
+
+### Configuration
+- **Wake Word:** Default is `JARVIS`. Configure via `JARVIS_WAKE_WORD` environment variable.
+- **Safety:** Set `ALLOW_DESTRUCTIVE=true` to enable high-risk commands (Default: `false`).
+
+### Automation Daemon CLI
+- `python -m daemon.cli status` — Check service status
+- `python -m daemon.cli dry-run` — One-shot safety check
+- `python -m daemon.cli stop` — Stop the background service
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User((User)) -->|Voice/Text| Wake[Wake Service]
+    Wake -->|Intent| Router[Intent Router]
+    Router -->|Code Task| L6[Level-6 Engine]
+    Router -->|System Task| UI[UI Agent]
+    Router -->|Question| LLM[Local LLM]
+    L6 -->|Sandbox| Files[(Filesystem)]
+    UI -->|Vision/Click| OS[Operating System]
+```
+
+### STT Integration
 Use `stt_integration.py` to subscribe to existing STT transcript events:
 
 ```python
@@ -36,62 +93,43 @@ daemon.start()
 wire_to_existing_stt(existing_stt_source, daemon)
 ```
 
-If preferred, call `daemon.receive_transcript(text)` directly from the STT pipeline callback.
+---
 
-## Canonical Root Platform Adapters
-The canonical adapter package for this upgrade is `platform_adapters/`:
-- `platform_adapters/adapter_base.py`
-- `platform_adapters/browser_adapter.py`
-- `platform_adapters/text_editor_adapter.py`
-- `platform_adapters/whatsapp_desktop_adapter.py`
-- `platform_adapters/telegram_desktop_adapter.py`
-- `platform_adapters/gmail_browser_adapter.py`
+## 🛡️ Safety & Auditing
 
-Adapter interface methods:
-- `open_app()`
-- `close_app()`
-- `send_message(target, message)`
-- `read_unread(limit=10)`
+- **Dry-Run Mode:** Actions are logged but not executed. Enable via CLI or environment.
+- **Structured Logs:** Action history is written to `logs/jarvis_actions.log` (JSONL).
+- **Automation Verifier:**
+  ```bash
+  python tools/automation_verifier.py --output logs/audit.json
+  ```
 
-## Logs and Action History
-- Structured action history is written to `logs/jarvis_actions.log` (JSON lines).
-- Event keys: `timestamp`, `action`, `target`, `result`, `dry_run_flag`, `meta`.
+---
 
-## Dry-Run / Safe Mode
-- Dry-run is supported end-to-end and required for tests.
-- In dry-run mode, actions are logged but GUI automation calls are not executed.
+## 🚀 Deployment & Maintenance
 
-## Safety Flags
-- `ALLOW_DESTRUCTIVE=false` by default.
-- High-risk commands (delete, format, erase, wipe, run script, shutdown) are blocked unless `ALLOW_DESTRUCTIVE=true`.
-- Upgrade flag: `feature_flags/AUTOMATION_UPGRADE_V1.yaml`.
+### Startup Installation
+- **Linux:** `tools/installer.sh` & systemd service in `tools/systemd/`
+- **Windows:** `powershell -ExecutionPolicy Bypass -File tools/installer.ps1`
+- **macOS:** LaunchAgent example in `tools/macos/`
 
-## Startup Installation
-- Linux installer: `tools/installer.sh`
-- Windows installer: `tools/installer.ps1`
-- Linux systemd example: `tools/systemd/jarvis-automation-daemon.service`
-- macOS LaunchAgent example: `tools/macos/com.jarvis.automation.plist`
-- Windows service wrapper example: `tools/windows/service_wrapper_example.ps1`
-
-Installers create rollback scripts:
-- Linux: `tools/rollback.sh`
-- Windows: `tools/rollback.ps1`
-
-## Testing
-- Baseline tests: `PYTHONPATH=. pytest -q tests -p no:cacheprovider`
-- New automation upgrade tests: `PYTHONPATH=. pytest -q tests/automation_upgrade -p no:cacheprovider`
-
-## Automation Verifier (JSON Audit)
-- Run strict audit JSON: `PYTHONPATH=. python tools/automation_verifier.py --output logs/automation_verifier_report.json`
-- Run audit + scaffold missing adapters: `PYTHONPATH=. python tools/automation_verifier.py --autofix --output logs/automation_verifier_report_autofix.json`
-- Generated scaffolds (when needed): `platform_adapters/generated/`
-
-## Rollback Steps
-1. Stop daemon: `python -m daemon.cli stop`
-2. Run rollback:
+### Rollback Steps
+If you need to revert changes:
+1. `python -m daemon.cli stop`
+2. Run rollback script:
    - Linux: `bash tools/rollback.sh`
    - Windows: `powershell -ExecutionPolicy Bypass -File tools/rollback.ps1`
-3. Remove startup registration if manually installed.
 
-## License
-MIT (see `LICENSE`).
+---
+
+## 🧪 Testing
+- **Baseline:** `PYTHONPATH=. pytest -q tests`
+- **Automation Upgrade:** `PYTHONPATH=. pytest -q tests/automation_upgrade`
+
+---
+
+## 📄 License
+Distributed under the GNU General Public License v3. See `LICENSE` for more information.
+
+---
+*Built with ❤️ for the open-source community.*
