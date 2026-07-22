@@ -112,6 +112,23 @@ class ODAVLoop:
                         steps_executed=0,
                         execution_time_ms=int((time.time() - start_time) * 1000)
                     )
+
+                resolved_intent = intent_result.extracted_entities.get("resolved_intent")
+                if resolved_intent is not None and self._executor is not None:
+                    # Phase 2a: a platform+action adapter command was
+                    # resolved (e.g. "send a whatsapp message to X saying
+                    # Y") -- dispatch it directly through the adapter
+                    # registry instead of the OBSERVE/DECIDE plan pipeline,
+                    # which has no concept of send_message/read_unread.
+                    print(f"\n[ODAV] Resolved adapter command: {resolved_intent.adapter}.{resolved_intent.action}")
+                    exec_result = self._executor.execute_intent(resolved_intent)
+                    return ODAVResult(
+                        success=exec_result.ok,
+                        message=exec_result.error or f"{resolved_intent.action} on {resolved_intent.adapter}: {'OK' if exec_result.ok else 'FAILED'}",
+                        phase_reached=ODAVPhase.VERIFY,
+                        steps_executed=1 if exec_result.ok else 0,
+                        execution_time_ms=int((time.time() - start_time) * 1000)
+                    )
             
             # ============ OBSERVE ============
             print("\n[OBSERVE] Scanning environment...")

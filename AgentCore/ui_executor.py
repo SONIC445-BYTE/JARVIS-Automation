@@ -65,9 +65,11 @@ class UIExecutor:
     - Can be verified
     """
     
-    def __init__(self):
+    def __init__(self, adapter_dry_run: bool = False):
         self._pyautogui = None
         self._pywinauto = None
+        self._adapters = None
+        self._adapter_dry_run = adapter_dry_run
         self._init_backends()
     
     def _init_backends(self):
@@ -159,8 +161,98 @@ class UIExecutor:
             timeout=getattr(step, 'timeout', 10.0)
         )
     
+    # ============ Adapter-routed execution (Phase 2a) ============
+
+    def execute_intent(self, intent) -> ExecutionResult:
+        """
+        Execute a resolved Intent (see AgentCore/command_router.py) by
+        dispatching to the matching adapter's declared method. Falls back
+        to the raw subprocess/os.startfile path only for open_app/
+        close_app when no adapter is registered for intent.adapter --
+        send_message/read_unread have no legacy fallback, since nothing
+        implemented them before this.
+        """
+        start_time = time.time()
+        adapter = self._get_adapter(intent.adapter)
+
+        if adapter is not None and adapter.supports(intent.action):
+            try:
+                value = self._invoke_adapter_action(adapter, intent)
+                # read_unread returning an empty list is a normal outcome
+                # (no unread messages), not a failure.
+                ok = True if intent.action == "read_unread" else bool(value)
+                return ExecutionResult(
+                    status=ExecutionStatus.SUCCESS if ok else ExecutionStatus.FAILED,
+                    step_id=0,
+                    action_type=intent.action,
+                    target=intent.target,
+                    duration_ms=(time.time() - start_time) * 1000,
+                    metadata={"adapter": intent.adapter, "value": value},
+                )
+            except Exception as e:
+                return ExecutionResult(
+                    status=ExecutionStatus.FAILED,
+                    step_id=0,
+                    action_type=intent.action,
+                    target=intent.target,
+                    error=str(e),
+                    duration_ms=(time.time() - start_time) * 1000,
+                )
+
+        # No adapter for this platform -- legacy fallback exists only for
+        # open_app/close_app (the two actions UIExecutor already supported
+        # pre-Phase-2).
+        if intent.action == "open_app":
+            return self._open_app(intent.target, {}, 10.0)
+        if intent.action == "close_app":
+            return self._close_app(intent.target, {}, 10.0)
+
+        return ExecutionResult(
+            status=ExecutionStatus.FAILED,
+            step_id=0,
+            action_type=intent.action,
+            target=intent.target,
+            error=f"No adapter registered for '{intent.adapter}' and no legacy fallback for '{intent.action}'",
+            duration_ms=(time.time() - start_time) * 1000,
+        )
+
+    def _get_adapter(self, adapter_key: str):
+        if self._adapters is None:
+            self._adapters = self._build_adapter_registry()
+        return self._adapters.get(adapter_key)
+
+    def _build_adapter_registry(self) -> Dict[str, Any]:
+        try:
+            from platform_adapters.registry import create_default_adapters
+            from daemon.logging_utils import ActionLogger
+            from pathlib import Path
+
+            logger = ActionLogger(Path("logs/jarvis_actions.log"))
+            return create_default_adapters(logger=logger, dry_run=self._adapter_dry_run)
+        except ImportError as e:
+            print(f"[UIExecutor] Adapter registry unavailable: {e}")
+            return {}
+
+    @staticmethod
+    def _invoke_adapter_action(adapter, intent):
+        if intent.action == "open_app":
+            return adapter.open_app()
+        if intent.action == "close_app":
+            return adapter.close_app()
+        if intent.action == "send_message":
+            return adapter.send_message(intent.target, intent.message)
+        if intent.action == "read_unread":
+            return adapter.read_unread()
+        # Future platform-specific actions (e.g. Netflix play/pause): the
+        # convention is a method on the adapter named exactly after
+        # ActionSpec.name, called with no arguments.
+        method = getattr(adapter, intent.action, None)
+        if method is None:
+            raise AttributeError(f"Adapter for '{intent.adapter}' has no method '{intent.action}'")
+        return method()
+
     # ============ Action Handlers ============
-    
+
     def _open_app(self, target: str, params: Dict, timeout: float) -> ExecutionResult:
         """Open an application."""
         app_name = params.get("app_name", target)

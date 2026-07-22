@@ -1,13 +1,20 @@
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import AdapterBase
+from .adapter_base import ActionSpec, AdapterBase
 from .gui_backend import GUIBackend
 
 
 class GmailBrowserAdapter(AdapterBase):
     WINDOW_TITLE = "Gmail"
     GMAIL_URL = "https://mail.google.com/"
+    PLATFORM_ALIASES = ["gmail"]
+    ACTIONS = [
+        ActionSpec("open_app", verbs=["open", "launch", "start"]),
+        ActionSpec("close_app", verbs=["close", "quit", "exit"]),
+        ActionSpec("send_message", verbs=["send", "email", "mail"], requires_target=True, requires_message=True),
+        ActionSpec("read_unread", verbs=["read", "unread", "check"]),
+    ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
         super().__init__(logger=logger, dry_run=dry_run)

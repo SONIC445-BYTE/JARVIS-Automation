@@ -4,12 +4,19 @@ import sys
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import AdapterBase
+from .adapter_base import ActionSpec, AdapterBase
 from .gui_backend import GUIBackend
 
 
 class BrowserAdapter(AdapterBase):
     WINDOW_TITLE = "Chrome"
+    PLATFORM_ALIASES = ["browser", "chrome"]
+    ACTIONS = [
+        ActionSpec("open_app", verbs=["open", "launch", "start"]),
+        ActionSpec("close_app", verbs=["close", "quit", "exit"]),
+        ActionSpec("send_message", verbs=["go to", "navigate to", "search"], requires_target=True),
+        ActionSpec("read_unread", verbs=["read"]),
+    ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
         super().__init__(logger=logger, dry_run=dry_run)

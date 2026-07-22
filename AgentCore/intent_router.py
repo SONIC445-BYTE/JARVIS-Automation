@@ -157,6 +157,21 @@ class IntentRouter:
     def __init__(self, use_llm_classifier: bool = False):
         self.use_llm_classifier = use_llm_classifier
         self._compile_patterns()
+        self._command_router = self._init_command_router()
+
+    @staticmethod
+    def _init_command_router():
+        """CommandRouter (Phase 2a) resolves platform+action commands
+        (e.g. "send a whatsapp message to X saying Y") against
+        adapter-declared aliases/actions. Optional: if platform_adapters
+        isn't importable in this context, fall back to the pre-2a
+        ACTION_PATTERNS-only behavior."""
+        try:
+            from .command_router import CommandRouter
+            return CommandRouter()
+        except ImportError as e:
+            print(f"[IntentRouter] CommandRouter unavailable: {e}")
+            return None
     
     def _compile_patterns(self):
         """Compile regex patterns."""
@@ -214,6 +229,21 @@ class IntentRouter:
                 handler="context"
             )
         
+        # Check adapter-declared platform+action commands (Phase 2a).
+        # More specific than the generic ACTION_PATTERNS below, so it
+        # takes priority when it resolves.
+        if self._command_router:
+            resolved_intent = self._command_router.resolve(text)
+            if resolved_intent:
+                return RoutedIntent(
+                    intent_type=IntentType.ACTION,
+                    confidence=0.95,
+                    original_text=text,
+                    processed_text=text_lower,
+                    handler="action",
+                    extracted_entities={"resolved_intent": resolved_intent}
+                )
+
         # Check code patterns
         if self._matches_any(text_lower, self._code_re):
             return RoutedIntent(

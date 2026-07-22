@@ -4,12 +4,19 @@ import sys
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import AdapterBase
+from .adapter_base import ActionSpec, AdapterBase
 from .gui_backend import GUIBackend
 
 
 class TextEditorAdapter(AdapterBase):
     WINDOW_TITLE = "Notepad"
+    PLATFORM_ALIASES = ["notepad", "text editor", "editor"]
+    ACTIONS = [
+        ActionSpec("open_app", verbs=["open", "launch", "start"]),
+        ActionSpec("close_app", verbs=["close", "quit", "exit"]),
+        ActionSpec("send_message", verbs=["type", "write", "note"], requires_message=True),
+        ActionSpec("read_unread", verbs=["read"]),
+    ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
         super().__init__(logger=logger, dry_run=dry_run)

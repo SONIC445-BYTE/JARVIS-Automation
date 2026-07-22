@@ -1,12 +1,19 @@
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import AdapterBase
+from .adapter_base import ActionSpec, AdapterBase
 from .gui_backend import GUIBackend
 
 
 class TelegramDesktopAdapter(AdapterBase):
     WINDOW_TITLE = "Telegram"
+    PLATFORM_ALIASES = ["telegram"]
+    ACTIONS = [
+        ActionSpec("open_app", verbs=["open", "launch", "start"]),
+        ActionSpec("close_app", verbs=["close", "quit", "exit"]),
+        ActionSpec("send_message", verbs=["send", "message", "text"], requires_target=True, requires_message=True),
+        ActionSpec("read_unread", verbs=["read", "unread", "check"]),
+    ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
         super().__init__(logger=logger, dry_run=dry_run)
