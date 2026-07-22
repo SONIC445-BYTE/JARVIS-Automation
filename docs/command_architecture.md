@@ -76,17 +76,33 @@ class Intent:
 
 `CommandRouter` builds an alias table and per-adapter action table from
 the adapter registry (`platform_adapters.registry.create_default_adapters`)
-at construction time, then resolves text in two steps:
+at construction time, then resolves text in three steps, **in this
+order**:
 
 1. **Platform match** — longest matching `PLATFORM_ALIASES` substring in
    the text (case-insensitive) selects the adapter.
-2. **Action match** — first `ActionSpec` on that adapter whose verb list
-   has a word-boundary match in the text selects the action.
+2. **Message split** — `_split_message()` finds a message-boundary marker
+   (`" saying "`, `" that says "`, etc.) and splits the text into a
+   prefix and the dictated message payload, *before* any verb matching
+   happens.
+3. **Action match** — first `ActionSpec` on that adapter whose verb list
+   has a word-boundary match **against the prefix only** (never the
+   message payload) selects the action.
 
-If either step fails to match, `resolve()` returns `None` and the caller
-falls back to the pre-2a classification path (`ACTION_PATTERNS`, `CODE_PATTERNS`,
-etc.) — this is why no regression testing was needed for anything that
-doesn't name a known platform.
+Step 2 must happen before step 3. An earlier version matched verbs
+against the full raw text, so a word inside the dictated message body
+(e.g. "close" in "send a message to john saying check the close date")
+could match a different action's verb list than the one actually
+intended — which action won was an accident of `ACTIONS` declaration
+order, not of what the command meant. Fixed and covered by
+`tests/test_command_router.py`'s `test_message_body_does_not_collide_with_*`
+cases (two independent collision pairs: `send_message` vs `close_app`,
+and `send_message` vs `open_app`).
+
+If platform or action matching fails, `resolve()` returns `None` and the
+caller falls back to the pre-2a classification path (`ACTION_PATTERNS`,
+`CODE_PATTERNS`, etc.) — this is why no regression testing was needed for
+anything that doesn't name a known platform.
 
 Target/message extraction handles `"... to TARGET saying MESSAGE"`
 phrasing, including the `"saying"` / `"that says"` marker that

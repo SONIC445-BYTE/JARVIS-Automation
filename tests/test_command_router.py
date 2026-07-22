@@ -65,6 +65,35 @@ class TestCommandRouterResolve(unittest.TestCase):
         # send/read) appears -- should not force a match.
         self.assertIsNone(self.router.resolve("whatsapp is a messaging app"))
 
+    def test_message_body_does_not_collide_with_close_app_verb(self):
+        # Regression for the bug found via adversarial testing on
+        # 4e55699b: verb matching used to scan the whole raw text
+        # including the message payload, so "close" inside the dictated
+        # message ("saying check the close date") matched close_app's
+        # verb list before send_message's verbs got a chance -- order-
+        # dependent on ACTIONS declaration order, not on input meaning.
+        intent = self.router.resolve(
+            "send a telegram message to john saying check the close date"
+        )
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "telegram_desktop")
+        self.assertEqual(intent.action, "send_message")
+        self.assertEqual(intent.target, "john")
+        self.assertEqual(intent.message, "check the close date")
+
+    def test_message_body_does_not_collide_with_open_app_verb(self):
+        # Second collision pair: "open" inside the dictated message must
+        # not shadow send_message just because open_app is earlier in
+        # WhatsappDesktopAdapter.ACTIONS declaration order.
+        intent = self.router.resolve(
+            "send a whatsapp message to mom saying let's open the store together"
+        )
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "whatsapp_desktop")
+        self.assertEqual(intent.action, "send_message")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "let's open the store together")
+
 
 if __name__ == "__main__":
     unittest.main()

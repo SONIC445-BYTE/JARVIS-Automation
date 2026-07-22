@@ -76,17 +76,26 @@ class CommandRouter:
         if adapter_key is None:
             return None
 
+        # Split off any dictated message payload BEFORE verb matching, so
+        # a word inside the message body (e.g. "close" in "saying check
+        # the close date") is never mistaken for another action's verb.
+        # Bug found via adversarial testing on 4e55699b: verb matching
+        # used to scan the full raw text, so message content could
+        # misfire as a different action depending on AdapterBase.ACTIONS
+        # declaration order -- not deterministic on input meaning.
+        prefix_raw, prefix_lower, message = _split_message(text, lower)
+
         adapter_cls = self._adapter_classes[adapter_key]
         matched_action: Optional[ActionSpec] = None
         for spec in adapter_cls.ACTIONS:
-            if any(_verb_matches(verb, lower) for verb in spec.verbs):
+            if any(_verb_matches(verb, prefix_lower) for verb in spec.verbs):
                 matched_action = spec
                 break
 
         if matched_action is None:
             return None
 
-        target, message = _extract_target_message(text, lower)
+        target, message = _extract_target(prefix_raw, prefix_lower, message)
 
         return Intent(
             adapter=adapter_key,
@@ -100,21 +109,29 @@ def _verb_matches(verb: str, lower_text: str) -> bool:
     return re.search(rf"\b{re.escape(verb)}\b", lower_text) is not None
 
 
-def _extract_target_message(raw: str, lower: str):
-    """Split "send/message/write ... to TARGET saying MESSAGE" phrasing.
-    Handles the "saying"/"that says" marker (which daemon/intent_parser.py's
-    simpler _parse_send does not) so target and message content actually
-    separate correctly, per Phase 2b's DoD example command."""
-    prefix_raw, prefix_lower = raw, lower
-    message = ""
+def _split_message(raw: str, lower: str):
+    """Split off a dictated message payload using explicit boundary
+    markers (" saying ", " that says ", etc.). Returns
+    (prefix_raw, prefix_lower, message) -- message is "" if no marker is
+    present (verb matching and target extraction then run against the
+    whole text, as for commands with no separate payload like "open
+    browser" or "go to google.com")."""
     for marker in _MESSAGE_MARKERS:
         if marker in lower:
             split_at = lower.find(marker)
             prefix_raw = raw[:split_at]
             prefix_lower = lower[:split_at]
             message = raw[split_at + len(marker):].strip()
-            break
+            return prefix_raw, prefix_lower, message
+    return raw, lower, ""
 
+
+def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
+    """Extract the target from the (already message-marker-truncated)
+    prefix using the " to " marker. If no message was split off by
+    _split_message, the text before " to " becomes the message instead
+    (covers "send X to Y" with no "saying" marker, and "go to X"
+    navigation-style commands with no separate payload)."""
     target = ""
     if _TARGET_MARKER in prefix_lower:
         split_at = prefix_lower.rfind(_TARGET_MARKER)
