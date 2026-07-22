@@ -133,15 +133,25 @@ class IntentRouter:
     
     
     # Coding Patterns (Sprint: Two-Tier Coding Engine)
+    #
+    # Each pattern tolerates an optional article ("a"/"an"/"the") and a
+    # single filler word (e.g. "python") between the trigger verb and the
+    # target noun, since real phrasing is rarely "write script" -- it's
+    # "write a python script that ...". See Phase 1 of the JARVIS
+    # diagnosis brief: the old anchored patterns missed most natural
+    # coding requests, including the phrasings used in its own DoD.
+    _FILLER = r"(?:a\s+|an\s+|the\s+)?(?:\w+\s+)?"
     CODE_PATTERNS = [
-        r"^create\s+(?:file|module|class|function|script)",
+        rf"^create\s+{_FILLER}(?:file|module|class|function|script)\b",
         r"^refactor\s+",
-        r"^add\s+(?:function|method|class|import)",
-        r"^fix\s+(?:bug|error|issue)",
+        rf"^add\s+{_FILLER}(?:function|method|class|import)\b",
+        rf"^fix\s+{_FILLER}(?:bug|error|issue)\b",
         r"^implement\s+",
-        r"^write\s+(?:test|code|script)",
-        r"^run\s+(?:tests|checks)",
-        r"^propose\s+(?:patch|change)",
+        rf"^write\s+{_FILLER}(?:test|code|script|function|module|class)\b",
+        r"^run\s+(?:the\s+)?(?:tests|checks)\b",
+        rf"^propose\s+{_FILLER}(?:patch|change)\b",
+        rf"^build\s+{_FILLER}(?:script|app|function|program|tool)\b",
+        rf"^generate\s+{_FILLER}(?:script|function|code|program|class|module)\b",
     ]
 
     def __init__(self, use_llm_classifier: bool = False):

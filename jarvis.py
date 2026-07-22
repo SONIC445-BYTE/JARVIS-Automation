@@ -88,6 +88,23 @@ else:
         CODE_ENGINE = None
 # --- END ADDITION ---
 
+
+def _code_result_is_success(result: Dict) -> bool:
+    """
+    Interpret a CodeEngine.handle_command() result dict.
+
+    CodeEngine.handle_command() never returns a "success" key -- its
+    contract is dry_run/patch_summary/patch_diff/file_path/sandbox_path
+    only. Success semantics are decided here, on the caller side, rather
+    than faked into engine.py's return contract: a dry run is a success
+    if it actually produced a patch summary, and a write is a success if
+    it actually produced a file path.
+    """
+    if result.get("dry_run", True):
+        return bool(result.get("patch_summary"))
+    return bool(result.get("file_path"))
+
+
 # Paths
 
 # Paths
@@ -441,29 +458,6 @@ class PersistentWakeService:
             text = text.strip()
             print(f"[Convo] User: '{text}'")
 
-            # --- ADDITION (safe coding mode handler) ---
-            coding_triggers = ("write ", "create ", "build ", "generate ", "implement ", "add ")
-            # Check if triggered
-            if CODE_ENGINE and text.lower().strip().startswith(coding_triggers):
-                # route to code engine and skip normal LLM print path
-                # Use current working directory as context
-                result = CODE_ENGINE.handle_command(text, context={"user":"owner", "cwd":os.getcwd()})
-                
-                # speak/write result summary instead of printing code
-                if result.get("dry_run", True):
-                    summary = result.get('patch_summary','(see diff)')
-                    print(f"[CODE_ENGINE] Dry-run: patch prepared at {summary}")
-                    self._speak(f"I have prepared a dry run for: {summary}")
-                else:
-                    path = result.get('file_path')
-                    print(f"[CODE_ENGINE] File written: {path}")
-                    self._speak(f"I have written the file at {path}")
-                    
-                # stop further conversational LLM output for this intent
-                self._last_activity = time.time()
-                continue  
-            # --- END ADDITION ---
-
             self._last_activity = time.time()
             turn_count += 1
             
@@ -490,64 +484,9 @@ class PersistentWakeService:
             response = None
             response = None
             
-            # --- ADDITION: Automatic Mode Selection (AMS) ---
-            try:
-                from AgentCore.feature_gate import is_enabled as feature_enabled
-                if feature_enabled("auto_mode"):
-                    from AgentCore.mode_manager.mode_engine import ModeEngine, Mode
-                    if 'MODE_ENGINE' not in globals():
-                        # Injection of dependencies
-                        # LLM: We don't have a clean LLM adapter object exposed here yet, usually it's internal to conversation loop or separate.
-                        # For now, we pass None and ModeEngine will use rules or fail gracefully/ask clarification.
-                        # CodeEngine: We have CODE_ENGINE global.
-                        global MODE_ENGINE
-                        MODE_ENGINE = ModeEngine(
-                            config_path="feature_flags/auto_mode.yaml", 
-                            llm=None, # TODO: Pass actual LLM adapter if available
-                            code_engine=CODE_ENGINE
-                        )
-                    
-                    # Pass text to mode engine
-                    decision = MODE_ENGINE.decide_and_transition(text, context={"stt": text, "user": "owner"})
-                    
-                    if decision["action"] == "switch":
-                        self._speak(f"Switching to {decision['target_mode']} mode.")
-                        continue # Skip processing this turn to reflect mode change
-                    elif decision["action"] == "ask_confirm":
-                        self._speak(f"Please confirm: {decision['reason']}")
-                        continue
-                        
-                    # Routing based on Active Mode
-                    if MODE_ENGINE.current_mode == Mode.CODE and CODE_ENGINE:
-                        # Override intent to ensure we hit the code engine block below
-                        print(f"[AMS] Routing to Code Engine (Mode: {MODE_ENGINE.current_mode})")
-                        # We can either set intent.handler or just continue and let the existing Code Hook pick it up
-                        # But existing Code Hook relies on `intent.handler == "code_engine"`.
-                        # So we might need to modify the Code Hook condition OR force the intent.
-                        # Let's force the intent object's handler if possible, or simple dispatch here.
-                        # Since we can't easily modify intent object without verifying its type, 
-                        # let's just dispatch explicitly and continue.
-                        
-                        print(f"[CodeEngine] Handling (AMS Routed): {text}")
-                        result = CODE_ENGINE.handle_command(text, context={"user":"owner", "cwd":os.getcwd()})
-                        if result.get("dry_run", True):
-                            summary = result.get('patch_summary','(see diff)')
-                            print(f"[CODE_ENGINE] Dry-run: patch prepared at {summary}")
-                            self._speak(f"Dry run prepared: {summary}")
-                        else:
-                            path = result.get('file_path')
-                            print(f"[CODE_ENGINE] File written: {path}")
-                            self._speak(f"File written at {path}")
-                        self._last_activity = time.time()
-                        continue
-            except ImportError:
-                pass
-            except Exception as e:
-                print(f"[AMS] Error: {e}")
-            # --- END AMS ADDITION ---
-
             # --- ADDITION: Level-6 Engine Hook ---
             try:
+                from AgentCore.feature_gate import is_enabled as feature_enabled
                 if feature_enabled("level6_engine"):
                     from AgentCore.level6.orchestrator import Level6Coordinator
                     if 'LEVEL6_ENGINE' not in globals():
@@ -573,15 +512,14 @@ class PersistentWakeService:
             if intent.handler == "code_engine" and CODE_ENGINE:
                 self._set_state(JarvisState.EXECUTION)
                 print(f"[CodeEngine] Handling: {text}")
-                result = CODE_ENGINE.handle_command(text, context={})
-                if result.get("success"):
-                     response = result.get("message", "Task completed.")
-                     if result.get("plan"):
-                         response = str(result.get("message")) + "\nPlan: " + str(result.get("plan"))
-                     if result.get("patch"):
-                         response = "I have proposed a patch. Please review it."
+                result = CODE_ENGINE.handle_command(text, context={"user": "owner", "cwd": os.getcwd()})
+                if _code_result_is_success(result):
+                    if result.get("dry_run", True):
+                        response = f"I have prepared a dry run: {result.get('patch_summary')}"
+                    else:
+                        response = f"I have written the file at {result.get('file_path')}"
                 else:
-                     response = f"Code task failed: {result.get('message')}"
+                    response = f"Code task failed: no output produced for '{text}'"
 
             elif intent.handler == "action":
                 # Execute action with ODAV loop if available
