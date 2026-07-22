@@ -40,6 +40,14 @@ _MESSAGE_MARKERS = (" saying ", " that says ", " saying: ", " with message ")
 _TARGET_MARKER = " to "
 _MESSAGE_PREFIXES = ("send ", "message ", "text ", "write ", "email ", "mail ")
 
+# Prepositions that introduce a target/trailing clause, not a verb. Verb
+# matching is bounded to the text before the earliest of these -- a word
+# inside a target name or trailing clause (e.g. "close" in "close-friend",
+# "open" in "open-source-group") must never be mistaken for a different
+# action's verb. _TARGET_MARKER is included since target extraction and
+# verb-scan bounding must agree on where the target starts.
+_TRAILING_CONTEXT_MARKERS = (_TARGET_MARKER, " from ", " on ", " in ", " about ")
+
 
 class CommandRouter:
     """
@@ -85,11 +93,28 @@ class CommandRouter:
         # declaration order -- not deterministic on input meaning.
         prefix_raw, prefix_lower, message = _split_message(text, lower)
 
+        # Second collision path (found via further adversarial testing on
+        # 71ded210): even with the message split off, a target name or
+        # trailing clause with no explicit "saying" marker was still
+        # scanned in full for verbs -- e.g. "close" in "close-friend", or
+        # "open" in "open-source-group" after " from ". Bound single-word
+        # verb matching to the text before the earliest trailing-context
+        # marker. Multi-word verbs that legitimately contain one of those
+        # marker words as part of the verb phrase itself (e.g. browser's
+        # "go to", "navigate to") are matched against the untruncated
+        # prefix instead, since truncating at " to " would cut the verb
+        # phrase in half.
+        verb_scan_lower = _bound_verb_scan(prefix_lower)
+
         adapter_cls = self._adapter_classes[adapter_key]
         matched_action: Optional[ActionSpec] = None
         for spec in adapter_cls.ACTIONS:
-            if any(_verb_matches(verb, prefix_lower) for verb in spec.verbs):
-                matched_action = spec
+            for verb in spec.verbs:
+                scan_text = prefix_lower if " " in verb else verb_scan_lower
+                if _verb_matches(verb, scan_text):
+                    matched_action = spec
+                    break
+            if matched_action:
                 break
 
         if matched_action is None:
@@ -107,6 +132,18 @@ class CommandRouter:
 
 def _verb_matches(verb: str, lower_text: str) -> bool:
     return re.search(rf"\b{re.escape(verb)}\b", lower_text) is not None
+
+
+def _bound_verb_scan(prefix_lower: str) -> str:
+    """Return the leading portion of prefix_lower up to the earliest
+    trailing-context marker, so target names / trailing clauses are
+    excluded from single-word verb matching."""
+    earliest = len(prefix_lower)
+    for marker in _TRAILING_CONTEXT_MARKERS:
+        idx = prefix_lower.find(marker)
+        if idx != -1:
+            earliest = min(earliest, idx)
+    return prefix_lower[:earliest]
 
 
 def _split_message(raw: str, lower: str):
@@ -135,7 +172,20 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
     target = ""
     if _TARGET_MARKER in prefix_lower:
         split_at = prefix_lower.rfind(_TARGET_MARKER)
-        target = prefix_raw[split_at + len(_TARGET_MARKER):].strip()
+        target_raw = prefix_raw[split_at + len(_TARGET_MARKER):]
+        target_lower = prefix_lower[split_at + len(_TARGET_MARKER):]
+
+        # Trim any further trailing clause off the target itself, e.g.
+        # "close-friend on whatsapp" -> "close-friend".
+        cut = len(target_raw)
+        for marker in _TRAILING_CONTEXT_MARKERS:
+            if marker == _TARGET_MARKER:
+                continue
+            idx = target_lower.find(marker)
+            if idx != -1:
+                cut = min(cut, idx)
+        target = target_raw[:cut].strip()
+
         if not message:
             message = prefix_raw[:split_at].strip()
             for prefix in _MESSAGE_PREFIXES:

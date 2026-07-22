@@ -94,6 +94,38 @@ class TestCommandRouterResolve(unittest.TestCase):
         self.assertEqual(intent.target, "mom")
         self.assertEqual(intent.message, "let's open the store together")
 
+    def test_target_name_does_not_collide_with_close_app_verb(self):
+        # No "saying" marker present -- the target name itself contains
+        # "close", which must not shadow send_message just because
+        # close_app is checked earlier in ACTIONS declaration order.
+        intent = self.router.resolve("send a message to close-friend on whatsapp")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "whatsapp_desktop")
+        self.assertEqual(intent.action, "send_message")
+        self.assertEqual(intent.target, "close-friend")
+
+    def test_trailing_clause_does_not_collide_with_open_app_verb(self):
+        # No "to"/"saying" marker present -- the trailing "from X" clause
+        # contains "open", which must not shadow read_unread just because
+        # open_app is checked earlier in ACTIONS declaration order.
+        intent = self.router.resolve(
+            "read unread whatsapp messages from open-source-group"
+        )
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "whatsapp_desktop")
+        self.assertEqual(intent.action, "read_unread")
+
+    def test_multiword_verb_still_matches_across_target_marker(self):
+        # Regression: browser's "go to"/"navigate to" verbs legitimately
+        # contain the " to " target marker as part of the verb phrase
+        # itself -- bounding verb-scan to before " to " must not break
+        # these (they're matched against the untruncated prefix instead).
+        intent = self.router.resolve("browser go to google.com")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "browser")
+        self.assertEqual(intent.action, "send_message")
+        self.assertEqual(intent.target, "google.com")
+
 
 if __name__ == "__main__":
     unittest.main()

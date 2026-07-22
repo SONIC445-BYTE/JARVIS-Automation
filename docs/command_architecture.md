@@ -99,6 +99,23 @@ order, not of what the command meant. Fixed and covered by
 cases (two independent collision pairs: `send_message` vs `close_app`,
 and `send_message` vs `open_app`).
 
+**Second collision path, same root cause:** the message-marker split only
+helps when a marker like `" saying "` is actually present. With no
+marker, `_split_message` returns the whole text — including the target
+name or a trailing clause — as the verb-scan prefix, so a word in the
+*target* (e.g. "close" in "close-friend") or trailing context (e.g.
+"open" in "...from open-source-group") could still collide. Fixed by
+`_bound_verb_scan()`: single-word verb matching is bounded to the text
+before the earliest trailing-context marker (`" to "`, `" from "`,
+`" on "`, `" in "`, `" about "`). Multi-word verbs that legitimately
+contain one of those words as part of the verb phrase itself (browser's
+`"go to"`, `"navigate to"`) are matched against the untruncated prefix
+instead, since bounding at `" to "` would cut the phrase in half —
+covered by `test_multiword_verb_still_matches_across_target_marker`.
+`_extract_target()` trims the same trailing-context markers off the
+extracted target itself, so `"close-friend on whatsapp"` yields target
+`"close-friend"`, not the whole trailing clause.
+
 If platform or action matching fails, `resolve()` returns `None` and the
 caller falls back to the pre-2a classification path (`ACTION_PATTERNS`,
 `CODE_PATTERNS`, etc.) — this is why no regression testing was needed for

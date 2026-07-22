@@ -11,6 +11,7 @@ applications -- live end-to-end verification (real Chrome open/close)
 was done manually and separately, see PR description.
 """
 import unittest
+import unittest.mock
 from daemon.intent_parser import Intent
 from AgentCore.intent_router import IntentRouter
 from AgentCore.command_router import CommandRouter
@@ -70,13 +71,22 @@ class TestPhase2aExecution(unittest.TestCase):
         self.assertEqual(result.status, ExecutionStatus.SUCCESS)
 
     def test_open_app_falls_back_when_no_adapter_registered(self):
-        """Regression: platforms with no daemon adapter (e.g. 'calculator')
-        must still work via the pre-2a raw open_app fallback."""
+        """Regression: platforms with no daemon adapter must still route
+        through the pre-2a raw open_app fallback (_open_app), not error
+        out with "no adapter". os.startfile/subprocess.Popen are mocked
+        so this never launches a real application regardless of what
+        target string is used -- a prior version of this test used
+        target="calc.exe" unmocked, which is a real resolvable Windows
+        binary and opened a genuine Calculator window on every pytest
+        run (caught via live review, see PR description)."""
         intent = Intent(adapter="unregistered_platform", action="open_app", target="calc.exe")
-        result = self.executor.execute_intent(intent)
-        # _open_app's raw os.startfile/subprocess path was exercised, not
-        # an adapter -- it may succeed or fail depending on the host, but
-        # it must not be a "no fallback" error.
+        with unittest.mock.patch("os.startfile") as mock_startfile, \
+             unittest.mock.patch("subprocess.Popen") as mock_popen:
+            result = self.executor.execute_intent(intent)
+        self.assertTrue(mock_startfile.called or mock_popen.called)
+        self.assertEqual(result.status, ExecutionStatus.SUCCESS)
+        # Must not be the "no fallback exists" error -- open_app/close_app
+        # are the two actions that DO have a legacy fallback.
         self.assertNotIn("No adapter registered", result.error or "")
 
     def test_send_message_has_no_fallback_when_no_adapter_registered(self):
