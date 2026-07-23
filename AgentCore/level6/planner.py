@@ -43,6 +43,19 @@ class Planner:
             print(f"[Planner] Error: {e}")
             return {"error": str(e), "plan": [], "tests": []}
 
+    # Found live during Phase C verification: the LLM sometimes embeds
+    # Python-style triple-quoted strings as JSON string values (e.g.
+    # "code": """\ndef foo():\n    pass\n"""), which isn't valid JSON --
+    # only "..." with \n-style escapes is. Converts each """...""" block
+    # into a properly JSON-escaped double-quoted string before parsing,
+    # rather than failing outright on otherwise-correct, well-structured
+    # output.
+    _TRIPLE_QUOTE_RE = re.compile(r'"""(.*?)"""', re.DOTALL)
+
+    @classmethod
+    def _normalize_triple_quoted_strings(cls, text: str) -> str:
+        return cls._TRIPLE_QUOTE_RE.sub(lambda m: json.dumps(m.group(1)), text)
+
     def _parse_json(self, text: str) -> Dict[str, Any]:
         """
         Found live during Phase A verification: real LLM responses
@@ -56,7 +69,7 @@ class Planner:
         block found anywhere in the text, then the widest {...} span as
         a last resort.
         """
-        cleaned = text.strip()
+        cleaned = self._normalize_triple_quoted_strings(text.strip())
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError:
