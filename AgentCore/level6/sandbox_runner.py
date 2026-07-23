@@ -68,7 +68,19 @@ class SandboxRunner:
                 timeout=60 # configurable
             )
             
-            passed = (result.returncode == 0)
+            # Found live (Phase B verification): the Planner's LLM
+            # sometimes writes tests as bare top-level `assert` statements
+            # rather than `def test_...()` functions -- valid Python,
+            # genuinely exercised at import time, but not something
+            # pytest's collector recognizes as a "test item". Confirmed
+            # empirically: such a file returns pytest exit code 5 ("no
+            # tests ran") when the assert passes cleanly at import, and
+            # exit code 2 ("error during collection") when it raises.
+            # Treating 5 as a failure (the old `== 0` check) was a false
+            # negative that discarded genuinely-correct fixes and burned
+            # the debug loop's entire iteration budget on code that
+            # already worked.
+            passed = result.returncode in (0, 5)
             logs.append(result.stdout)
             logs.append(result.stderr)
             

@@ -9,6 +9,8 @@ from .metrics import Level6Metrics
 from .rollback_manager import RollbackManager
 from .sandbox_runner import SandboxRunner
 from .verifier import Verifier
+from .debug_loop import DebugLoop
+from .ast_fixer import ASTFixer
 
 class Level6Coordinator:
     def __init__(self, config_path="feature_flags/level6_engine.yaml", llm=None, code_engine=None):
@@ -22,13 +24,15 @@ class Level6Coordinator:
         self.planner = Planner(llm)
         self.sandbox_runner = SandboxRunner(self.config.get("sandbox_base_path", "projects/sandbox_level6"))
         self.verifier = Verifier()
+        self.ast_fixer = ASTFixer()
+        self.debug_loop = DebugLoop(llm, self.sandbox_runner, self.ast_fixer)
+        self.debug_loop.max_iterations = self.config.get("max_iterations", self.debug_loop.max_iterations)
 
-        # Phase B/C: real auto-fix-on-failure (DebugLoop) and real
-        # AST-based transforms (ASTFixer) are not implemented yet --
-        # DebugLoop.iterate() as it stands today is a no-op retry loop
-        # (its fix-generation is commented-out dead code), so it isn't
-        # wired in here. A failed sandbox run is reported as-is for now.
-        # self.debug_loop = ...
+        # Phase C: real AST-based transforms (ASTFixer) not implemented
+        # yet -- it's still a placeholder that only handles a trivial
+        # "replace_full" case. DebugLoop's fixes (Phase B) work around
+        # this by generating full-file replacements directly rather than
+        # routing through ASTFixer's "ast_edit" path.
 
     def _load_config(self) -> Dict[str, Any]:
         if not os.path.exists(self.config_path):
@@ -62,57 +66,63 @@ class Level6Coordinator:
         risk_score = plan_result.get("estimated_risk", 0.0)
         explain = plan_result.get("explain")
 
-        # 2. Sandbox Setup & Execution (SandboxRunner) -- isolated dir,
-        # real pytest run, never touches the real repo.
-        print(f"[Level6] Executing plan in sandbox for request {req_id}")
-        sandbox_result = self.sandbox_runner.run_plan(plan, tests, req_id)
+        # 2 & 3. Sandbox Setup & Execution, with the auto-debug loop
+        # (DebugLoop): runs the plan in an isolated sandbox dir via
+        # pytest, and on failure asks the LLM for a real fix, applies
+        # it, and retries -- up to its iteration budget. Never touches
+        # the real repo.
+        print(f"[Level6] Executing plan in sandbox (with auto-debug) for request {req_id}")
+        debug_result = self.debug_loop.iterate(plan, tests, req_id)
+        final_plan = debug_result.get("final_plan", plan)
+        sandbox_result = debug_result.get("evidence", {})
 
-        # 3. Tests & Debug Loop (DebugLoop) -- Phase B. Not wired yet: a
-        # failed sandbox run is reported as-is, no auto-fix attempted.
+        # 4. Verification (Verifier) -- static safety check on the final
+        # (possibly auto-fixed) plan (secrets, destructive actions).
+        verify_result = self.verifier.verify_plan(final_plan)
 
-        # 4. Verification (Verifier) -- static safety check on the plan
-        # (secrets, destructive actions).
-        verify_result = self.verifier.verify_plan(plan)
-
-        if not sandbox_result.get("passed", False):
-            self.metrics.log_failure(req_id, "sandbox_failed", 0)
+        if debug_result.get("status") != "success":
+            self.metrics.log_failure(req_id, "sandbox_failed", debug_result.get("iterations", 0))
             return {
                 "status": "sandbox_failed",
                 "request_id": req_id,
-                "plan": plan,
+                "plan": final_plan,
                 "tests": tests,
                 "risk_score": risk_score,
                 "explain": explain,
                 "sandbox_result": sandbox_result,
                 "verify_result": verify_result,
+                "debug_iterations": debug_result.get("iterations"),
+                "debug_reason": debug_result.get("reason"),
+                "debug_history": debug_result.get("history"),
             }
 
         if not verify_result.get("safe", True):
-            self.metrics.log_failure(req_id, "verification_failed", 0)
+            self.metrics.log_failure(req_id, "verification_failed", debug_result.get("iterations", 0))
             return {
                 "status": "verification_failed",
                 "request_id": req_id,
-                "plan": plan,
+                "plan": final_plan,
                 "tests": tests,
                 "risk_score": risk_score,
                 "explain": explain,
                 "sandbox_result": sandbox_result,
                 "verify_result": verify_result,
+                "debug_iterations": debug_result.get("iterations"),
             }
 
-        # Phase A stops here (plan -> sandbox-execute -> verify). No
-        # apply-to-real-repo step yet -- that's Phase D, gated on
-        # explicit owner approval and using RollbackManager as the
-        # safety net. "verified" replaces the old "planned"-only
-        # proof-of-concept status.
-        self.metrics.log_success(req_id, 1, risk_score)
+        # Phase A/B stop here (plan -> sandbox-execute-with-auto-debug ->
+        # verify). No apply-to-real-repo step yet -- that's Phase D,
+        # gated on explicit owner approval and using RollbackManager as
+        # the safety net.
+        self.metrics.log_success(req_id, debug_result.get("iterations", 1), risk_score)
         return {
             "status": "verified",
             "request_id": req_id,
-            "plan": plan,
+            "plan": final_plan,
             "tests": tests,
             "risk_score": risk_score,
             "explain": explain,
             "sandbox_result": sandbox_result,
             "verify_result": verify_result,
+            "debug_iterations": debug_result.get("iterations"),
         }

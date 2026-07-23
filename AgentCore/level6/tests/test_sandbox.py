@@ -50,6 +50,34 @@ class TestSandbox(unittest.TestCase):
         self.assertFalse(result["passed"])
         self.assertIn("1 failed", result["stdout"])
 
+    def test_run_plan_treats_passing_bare_assert_test_as_passed(self):
+        """
+        Regression test for a false negative found live (Phase B
+        verification): the Planner's LLM sometimes writes tests as bare
+        top-level `assert` statements rather than `def test_...()`
+        functions. Such a file is genuinely exercised at import time --
+        pytest just doesn't recognize it as a collectible "test item",
+        and returns exit code 5 ("no tests ran") when the assert passes
+        cleanly. The old `returncode == 0` check treated that as a
+        failure, discarding a fix that had actually worked.
+        """
+        plan = [{"type": "create_file", "target": "add.py", "content": "def add(a, b):\n    return a + b\n"}]
+        tests = [{
+            "path": "test_add.py",
+            "content": "import add\nassert add.add(2, 3) == 5\n",
+        }]
+        result = self.runner.run_plan(plan, tests, "snap_4")
+        self.assertTrue(result["passed"], result.get("stdout", "") + result.get("stderr", ""))
+
+    def test_run_plan_treats_failing_bare_assert_test_as_failed(self):
+        plan = [{"type": "create_file", "target": "add.py", "content": "def add(a, b):\n    return a - b\n"}]
+        tests = [{
+            "path": "test_add.py",
+            "content": "import add\nassert add.add(2, 3) == 5\n",
+        }]
+        result = self.runner.run_plan(plan, tests, "snap_5")
+        self.assertFalse(result["passed"])
+
 
 if __name__ == "__main__":
     unittest.main()
