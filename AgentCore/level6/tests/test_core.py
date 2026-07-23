@@ -16,10 +16,17 @@ class TestLevel6Core(unittest.TestCase):
 
     def test_orchestrator_planning(self):
         coord = Level6Coordinator(self.config_path)
-        # Mock planner
+        # No llm= passed -> Planner falls back to _mock_plan() (empty
+        # plan/tests). Phase A wires the plan through SandboxRunner
+        # (trivially "passed" with no tests to run) and Verifier
+        # (trivially "safe" with an empty plan), so the pipeline now
+        # completes as "verified" rather than stopping at the old
+        # "planned"-only proof-of-concept status.
         result = coord.handle_request("Refactor user model", {})
-        self.assertEqual(result["status"], "planned")
+        self.assertEqual(result["status"], "verified")
         self.assertIn("plan", result)
+        self.assertIn("sandbox_result", result)
+        self.assertIn("verify_result", result)
 
     def test_planner_mock(self):
         planner = Planner(None)

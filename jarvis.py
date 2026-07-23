@@ -714,7 +714,13 @@ class PersistentWakeService:
                     from AgentCore.level6.orchestrator import Level6Coordinator
                     if 'LEVEL6_ENGINE' not in globals():
                         global LEVEL6_ENGINE
-                        LEVEL6_ENGINE = Level6Coordinator()
+                        # Previously constructed with no llm= argument at
+                        # all, so Planner always fell back to
+                        # _mock_plan() (an empty plan) regardless of
+                        # anything else about Level6 -- it was
+                        # unreachable in practice even when enabled.
+                        from AgentCore.code_engine.tier2.llm_adapter import LLMAdapter
+                        LEVEL6_ENGINE = Level6Coordinator(llm=LLMAdapter())
                     
                     # Heuristic: If text implies complex refactor or contains "architect", "debug", "refactor"
                     is_complex = any(k in text.lower() for k in ["architect", "refactor", "debug", "fix", "level 6"])

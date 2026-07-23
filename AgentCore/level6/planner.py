@@ -1,4 +1,5 @@
 import json
+import re
 from typing import Dict, Any, List, Optional
 
 class Planner:
@@ -27,26 +28,52 @@ class Planner:
                 # Mock for testing if no LLM
                 return self._mock_plan(goal)
                 
-            response = self.llm.generate(prompt)
+            # Same interface-mismatch bug class as GeneratorHelper's
+            # original bug (AgentCore/code_engine/generator_helper.py):
+            # generate() was never a real method on LLMAdapter.
+            # generate_raw() is the real, verified passthrough, and
+            # already returns a plain string (.text), matching
+            # _parse_json()'s str parameter.
+            response = self.llm.generate_raw(prompt)
             return self._parse_json(response)
         except Exception as e:
             print(f"[Planner] Error: {e}")
             return {"error": str(e), "plan": [], "tests": []}
 
     def _parse_json(self, text: str) -> Dict[str, Any]:
+        """
+        Found live during Phase A verification: real LLM responses
+        routinely include prose before the JSON (e.g. "Here is the JSON
+        output:\n\n```\n{...}\n```"), which the old startswith("```")-only
+        check missed entirely -- the fence has to be the very first
+        character for that check to fire at all. Same "edge-only" shape
+        as GeneratorHelper's original fence-stripping bug. Mirrors the
+        already-working, more robust extraction chain LLMAdapter._parse_json
+        uses elsewhere in this codebase: direct parse, then a fenced
+        block found anywhere in the text, then the widest {...} span as
+        a last resort.
+        """
         cleaned = text.strip()
-        if cleaned.startswith("```"):
-            lines = cleaned.splitlines()
-            if lines[0].startswith("```"): 
-                lines = lines[1:]
-            if lines[-1].startswith("```"):
-                lines = lines[:-1]
-            cleaned = "\n".join(lines)
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError:
-            # Simple retry or fallback
-            return {"error": "Invalid JSON from LLM", "raw": text}
+            pass
+
+        match = re.search(r"```(?:json)?\s*(\{.*\})\s*```", cleaned, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+
+        match = re.search(r"(\{.*\})", cleaned, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+
+        return {"error": "Invalid JSON from LLM", "raw": text}
 
     def _mock_plan(self, goal: str) -> Dict[str, Any]:
         return {

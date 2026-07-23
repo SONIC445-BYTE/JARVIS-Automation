@@ -46,8 +46,16 @@ class SandboxRunner:
             env = os.environ.copy()
             env["JARVIS_SANDBOX_NETWORK"] = "0"
             
-            # Find tests
-            test_files = [str(sandbox_dir / t["path"]) for t in tests]
+            # Find tests -- paths relative to sandbox_dir, since the
+            # subprocess below runs with cwd=sandbox_dir. Found live
+            # (Phase A verification): joining sandbox_dir onto these
+            # paths here, on top of also setting cwd=sandbox_dir below,
+            # double-prepended the sandbox path and pytest could never
+            # find the tests it had just written -- every real run
+            # failed regardless of plan correctness. The prior test
+            # coverage (tests=[]) never exercised this, since an empty
+            # list takes the early return below instead.
+            test_files = [t["path"] for t in tests]
             if not test_files:
                 return {"passed": True, "logs": logs, "message": "No tests to run", "sandbox_dir": str(sandbox_dir)}
 
