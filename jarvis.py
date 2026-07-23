@@ -23,6 +23,31 @@ Features:
 
 import os
 import sys
+
+# Diagnosed root cause of the wake-word "detection failure" report: this
+# codebase's console output uses Unicode symbols (arrow, checkmark,
+# bullet -- e.g. jarvis.py's own _set_state() below, wake_detector.py's
+# detection prints) but never forces a Unicode-capable stdout encoding.
+# On a Windows console defaulting to the legacy cp1252 codepage (the
+# common case -- confirmed live on this machine: sys.stdout.encoding was
+# 'cp1252'), the very first state transition print in
+# PersistentWakeService.start() (SLEEP, before wake detection is even
+# started) raises an uncaught UnicodeEncodeError and crashes the whole
+# process -- after ~15-20s of visible model-loading output, which is
+# exactly what "hangs then wake word never works" looks like from the
+# outside. Reconfiguring here, before any other import (some of which
+# print during import, e.g. LLMEngine), fixes every current and future
+# Unicode-symbol print in one place rather than patching each call site
+# -- errors='replace' is a second line of defense so an unexpected
+# character degrades to '?' instead of crashing.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError, OSError):
+            pass
+del _stream
+
 import time
 import threading
 import random

@@ -145,7 +145,21 @@ class WakeDetector:
                             
                             # Check for wake word
                             if text == "jarvis":
-                                print("[WakeDetector] ✓ Wake word detected!")
+                                # ASCII-only: found live that a Unicode
+                                # checkmark here raises UnicodeEncodeError
+                                # on a cp1252 Windows console -- caught by
+                                # the broad except below and silently
+                                # swallowed, so detection succeeded but
+                                # this print's crash meant self.callback()
+                                # on the next line never ran. Root cause
+                                # of the reported "wake word doesn't
+                                # work" -- see jarvis.py's stdout
+                                # reconfigure for the other half of this
+                                # fix (this module has callers, e.g.
+                                # WakeService/jarvis_service.py, that
+                                # don't go through jarvis.py's entry
+                                # point and so don't get that fix).
+                                print("[WakeDetector] Wake word detected!")
                                 if self.callback:
                                     self.callback()
                         else:
@@ -154,7 +168,7 @@ class WakeDetector:
                             partial_text = partial.get("partial", "").lower().strip()
                             
                             if partial_text == "jarvis":
-                                print("[WakeDetector] ✓ Wake word detected (partial)!")
+                                print("[WakeDetector] Wake word detected (partial)!")
                                 if self.callback:
                                     self.callback()
                                 # Reset recognizer after detection
@@ -203,7 +217,7 @@ def test_wake_detector():
     detected = threading.Event()
     
     def on_wake():
-        print("\n✓ WAKE WORD DETECTED!")
+        print("\nWAKE WORD DETECTED!")
         detected.set()
     
     detector = WakeDetector(callback=on_wake)
