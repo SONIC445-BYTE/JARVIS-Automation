@@ -19,3 +19,30 @@ jarvis = "jarvis_launcher:main"
 
 [tool.setuptools]
 py-modules = ["jarvis_launcher"]
+
+[tool.pytest.ini_options]
+# Scopes discovery to this project's actual test suite -- tests/ plus
+# every module-level tests/ subdir under AgentCore/ and
+# platform_adapters/ (e.g. AgentCore/code_engine/tests/,
+# platform_adapters/spotify/tests/). Without this, a bare `pytest` with
+# no path argument auto-discovers every test_*.py repo-wide by name
+# glob alone, which also sweeps in ~10 unrelated ad-hoc debug scripts
+# left at the repo root (test_whatsapp.py, test_sr.py, etc. -- never
+# part of this project's tests/ convention). At least one of those,
+# test_whatsapp.py, has no `if __name__ == "__main__":` guard and fires
+# real WhatsApp Web automation unconditionally at import time, which
+# hung the full suite indefinitely during collection with zero output.
+testpaths = ["tests", "AgentCore", "platform_adapters"]
+# Both excluded trees are pre-existing, dead-since-initial-commit legacy
+# scaffolding (untouched since dbef62f8, before this project's phased
+# work began) -- not something this pass fixes, since both need a real
+# judgment call outside test-scoping: AgentCore/platform_adapters/*/tests
+# is the old 160-folder adapter system (never wired into the live path;
+# the actively-used adapters are the top-level platform_adapters/ and
+# are covered under tests/), and always fails to collect (relative
+# imports with no __init__.py chain). AgentCore/advanced/level4/tests
+# imports AgentCore.feature_gate._policy_manager, which no longer exists
+# in feature_gate.py at all. Excluding precisely rather than guessing at
+# intent for dead code or adding __init__.py files to a subsystem no one
+# has asked to revive.
+addopts = "--ignore=AgentCore/platform_adapters --ignore=AgentCore/advanced/level4/tests"

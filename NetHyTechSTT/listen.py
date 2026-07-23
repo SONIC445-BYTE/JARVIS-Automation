@@ -1,28 +1,54 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from os import getcwd
 
-# Setting up Chrome options with specific arguments
-chrome_options = Options()
-chrome_options.add_argument("--use-fake-ui-for-media-stream")
-chrome_options.add_argument("--headless=new")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage") 
-
-service = Service(ChromeDriverManager().install())
-# Setting up the Chrome driver with the service and options
-driver = webdriver.Chrome(service=service, options=chrome_options)
-# Creating the URL for the website using the current working directory
 website = "https://allorizenproject1.netlify.app/"
-# Opening the website in the Chrome browser
-driver.get(website)
 Recog_File = f"{getcwd()}\\input.txt"
+
+_driver = None
+
+
+def _get_driver():
+    """
+    Lazily creates the Chrome/Selenium driver on first real use of
+    listen(), not at module import time. This module used to
+    unconditionally download chromedriver, launch a real headless Chrome,
+    and navigate to an external site as side effects of merely being
+    imported -- none of those three steps has a timeout, so importing
+    this module (transitively, via jarvis.py -> co_brain.py) hung the
+    full pytest suite dead during test collection on a real machine with
+    real network/Chrome, the same "eager import drags in a heavy
+    subsystem" shape as the earlier pyautogui/mss AgentCore coupling fix.
+
+    The selenium/webdriver_manager imports themselves are also lazy, not
+    just the driver construction below -- confirmed live that `import
+    jarvis` still had 'selenium'/'webdriver_manager' in sys.modules with
+    only the construction deferred, since those top-level `from selenium
+    import ...` statements ran regardless. Moved here so a bare `import
+    jarvis` pulls in neither the library nor the driver.
+    """
+    global _driver
+    if _driver is None:
+        from selenium import webdriver
+        from selenium.webdriver.chrome.service import Service
+        from selenium.webdriver.chrome.options import Options
+        from webdriver_manager.chrome import ChromeDriverManager
+
+        chrome_options = Options()
+        chrome_options.add_argument("--use-fake-ui-for-media-stream")
+        chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        service = Service(ChromeDriverManager().install())
+        _driver = webdriver.Chrome(service=service, options=chrome_options)
+        _driver.get(website)
+    return _driver
+
+
 def listen():
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+
+    driver = _get_driver()
     try:
         start_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'startButton')))
         start_button.click()
