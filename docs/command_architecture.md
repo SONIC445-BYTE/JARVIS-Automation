@@ -173,6 +173,50 @@ architecture wires against; Phase 2a's `ActionSpec`/`PLATFORM_ALIASES`
 mechanism is contract-agnostic and works the same way regardless of which
 contract's adapters ultimately implement the declared actions.
 
+## Third and fourth marker-parsing bugs (found post-Phase-2d, via adversarial testing)
+
+Same root cause and class as the two verb-collision bugs above: narrow,
+hand-written parsing that covered the test suite's exact phrasings but
+not the space of natural phrasing physicians would actually use.
+
+**"as" not recognized as a target marker.** `_TARGET_MARKER` was a
+single hardcoded `" to "` string. `"save notepad as report.txt"`
+resolved with `target="notepad"` (the platform alias fallback) instead
+of `"report.txt"`, since only `" to "`-marker phrasing was ever
+extracted correctly. Generalized `_TARGET_MARKER` to `_TARGET_MARKERS =
+(" to ", " as ")`, with `_find_last_target_marker()` picking whichever
+marker occurs closest to the end of the text.
+
+**No marker at all when the platform name trails the content, not
+leads it — the more serious bug.** `"play despacito on spotify"`
+resolved with `message="play despacito on spotify"` — the *entire raw
+phrase, verb included* — because the no-marker fallback branch in
+`_extract_target()` never trimmed trailing clauses the way the
+`" to "`-marker branch already did, and `"play "` wasn't in
+`_MESSAGE_PREFIXES`. This is worse than a clean failure: `SpotifyAdapter.play()`
+had no guard against it, so it searched for that garbage string and
+reported success — exactly the class of problem the honesty standard
+set in Phase 1's `CodeEngine` fix exists to prevent. Fixed two ways:
+
+1. `_extract_target()`'s no-marker fallback now trims trailing-context
+   clauses (`_trim_trailing_clause()`) the same way target extraction
+   already did, before verb-prefix stripping.
+2. `" for "` added to `_MESSAGE_MARKERS` (covers `"search google for X"`
+   — this alone wasn't sufficient, since `google`/`amazon`/`spotify`/
+   `youtube`'s `send_message` only declared `requires_target=True`, so
+   a `" for "`-extracted message was discarded; all four now also
+   declare `requires_message=True`).
+3. **New general safety net**: `platform_adapters/adapter_base.py`'s
+   `extract_query(target, message, platform_aliases)` picks whichever
+   of target/message is genuine content, filtering out values that are
+   empty, exactly equal to the platform's own alias, or the entire raw
+   command echoed back verbatim — all signals that extraction failed
+   rather than the user genuinely wanting to search for that literal
+   text. Wired into every `send_message`/`play` implementation that
+   builds a search/post query (`google`, `amazon`, `spotify`, `youtube`,
+   `twitter`, `calculator`'s `calculate`) so a failed extraction is an
+   honest `False`, never a bad-but-successful action.
+
 ## What Phase 2a does *not* do
 
 - No 160-folder audit or porting (Phase 2b).

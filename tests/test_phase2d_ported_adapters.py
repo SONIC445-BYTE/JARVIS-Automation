@@ -198,5 +198,70 @@ class TestPlayActionHonestFailure(unittest.TestCase):
         mock_backend.click.assert_called_once_with(123, 456)
 
 
+class NullLogger:
+    def info(self, p):
+        pass
+
+
+class TestExtractQueryGuard(unittest.TestCase):
+    """Adversarial-testing bugs found after Phase 2d: 'search google for
+    X' and 'play X on spotify' resolved to a garbage query (the platform
+    alias, or the entire raw phrase with the verb still attached) instead
+    of failing or extracting correctly. This is worse than a clean
+    failure -- it's an "I did something" outcome that did the wrong
+    thing. extract_query() (platform_adapters/adapter_base.py) is the
+    shared guard; these tests exercise it through the real adapter
+    methods, not just in isolation."""
+
+    def test_google_search_for_extracts_real_query(self):
+        from platform_adapters.google_adapter import GoogleAdapter
+
+        adapter = GoogleAdapter(logger=NullLogger(), dry_run=True)
+        with mock.patch.object(adapter, "_navigate", return_value=True) as mock_navigate:
+            result = adapter.send_message(target="google", message="python tutorials")
+        self.assertTrue(result)
+        self.assertIn("python%20tutorials", mock_navigate.call_args[0][0])
+
+    def test_google_search_with_only_alias_fails_honestly(self):
+        from platform_adapters.google_adapter import GoogleAdapter
+
+        adapter = GoogleAdapter(logger=NullLogger(), dry_run=True)
+        result = adapter.send_message(target="google", message="")
+        self.assertFalse(result)
+
+    def test_spotify_play_with_trailing_platform_name_extracts_real_query(self):
+        # "play despacito on spotify" -- message correctly holds
+        # "despacito" (trimmed of "on spotify") once resolved by
+        # CommandRouter; play() must use that, not fall back to target
+        # (which would be the "spotify" alias).
+        from platform_adapters.spotify_adapter import SpotifyAdapter
+
+        adapter = SpotifyAdapter(logger=NullLogger(), dry_run=False)
+        with mock.patch.object(adapter, "_navigate", return_value=True) as mock_navigate, \
+             mock.patch("platform_adapters.spotify_adapter.find_element_center", return_value=(1, 1)), \
+             mock.patch("time.sleep"):
+            result = adapter.play(target="spotify", message="despacito")
+        self.assertTrue(result)
+        self.assertIn("despacito", mock_navigate.call_args[0][0])
+
+    def test_calculator_bare_verb_fails_honestly_not_garbage_expression(self):
+        # "calculate" alone must not type the literal word "calculate"
+        # into the Calculator app.
+        from platform_adapters.calculator_adapter import CalculatorAdapter
+
+        adapter = CalculatorAdapter(logger=NullLogger(), dry_run=True)
+        result = adapter.calculate(target="calculate", message="calculate")
+        self.assertFalse(result)
+
+    def test_twitter_post_with_trailing_platform_name_extracts_real_text(self):
+        from platform_adapters.twitter_adapter import TwitterAdapter
+
+        adapter = TwitterAdapter(logger=NullLogger(), dry_run=True)
+        with mock.patch.object(adapter, "_navigate", return_value=True) as mock_navigate:
+            result = adapter.send_message(target="twitter", message="hello world")
+        self.assertTrue(result)
+        self.assertIn("hello%20world", mock_navigate.call_args[0][0])
+
+
 if __name__ == "__main__":
     unittest.main()

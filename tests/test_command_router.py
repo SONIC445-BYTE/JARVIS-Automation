@@ -126,6 +126,55 @@ class TestCommandRouterResolve(unittest.TestCase):
         self.assertEqual(intent.action, "send_message")
         self.assertEqual(intent.target, "google.com")
 
+    def test_as_marker_extracts_filename(self):
+        # Bug found via adversarial testing after Phase 2d: only " to "
+        # was recognized as a target marker, so "save notepad as
+        # report.txt" resolved with target="notepad" (the alias, not the
+        # real filename) instead of "report.txt".
+        intent = self.router.resolve("save notepad as report.txt")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "text_editor")
+        self.assertEqual(intent.action, "save_file")
+        self.assertEqual(intent.target, "report.txt")
+
+    def test_for_marker_extracts_search_query(self):
+        # Bug found via adversarial testing: "search google for X" had
+        # no recognized marker at all for "for", so the query was lost.
+        intent = self.router.resolve("search google for python tutorials")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "google")
+        self.assertEqual(intent.action, "send_message")
+        self.assertEqual(intent.message, "python tutorials")
+
+    def test_trailing_platform_name_does_not_pollute_message(self):
+        # Bug found via adversarial testing: with no marker at all between
+        # the query and a trailing platform mention, "play despacito on
+        # spotify" resolved with message="play despacito on spotify" --
+        # the entire raw phrase, verb included -- because the message-
+        # fallback branch didn't trim trailing clauses the way target
+        # extraction already did. This is the more serious of the two
+        # bugs: it doesn't fail, it silently searches for the wrong
+        # (garbage) string and reports success.
+        intent = self.router.resolve("play despacito on spotify")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "spotify")
+        self.assertEqual(intent.action, "play")
+        self.assertEqual(intent.message, "despacito")
+
+    def test_bare_verb_with_no_content_does_not_silently_echo_raw_text(self):
+        # "calculate" alone (no expression) must not resolve to
+        # message="calculate" (the raw text echoed back) -- that's
+        # nonsensical input for the calculate action. The router itself
+        # can't know this is meaningless (that's the adapter-level
+        # extract_query guard's job, see test_phase2d_ported_adapters.py),
+        # but pin what the router actually hands the adapter so the
+        # guard's behavior is traceable end-to-end.
+        intent = self.router.resolve("calculate")
+        self.assertIsNotNone(intent)
+        self.assertEqual(intent.adapter, "calculator")
+        self.assertEqual(intent.action, "calculate")
+        self.assertEqual(intent.message, "calculate")  # == the platform alias itself
+
 
 if __name__ == "__main__":
     unittest.main()

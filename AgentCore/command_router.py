@@ -36,17 +36,20 @@ class _NullLogger:
         pass
 
 
-_MESSAGE_MARKERS = (" saying ", " that says ", " saying: ", " with message ")
-_TARGET_MARKER = " to "
-_MESSAGE_PREFIXES = ("send ", "message ", "text ", "write ", "email ", "mail ", "calculate ", "type ", "note ", "save ")
+_MESSAGE_MARKERS = (" saying ", " that says ", " saying: ", " with message ", " for ")
+_TARGET_MARKERS = (" to ", " as ")
+_MESSAGE_PREFIXES = (
+    "send ", "message ", "text ", "write ", "email ", "mail ", "calculate ",
+    "type ", "note ", "save ", "play ", "search ", "tweet ", "post ",
+)
 
 # Prepositions that introduce a target/trailing clause, not a verb. Verb
 # matching is bounded to the text before the earliest of these -- a word
 # inside a target name or trailing clause (e.g. "close" in "close-friend",
 # "open" in "open-source-group") must never be mistaken for a different
-# action's verb. _TARGET_MARKER is included since target extraction and
+# action's verb. _TARGET_MARKERS is included since target extraction and
 # verb-scan bounding must agree on where the target starts.
-_TRAILING_CONTEXT_MARKERS = (_TARGET_MARKER, " from ", " on ", " in ", " about ")
+_TRAILING_CONTEXT_MARKERS = _TARGET_MARKERS + (" from ", " on ", " in ", " about ")
 
 
 class CommandRouter:
@@ -165,23 +168,26 @@ def _split_message(raw: str, lower: str):
 
 def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
     """Extract the target from the (already message-marker-truncated)
-    prefix using the " to " marker. If no message was split off by
-    _split_message, the text before " to " becomes the message instead
-    (covers "send X to Y" with no "saying" marker, and "go to X"
-    navigation-style commands with no separate payload)."""
+    prefix using whichever of _TARGET_MARKERS (" to ", " as ") appears
+    last. If no message was split off by _split_message, the text before
+    that marker becomes the message instead (covers "send X to Y" with
+    no "saying" marker, and "go to X" navigation-style commands with no
+    separate payload). With no target marker at all, the whole prefix
+    (verb-stripped, trailing-clause-trimmed) becomes the message --
+    covers "play X on Y" / "note X" style commands."""
     target = ""
-    if _TARGET_MARKER in prefix_lower:
-        split_at = prefix_lower.rfind(_TARGET_MARKER)
-        target_raw = prefix_raw[split_at + len(_TARGET_MARKER):]
-        target_lower = prefix_lower[split_at + len(_TARGET_MARKER):]
+    split_at, marker = _find_last_target_marker(prefix_lower)
+    if split_at != -1:
+        target_raw = prefix_raw[split_at + len(marker):]
+        target_lower = prefix_lower[split_at + len(marker):]
 
         # Trim any further trailing clause off the target itself, e.g.
         # "close-friend on whatsapp" -> "close-friend".
         cut = len(target_raw)
-        for marker in _TRAILING_CONTEXT_MARKERS:
-            if marker == _TARGET_MARKER:
+        for trailing_marker in _TRAILING_CONTEXT_MARKERS:
+            if trailing_marker in _TARGET_MARKERS:
                 continue
-            idx = target_lower.find(marker)
+            idx = target_lower.find(trailing_marker)
             if idx != -1:
                 cut = min(cut, idx)
         target = target_raw[:cut].strip()
@@ -189,9 +195,40 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
         if not message:
             message = _strip_verb_prefix(prefix_raw[:split_at].strip())
     elif not message:
-        message = _strip_verb_prefix(prefix_raw.strip())
+        # No target marker at all -- e.g. "play despacito on spotify".
+        # Trim trailing clauses the same way target extraction does
+        # ("on spotify" here), then strip the verb, so the platform name
+        # or other trailing context doesn't end up embedded in the
+        # message content.
+        message = _strip_verb_prefix(_trim_trailing_clause(prefix_raw, prefix_lower))
 
     return target, message
+
+
+def _find_last_target_marker(prefix_lower: str):
+    """Return (position, marker) of whichever _TARGET_MARKERS entry
+    occurs closest to the end of prefix_lower, or (-1, "") if none is
+    present."""
+    best_pos = -1
+    best_marker = ""
+    for marker in _TARGET_MARKERS:
+        pos = prefix_lower.rfind(marker)
+        if pos > best_pos:
+            best_pos = pos
+            best_marker = marker
+    return best_pos, best_marker
+
+
+def _trim_trailing_clause(text_raw: str, text_lower: str) -> str:
+    """Trim text at the earliest trailing-context marker (to/as/from/
+    on/in/about), so a trailing platform mention or other clause doesn't
+    end up embedded in extracted message content."""
+    earliest = len(text_lower)
+    for marker in _TRAILING_CONTEXT_MARKERS:
+        idx = text_lower.find(marker)
+        if idx != -1:
+            earliest = min(earliest, idx)
+    return text_raw[:earliest].strip()
 
 
 def _strip_verb_prefix(text: str) -> str:

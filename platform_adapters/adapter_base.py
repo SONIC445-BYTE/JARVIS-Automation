@@ -33,6 +33,45 @@ class ActionSpec:
     requires_message: bool = False
 
 
+def extract_query(target: str, message: str, platform_aliases: List[str], raw_text: str = "") -> str:
+    """
+    Pick whichever of target/message is genuine extracted content for a
+    search/play/post-style action, filtering out placeholder values that
+    signal extraction failed rather than the user genuinely wanting to
+    search for that literal text:
+      - empty
+      - exactly equal to one of this platform's own aliases (the
+        CommandRouter fallback value when no real target was extracted)
+      - the entire raw command echoed back verbatim (extraction found no
+        marker at all and gave up)
+
+    Returns "" if neither target nor message is usable -- callers must
+    treat that as an honest failure (return False / report "I didn't
+    understand what to search for"), never proceed with a bad value.
+    Found via adversarial testing on "play despacito on spotify" and
+    "search google for X" resolving to garbage/alias values instead of
+    the real query -- see docs/command_architecture.md.
+    """
+    aliases_lower = {a.lower() for a in platform_aliases}
+    raw_lower = raw_text.strip().lower()
+
+    def is_real(value: str) -> bool:
+        if not value:
+            return False
+        value_lower = value.strip().lower()
+        if value_lower in aliases_lower:
+            return False
+        if raw_lower and value_lower == raw_lower:
+            return False
+        return True
+
+    if is_real(message):
+        return message.strip()
+    if is_real(target):
+        return target.strip()
+    return ""
+
+
 class AdapterBase(ABC):
     """
     Minimal adapter interface. Adapters MUST NOT perform destructive actions

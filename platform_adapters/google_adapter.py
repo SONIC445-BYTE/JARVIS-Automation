@@ -9,7 +9,7 @@ import time
 import urllib.parse
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, extract_query
 from .gui_backend import GUIBackend
 
 GOOGLE_URL = "https://www.google.com"
@@ -21,7 +21,7 @@ class GoogleAdapter(AdapterBase):
     ACTIONS = [
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),
-        ActionSpec("send_message", verbs=["search"], requires_target=True),
+        ActionSpec("send_message", verbs=["search"], requires_target=True, requires_message=True),
     ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
@@ -39,7 +39,10 @@ class GoogleAdapter(AdapterBase):
         return True
 
     def send_message(self, target: str, message: str) -> bool:
-        query = target or message
+        query = extract_query(target, message, self.PLATFORM_ALIASES)
+        if not query:
+            self.log_action("send_message_failed", {"reason": "no query extracted", "target": target, "message": message})
+            return False
         url = f"{GOOGLE_URL}/search?q={urllib.parse.quote(query)}"
         self.log_action("send_message_start", {"target": query, "dry_run": self.dry_run})
         return self._navigate(url)

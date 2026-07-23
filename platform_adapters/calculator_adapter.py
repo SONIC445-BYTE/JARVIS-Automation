@@ -11,7 +11,7 @@ from typing import Any, Dict, List
 
 import re
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, extract_query
 from .gui_backend import GUIBackend
 
 # Windows Calculator's text input accepts digits and operator symbols,
@@ -75,8 +75,9 @@ class CalculatorAdapter(AdapterBase):
         press Enter. No coordinates involved. Custom actions are called
         uniformly as method(target, message) -- the expression arrives as
         message (calculate declares requires_message=True)."""
-        expression = message or target
+        expression = extract_query(target, message, self.PLATFORM_ALIASES)
         if not expression:
+            self.log_action("calculate_failed", {"reason": "no expression extracted", "target": target, "message": message})
             return False
         normalized = _normalize_expression(expression)
         self.log_action("calculate", {"expression": expression, "normalized": normalized, "dry_run": self.dry_run})

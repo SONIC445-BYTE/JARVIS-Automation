@@ -15,7 +15,7 @@ import time
 import urllib.parse
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, extract_query
 from .element_finder import find_element_center
 from .gui_backend import GUIBackend
 
@@ -28,7 +28,7 @@ class SpotifyAdapter(AdapterBase):
     ACTIONS = [
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),
-        ActionSpec("send_message", verbs=["search"], requires_target=True),
+        ActionSpec("send_message", verbs=["search"], requires_target=True, requires_message=True),
         ActionSpec("play", verbs=["play"], requires_message=True),
     ]
 
@@ -47,18 +47,22 @@ class SpotifyAdapter(AdapterBase):
         return True
 
     def send_message(self, target: str, message: str) -> bool:
-        query = target or message
+        query = extract_query(target, message, self.PLATFORM_ALIASES)
         if not query:
+            self.log_action("send_message_failed", {"reason": "no query extracted", "target": target, "message": message})
             return False
         return self._navigate(SEARCH_URL + urllib.parse.quote(query))
 
     def play(self, target: str = "", message: str = "") -> bool:
         """Search, then find and click the real "Play" element on the
         results page -- honest failure (returns False) if it can't be
-        found, never a fake/simulated success."""
-        query = message or target
+        found, never a fake/simulated success. extract_query filters out
+        the platform alias / raw-command-echoed-back placeholder values
+        found via adversarial testing on "play despacito on spotify"."""
+        query = extract_query(target, message, self.PLATFORM_ALIASES)
         self.log_action("play_start", {"query": query, "dry_run": self.dry_run})
         if not query:
+            self.log_action("play_failed", {"reason": "no query extracted", "target": target, "message": message})
             return False
         if self.dry_run:
             return True

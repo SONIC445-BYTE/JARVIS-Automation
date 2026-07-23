@@ -13,7 +13,7 @@ import time
 import urllib.parse
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, extract_query
 from .gui_backend import GUIBackend
 
 COMPOSE_URL = "https://twitter.com/intent/tweet?text="
@@ -50,9 +50,10 @@ class TwitterAdapter(AdapterBase):
         then completes the post via Ctrl+Enter -- the audit-flagged gap
         (AgentCore/platform_adapters/twitter stopped at "opens pre-filled,
         doesn't complete")."""
-        text = message or target
+        text = extract_query(target, message, self.PLATFORM_ALIASES)
         self.log_action("send_message_start", {"message": text, "dry_run": self.dry_run})
         if not text:
+            self.log_action("send_message_failed", {"reason": "no message extracted", "target": target, "message": message})
             return False
         url = COMPOSE_URL + urllib.parse.quote(text)
         if not self._navigate(url):

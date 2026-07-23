@@ -12,7 +12,7 @@ import time
 import urllib.parse
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, extract_query
 from .element_finder import find_first_clickable_center
 from .gui_backend import GUIBackend
 
@@ -25,7 +25,7 @@ class YouTubeAdapter(AdapterBase):
     ACTIONS = [
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),
-        ActionSpec("send_message", verbs=["search"], requires_target=True),
+        ActionSpec("send_message", verbs=["search"], requires_target=True, requires_message=True),
         ActionSpec("play", verbs=["play"], requires_message=True),
     ]
 
@@ -44,8 +44,9 @@ class YouTubeAdapter(AdapterBase):
         return True
 
     def send_message(self, target: str, message: str) -> bool:
-        query = target or message
+        query = extract_query(target, message, self.PLATFORM_ALIASES)
         if not query:
+            self.log_action("send_message_failed", {"reason": "no query extracted", "target": target, "message": message})
             return False
         return self._navigate(SEARCH_URL + urllib.parse.quote(query))
 
@@ -56,10 +57,13 @@ class YouTubeAdapter(AdapterBase):
         uses position rather than text match. Honest failure if nothing
         clickable was found, never a fake/simulated success (unlike the
         original AgentCore/platform_adapters/youtube, whose click-through
-        was a silent no-op that still returned as if it worked)."""
-        query = message or target
+        was a silent no-op that still returned as if it worked).
+        extract_query filters out the platform alias / raw-command-
+        echoed-back placeholder values found via adversarial testing."""
+        query = extract_query(target, message, self.PLATFORM_ALIASES)
         self.log_action("play_start", {"query": query, "dry_run": self.dry_run})
         if not query:
+            self.log_action("play_failed", {"reason": "no query extracted", "target": target, "message": message})
             return False
         if self.dry_run:
             return True
