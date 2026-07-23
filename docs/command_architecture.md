@@ -217,6 +217,47 @@ set in Phase 1's `CodeEngine` fix exists to prevent. Fixed two ways:
    `twitter`, `calculator`'s `calculate`) so a failed extraction is an
    honest `False`, never a bad-but-successful action.
 
+## Fifth bug: platform detection itself was never brought under the zone discipline (structural fix)
+
+The previous four fixes all followed the same shape: some matching step
+scanned raw/unscoped text and got confused by payload content. Three of
+them narrowed *verb* matching's scan boundary one collision at a time.
+The fourth (`" for "`/`" as "` markers) fixed *extraction*. But
+**platform-alias detection** — the very first thing `resolve()` did —
+was never brought under this discipline at all, because it runs before
+any of those other fixes' scoping logic exists. Found via adversarial
+testing: `"search amazon for spotify gift cards"` misrouted entirely to
+Spotify (the longer alias, and coincidentally one of its declared
+verbs); `"search google for how to use whatsapp"` and `"search youtube
+for calculator tutorials"` both failed to resolve at all — a platform
+name anywhere in the query text, even deep inside a search payload,
+could hijack or block resolution regardless of which platform the user
+actually named first.
+
+**Fixed structurally, not as a fifth patch.** `resolve()` now computes
+a single zone — `_platform_scan_zone()` — *before* any matching starts,
+and every matching step (platform, verb) is required to scan only that
+zone, never raw `text`/`lower`. Concretely: `_split_message()` runs
+first (removing `" saying "`/`" for "` payload — pure syntactic marker
+position, no platform/verb knowledge needed), then
+`_platform_scan_zone()` additionally excises the *immediate* target
+span (between a `" to "`/`" as "` marker and the next trailing-context
+marker) — but deliberately preserves any trailing clause *after* the
+target (e.g. `"on whatsapp"` in `"to close-friend on whatsapp"`), since
+that's the conventional position for a genuine platform mention and
+excluding it would break that already-working phrasing. This is now
+documented as an enforced rule directly on `CommandRouter.resolve()`'s
+docstring, not left implicit: **the next new adapter or marker added to
+this router inherits the protection automatically** — there is exactly
+one place text gets scoped before matching, not N places each new
+feature has to remember to narrow correctly.
+
+Verified: the exact three reports, one platform-name-in-payload case
+per marker family (`to`/`as`/`for`/`saying`, `tests/test_command_router.py::TestPlatformDetectionIgnoresPayload`),
+and the pre-existing trailing-clause case (`"...on whatsapp"`)
+confirmed still working, not just untested — that phrasing is exactly
+what the fix could plausibly have broken by being too aggressive.
+
 ## What Phase 2a does *not* do
 
 - No 160-folder audit or porting (Phase 2b).

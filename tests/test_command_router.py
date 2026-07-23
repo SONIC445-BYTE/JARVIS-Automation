@@ -176,5 +176,89 @@ class TestCommandRouterResolve(unittest.TestCase):
         self.assertEqual(intent.message, "calculate")  # == the platform alias itself
 
 
+class TestPlatformDetectionIgnoresPayload(unittest.TestCase):
+    """Fourth instance of the same bug class as the three fixes above
+    (message-body verb collision, target-name verb collision, trailing-
+    clause verb collision): CommandRouter.resolve()'s platform-alias
+    detection ran BEFORE any message/target zone was computed, scanning
+    the entire raw text -- so a second platform's name mentioned inside
+    the actual query/target content could misroute the command (or, if
+    it "won" as the longer alias but had no matching verb, block
+    resolution entirely). Fixed structurally via _platform_scan_zone():
+    platform detection is now scoped to the same message/target-
+    excised zone verb matching already used, computed once and shared,
+    not a per-bug special case. See CommandRouter.resolve()'s docstring
+    for the enforced rule.
+
+    One case per marker family (to/as/for/saying) plus the exact three
+    reports, so a regression in any of them is caught, not just today's
+    specific inputs.
+    """
+
+    def setUp(self):
+        self.router = CommandRouter()
+
+    def _assert_resolves(self, text, adapter, action):
+        intent = self.router.resolve(text)
+        self.assertIsNotNone(intent, f"{text!r} did not resolve")
+        self.assertEqual(intent.adapter, adapter, f"{text!r} misrouted")
+        self.assertEqual(intent.action, action)
+        return intent
+
+    # The exact three reports.
+    def test_for_marker_platform_in_payload_wrong_platform_entirely(self):
+        # Previously misrouted to Spotify (longer alias, and "search" is
+        # one of its declared verbs) instead of Amazon.
+        intent = self._assert_resolves(
+            "search amazon for spotify gift cards", "amazon", "send_message"
+        )
+        self.assertEqual(intent.message, "spotify gift cards")
+
+    def test_for_marker_platform_in_payload_previously_failed_to_resolve(self):
+        # Previously resolved to None: "whatsapp" (longer alias) won
+        # platform detection, then no whatsapp verb matched "search
+        # google", so resolution failed outright rather than misrouting.
+        intent = self._assert_resolves(
+            "search google for how to use whatsapp", "google", "send_message"
+        )
+        self.assertEqual(intent.message, "how to use whatsapp")
+
+    def test_for_marker_platform_in_payload_second_previously_failed_case(self):
+        intent = self._assert_resolves(
+            "search youtube for calculator tutorials", "youtube", "send_message"
+        )
+        self.assertEqual(intent.message, "calculator tutorials")
+
+    # One case per remaining marker family.
+    def test_to_marker_platform_in_payload(self):
+        # "telegram" appears in the target itself, not a trailing clause
+        # -- must not steal platform detection from "whatsapp".
+        intent = self._assert_resolves(
+            "send a whatsapp message to my telegram friend", "whatsapp_desktop", "send_message"
+        )
+        self.assertEqual(intent.target, "my telegram friend")
+
+    def test_as_marker_platform_in_payload(self):
+        intent = self._assert_resolves(
+            "save notepad as spotify_backup.txt", "text_editor", "save_file"
+        )
+        self.assertEqual(intent.target, "spotify_backup.txt")
+
+    def test_saying_marker_platform_in_payload(self):
+        intent = self._assert_resolves(
+            "send a whatsapp message saying open spotify now", "whatsapp_desktop", "send_message"
+        )
+        self.assertEqual(intent.message, "open spotify now")
+
+    # Regression: platform mentioned in a genuine trailing clause (not
+    # payload content) must still resolve -- this is the case the fix
+    # deliberately preserves, not breaks.
+    def test_trailing_clause_platform_mention_still_resolves(self):
+        intent = self._assert_resolves(
+            "send a message to close-friend on whatsapp", "whatsapp_desktop", "send_message"
+        )
+        self.assertEqual(intent.target, "close-friend")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -74,39 +74,52 @@ class CommandRouter:
     def resolve(self, text: str) -> Optional[Intent]:
         """Return an Intent if text names a known platform + a supported
         action for that platform, else None (caller should fall back to
-        other classification)."""
+        other classification).
+
+        STRUCTURAL RULE (read before adding a new marker, verb, or
+        matching step): every matching step in this method -- platform
+        detection, verb detection, and any future one -- must scan only
+        the "structure zone" computed by _structure_zone() below, never
+        raw `text`/`lower` directly, and never the split-off message
+        payload or the immediate target span. Four bugs were fixed one
+        at a time before this rule was written down (message-body verb
+        collision, target-name verb collision, trailing-clause verb
+        collision, then this one -- payload text containing another
+        platform's name misrouting or blocking resolution entirely,
+        e.g. "search amazon for spotify gift cards" resolving to
+        Spotify). All four were the same root cause: a matching step
+        scanning payload/content text instead of command-structure text.
+        _structure_zone() is the single enforcement point -- compute it
+        once, scope every match to it, and this bug class cannot recur
+        by a new step quietly re-implementing its own scan boundary.
+        """
         lower = text.lower()
+
+        # Compute message/target zones FIRST, before any matching --
+        # this is pure syntactic marker-position processing, independent
+        # of which platform or verb (if any) the text names.
+        prefix_raw, prefix_lower, message = _split_message(text, lower)
+        platform_zone = _platform_scan_zone(prefix_lower)
 
         adapter_key = None
         matched_alias = ""
         for alias, key in self._platform_aliases.items():
-            if alias in lower and len(alias) > len(matched_alias):
+            if alias in platform_zone and len(alias) > len(matched_alias):
                 adapter_key = key
                 matched_alias = alias
 
         if adapter_key is None:
             return None
 
-        # Split off any dictated message payload BEFORE verb matching, so
-        # a word inside the message body (e.g. "close" in "saying check
-        # the close date") is never mistaken for another action's verb.
-        # Bug found via adversarial testing on 4e55699b: verb matching
-        # used to scan the full raw text, so message content could
-        # misfire as a different action depending on AdapterBase.ACTIONS
-        # declaration order -- not deterministic on input meaning.
-        prefix_raw, prefix_lower, message = _split_message(text, lower)
-
-        # Second collision path (found via further adversarial testing on
-        # 71ded210): even with the message split off, a target name or
-        # trailing clause with no explicit "saying" marker was still
-        # scanned in full for verbs -- e.g. "close" in "close-friend", or
-        # "open" in "open-source-group" after " from ". Bound single-word
-        # verb matching to the text before the earliest trailing-context
-        # marker. Multi-word verbs that legitimately contain one of those
-        # marker words as part of the verb phrase itself (e.g. browser's
-        # "go to", "navigate to") are matched against the untruncated
-        # prefix instead, since truncating at " to " would cut the verb
-        # phrase in half.
+        # Verb matching is bounded to the text before the earliest
+        # trailing-context marker, so a word inside a target name or
+        # trailing clause (e.g. "close" in "close-friend", "open" in
+        # "open-source-group") is never mistaken for a different
+        # action's verb. Multi-word verbs that legitimately contain one
+        # of those marker words as part of the verb phrase itself (e.g.
+        # browser's "go to", "navigate to") are matched against the
+        # untruncated prefix instead, since truncating at " to " would
+        # cut the verb phrase in half.
         verb_scan_lower = _bound_verb_scan(prefix_lower)
 
         adapter_cls = self._adapter_classes[adapter_key]
@@ -203,6 +216,43 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
         message = _strip_verb_prefix(_trim_trailing_clause(prefix_raw, prefix_lower))
 
     return target, message
+
+
+def _platform_scan_zone(prefix_lower: str) -> str:
+    """Return prefix_lower (already message-marker-truncated by
+    _split_message) with the immediate target span excised -- the
+    content between a target marker and the next trailing-context
+    marker, exactly what _extract_target() would extract as `target`.
+
+    This is the platform-detection half of the structural rule
+    documented on CommandRouter.resolve(): a platform mention inside
+    the actual target/query content (e.g. "spotify" in "search amazon
+    for spotify gift cards", or "telegram" in "send a whatsapp message
+    to my telegram friend") must never be visible to platform-alias
+    matching.
+
+    The trailing clause AFTER the target is deliberately preserved
+    (e.g. "on whatsapp" in "to close-friend on whatsapp" stays visible)
+    -- that's the conventional position for a genuine platform mention
+    in "do X to Y on PLATFORM" phrasing, and excluding it would break
+    that already-working case.
+    """
+    split_at, marker = _find_last_target_marker(prefix_lower)
+    if split_at == -1:
+        return prefix_lower
+
+    target_start = split_at + len(marker)
+    target_lower = prefix_lower[target_start:]
+
+    cut = len(target_lower)
+    for trailing_marker in _TRAILING_CONTEXT_MARKERS:
+        if trailing_marker in _TARGET_MARKERS:
+            continue
+        idx = target_lower.find(trailing_marker)
+        if idx != -1:
+            cut = min(cut, idx)
+
+    return prefix_lower[:target_start] + " " + prefix_lower[target_start + cut:]
 
 
 def _find_last_target_marker(prefix_lower: str):
