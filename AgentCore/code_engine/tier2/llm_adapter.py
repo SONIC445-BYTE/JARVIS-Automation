@@ -53,6 +53,21 @@ class LLMAdapter:
         
         return self._parse_json(response.text)
 
+    def generate_raw(self, prompt: str) -> str:
+        """
+        Generic passthrough for callers that need to supply a
+        fully-formed prompt of their own, rather than one of this
+        adapter's fixed templates. suggest_code/plan_refactor/
+        verify_safety each embed a specific prompt shape for their own
+        purpose (suggest_code's template, for example, has no concept of
+        the multi-file "### filename" output convention GeneratorHelper's
+        caller (CodeEngine) parses for) -- none of them accept an
+        arbitrary prompt. Mirrors exactly what suggest_code() does
+        internally, minus the fixed template.
+        """
+        response = self.engine.generate(prompt)
+        return response.text
+
     def suggest_code(self, goal: str, context_files: str) -> str:
         """Suggest code changes."""
         template = self._load_prompt("code_synth.user")
