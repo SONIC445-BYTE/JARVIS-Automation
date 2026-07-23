@@ -22,17 +22,21 @@ class Level6Coordinator:
         self.metrics = Level6Metrics(self.config.get("log_path", "data/level6/metrics.jsonl"))
         self.rollback = RollbackManager(self.config.get("sandbox_base_path", "projects/sandbox_level6"))
         self.planner = Planner(llm)
-        self.sandbox_runner = SandboxRunner(self.config.get("sandbox_base_path", "projects/sandbox_level6"))
-        self.verifier = Verifier()
         self.ast_fixer = ASTFixer()
+        self.sandbox_runner = SandboxRunner(
+            self.config.get("sandbox_base_path", "projects/sandbox_level6"),
+            ast_fixer=self.ast_fixer,
+        )
+        self.verifier = Verifier()
         self.debug_loop = DebugLoop(llm, self.sandbox_runner, self.ast_fixer)
         self.debug_loop.max_iterations = self.config.get("max_iterations", self.debug_loop.max_iterations)
 
-        # Phase C: real AST-based transforms (ASTFixer) not implemented
-        # yet -- it's still a placeholder that only handles a trivial
-        # "replace_full" case. DebugLoop's fixes (Phase B) work around
-        # this by generating full-file replacements directly rather than
-        # routing through ASTFixer's "ast_edit" path.
+        # Phase C: ASTFixer now does real LibCST-based structural
+        # transforms (replace_function), wired into SandboxRunner for
+        # "ast_edit" plan steps. DebugLoop's own fixes (Phase B) still
+        # use full-file replacement, not ast_edit -- that was a
+        # deliberate, separate design choice (see debug_loop.py), not a
+        # placeholder limitation, so it's unchanged here.
 
     def _load_config(self) -> Dict[str, Any]:
         if not os.path.exists(self.config_path):

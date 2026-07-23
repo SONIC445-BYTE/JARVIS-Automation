@@ -13,11 +13,14 @@ class Planner:
         prompt = (
             "SYSTEM: You are Level6 Planner. Given a short goal and repository context summary, output JSON:\n"
             "{\n"
-            '  "plan": [ { "type": "create_file|ast_edit|update_file", "target": "<path>", "spec": {...} } ],\n'
+            '  "plan": [ { "type": "create_file|ast_edit|update_file", "target": "<path>", "content": "...", "spec": {...} } ],\n'
             '  "tests": [ { "path": "<tests/...>", "content": "..." } ],\n'
             '  "estimated_risk": 0.0-1.0,\n'
             '  "explain": "one-paragraph rationale"\n'
             "}\n"
+            'For type "create_file"/"update_file", put the full file content in "content". '
+            'For type "ast_edit" (editing one function in an existing file without rewriting the whole file), '
+            'spec must be {"type": "replace_function", "name": "<function name>", "code": "<full corrected def ...>"}.\n'
             "Do not execute anything. Minimal code in tests; keep functions small.\n\n"
             f"Goal: {goal}\n"
             f"Context: {json.dumps(context_summary, default=str)[:1000]}" # Limit context size

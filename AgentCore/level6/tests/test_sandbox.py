@@ -78,6 +78,40 @@ class TestSandbox(unittest.TestCase):
         result = self.runner.run_plan(plan, tests, "snap_5")
         self.assertFalse(result["passed"])
 
+    def test_ast_edit_plan_step_actually_applies_transform(self):
+        """
+        Regression test for a total no-op found during Phase C: an
+        "ast_edit" plan step used to do literally nothing -- the code
+        comment claimed "'ast_edit' handled by ASTFixer in real flow"
+        but nothing ever called ASTFixer. This confirms an ast_edit step
+        on top of a prior create_file step in the same plan genuinely
+        transforms the file (targeted structural fix, not a full
+        rewrite) and the result actually runs correctly.
+        """
+        plan = [
+            {"type": "create_file", "target": "divide.py", "content": "def divide(a, b):\n    return a / b\n"},
+            {
+                "type": "ast_edit",
+                "target": "divide.py",
+                "spec": {
+                    "type": "replace_function",
+                    "name": "divide",
+                    "code": "def divide(a, b):\n    if b == 0:\n        return None\n    return a / b\n",
+                },
+            },
+        ]
+        tests = [{
+            "path": "test_divide.py",
+            "content": (
+                "from divide import divide\n\n"
+                "def test_divide_by_zero():\n"
+                "    assert divide(10, 0) is None\n"
+            ),
+        }]
+        result = self.runner.run_plan(plan, tests, "snap_6")
+        self.assertTrue(result["passed"], result.get("stdout", "") + result.get("stderr", ""))
+        self.assertIn("1 passed", result["stdout"])
+
 
 if __name__ == "__main__":
     unittest.main()
