@@ -11,6 +11,12 @@ Usage:
                                  # (--daemon is a deprecated alias for this;
                                  # it does NOT invoke daemon/dispatcher.py --
                                  # that's a separate CLI, `python -m daemon.cli`)
+  python jarvis.py --convo --setup  # Re-run the first-run walkthrough
+                                     # (banner + installed-app scan) even
+                                     # if it already ran once. Combine
+                                     # with --convo/--background/--service;
+                                     # also reachable mid-session by
+                                     # saying "run setup again".
 
 Features:
 - FREE Vosk-only wake detection
@@ -138,6 +144,13 @@ def _code_result_is_success(result: Dict) -> bool:
 _AFFIRMATIVE_WORDS = ("yes", "yeah", "yep", "sure", "confirm", "go ahead", "do it", "install it", "please", "continue")
 _NEGATIVE_WORDS = ("no", "nope", "don't", "do not", "cancel", "nevermind", "never mind", "stop")
 
+# Onboarding re-trigger and on-demand availability re-scan phrases.
+# Matched as plain substrings against the lowercased turn, same style as
+# goodbye_phrases -- checked before normal intent classification since
+# these are service-level commands, not platform actions.
+RUN_SETUP_PHRASES = ("run setup again", "run setup", "redo setup", "start setup")
+RESCAN_PHRASES = ("check what's installed", "check whats installed", "scan for new apps", "rescan apps", "rescan for apps")
+
 
 def _is_affirmative(text: str) -> bool:
     lower = text.lower().strip()
@@ -206,14 +219,15 @@ class PersistentWakeService:
     COMMAND_TIMEOUT = 15.0  # Seconds to wait for command after wake
     SILENCE_TIMEOUT = 30.0  # Seconds of silence before sleep
     
-    def __init__(self, conversation_mode: bool = False):
+    def __init__(self, conversation_mode: bool = False, force_setup: bool = False):
         self.state = JarvisState.SLEEP
         self._running = False
         self._conversation_mode = conversation_mode
+        self._force_setup = force_setup  # --setup CLI flag: re-run onboarding even if already done
         self._state_lock = threading.Lock()
         self._wake_detector = None
         self._stt = None
-        
+
         # Sprint 6: Conversation components
         self._llm = None
         self._tts = None
@@ -223,43 +237,60 @@ class PersistentWakeService:
         self._last_activity = time.time()
         self._pending_install = None  # Phase 2c: AgentCore.resolution_gate.PendingInstall
         self._pending_resume = None  # Phase 2g: PendingResume (CAPTCHA/login-wall)
+        self._availability_rescanner = None  # periodic AvailabilityChecker refresh, see onboarding.py
 
         # Learning System (Sprint 8)
         self._learning = None
-        
+
     def start(self):
         """Start the persistent wake service."""
         print("=" * 60)
         print("JARVIS Persistent Wake Service")
         print("FREE • OFFLINE • LOW CPU")
         print("=" * 60)
-        
+
         self._running = True
-        
+
         # Initialize components
         if not self._initialize():
             print("[Service] Failed to initialize. Falling back to normal mode.")
             return False
-        
+
+        # First-run onboarding: once, ever, unless explicitly
+        # re-triggered (--setup, or "run setup again" mid-session --
+        # see the conversation loop below). Every run after the first
+        # is fast/quiet by design -- no walkthrough, no banner.
+        from onboarding import is_first_run, run_onboarding
+        if self._force_setup or is_first_run():
+            run_onboarding(speak_fn=self._speak)
+            self._force_setup = False
+
         # Transition to sleep mode
         self._set_state(JarvisState.SLEEP)
-        
+
         # Start wake word detection
         self._start_wake_detection()
-        
+
+        # Periodic AvailabilityChecker re-scan -- closes Phase 2c's
+        # "refresh at startup only" staleness gap. Configurable interval
+        # (JARVIS_AVAILABILITY_RESCAN_INTERVAL_S env var), not hardcoded.
+        from onboarding import PeriodicAvailabilityRescanner
+        self._availability_rescanner = PeriodicAvailabilityRescanner()
+        self._availability_rescanner.start()
+
         # Speak greeting
         self._speak("JARVIS online. Say Jarvis to wake me.")
-        
+
         print("[Service] Listening for 'Jarvis'...")
         print("[Service] Press Ctrl+C to stop")
-        
+
         # Main service loop
         try:
             while self._running:
                 time.sleep(0.5)
         except KeyboardInterrupt:
             print("\n[Service] Interrupted by user")
-        
+
         self.stop()
         return True
     
@@ -598,6 +629,30 @@ class PersistentWakeService:
                 self._speak("Goodbye.")
                 break
 
+            # On-demand full setup re-run (discoverable per onboarding's
+            # own closing message: "run this walkthrough again anytime").
+            if any(phrase in text.lower() for phrase in RUN_SETUP_PHRASES):
+                self._set_state(JarvisState.EXECUTION)
+                from onboarding import run_onboarding
+                run_onboarding(speak_fn=self._speak)
+                self._set_state(JarvisState.LISTEN)
+                self._last_activity = time.time()
+                continue
+
+            # On-demand availability re-scan -- forces an immediate
+            # refresh outside the periodic cycle, reusing the exact same
+            # AvailabilityChecker.refresh() the periodic thread and
+            # onboarding's own scan use (see onboarding.rescan_now).
+            if any(phrase in text.lower() for phrase in RESCAN_PHRASES):
+                self._set_state(JarvisState.EXECUTION)
+                from onboarding import rescan_now
+                response = rescan_now()
+                self._set_state(JarvisState.SPEAK)
+                print(f"[Convo] JARVIS: '{response}'")
+                self._speak(response)
+                self._last_activity = time.time()
+                continue
+
             # Phase 2c: pending install confirmation takes priority over
             # normal classification -- this turn is answering "want me to
             # install it?", not a new command.
@@ -779,13 +834,16 @@ class PersistentWakeService:
         print("[Service] Stopping...")
         self._running = False
         self._set_state(JarvisState.SHUTDOWN)
-        
+
         if self._wake_detector:
             self._wake_detector.stop()
-        
+
         if self._cpu_guard:
             self._cpu_guard.stop()
-        
+
+        if self._availability_rescanner:
+            self._availability_rescanner.stop()
+
         print("[Service] Stopped")
 
 
@@ -935,21 +993,21 @@ if __name__ == "__main__":
         print("Starting JARVIS in BACKGROUND mode...")
         import logging
         logging.basicConfig(level=logging.WARNING)  # Suppress most output
-        service = PersistentWakeService(conversation_mode=True)
+        service = PersistentWakeService(conversation_mode=True, force_setup=("--setup" in sys.argv))
         service.start()
     elif "--convo" in sys.argv:
         # Conversational mode - LLM + multi-turn
         print("Starting JARVIS in CONVERSATION mode...")
-        service = PersistentWakeService(conversation_mode=True)
+        service = PersistentWakeService(conversation_mode=True, force_setup=("--setup" in sys.argv))
         success = service.start()
-        
+
         if not success:
             print("Conversation mode failed. Running normal mode...")
             main()
     elif "--service" in sys.argv or os.environ.get("JARVIS_SERVICE_MODE"):
         # Persistent wake mode - FREE, OFFLINE, LOW CPU
         print("Starting JARVIS in SERVICE mode...")
-        service = PersistentWakeService(conversation_mode=False)
+        service = PersistentWakeService(conversation_mode=False, force_setup=("--setup" in sys.argv))
         success = service.start()
         
         if not success:

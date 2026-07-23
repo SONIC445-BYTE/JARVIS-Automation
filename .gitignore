@@ -44,6 +44,11 @@ logs/
 *.pid
 
 # ========================
+# Runtime state (first-run marker, etc. -- see onboarding.py)
+# ========================
+state/
+
+# ========================
 # OS / Editor Junk
 # ========================
 .DS_Store
