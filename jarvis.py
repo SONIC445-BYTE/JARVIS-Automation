@@ -109,6 +109,20 @@ def _code_result_is_success(result: Dict) -> bool:
     return bool(result.get("file_path"))
 
 
+_AFFIRMATIVE_WORDS = ("yes", "yeah", "yep", "sure", "confirm", "go ahead", "do it", "install it", "please")
+_NEGATIVE_WORDS = ("no", "nope", "don't", "do not", "cancel", "nevermind", "never mind", "stop")
+
+
+def _is_affirmative(text: str) -> bool:
+    lower = text.lower().strip()
+    return any(lower == w or lower.startswith(w + " ") or lower.startswith(w + ",") for w in _AFFIRMATIVE_WORDS)
+
+
+def _is_negative(text: str) -> bool:
+    lower = text.lower().strip()
+    return any(lower == w or lower.startswith(w + " ") or lower.startswith(w + ",") for w in _NEGATIVE_WORDS)
+
+
 # Paths
 
 # Paths
@@ -166,6 +180,7 @@ class PersistentWakeService:
         self._cpu_guard = None
         self._conversation = None
         self._last_activity = time.time()
+        self._pending_install = None  # Phase 2c: AgentCore.resolution_gate.PendingInstall
         
         # Learning System (Sprint 8)
         self._learning = None
@@ -344,7 +359,45 @@ class PersistentWakeService:
         except Exception as e:
             print(f"[Service] Execution error: {e}")
             self._speak(f"Error: {str(e)[:30]}")
-    
+
+    def _handle_install_confirmation(self, text: str) -> str:
+        """Phase 2c: handle the user's reply to "want me to install it?".
+        Always clears self._pending_install and returns a distinct,
+        honest message -- confirm+install+retry, decline, or no winget
+        match. Never auto-installs; an ambiguous reply is treated the
+        same as a decline (never install without a clear yes)."""
+        pending = self._pending_install
+        self._pending_install = None
+
+        if not _is_affirmative(text):
+            return f"Okay, I won't install {pending.platform_display_name}."
+
+        if pending.winget_id is None:
+            return (
+                f"I can't find {pending.platform_display_name} in the Windows "
+                f"package manager -- you'll need to install it manually."
+            )
+
+        package_id, source = pending.winget_id
+        print(f"[Install] Installing {pending.platform_display_name} ({package_id} via {source})...")
+        from platform_adapters.winget_installer import install as winget_install
+        result = winget_install(package_id, source)
+
+        if not result.ok:
+            return f"Couldn't install {pending.platform_display_name}: {result.message}"
+
+        # Refresh availability so the retry below sees it as installed.
+        from AgentCore.resolution_gate import _get_default_availability_checker
+        _get_default_availability_checker().refresh()
+
+        # Retry the original command now that the app is installed.
+        if hasattr(self, '_odav') and self._odav:
+            retry_result = self._odav.execute(pending.original_text)
+            retry_msg = retry_result.message if retry_result.success else f"Failed: {retry_result.message}"
+            return f"Installed {pending.platform_display_name}. {retry_msg}"
+
+        return f"Installed {pending.platform_display_name}."
+
     def _return_to_sleep(self):
         """Return to sleep mode."""
         self._set_state(JarvisState.SLEEP)
@@ -469,7 +522,19 @@ class PersistentWakeService:
             if any(phrase in text.lower() for phrase in goodbye_phrases):
                 self._speak("Goodbye.")
                 break
-            
+
+            # Phase 2c: pending install confirmation takes priority over
+            # normal classification -- this turn is answering "want me to
+            # install it?", not a new command.
+            if self._pending_install is not None:
+                self._set_state(JarvisState.EXECUTION)
+                response = self._handle_install_confirmation(text)
+                self._set_state(JarvisState.SPEAK)
+                print(f"[Convo] JARVIS: '{response[:100]}...'")
+                self._speak(response)
+                self._last_activity = time.time()
+                continue
+
             # Route intent
             intent = self._router.classify(text)
             print(f"[Convo] Intent: {intent.intent_type.value} → {intent.handler}")
@@ -534,7 +599,30 @@ class PersistentWakeService:
                 else:
                     self._execute_command(text)
                     response = "Done."
-                
+
+            elif intent.handler == "action_no_adapter":
+                # Phase 2c gate: platform recognized, no real adapter --
+                # do not offer to install (a fabricated/nonexistent
+                # adapter means installing wouldn't make it controllable).
+                gate_result = intent.extracted_entities.get("gate_result")
+                response = gate_result.message if gate_result else "I don't know how to control that yet."
+
+            elif intent.handler == "action_not_installed":
+                # Phase 2c gate: real adapter exists, app isn't installed.
+                # Offer to install; wait for explicit confirmation next turn.
+                gate_result = intent.extracted_entities.get("gate_result")
+                if gate_result:
+                    from AgentCore.resolution_gate import PendingInstall
+                    self._pending_install = PendingInstall(
+                        original_text=text,
+                        platform_display_name=gate_result.platform_display_name,
+                        adapter_key=gate_result.adapter_key,
+                        winget_id=gate_result.winget_id,
+                    )
+                    response = gate_result.message
+                else:
+                    response = "That app isn't installed."
+
             elif intent.handler == "llm" and self._llm and self._llm.is_available():
                 # Check CPU before LLM
                 if self._cpu_guard and not self._cpu_guard.should_proceed("llm"):

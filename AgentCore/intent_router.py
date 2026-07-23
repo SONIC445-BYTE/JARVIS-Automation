@@ -154,23 +154,25 @@ class IntentRouter:
         rf"^generate\s+{_FILLER}(?:script|function|code|program|class|module)\b",
     ]
 
-    def __init__(self, use_llm_classifier: bool = False):
+    def __init__(self, use_llm_classifier: bool = False, resolution_gate=None):
         self.use_llm_classifier = use_llm_classifier
         self._compile_patterns()
-        self._command_router = self._init_command_router()
+        self._resolution_gate = resolution_gate or self._init_resolution_gate()
 
     @staticmethod
-    def _init_command_router():
-        """CommandRouter (Phase 2a) resolves platform+action commands
+    def _init_resolution_gate():
+        """ResolutionGate (Phase 2c) resolves platform+action commands
         (e.g. "send a whatsapp message to X saying Y") against
-        adapter-declared aliases/actions. Optional: if platform_adapters
-        isn't importable in this context, fall back to the pre-2a
-        ACTION_PATTERNS-only behavior."""
+        adapter-declared aliases/actions (Phase 2a's CommandRouter), then
+        checks the platform is actually installed before handing back a
+        RESOLVED intent -- see AgentCore/resolution_gate.py. Optional: if
+        platform_adapters isn't importable in this context, fall back to
+        the pre-2a ACTION_PATTERNS-only behavior."""
         try:
-            from .command_router import CommandRouter
-            return CommandRouter()
+            from .resolution_gate import ResolutionGate
+            return ResolutionGate()
         except ImportError as e:
-            print(f"[IntentRouter] CommandRouter unavailable: {e}")
+            print(f"[IntentRouter] ResolutionGate unavailable: {e}")
             return None
     
     def _compile_patterns(self):
@@ -229,20 +231,41 @@ class IntentRouter:
                 handler="context"
             )
         
-        # Check adapter-declared platform+action commands (Phase 2a).
-        # More specific than the generic ACTION_PATTERNS below, so it
-        # takes priority when it resolves.
-        if self._command_router:
-            resolved_intent = self._command_router.resolve(text)
-            if resolved_intent:
+        # Check adapter-declared platform+action commands, gated on
+        # adapter existence + installation (Phase 2a + 2c). More specific
+        # than the generic ACTION_PATTERNS below, so it takes priority
+        # when it resolves.
+        if self._resolution_gate:
+            from .resolution_gate import GateOutcome
+            gate_result = self._resolution_gate.check(text)
+            if gate_result.outcome == GateOutcome.RESOLVED:
                 return RoutedIntent(
                     intent_type=IntentType.ACTION,
                     confidence=0.95,
                     original_text=text,
                     processed_text=text_lower,
                     handler="action",
-                    extracted_entities={"resolved_intent": resolved_intent}
+                    extracted_entities={"resolved_intent": gate_result.intent}
                 )
+            if gate_result.outcome == GateOutcome.NO_ADAPTER:
+                return RoutedIntent(
+                    intent_type=IntentType.ACTION,
+                    confidence=0.9,
+                    original_text=text,
+                    processed_text=text_lower,
+                    handler="action_no_adapter",
+                    extracted_entities={"gate_result": gate_result}
+                )
+            if gate_result.outcome == GateOutcome.NOT_INSTALLED:
+                return RoutedIntent(
+                    intent_type=IntentType.ACTION,
+                    confidence=0.9,
+                    original_text=text,
+                    processed_text=text_lower,
+                    handler="action_not_installed",
+                    extracted_entities={"gate_result": gate_result}
+                )
+            # PLATFORM_UNKNOWN: fall through to existing patterns below.
 
         # Check code patterns
         if self._matches_any(text_lower, self._code_re):
