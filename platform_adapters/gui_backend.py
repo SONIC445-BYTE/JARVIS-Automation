@@ -51,6 +51,10 @@ class GUIBackend:
         if self.keyboard:
             self.keyboard.send(key)
 
+    def click(self, x: int, y: int) -> None:
+        if self.pyautogui:
+            self.pyautogui.click(x, y)
+
     def open_command(self, command: str) -> bool:
         try:
             subprocess.Popen(command, shell=True)

@@ -1,7 +1,21 @@
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
+
+
+@dataclass
+class BrowserEquivalent:
+    """
+    Declares that this platform's requested action can also be performed
+    via a browser (Phase 2g), for use when the native app isn't
+    installed. Phase 2c-prime groundwork only -- NOT wired into
+    resolution_gate.py's Q2 branch yet (stays a plain install-or-nothing
+    offer until Phase 2g has real, verified adapters to activate the
+    3-way branch against). See docs/resolution_gate.md.
+    """
+    url_template: str        # e.g. "https://web.whatsapp.com"
+    browser_adapter_key: str  # key into the Phase 2g browser-adapter registry
 
 
 @dataclass
@@ -35,6 +49,11 @@ class AdapterBase(ABC):
     # abstract methods below; subclasses may declare additional actions
     # here as they gain platform-specific methods beyond the base four.
     ACTIONS: List[ActionSpec] = []
+
+    # None (the default -- true for nearly everything until Phase 2g
+    # builds adapters) means no browser fallback is offered when the
+    # native app isn't installed.
+    BROWSER_EQUIVALENT: Optional[BrowserEquivalent] = None
 
     def __init__(self, logger, dry_run: bool = False):
         self.logger = logger

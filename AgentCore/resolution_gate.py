@@ -49,6 +49,16 @@ WINGET_IDS: Dict[str, Optional[Tuple[str, str]]] = {
     "whatsapp_desktop": ("9NKSQGP7F2NH", "msstore"),
     "text_editor": None,
     "gmail_browser": None,
+    # Phase 2d: ported adapters. amazon/google/twitter/youtube are
+    # browser-based (like gmail) -- no separate installable desktop app.
+    # calculator/explorer ship with Windows -- no separate package.
+    "amazon": None,
+    "google": None,
+    "calculator": None,
+    "explorer": None,
+    "twitter": None,
+    "spotify": ("Spotify.Spotify", "winget"),
+    "youtube": None,
 }
 
 

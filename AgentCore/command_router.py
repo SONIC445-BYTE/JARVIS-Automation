@@ -38,7 +38,7 @@ class _NullLogger:
 
 _MESSAGE_MARKERS = (" saying ", " that says ", " saying: ", " with message ")
 _TARGET_MARKER = " to "
-_MESSAGE_PREFIXES = ("send ", "message ", "text ", "write ", "email ", "mail ")
+_MESSAGE_PREFIXES = ("send ", "message ", "text ", "write ", "email ", "mail ", "calculate ", "type ", "note ", "save ")
 
 # Prepositions that introduce a target/trailing clause, not a verb. Verb
 # matching is bounded to the text before the earliest of these -- a word
@@ -187,12 +187,19 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
         target = target_raw[:cut].strip()
 
         if not message:
-            message = prefix_raw[:split_at].strip()
-            for prefix in _MESSAGE_PREFIXES:
-                if message.lower().startswith(prefix):
-                    message = message[len(prefix):].strip()
-                    break
+            message = _strip_verb_prefix(prefix_raw[:split_at].strip())
     elif not message:
-        message = prefix_raw.strip()
+        message = _strip_verb_prefix(prefix_raw.strip())
 
     return target, message
+
+
+def _strip_verb_prefix(text: str) -> str:
+    """Strip a leading trigger verb (e.g. "calculate ", "type ") off a
+    message so the adapter receives just the content -- "calculate 5
+    plus 3" becomes "5 plus 3", not the whole phrase including the verb
+    that routed it here."""
+    for prefix in _MESSAGE_PREFIXES:
+        if text.lower().startswith(prefix):
+            return text[len(prefix):].strip()
+    return text

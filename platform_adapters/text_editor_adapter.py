@@ -16,6 +16,7 @@ class TextEditorAdapter(AdapterBase):
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),
         ActionSpec("send_message", verbs=["type", "write", "note"], requires_message=True),
         ActionSpec("read_unread", verbs=["read"]),
+        ActionSpec("save_file", verbs=["save"], requires_target=True),
     ]
 
     def __init__(self, logger, dry_run: bool = False, backend: GUIBackend = None):
@@ -62,6 +63,31 @@ class TextEditorAdapter(AdapterBase):
         if not text:
             return []
         return [{"id": "editor-0", "from": "editor", "text": text[:500], "timestamp": time.time()}]
+
+    def save_file(self, target: str = "", message: str = "") -> bool:
+        """Ported from AgentCore/platform_adapters/notepad (audit
+        class-b): the original had hardcoded, explicitly-admitted-guessed
+        click coordinates ("# Guess" comments) for the File/Save menu and
+        Save button. Ctrl+S is Notepad's real, reliable save shortcut --
+        no coordinate-based clicking needed at all, which is a more
+        robust fix than routing through UIScanner for a fixed-shortcut
+        action. save_file declares requires_target=True (matches the
+        established "save notepad to X" phrasing, same "to"-marker
+        pattern as send_message elsewhere); if no real filename was
+        given, target falls back to the platform alias itself
+        ("notepad") -- filtered out below as "no filename provided"
+        rather than saved as a literal filename."""
+        filename = target if target.lower() not in (a.lower() for a in self.PLATFORM_ALIASES) else ""
+        self.log_action("save_file", {"filename": filename, "dry_run": self.dry_run})
+        if not filename:
+            return False
+        if self.dry_run:
+            return True
+        self.backend.hotkey("ctrl", "s")
+        time.sleep(0.4)  # Save As dialog (if this is a new/unsaved file)
+        self.backend.type_text(filename)
+        self.backend.press("enter")
+        return True
 
 
 def os_is_mac() -> bool:

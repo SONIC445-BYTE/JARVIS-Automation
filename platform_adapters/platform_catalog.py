@@ -1189,7 +1189,15 @@ DAEMON_ADAPTER_FOR: Dict[str, str] = {
     "notepad": "text_editor",
     "whatsapp": "whatsapp_desktop",
     "telegram": "telegram_desktop",
-    "gmail": "gmail_browser"
+    "gmail": "gmail_browser",
+    # Phase 2d: ported adapters (docs/adapter_audit.md class a/b folders).
+    "amazon": "amazon",
+    "google": "google",
+    "calculator": "calculator",
+    "explorer": "explorer",
+    "twitter": "twitter",
+    "spotify": "spotify",
+    "youtube": "youtube",
 }
 
 

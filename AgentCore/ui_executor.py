@@ -243,13 +243,15 @@ class UIExecutor:
             return adapter.send_message(intent.target, intent.message)
         if intent.action == "read_unread":
             return adapter.read_unread()
-        # Future platform-specific actions (e.g. Netflix play/pause): the
-        # convention is a method on the adapter named exactly after
-        # ActionSpec.name, called with no arguments.
+        # Future platform-specific actions (e.g. Netflix play/pause, or
+        # Phase 2d's calculate/new_tab/etc.): the convention is a method
+        # on the adapter named exactly after ActionSpec.name, called with
+        # (target, message) -- adapters that don't need either just
+        # declare them as unused/defaulted parameters.
         method = getattr(adapter, intent.action, None)
         if method is None:
             raise AttributeError(f"Adapter for '{intent.adapter}' has no method '{intent.action}'")
-        return method()
+        return method(intent.target, intent.message)
 
     # ============ Action Handlers ============
 

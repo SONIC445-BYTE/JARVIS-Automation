@@ -12,6 +12,13 @@ class BrowserAdapter(AdapterBase):
     WINDOW_TITLE = "Chrome"
     PLATFORM_ALIASES = ["browser", "chrome"]
     ACTIONS = [
+        # new_tab/close_tab declared before open_app/close_app: "close tab"
+        # must not be shadowed by close_app's single-word "close" verb --
+        # first-match-wins in CommandRouter, so the more specific
+        # multi-word verb needs to be checked first. See
+        # docs/command_architecture.md.
+        ActionSpec("new_tab", verbs=["new tab"]),
+        ActionSpec("close_tab", verbs=["close tab"]),
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),
         ActionSpec("send_message", verbs=["go to", "navigate to", "search"], requires_target=True),
@@ -67,3 +74,24 @@ class BrowserAdapter(AdapterBase):
         if not text:
             return []
         return [{"id": "browser-0", "from": "visible_window", "text": text[:500], "timestamp": time.time()}]
+
+    def new_tab(self, target: str = "", message: str = "") -> bool:
+        """Ported from AgentCore/platform_adapters/chrome (class-a, real).
+        Ctrl+T is Chrome's real, reliable new-tab shortcut -- no
+        coordinate-based clicking needed. target/message unused --
+        custom actions are called uniformly as method(target, message)."""
+        self.log_action("new_tab", {"dry_run": self.dry_run})
+        if self.dry_run:
+            return True
+        if not self.open_app():
+            return False
+        self.backend.hotkey("ctrl", "t")
+        return True
+
+    def close_tab(self, target: str = "", message: str = "") -> bool:
+        """Ctrl+W is Chrome's real, reliable close-tab shortcut."""
+        self.log_action("close_tab", {"dry_run": self.dry_run})
+        if self.dry_run:
+            return True
+        self.backend.hotkey("ctrl", "w")
+        return True
