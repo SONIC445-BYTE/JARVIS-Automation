@@ -62,13 +62,27 @@ class GUIBackend:
         except Exception:
             return False
 
-    def close_window(self) -> None:
+    def close_window(self, title: str) -> bool:
+        """
+        Requires the target window to actually be focused before sending
+        a close shortcut. Root cause of the terminal-crash incident:
+        close_window() used to fire Alt+F4 unconditionally, with no check
+        of what window currently had focus -- if the target app hadn't
+        actually gained OS foreground focus yet (e.g. Windows denying a
+        newly-launched background process foreground-stealing rights),
+        the shortcut landed on whatever *did* have focus instead, which
+        was the terminal running this process. Reusing activate_window()
+        here rather than inventing a second focus mechanism.
+        """
+        if not self.activate_window(title):
+            return False
         if os.name == "nt":
             self.hotkey("alt", "f4")
         elif sys.platform == "darwin":
             self.hotkey("command", "q")
         else:
             self.hotkey("alt", "f4")
+        return True
 
     def read_visible_text(self) -> str:
         # Window text scraping would be first choice. Keep this lightweight and optional.

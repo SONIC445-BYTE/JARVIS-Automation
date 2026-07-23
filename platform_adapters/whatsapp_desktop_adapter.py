@@ -63,8 +63,10 @@ class WhatsappDesktopAdapter(AdapterBase):
         if self.dry_run:
             self.log_action("close_app", {"dry_run": True})
             return True
-        self.backend.close_window()
-        return True
+        closed = self.backend.close_window(self.WINDOW_TITLE)
+        if not closed:
+            self.log_action("close_app_skipped", {"reason": f"{self.WINDOW_TITLE} not found/focused"})
+        return closed
 
     def read_unread(self, limit: int = 10) -> List[Dict[str, Any]]:
         self.log_action("read_unread", {"limit": limit, "dry_run": self.dry_run})

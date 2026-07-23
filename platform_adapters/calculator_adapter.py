@@ -67,8 +67,10 @@ class CalculatorAdapter(AdapterBase):
         self.log_action("close_app", {"target": "calculator", "dry_run": self.dry_run})
         if self.dry_run:
             return True
-        self.backend.close_window()
-        return True
+        closed = self.backend.close_window(self.WINDOW_TITLE)
+        if not closed:
+            self.log_action("close_app_skipped", {"reason": f"{self.WINDOW_TITLE} not found/focused"})
+        return closed
 
     def calculate(self, target: str = "", message: str = "") -> bool:
         """Ported from the audit folder's real logic: type the expression,

@@ -35,8 +35,10 @@ class GoogleAdapter(AdapterBase):
         self.log_action("close_app", {"target": "google", "dry_run": self.dry_run})
         if self.dry_run:
             return True
-        self.backend.close_window()
-        return True
+        closed = self.backend.close_window(self.WINDOW_TITLE)
+        if not closed:
+            self.log_action("close_app_skipped", {"reason": f"{self.WINDOW_TITLE} not found/focused"})
+        return closed
 
     def send_message(self, target: str, message: str) -> bool:
         query = extract_query(target, message, self.PLATFORM_ALIASES)
