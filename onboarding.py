@@ -23,10 +23,17 @@ import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 STATE_DIR = Path("state")
 ONBOARDING_MARKER = STATE_DIR / "onboarding_complete.json"
+SCAN_CACHE_MARKER = STATE_DIR / "availability_scan_cache.json"
+PENDING_STATE_MARKER = STATE_DIR / "pending_state.json"
+
+# Kept in sync with pyproject.toml's [project].version by hand -- this
+# is a display string for the startup box, not a second source of truth
+# consumed by packaging.
+JARVIS_VERSION = "0.1.0"
 
 # Pure 7-bit ASCII only -- deliberately, not a style preference. See
 # jarvis.py's stdout-reconfigure fix and WakeService/wake_detector.py's
@@ -61,6 +68,21 @@ def mark_onboarding_complete() -> None:
     )
 
 
+def _installed_map(checker) -> Dict[str, bool]:
+    """adapter_key -> is_installed, for CommandRouter's real adapter
+    registry against the given AvailabilityChecker. Single shared
+    computation used by the full coverage report, the scan cache the
+    compact status box reads, and rescan_now() -- not reimplemented
+    per caller."""
+    from AgentCore.command_router import CommandRouter
+
+    router = CommandRouter()
+    return {
+        key: checker.is_installed(cls.PLATFORM_ALIASES or [key])
+        for key, cls in router._adapter_classes.items()
+    }
+
+
 def _coverage_lines(checker) -> List[str]:
     """Reuses CommandRouter's real adapter registry (the exact set
     ResolutionGate checks against) and the shared AvailabilityChecker --
@@ -68,20 +90,108 @@ def _coverage_lines(checker) -> List[str]:
     from AgentCore.command_router import CommandRouter
 
     router = CommandRouter()
+    installed = _installed_map(checker)
     lines = []
-    installed_count = 0
-    entries = sorted(router._adapter_classes.items(), key=lambda kv: kv[0])
-    for key, adapter_cls in entries:
+    installed_count = sum(1 for v in installed.values() if v)
+    for key, adapter_cls in sorted(router._adapter_classes.items(), key=lambda kv: kv[0]):
         aliases = adapter_cls.PLATFORM_ALIASES or [key]
         display = aliases[0].title()
-        found = checker.is_installed(aliases)
-        if found:
-            installed_count += 1
+        found = installed[key]
         status = "found" if found else "not found"
         lines.append(f"  [{'x' if found else ' '}] {display:<20s} {status}")
     lines.append("")
-    lines.append(f"  {installed_count} of {len(entries)} controllable platforms found on this machine.")
+    lines.append(f"  {installed_count} of {len(installed)} controllable platforms found on this machine.")
     return lines
+
+
+def _write_scan_cache(checker) -> None:
+    """Called after every real AvailabilityChecker.refresh() (onboarding's
+    own first-run scan, PeriodicAvailabilityRescanner's tick, and
+    rescan_now()) so the compact status box (every launch) can show
+    live-sourced counts instantly without forcing its own blocking scan
+    just to render a status line -- it reads this cache instead. Not a
+    second scanning mechanism: the data always comes from a refresh()
+    that already happened for its own reason."""
+    installed = _installed_map(checker)
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    SCAN_CACHE_MARKER.write_text(
+        json.dumps({"installed": installed, "checked_at": _now_iso()}, indent=2),
+        encoding="utf-8",
+    )
+
+
+def _read_scan_cache() -> Optional[dict]:
+    if not SCAN_CACHE_MARKER.exists():
+        return None
+    try:
+        return json.loads(SCAN_CACHE_MARKER.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _age_description(iso_timestamp: str) -> str:
+    try:
+        then = datetime.fromisoformat(iso_timestamp)
+    except Exception:
+        return "unknown"
+    seconds = (datetime.now(timezone.utc) - then).total_seconds()
+    if seconds < 60:
+        return "just now"
+    minutes = int(seconds // 60)
+    if minutes < 60:
+        return f"{minutes} min ago"
+    hours = int(minutes // 60)
+    if hours < 24:
+        return f"{hours}h ago"
+    return f"{int(hours // 24)}d ago"
+
+
+# ============ Pending PendingInstall/PendingResume, surfaced across restarts ============
+
+def persist_pending_state(kind: str, description: str) -> None:
+    """kind: "install" | "resume". PersistentWakeService's
+    _pending_install/_pending_resume are in-memory only -- if the
+    process restarts (or crashes) while one is set, it's silently lost
+    with no indication anything was waiting, until the exact right
+    trigger phrase is spoken again in a process that never restarted.
+    Called from jarvis.py at the same points those fields get set, so
+    the NEXT launch's compact status box can at least tell the
+    physician something was left unresolved, instead of it vanishing
+    unnoticed. Does not attempt to restore the pending state itself
+    (e.g. auto re-arm _pending_resume from a dead session) -- only
+    surfaces that it existed; re-issuing the original command is still
+    required."""
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    PENDING_STATE_MARKER.write_text(
+        json.dumps({"kind": kind, "description": description, "recorded_at": _now_iso()}, indent=2),
+        encoding="utf-8",
+    )
+
+
+def clear_pending_state() -> None:
+    try:
+        PENDING_STATE_MARKER.unlink()
+    except FileNotFoundError:
+        pass
+
+
+def read_pending_state_summary() -> Optional[str]:
+    if not PENDING_STATE_MARKER.exists():
+        return None
+    try:
+        data = json.loads(PENDING_STATE_MARKER.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    kind = data.get("kind")
+    if kind == "install":
+        return "1 install awaiting your confirmation"
+    if kind == "resume":
+        return "1 browser task waiting on you"
+    return None
 
 
 def run_onboarding(checker=None, speak_fn=None) -> None:
@@ -122,6 +232,7 @@ def run_onboarding(checker=None, speak_fn=None) -> None:
     for line in _coverage_lines(checker):
         print(line)
     print()
+    _write_scan_cache(checker)  # so the compact status box has data immediately after this
 
     mark_onboarding_complete()
 
@@ -188,6 +299,7 @@ class PeriodicAvailabilityRescanner:
         while not self._stop_event.wait(self._interval_s):
             try:
                 self._checker.refresh()
+                _write_scan_cache(self._checker)
             except Exception as e:
                 print(f"[AvailabilityRescan] refresh failed (will retry next interval): {e}")
 
@@ -215,6 +327,7 @@ def rescan_now(checker=None) -> str:
     }
 
     checker.refresh()
+    _write_scan_cache(checker)
 
     newly_found = []
     for key, cls in entries:
@@ -229,3 +342,85 @@ def rescan_now(checker=None) -> str:
     if newly_found:
         return f"Rescanned -- found {', '.join(newly_found)} newly installed. {total_found} of {total} platforms available now."
     return f"Rescanned -- no new apps found. {total_found} of {total} platforms available."
+
+
+# ============ Compact status box (every launch) ============
+#
+# Replaces the old "full walkthrough once, quiet after" split for the
+# startup display itself: the FULL walkthrough (banner, visible scan,
+# explanation) still only runs once, on first run -- run_onboarding()
+# above is unchanged. But every launch, first-run included, now ends
+# with this compact box as the standing header, modeled on Claude
+# Code's own startup box. Deliberately excluded, per instruction: no
+# account/identity line (no equivalent -- local/single-user), no
+# working-directory line (not meaningful for a voice assistant), no
+# "what's new"/tips filler (would need a real changelog feeding it, not
+# invented placeholder text), no full per-platform table (stays behind
+# "check what's installed"), no visible toggle for the install-
+# confirmation safety requirement (non-negotiable, not something to
+# present as adjustable).
+
+_FAST_TIER_MODELS = {"tinyllama", "phi3:mini"}
+
+
+def _model_tier(model_name: str) -> str:
+    """tinyllama/phi3:mini are the two smallest, CPU-friendly entries at
+    the front of LLMEngine.PREFERRED_MODELS ("smallest first" per its
+    own docstring) -- everything after them is larger/slower and more
+    accurate. There's no literal Fast/Accurate toggle anywhere in
+    LLMEngine today; this is a friendly label derived from where the
+    currently-active model already sits in that existing ordering, not
+    a new switch."""
+    base = model_name.split(":")[0]
+    return "Fast" if model_name in _FAST_TIER_MODELS or base in _FAST_TIER_MODELS else "Accurate"
+
+
+def render_status_box(wake_active: bool, llm_model: Optional[str], llm_ready: bool, checker=None) -> str:
+    """The compact, every-launch status box. Reads the persisted scan
+    cache (written by run_onboarding()/PeriodicAvailabilityRescanner/
+    rescan_now()) for the platform-count line rather than forcing a
+    fresh AvailabilityChecker scan just to render -- keeps every launch
+    fast, and makes "last scan" genuinely meaningful (it can honestly
+    be "4 min ago", not always "just now"). Falls back to a live check
+    via `checker` only if no cache exists yet at all (true first-ever
+    launch, before onboarding's own scan has written one)."""
+    lines = [f"JARVIS v{JARVIS_VERSION}", ""]
+    lines.append(f"Wake word:  {'listening' if wake_active else 'not active'}")
+
+    if llm_model:
+        status = "ready" if llm_ready else "not available"
+        lines.append(f"Model:      {llm_model} ({_model_tier(llm_model)}) -- {status}")
+    else:
+        lines.append("Model:      not available")
+
+    from platform_adapters.platform_catalog import DAEMON_ADAPTER_FOR, PLATFORM_CATALOG
+
+    not_wired = len(PLATFORM_CATALOG) - len(DAEMON_ADAPTER_FOR)
+
+    cache = _read_scan_cache()
+    if cache is not None:
+        installed = cache["installed"]
+        ready = sum(1 for v in installed.values() if v)
+        pending = len(installed) - ready
+        checked_desc = _age_description(cache["checked_at"])
+    elif checker is not None:
+        installed = _installed_map(checker)
+        ready = sum(1 for v in installed.values() if v)
+        pending = len(installed) - ready
+        checked_desc = "just now"
+    else:
+        ready = pending = None
+        checked_desc = "not yet checked"
+
+    if ready is not None:
+        lines.append(f"Platforms:  {ready} ready . {pending} pending install . {not_wired} not yet wired")
+    else:
+        lines.append("Platforms:  not yet checked")
+
+    lines.append(f"Pending:    {read_pending_state_summary() or 'none'}")
+    lines.append(f"Last scan:  {checked_desc}")
+
+    width = max(len(line) for line in lines) + 2
+    border = "+" + "-" * (width + 2) + "+"
+    body = "\n".join(f"| {line.ljust(width)} |" for line in lines)
+    return f"{border}\n{body}\n{border}"

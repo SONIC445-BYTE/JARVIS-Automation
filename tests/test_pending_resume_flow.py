@@ -121,9 +121,17 @@ class TestActionHandlerSetsAndReplacesPendingResume(unittest.TestCase):
             else:
                 response = f"{result.message}"
             self.service._pending_resume = PendingResume(original_text=text, reason=result.message)
+            from onboarding import persist_pending_state
+            persist_pending_state("resume", result.message)
         else:
             response = result.message if result.success else f"Failed: {result.message}"
         return response
+
+    @mock.patch("onboarding.persist_pending_state")
+    def test_first_block_persists_pending_state(self, mock_persist):
+        result = mock.Mock(blocked=True, message="please log in", success=False)
+        self._run_action_branch("send whatsapp web message to mom saying hi", result)
+        mock_persist.assert_called_once_with("resume", "please log in")
 
     def test_first_block_sets_pending_resume_cleanly(self):
         result = mock.Mock(blocked=True, message="please log in", success=False)
@@ -208,6 +216,47 @@ class TestBlockedStatusPropagation(unittest.TestCase):
         self.assertTrue(result.blocked)
         self.assertFalse(result.success)
         self.assertEqual(result.message, "please log in")
+
+
+class TestPendingResumePersistenceHooks(unittest.TestCase):
+    """PendingResume is in-memory only on PersistentWakeService -- a
+    restart while one is set silently loses it with no trace. jarvis.py
+    calls onboarding.persist_pending_state()/clear_pending_state() at
+    the same points _pending_resume gets set/cleared so the compact
+    status box's next launch can at least surface that something was
+    left unresolved (see onboarding.py's render_status_box "Pending"
+    field). These tests confirm the hooks actually fire, not just that
+    onboarding.py's own persistence functions work in isolation."""
+
+    def setUp(self):
+        self.service = jarvis.PersistentWakeService(conversation_mode=True)
+
+    def _pending(self, reason="please log in"):
+        return PendingResume(original_text="send whatsapp web message to mom saying hi", reason=reason)
+
+    @mock.patch("onboarding.clear_pending_state")
+    def test_handle_resume_clears_persisted_state_on_success(self, mock_clear):
+        self.service._pending_resume = self._pending()
+        mock_odav = mock.Mock()
+        mock_odav.execute.return_value = mock.Mock(success=True, message="OK", blocked=False)
+        self.service._odav = mock_odav
+
+        self.service._handle_resume("continue")
+
+        mock_clear.assert_called_once()
+
+    @mock.patch("onboarding.persist_pending_state")
+    @mock.patch("onboarding.clear_pending_state")
+    def test_handle_resume_repersists_on_still_blocked(self, mock_clear, mock_persist):
+        self.service._pending_resume = self._pending()
+        mock_odav = mock.Mock()
+        mock_odav.execute.return_value = mock.Mock(success=False, message="still blocked", blocked=True)
+        self.service._odav = mock_odav
+
+        self.service._handle_resume("continue")
+
+        mock_clear.assert_called_once()
+        mock_persist.assert_called_once_with("resume", "still blocked")
 
 
 if __name__ == "__main__":

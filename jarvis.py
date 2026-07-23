@@ -244,11 +244,6 @@ class PersistentWakeService:
 
     def start(self):
         """Start the persistent wake service."""
-        print("=" * 60)
-        print("JARVIS Persistent Wake Service")
-        print("FREE • OFFLINE • LOW CPU")
-        print("=" * 60)
-
         self._running = True
 
         # Initialize components
@@ -258,8 +253,10 @@ class PersistentWakeService:
 
         # First-run onboarding: once, ever, unless explicitly
         # re-triggered (--setup, or "run setup again" mid-session --
-        # see the conversation loop below). Every run after the first
-        # is fast/quiet by design -- no walkthrough, no banner.
+        # see the conversation loop below). The full walkthrough (banner,
+        # visible scan, explanation) still only runs once -- what changed
+        # is the compact status box below, which now runs every launch,
+        # first-run included, replacing the old bare "=..." banner.
         from onboarding import is_first_run, run_onboarding
         if self._force_setup or is_first_run():
             run_onboarding(speak_fn=self._speak)
@@ -277,6 +274,14 @@ class PersistentWakeService:
         from onboarding import PeriodicAvailabilityRescanner
         self._availability_rescanner = PeriodicAvailabilityRescanner()
         self._availability_rescanner.start()
+
+        # Compact status box -- every launch (first run included, as the
+        # standing header the full walkthrough above hands off to).
+        from onboarding import render_status_box
+        llm_model = self._llm.model if self._llm else None
+        llm_ready = bool(self._llm and self._llm.is_available())
+        wake_active = bool(self._wake_detector and self._wake_detector.is_listening)
+        print(render_status_box(wake_active=wake_active, llm_model=llm_model, llm_ready=llm_ready))
 
         # Speak greeting
         self._speak("JARVIS online. Say Jarvis to wake me.")
@@ -441,6 +446,8 @@ class PersistentWakeService:
         same as a decline (never install without a clear yes)."""
         pending = self._pending_install
         self._pending_install = None
+        from onboarding import clear_pending_state
+        clear_pending_state()
 
         if not _is_affirmative(text):
             return f"Okay, I won't install {pending.platform_display_name}."
@@ -484,6 +491,8 @@ class PersistentWakeService:
         stale pending state around."""
         pending = self._pending_resume
         self._pending_resume = None
+        from onboarding import clear_pending_state, persist_pending_state
+        clear_pending_state()
 
         if pending is None:
             # Defensive: the real conversation loop only calls this when
@@ -499,6 +508,7 @@ class PersistentWakeService:
         result = self._odav.execute(pending.original_text)
         if getattr(result, "blocked", False):
             self._pending_resume = PendingResume(original_text=pending.original_text, reason=result.message)
+            persist_pending_state("resume", result.message)
             return result.message
         if result.success:
             return f"Continuing... {result.message}"
@@ -760,6 +770,8 @@ class PersistentWakeService:
                         else:
                             response = f"{result.message}"
                         self._pending_resume = PendingResume(original_text=text, reason=result.message)
+                        from onboarding import persist_pending_state
+                        persist_pending_state("resume", result.message)
                     else:
                         response = result.message if result.success else f"Failed: {result.message}"
                 else:
@@ -785,6 +797,8 @@ class PersistentWakeService:
                         adapter_key=gate_result.adapter_key,
                         winget_id=gate_result.winget_id,
                     )
+                    from onboarding import persist_pending_state
+                    persist_pending_state("install", f"install {gate_result.platform_display_name}")
                     response = gate_result.message
                 else:
                     response = "That app isn't installed."

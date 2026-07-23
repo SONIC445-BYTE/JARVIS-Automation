@@ -122,6 +122,24 @@ class TestInstallConfirmationFlow(unittest.TestCase):
         # no pending-install branch is ever reached for RESOLVED.
         self.assertIsNone(self.service._pending_install)
 
+    # PendingInstall is in-memory only -- a restart while one is set
+    # silently loses it. _handle_install_confirmation calls
+    # onboarding.clear_pending_state() at the same point it clears
+    # self._pending_install, so the compact status box's "Pending" field
+    # (see onboarding.py's render_status_box) never shows a stale entry
+    # once it's actually been resolved one way or another.
+    @mock.patch("onboarding.clear_pending_state")
+    def test_decline_clears_persisted_pending_state(self, mock_clear):
+        self.service._pending_install = self._pending()
+        self.service._handle_install_confirmation("no thanks")
+        mock_clear.assert_called_once()
+
+    @mock.patch("onboarding.clear_pending_state")
+    def test_confirm_no_winget_match_clears_persisted_pending_state(self, mock_clear):
+        self.service._pending_install = self._pending(winget_id=None)
+        self.service._handle_install_confirmation("yes")
+        mock_clear.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()
