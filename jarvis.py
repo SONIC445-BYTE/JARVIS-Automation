@@ -7,6 +7,10 @@ Usage:
   python jarvis.py              # Normal interactive mode (browser STT)
   python jarvis.py --service    # Persistent wake mode (offline, low CPU)
   python jarvis.py --convo      # Conversational mode with LLM (offline)
+  python jarvis.py --background # Same as --convo, minimal console output
+                                 # (--daemon is a deprecated alias for this;
+                                 # it does NOT invoke daemon/dispatcher.py --
+                                 # that's a separate CLI, `python -m daemon.cli`)
 
 Features:
 - FREE Vosk-only wake detection
@@ -720,9 +724,16 @@ if __name__ == "__main__":
         print(f"Status: {result.success}")
         sys.exit(0)
 
-    elif "--daemon" in sys.argv:
-        # Daemon mode - background process with minimal output
-        print("Starting JARVIS in DAEMON mode (background)...")
+    elif "--background" in sys.argv or "--daemon" in sys.argv:
+        # Background process with minimal output (voice conversation loop,
+        # same as --convo, just quieter). Renamed from --daemon: that name
+        # implied this invokes daemon/dispatcher.py's CommandDispatcher (the
+        # text-command dispatcher reachable via `python -m daemon.cli`) --
+        # it never did, and still doesn't. --daemon is kept as a deprecated
+        # alias so existing scripts/muscle memory don't break.
+        if "--daemon" in sys.argv:
+            print("[Deprecated] --daemon has been renamed to --background (it never invoked daemon/dispatcher.py; that name was misleading). Use --background going forward.")
+        print("Starting JARVIS in BACKGROUND mode...")
         import logging
         logging.basicConfig(level=logging.WARNING)  # Suppress most output
         service = PersistentWakeService(conversation_mode=True)
