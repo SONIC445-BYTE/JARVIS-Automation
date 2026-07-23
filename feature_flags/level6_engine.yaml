@@ -1,4 +1,4 @@
-enabled: false
+enabled: true
 model: "llama3:latest" # or your local model
 max_iterations: 5
 max_time_per_request_minutes: 15
