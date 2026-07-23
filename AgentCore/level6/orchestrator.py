@@ -1,8 +1,11 @@
 import yaml
 import os
+import shutil
 import uuid
 import time
-from typing import Dict, Any, Optional
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Dict, Any, List, Optional
 
 from .planner import Planner
 from .metrics import Level6Metrics
@@ -11,6 +14,36 @@ from .sandbox_runner import SandboxRunner
 from .verifier import Verifier
 from .debug_loop import DebugLoop
 from .ast_fixer import ASTFixer
+
+
+@dataclass
+class PendingLevel6Apply:
+    """
+    Multi-turn confirmation state between a verified Level6 plan and the
+    owner's explicit approval to write it to the real repo -- same
+    "never act without an unambiguous yes" standard as PendingInstall
+    (AgentCore/resolution_gate.py, Phase 2c). Held by the conversation
+    loop (jarvis.py), not by Level6Coordinator itself, matching that
+    same ownership split: the coordinator returns data, the
+    conversation loop owns pending multi-turn state and speaks the
+    approval question.
+
+    sandbox_dir is deliberately what gets applied, not plan[i]["content"]
+    directly: an "ast_edit" plan step's final content is only ever
+    written into the sandbox file by ASTFixer (via SandboxRunner) -- it
+    is never written back into the plan list itself. Applying from
+    plan content would silently apply stale/empty content for any
+    ast_edit step; copying the exact sandbox bytes that were actually
+    verified avoids any drift between what was tested and what gets
+    applied.
+    """
+    request_id: str
+    plan: List[Dict[str, Any]]
+    sandbox_dir: str
+    target_dir: str
+    explain: Optional[str] = None
+    risk_score: float = 0.0
+
 
 class Level6Coordinator:
     def __init__(self, config_path="feature_flags/level6_engine.yaml", llm=None, code_engine=None):
@@ -114,10 +147,12 @@ class Level6Coordinator:
                 "debug_iterations": debug_result.get("iterations"),
             }
 
-        # Phase A/B stop here (plan -> sandbox-execute-with-auto-debug ->
-        # verify). No apply-to-real-repo step yet -- that's Phase D,
-        # gated on explicit owner approval and using RollbackManager as
-        # the safety net.
+        # Phase A/B/C stop here (plan -> sandbox-execute-with-auto-debug
+        # -> verify). Nothing has touched the real repo -- applying is
+        # Phase D, a separate, explicitly owner-approved step (see
+        # apply() / PendingLevel6Apply below). "target_dir" is where an
+        # apply would write to if approved; it is context["cwd"] (the
+        # real working directory this request came from), never assumed.
         self.metrics.log_success(req_id, debug_result.get("iterations", 1), risk_score)
         return {
             "status": "verified",
@@ -129,4 +164,62 @@ class Level6Coordinator:
             "sandbox_result": sandbox_result,
             "verify_result": verify_result,
             "debug_iterations": debug_result.get("iterations"),
+            "target_dir": context.get("cwd", os.getcwd()),
         }
+
+    def apply(self, pending: PendingLevel6Apply) -> Dict[str, Any]:
+        """
+        Writes a verified plan's files to the real target directory --
+        only ever called after explicit owner approval (see
+        PendingLevel6Apply's docstring; jarvis.py is the only caller,
+        and only from _handle_level6_apply_confirmation() after
+        _is_affirmative(text)).
+
+        Safety sequence: snapshot target_dir via RollbackManager first;
+        refuse to apply at all if the snapshot itself fails (never write
+        without a safety net); copy each plan file's exact verified
+        bytes from the sandbox; on any failure partway through, revert
+        everything from the snapshot rather than leaving a half-applied
+        change.
+        """
+        target_dir = Path(pending.target_dir)
+        sandbox_dir = Path(pending.sandbox_dir)
+        snapshot_id = f"apply_{pending.request_id}"
+
+        if not self.rollback.create_snapshot(snapshot_id, str(target_dir)):
+            return {
+                "status": "apply_failed",
+                "reason": "Could not create a safety snapshot before applying -- refusing to write without one.",
+            }
+
+        written = []
+        try:
+            for step in pending.plan:
+                if step.get("type") not in ("create_file", "update_file", "ast_edit"):
+                    continue
+                target = step.get("target")
+                if not target:
+                    continue
+                src = sandbox_dir / target
+                if not src.exists():
+                    raise FileNotFoundError(
+                        f"Verified sandbox is missing {target} -- refusing to apply an incomplete plan"
+                    )
+                dest = target_dir / target
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(src, dest)
+                written.append(str(dest))
+
+            self.metrics.log_metric("level6_applied", {"request_id": pending.request_id, "files": written})
+            return {"status": "applied", "files": written, "snapshot_id": snapshot_id}
+
+        except Exception as e:
+            print(f"[Level6] Apply failed ({e}), reverting from snapshot {snapshot_id}")
+            reverted = self.rollback.revert(snapshot_id, str(target_dir))
+            self.metrics.log_failure(pending.request_id, "apply_failed", 0)
+            return {
+                "status": "apply_failed",
+                "reason": str(e),
+                "reverted": reverted,
+                "snapshot_id": snapshot_id,
+            }

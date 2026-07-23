@@ -237,6 +237,7 @@ class PersistentWakeService:
         self._last_activity = time.time()
         self._pending_install = None  # Phase 2c: AgentCore.resolution_gate.PendingInstall
         self._pending_resume = None  # Phase 2g: PendingResume (CAPTCHA/login-wall)
+        self._pending_level6_apply = None  # Phase D: AgentCore.level6.orchestrator.PendingLevel6Apply
         self._availability_rescanner = None  # periodic AvailabilityChecker refresh, see onboarding.py
 
         # Learning System (Sprint 8)
@@ -478,6 +479,30 @@ class PersistentWakeService:
 
         return f"Installed {pending.platform_display_name}."
 
+    def _handle_level6_apply_confirmation(self, text: str) -> str:
+        """Phase D: handle the user's reply to "want me to apply it?"
+        for a verified Level6 plan. Always clears
+        self._pending_level6_apply and returns a distinct, honest
+        message -- applied+file list, declined, or apply_failed+reverted.
+        Never applies without a clear yes -- same standard as
+        _handle_install_confirmation (Phase 2c): an ambiguous reply is
+        treated the same as a decline."""
+        pending = self._pending_level6_apply
+        self._pending_level6_apply = None
+
+        if not _is_affirmative(text):
+            return "Okay, I won't apply that change."
+
+        global LEVEL6_ENGINE
+        result = LEVEL6_ENGINE.apply(pending)
+
+        if result.get("status") == "applied":
+            files = ", ".join(result.get("files", []))
+            return f"Applied: {files}."
+
+        reverted_note = " and reverted" if result.get("reverted") else ""
+        return f"Apply failed{reverted_note}: {result.get('reason')}"
+
     def _handle_resume(self, text: str) -> str:
         """Phase 2g: handle an affirmative "continue" after a CAPTCHA/
         login-wall block. Re-executes the ORIGINAL command -- the
@@ -675,6 +700,19 @@ class PersistentWakeService:
                 self._last_activity = time.time()
                 continue
 
+            # Phase D: pending Level6 apply confirmation -- same priority
+            # and "never act without a clear yes" standard as pending
+            # install. This turn is answering "want me to apply it?",
+            # not a new command.
+            if self._pending_level6_apply is not None:
+                self._set_state(JarvisState.EXECUTION)
+                response = self._handle_level6_apply_confirmation(text)
+                self._set_state(JarvisState.SPEAK)
+                print(f"[Convo] JARVIS: '{response[:100]}...'")
+                self._speak(response)
+                self._last_activity = time.time()
+                continue
+
             # Phase 2g: pending resume (CAPTCHA/login-wall) -- unlike
             # pending install, only an explicit affirmative consumes this;
             # anything else falls through to normal handling below so
@@ -728,11 +766,35 @@ class PersistentWakeService:
                     if is_complex:
                          print(f"[Level-6] Handling request: {text}")
                          res = LEVEL6_ENGINE.handle_request(text, context={"user":"owner", "cwd":os.getcwd()})
-                         self._speak(f"Level-6 Plan: {res.get('status')}. Risk: {res.get('risk_score')}")
                          if res.get("plan"):
                              print(json.dumps(res["plan"], indent=2))
-                         if res.get("status") == "planned":
-                             continue
+
+                         if res.get("status") == "verified":
+                             # Phase D: never apply automatically -- hold
+                             # a pending confirmation and ask, same
+                             # standard as the install-confirmation gate
+                             # (Phase 2c). The next turn answers this,
+                             # not a new command (see the
+                             # _pending_level6_apply routing check above).
+                             from AgentCore.level6.orchestrator import PendingLevel6Apply
+                             self._pending_level6_apply = PendingLevel6Apply(
+                                 request_id=res["request_id"],
+                                 plan=res["plan"],
+                                 sandbox_dir=res["sandbox_result"].get("sandbox_dir", ""),
+                                 target_dir=res.get("target_dir", os.getcwd()),
+                                 explain=res.get("explain"),
+                                 risk_score=res.get("risk_score", 0.0),
+                             )
+                             files = ", ".join(
+                                 step.get("target", "") for step in res["plan"] if step.get("target")
+                             )
+                             self._speak(
+                                 f"I have a verified fix ready: {res.get('explain') or 'no summary given'}. "
+                                 f"Files: {files or 'none'}. Want me to apply it?"
+                             )
+                         else:
+                             self._speak(f"Level-6 Plan: {res.get('status')}. Risk: {res.get('risk_score')}")
+                         continue
             except Exception as e:
                 print(f"[Level-6] Error: {e}")
             # --- END LEVEL-6 ADDITION ---
