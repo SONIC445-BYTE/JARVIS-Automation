@@ -1,5 +1,6 @@
+import subprocess
 import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from .adapter_base import ActionSpec, AdapterBase, BrowserEquivalent
 from .gui_backend import GUIBackend
@@ -35,10 +36,45 @@ class WhatsappDesktopAdapter(AdapterBase):
         if self.dry_run:
             self.log_action("open_app", {"target": "whatsapp", "dry_run": True})
             return True
-        activated = self.backend.activate_window(self.WINDOW_TITLE)
-        time.sleep(0.2)
-        self.log_action("open_app", {"target": "whatsapp", "success": activated})
-        return activated
+        if self.backend.activate_window(self.WINDOW_TITLE):
+            time.sleep(0.2)
+            self.log_action("open_app", {"target": "whatsapp", "success": True})
+            return True
+        # Found live: this used to have no fallback at all if no window
+        # was already open -- same missing-launch-fallback bug as
+        # telegram_desktop_adapter.py, confirmed live there. WhatsApp
+        # Desktop is a Microsoft Store (UWP) app though, not a plain
+        # .exe -- launched via its AppsFolder shell path
+        # (shell:AppsFolder\<PackageFamilyName>!App), not `start <name>`.
+        # Looks up the real, installed PackageFamilyName rather than
+        # hardcoding one: Store app IDs aren't something this could
+        # verify live on this machine (no real WhatsApp Desktop install
+        # was found here at all during the audit -- see the
+        # AvailabilityChecker false-positive finding this round; the
+        # earlier "already installed" result was matching a WhatsApp Web
+        # Chrome PWA shortcut, not this app).
+        pfn = self._find_whatsapp_package_family_name()
+        success = bool(pfn) and self.backend.open_command(f"explorer.exe shell:AppsFolder\\{pfn}!App")
+        self.log_action("open_app", {"target": "whatsapp", "success": success, "package_family_name": pfn})
+        return success
+
+    @staticmethod
+    def _find_whatsapp_package_family_name() -> Optional[str]:
+        try:
+            result = subprocess.run(
+                [
+                    "powershell", "-NoProfile", "-Command",
+                    "(Get-AppxPackage | Where-Object { $_.Name -like '*WhatsApp*' } | "
+                    "Select-Object -First 1).PackageFamilyName",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=10,
+            )
+            pfn = result.stdout.strip()
+            return pfn or None
+        except Exception:
+            return None
 
     def send_message(self, target: str, message: str) -> bool:
         self.log_action(

@@ -28,7 +28,18 @@ class TelegramDesktopAdapter(AdapterBase):
         self.log_action("open_app", {"target": "telegram", "dry_run": self.dry_run})
         if self.dry_run:
             return True
-        return self.backend.activate_window(self.WINDOW_TITLE)
+        # Found live: this used to only try activate_window(), with no
+        # fallback to actually launch the app -- every other adapter
+        # (text_editor/browser/calculator/gmail_browser directly,
+        # amazon/google/spotify/twitter/youtube via their shared
+        # _navigate() helper) falls back to a real launch command when
+        # no window is found. A freshly-installed Telegram with no prior
+        # window silently failed to open at all. Confirmed live: the
+        # non-Store Telegram Desktop installer always places the exe at
+        # %APPDATA%\Telegram Desktop\Telegram.exe.
+        if self.backend.activate_window(self.WINDOW_TITLE):
+            return True
+        return self.backend.open_command('start "" "%APPDATA%\\Telegram Desktop\\Telegram.exe"')
 
     def close_app(self) -> bool:
         self.log_action("close_app", {"target": "telegram", "dry_run": self.dry_run})
