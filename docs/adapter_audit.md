@@ -25,8 +25,8 @@ sample of a mixed-quality set.
 | Class | Count | Meaning |
 |---|---|---|
 | (a) Real, complete for its declared actions | **3** | `amazon`, `google`, `chrome` |
-| (b) Real logic, but incomplete or has a fixable defect | **9 confirmed** (likely ~15-25 more, unverified) | See below |
-| (c) Fabricated/non-functional regardless of input | **148** | See below |
+| (b) Real logic, but incomplete or has a fixable defect | **8 confirmed** (likely ~15-25 more, unverified) | See below |
+| (c) Fabricated/non-functional regardless of input | **149** | See below |
 
 ### (a) — real, complete, ready to port (3)
 
@@ -41,7 +41,7 @@ Note: `amazon` and `google` are single-action search wrappers that add little ov
 per Phase 2a). Not worth separately wiring unless a dictated command specifically
 needs to be recognized as "search Amazon for X" rather than a generic browse.
 
-### (b) — real logic, but incomplete or defective (9 confirmed by direct read)
+### (b) — real logic, but incomplete or defective (8 confirmed by direct read)
 
 | Folder | Real part | Defect |
 |---|---|---|
@@ -54,7 +54,7 @@ needs to be recognized as "search Amazon for X" rather than a generic browse.
 | `explorer` | `open_folder` logic is real | `detect_ui` unconditionally returns `True` regardless of the actual window ("Plausible fallback for now") — cannot actually detect Explorer is active. |
 | `calculator` | `calculate` (type expression + Enter) is real | No `open_app`/`close_app` action declared at all — can't be opened/closed through this adapter, only used once already active. |
 
-**Pattern across all 9:** the *first* step of a multi-step action (navigate to
+**Pattern across all 8:** the *first* step of a multi-step action (navigate to
 search/compose page) is consistently real; the *last* step (click Send/Post/Play)
 is consistently missing, guessed, or the detection logic around it is broken. This
 looks like a "half-implemented then abandoned" pattern repeated across the library,
@@ -64,7 +64,7 @@ An estimated further 15-25 folders likely share this same "real navigate, fake o
 missing completion" shape based on the automated scan, but were not individually
 read — see "What's not yet verified" below.
 
-### (c) — fabricated or scaffold-only, non-functional regardless of input (148)
+### (c) — fabricated or scaffold-only, non-functional regardless of input (149)
 
 Two sub-patterns, both confirmed by direct read on multiple examples:
 
@@ -76,23 +76,23 @@ Two sub-patterns, both confirmed by direct read on multiple examples:
 entirely and always emits the same one generic `launch_app` step. The action list
 is aspirational — none of it is actually implemented differently per action.
 
-**Fabricated URL scheme (132 folders)** — the large majority of the library,
+**Fabricated URL scheme (133 folders)** — the large majority of the library,
 including `netflix` and `telegram` (the diagnosis brief's own motivating examples)
 and `outlook`. Pattern: `build_plan` builds a URL like
 `https://netflix.com/?action={action_name}&q={query}` and navigates to it. **This
 is not a real API** — Netflix, Telegram, and the rest have no such query-string
 action protocol; this just loads the site's homepage with meaningless query
 parameters attached. Confirmed by direct read on `netflix`, `telegram`, `outlook`;
-the other 129 share the identical `f"...?action={action_name}..."` structure per
+the other 130 share the identical `f"...?action={action_name}..."` structure per
 automated scan. None of these are closer to working than "opens the website."
 
-Full list of the 132 fabricated-URL folders and the 16 scaffold folders is in
+Full list of the 133 fabricated-URL folders and the 16 scaffold folders is in
 `platform_audit_raw.json`.
 
 ## What's not yet verified
 
-The 9 (b)-classified folders and the `netflix`/`telegram`/`outlook` (c) samples
-were read in full. The remaining ~129 (c)-classified-by-heuristic folders were
+The 8 (b)-classified folders and the `netflix`/`telegram`/`outlook` (c) samples
+were read in full. The remaining ~130 (c)-classified-by-heuristic folders were
 **not** individually read — their `?action=` fabricated-URL signature was confirmed
 structurally identical to the 3 that were read, which is strong but not exhaustive
 evidence. If a specific platform from that list turns out to matter (e.g. for the
