@@ -98,7 +98,7 @@ class CommandRouter:
         # Compute message/target zones FIRST, before any matching --
         # this is pure syntactic marker-position processing, independent
         # of which platform or verb (if any) the text names.
-        prefix_raw, prefix_lower, message = _split_message(text, lower)
+        prefix_raw, prefix_lower, message, message_marker_found = _split_message(text, lower)
         platform_zone = _platform_scan_zone(prefix_lower)
 
         adapter_key = None
@@ -136,13 +136,34 @@ class CommandRouter:
         if matched_action is None:
             return None
 
-        target, message = _extract_target(prefix_raw, prefix_lower, message)
+        # Bugfix (5th instance of the same "router hands adapters an
+        # unclean value" family as extract_query() -- see adapter_base.py):
+        # the leftover-prefix backfill below (verb + platform name, once
+        # no explicit message marker is found) is only ever genuine
+        # content for single-value actions (play/search/post, where
+        # requires_target is False and the "message" field IS the whole
+        # query). For two-field actions like send_message (requires_target
+        # True, requires_message True), target and message are
+        # independently real, dictated separately -- if no explicit
+        # message marker (" saying ", " that says ", etc.) was found,
+        # there is no message to backfill from, only router-internal
+        # verb+platform text (e.g. "send whatsapp message to mom" with
+        # no "saying" clause backfilling to "whatsapp message"). Gating
+        # the backfill on requires_target stops it at the source instead
+        # of trying to pattern-match the garbage back out afterwards.
+        allow_message_backfill = not matched_action.requires_target
+        target, message = _extract_target(prefix_raw, prefix_lower, message, allow_message_backfill)
+
+        message_required_but_missing = (
+            matched_action.requires_target and matched_action.requires_message and not message
+        )
 
         return Intent(
             adapter=adapter_key,
             action=matched_action.name,
             target=target if (matched_action.requires_target and target) else matched_alias,
             message=message if matched_action.requires_message else "",
+            message_required_but_missing=message_required_but_missing,
         )
 
 
@@ -165,21 +186,45 @@ def _bound_verb_scan(prefix_lower: str) -> str:
 def _split_message(raw: str, lower: str):
     """Split off a dictated message payload using explicit boundary
     markers (" saying ", " that says ", etc.). Returns
-    (prefix_raw, prefix_lower, message) -- message is "" if no marker is
-    present (verb matching and target extraction then run against the
-    whole text, as for commands with no separate payload like "open
-    browser" or "go to google.com")."""
+    (prefix_raw, prefix_lower, message, marker_found) -- message is ""
+    and marker_found is False if no marker is present at all (verb
+    matching and target extraction then run against the whole text, as
+    for commands with no separate payload like "open browser" or "go to
+    google.com").
+
+    Also handles a "dangling" marker -- the marker word present with
+    nothing dictated after it (e.g. "...to mom saying" with the command
+    cut off before any content), which the exact substring match above
+    misses since it requires trailing content. Found via adversarial
+    testing: without this, the marker word itself ("saying") silently
+    leaks into whatever field consumes the rest of the prefix (usually
+    the target, via _extract_target's " to "/" as " split) instead of
+    being recognized as an attempted-but-empty message. marker_found is
+    still True here (a message was clearly attempted), just with an
+    empty result -- callers must NOT treat this the same as "no marker
+    was ever present" (see CommandRouter.resolve()'s
+    message_required_but_missing)."""
     for marker in _MESSAGE_MARKERS:
         if marker in lower:
             split_at = lower.find(marker)
             prefix_raw = raw[:split_at]
             prefix_lower = lower[:split_at]
             message = raw[split_at + len(marker):].strip()
-            return prefix_raw, prefix_lower, message
-    return raw, lower, ""
+            return prefix_raw, prefix_lower, message, True
+
+    rstripped = lower.rstrip()
+    for marker in _MESSAGE_MARKERS:
+        dangling = " " + marker.strip()
+        if rstripped.endswith(dangling):
+            split_at = rstripped.rfind(dangling)
+            prefix_raw = raw[:split_at]
+            prefix_lower = lower[:split_at]
+            return prefix_raw, prefix_lower, "", True
+
+    return raw, lower, "", False
 
 
-def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
+def _extract_target(prefix_raw: str, prefix_lower: str, message: str, allow_message_backfill: bool = True):
     """Extract the target from the (already message-marker-truncated)
     prefix using whichever of _TARGET_MARKERS (" to ", " as ") appears
     last. If no message was split off by _split_message, the text before
@@ -187,7 +232,17 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
     no "saying" marker, and "go to X" navigation-style commands with no
     separate payload). With no target marker at all, the whole prefix
     (verb-stripped, trailing-clause-trimmed) becomes the message --
-    covers "play X on Y" / "note X" style commands."""
+    covers "play X on Y" / "note X" style commands.
+
+    allow_message_backfill gates both of those backfill paths: the
+    caller (CommandRouter.resolve()) sets it to False for actions that
+    require an independently real target (send_message-shaped) -- for
+    those, leftover verb+platform prefix text is never genuine dictated
+    content (there's no "saying"-style marker convention for it to have
+    come from), so backfilling it would just be router structure noise
+    passed off as a message. When False and no explicit message was
+    captured, message stays "" -- the caller reports this honestly via
+    Intent.message_required_but_missing rather than silently using it."""
     target = ""
     split_at, marker = _find_last_target_marker(prefix_lower)
     if split_at != -1:
@@ -205,9 +260,9 @@ def _extract_target(prefix_raw: str, prefix_lower: str, message: str):
                 cut = min(cut, idx)
         target = target_raw[:cut].strip()
 
-        if not message:
+        if not message and allow_message_backfill:
             message = _strip_verb_prefix(prefix_raw[:split_at].strip())
-    elif not message:
+    elif not message and allow_message_backfill:
         # No target marker at all -- e.g. "play despacito on spotify".
         # Trim trailing clauses the same way target extraction does
         # ("on spotify" here), then strip the verb, so the platform name

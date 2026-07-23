@@ -20,15 +20,29 @@ from Features.set_br import set_brightness_windows
 from Features.set_get_volume import *
 from Features.check_running_app import *
 
-# Import AgentCore for ODAV-based execution
-try:
-    from AgentCore.agent_brain import AgentBrain
-    from AgentCore.intent_parser import IntentParser
-    AGENT_CORE_AVAILABLE = True
-    print("DEBUG: AgentCore loaded successfully!")
-except ImportError as e:
-    print(f"WARNING: AgentCore not available: {e}")
-    AGENT_CORE_AVAILABLE = False
+# Import AgentCore for ODAV-based execution. Deferred to first actual
+# use (see _agent_core_available()/get_agent() below) rather than at
+# module load: AgentCore.agent_brain eagerly imports pyautogui (via
+# ui_perception/action_executor/checkpoint), so importing it here at
+# co_brain.py's module level meant importing co_brain.py -- and
+# therefore jarvis.py, which imports co_brain.py -- always paid that
+# cost, even for a test that never issues a single AgentCore-routed
+# command. Same pattern as AgentCore/__init__.py's and
+# Automation/Automation_Brain.py's Phase 2g import-decoupling fixes.
+_AGENT_CORE_AVAILABLE = None  # None = not yet determined
+
+
+def _agent_core_available() -> bool:
+    global _AGENT_CORE_AVAILABLE
+    if _AGENT_CORE_AVAILABLE is None:
+        try:
+            from AgentCore.agent_brain import AgentBrain  # noqa: F401
+            _AGENT_CORE_AVAILABLE = True
+            print("DEBUG: AgentCore loaded successfully!")
+        except ImportError as e:
+            print(f"WARNING: AgentCore not available: {e}")
+            _AGENT_CORE_AVAILABLE = False
+    return _AGENT_CORE_AVAILABLE
 
 numbers = ["1:","2:","3:","4:","5:","6:","7:","8:","9:"]
 spl_numbers = ["11:","12:"]
@@ -43,9 +57,11 @@ _intent_parser = None
 def get_agent():
     """Lazy initialize AgentBrain."""
     global _agent_brain, _intent_parser, _ui_context
-    if AGENT_CORE_AVAILABLE and _agent_brain is None:
-        _agent_brain = AgentBrain()
+    if _agent_core_available() and _agent_brain is None:
+        from AgentCore.agent_brain import AgentBrain
+        from AgentCore.intent_parser import IntentParser
         from AgentCore.ui_agent.context.ui_context import UIContext
+        _agent_brain = AgentBrain()
         _ui_context = UIContext()
         # Pass UIContext to parser
         _intent_parser = IntentParser(ui_context=_ui_context)
@@ -54,12 +70,12 @@ def get_agent():
 def requires_agent_core(text: str) -> bool:
     """
     Determine if command requires AgentCore (ODAV) or legacy system.
-    
+
     RULE: Route based on DETERMINISM, not complexity.
-    - Deterministic command → legacy code  
+    - Deterministic command → legacy code
     - Any command requiring UI reasoning → AgentCore
     """
-    if not AGENT_CORE_AVAILABLE:
+    if not _agent_core_available():
         return False
     
     # Non-deterministic patterns that require UI reasoning

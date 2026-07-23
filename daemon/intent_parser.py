@@ -12,6 +12,20 @@ class Intent:
     message: str = ""
     destructive: bool = False
     meta: Dict[str, str] = field(default_factory=dict)
+    # Phase 2a bugfix (5th instance of the router-hands-adapters-an-
+    # unclean-value bug family): True when this action needs a genuine
+    # dictated message (requires_message) AND requires an independently
+    # real target (requires_target) -- e.g. send_message -- but no
+    # explicit message-marker content (" saying ", " that says ", etc.)
+    # was actually found. Distinct from message == "" meaning "no
+    # message was ever intended": this means "a message was clearly
+    # intended (the action requires one) but nothing extractable was
+    # said." Callers (see UIExecutor.execute_intent) must surface this
+    # as an honest "I didn't catch what you wanted to say", never
+    # silently no-op and never fall back to router-internal leftover
+    # text (see CommandRouter.resolve()'s docstring for why that
+    # leftover text is never real content for this action shape).
+    message_required_but_missing: bool = False
 
 
 _RISK_TERMS = {"delete", "format", "erase", "wipe", "run script", "shutdown"}

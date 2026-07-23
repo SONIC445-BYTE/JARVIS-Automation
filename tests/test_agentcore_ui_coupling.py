@@ -1,22 +1,29 @@
 """
-Phase 0 repro test (NOT a fix) for a coupling bug flagged for Phase 3:
-AgentCore/__init__.py eagerly imports agent_brain -> ui_perception ->
-pyautogui at package import time. This means importing anything under
-AgentCore -- including AgentCore.code_engine, which has no UI dependency
--- drags in the full UI automation stack (pyautogui).
+Regression test for a coupling bug originally flagged for Phase 3, then
+pulled forward and fixed mid-Phase-2g: AgentCore/__init__.py used to
+eagerly import agent_brain -> ui_perception -> pyautogui at package
+import time. This meant importing anything under AgentCore -- including
+AgentCore.code_engine, which has no UI dependency -- dragged in the full
+UI automation stack (pyautogui).
 
-On a headless/no-DISPLAY Linux service context this crashes outright
-(KeyError: 'DISPLAY'). On Windows it doesn't crash, but the coupling is
-still real: a background/daemon context with no interactive session can
-still hit pyautogui failures at import time instead of only when UI
-automation is actually invoked.
+On a headless/no-DISPLAY Linux service context this crashed outright.
+Elevated from "Phase 3 nice-to-have" after independent verification
+found a compounding, harder-to-work-around instance of the same coupling
+pattern: AgentCore.ui_agent's vision/screen_capture.py imports mss,
+which opens a real X11 connection at import time -- unlike pyautogui,
+this couldn't be worked around with a Python-level stub. Both were fixed
+together: AgentCore/__init__.py now lazy-loads its package-level
+re-exports via __getattr__ (PEP 562) instead of importing them eagerly,
+and the two places that eagerly imported AgentCore.agent_brain /
+AgentCore.ui_agent.ui_agent_main at module level (co_brain.py,
+Automation/Automation_Brain.py) were changed to import lazily, at first
+actual use, mirroring the get_shared_session() lazy-singleton pattern
+already used in platform_adapters/browser_automation.py.
 
-This test documents the CURRENT (undesired) coupling so Phase 3's fix
-(lazy-importing pyautogui only where it's used) doesn't get silently
-reintroduced without anyone noticing the regression the other way --
-once Phase 3 lands, this test's assertion should flip and the test
-should be updated to assert pyautogui is NOT pulled in by a bare
-`import AgentCore.code_engine.engine`.
+This test now asserts the fix holds: a bare `import
+AgentCore.code_engine.engine` must NOT pull in pyautogui. If this
+regresses back to True, the eager coupling has been reintroduced
+somewhere in AgentCore's import chain.
 """
 import subprocess
 import sys
@@ -24,7 +31,7 @@ import unittest
 
 
 class TestAgentCoreUICoupling(unittest.TestCase):
-    def test_importing_code_engine_currently_pulls_in_pyautogui(self):
+    def test_importing_code_engine_does_not_pull_in_pyautogui(self):
         # Run in a subprocess so we get a clean sys.modules state.
         proc = subprocess.run(
             [
@@ -40,11 +47,11 @@ class TestAgentCoreUICoupling(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertEqual(
             proc.stdout.strip().splitlines()[-1],
-            "True",
-            "Expected current (buggy) coupling: importing AgentCore.code_engine.engine "
-            "pulls in pyautogui via AgentCore/__init__.py's eager imports. If this now "
-            "prints False, Phase 3's decoupling fix has landed -- update this test to "
-            "assert the coupling is GONE instead of documenting that it exists.",
+            "False",
+            "AgentCore.code_engine.engine should not need pyautogui at import "
+            "time -- if this now prints True, the eager AgentCore.__init__.py "
+            "-> agent_brain -> ui_perception -> pyautogui coupling has been "
+            "reintroduced.",
         )
 
 

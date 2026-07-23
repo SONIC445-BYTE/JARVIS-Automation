@@ -14,10 +14,29 @@ import pywhatkit
 from Automation.scrool_system import perform_scroll_action
 import threading
 from TextToSpeech.Fast_DF_TTS import speak
-from AgentCore.ui_agent.ui_agent_main import UIAgentMain
 
-# Initialize UI Agent
-ui_agent = UIAgentMain()
+_ui_agent = None
+
+
+def _get_ui_agent():
+    """Lazily constructs UIAgentMain, imported here (not at module level)
+    since AgentCore.ui_agent's transitive import chain reaches
+    AgentCore/ui_agent/vision/screen_capture.py's `import mss` --  mss
+    opens a real X11 connection at import time on Linux, which broke
+    importing this module (and anything that imports it, e.g. jarvis.py
+    via co_brain.py) in headless/CI environments. Also confirmed dead
+    for real execution (Phase 2c-prime: ODAVLoop bypasses ui_agent
+    entirely) -- the only call site below already wraps this in a broad
+    try/except that treats any failure as "fall through to Legacy
+    Fallback", so a lazily-failing import is exactly as safe as the
+    runtime call it already tolerated. Constructed once and reused, same
+    as the original eager module-level instance, just deferred to first
+    actual use instead of paid on import."""
+    global _ui_agent
+    if _ui_agent is None:
+        from AgentCore.ui_agent.ui_agent_main import UIAgentMain
+        _ui_agent = UIAgentMain()
+    return _ui_agent
 
 def play():
     gui.press("space")
@@ -137,7 +156,7 @@ def Auto_main_brain(text):
     # Use UIAgent as the broker for planning
     try:
         # execute_instruction handles vision fallback internally
-        result = ui_agent.execute_instruction(text, dry_run=True)
+        result = _get_ui_agent().execute_instruction(text, dry_run=True)
         if result.success and result.steps:
             print(f"[AutoBrain] Task handled via Unified Planner: {text}")
             return

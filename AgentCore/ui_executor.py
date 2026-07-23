@@ -178,6 +178,26 @@ class UIExecutor:
         implemented them before this.
         """
         start_time = time.time()
+
+        # 5th instance of the router-hands-adapters-an-unclean-value bug
+        # family: CommandRouter.resolve() sets this when an action needs
+        # a genuine dictated message but none was extractable (see
+        # daemon/intent_parser.py's Intent.message_required_but_missing
+        # docstring). Checked here, before any adapter is touched, so
+        # this is a single central gate rather than a per-adapter patch,
+        # and so no adapter ever gets called with the empty/missing
+        # message this flag exists to prevent silently masking.
+        if getattr(intent, "message_required_but_missing", False):
+            who = f" to {intent.target}" if intent.target else ""
+            return ExecutionResult(
+                status=ExecutionStatus.FAILED,
+                step_id=0,
+                action_type=intent.action,
+                target=intent.target,
+                error=f"I didn't catch what you wanted to say{who} -- please include it, e.g. '...saying <message>'.",
+                duration_ms=(time.time() - start_time) * 1000,
+            )
+
         adapter = self._get_adapter(intent.adapter)
 
         if adapter is not None and adapter.supports(intent.action):

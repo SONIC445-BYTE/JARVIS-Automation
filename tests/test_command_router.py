@@ -260,5 +260,123 @@ class TestPlatformDetectionIgnoresPayload(unittest.TestCase):
         self.assertEqual(intent.target, "close-friend")
 
 
+class TestMessageBackfillGuard(unittest.TestCase):
+    """5th instance of the router-hands-adapters-an-unclean-value bug
+    family: a send_message-shaped command (target marker present, no
+    explicit "saying"-style message marker) used to backfill `message`
+    from leftover verb+platform prefix text -- e.g. "whatsapp message" --
+    and send that as if it were real dictated content. extract_query()
+    (adapter_base.py) doesn't catch this shape (verified directly: it
+    only filters values that are exactly alias-equal or exactly the raw
+    command echoed back, and "whatsapp message" is neither), so the fix
+    is at the source: CommandRouter no longer backfills `message` at all
+    for actions that also require a real target, and instead sets
+    Intent.message_required_but_missing so callers can give an honest
+    "I didn't catch what you wanted to say" instead of either silently
+    no-op'ing or sending the leftover text."""
+
+    def setUp(self):
+        self.router = CommandRouter()
+
+    def test_whatsapp_desktop_no_saying_clause(self):
+        intent = self.router.resolve("send whatsapp message to mom")
+        self.assertEqual(intent.adapter, "whatsapp_desktop")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "")
+        self.assertTrue(intent.message_required_but_missing)
+
+    def test_telegram_desktop_no_saying_clause(self):
+        intent = self.router.resolve("send telegram message to john")
+        self.assertEqual(intent.adapter, "telegram_desktop")
+        self.assertEqual(intent.target, "john")
+        self.assertEqual(intent.message, "")
+        self.assertTrue(intent.message_required_but_missing)
+
+    def test_whatsapp_web_no_saying_clause(self):
+        # The bug was confirmed inherited by the new Phase 2g web
+        # adapter too, not desktop-only.
+        intent = self.router.resolve("send whatsapp web message to mom")
+        self.assertEqual(intent.adapter, "whatsapp_web")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "")
+        self.assertTrue(intent.message_required_but_missing)
+
+    def test_as_marker_framing_no_saying_clause(self):
+        intent = self.router.resolve("send whatsapp message as mom")
+        self.assertEqual(intent.adapter, "whatsapp_desktop")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "")
+        self.assertTrue(intent.message_required_but_missing)
+
+    def test_dangling_saying_marker_does_not_leak_into_target(self):
+        # "...to mom saying" with nothing dictated after "saying" used to
+        # leak the word "saying" itself into the target ("mom saying")
+        # since the exact-substring marker match requires trailing
+        # content and silently failed to match at all.
+        intent = self.router.resolve("send whatsapp web message to mom saying")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "")
+        self.assertTrue(intent.message_required_but_missing)
+
+    def test_genuine_saying_clause_is_unaffected(self):
+        intent = self.router.resolve("send whatsapp web message to mom saying hi")
+        self.assertEqual(intent.target, "mom")
+        self.assertEqual(intent.message, "hi")
+        self.assertFalse(intent.message_required_but_missing)
+
+    def test_single_value_backfill_unaffected_play(self):
+        # requires_target is False for play -- the leftover-prefix
+        # backfill is legitimate here and must be unchanged by this fix.
+        intent = self.router.resolve("play despacito on spotify")
+        self.assertEqual(intent.adapter, "spotify")
+        self.assertEqual(intent.message, "despacito")
+        self.assertFalse(intent.message_required_but_missing)
+
+    def test_single_value_backfill_unaffected_search(self):
+        intent = self.router.resolve("search amazon for wireless mouse")
+        self.assertEqual(intent.adapter, "amazon")
+        self.assertEqual(intent.message, "wireless mouse")
+        self.assertFalse(intent.message_required_but_missing)
+
+    def test_open_app_action_never_flagged(self):
+        # requires_message is False for open_app -- the flag must never
+        # be set regardless of target/message content.
+        intent = self.router.resolve("open whatsapp web")
+        self.assertFalse(intent.message_required_but_missing)
+
+    def test_extract_query_does_not_catch_this_shape_directly(self):
+        # Documents why the fix had to be at the router, not a tweak to
+        # extract_query(): the garbage values this bug produced are not
+        # alias-equal or raw-echo, so extract_query's existing filters
+        # pass them through unchanged.
+        from platform_adapters.adapter_base import extract_query
+        self.assertEqual(
+            extract_query("mom", "whatsapp message", ["whatsapp"]), "whatsapp message"
+        )
+
+
+class TestUIExecutorHonorsMessageRequiredButMissing(unittest.TestCase):
+    """The flag must be checked centrally in UIExecutor, before any
+    adapter is invoked -- never a per-adapter patch, and never a silent
+    no-op or a call with the missing message."""
+
+    def test_execute_intent_never_calls_adapter_and_reports_honest_reason(self):
+        from unittest import mock
+        from AgentCore.ui_executor import UIExecutor, ExecutionStatus
+
+        router = CommandRouter()
+        intent = router.resolve("send whatsapp message to mom")
+        self.assertTrue(intent.message_required_but_missing)
+
+        executor = UIExecutor.__new__(UIExecutor)
+        executor._get_adapter = mock.Mock(side_effect=AssertionError("adapter must not be looked up"))
+
+        result = executor.execute_intent(intent)
+
+        self.assertEqual(result.status, ExecutionStatus.FAILED)
+        self.assertIn("mom", result.error)
+        self.assertIn("catch", result.error)
+
+
 if __name__ == "__main__":
     unittest.main()
