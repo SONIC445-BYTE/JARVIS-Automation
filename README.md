@@ -51,11 +51,20 @@ The pinnacle of autonomous engineering:
    git clone https://github.com/yourusername/jarvis.git
    cd jarvis
    pip install -r requirements.txt
+   pip install -e .
    ```
+   The second command registers a real `jarvis` command on your PATH
+   (an editable install, so it stays pointed at this checkout -- no
+   separate copy is made). After this, `jarvis` works from any
+   directory, any terminal, the same way `git` or `claude` do.
 2. **Launch J.A.R.V.I.S:**
-   - **Interactive Mode:** `python jarvis.py`
-   - **Conversational Service:** `python jarvis.py --convo`
+   - **Interactive Mode:** `jarvis`
+   - **Conversational Service:** `jarvis --convo`
    - **Background Daemon:** `python -m daemon.cli start`
+   - **Re-run the first-time setup walkthrough:** `jarvis --convo --setup`
+
+   Still callable the old way too (`python jarvis.py ...` from inside
+   the project directory) if you'd rather not install the PATH command.
 
 ### Configuration
 - **Wake Word:** Default is `JARVIS`. Configure via `JARVIS_WAKE_WORD` environment variable.

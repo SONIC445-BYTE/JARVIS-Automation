@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jarvis-automation"
+version = "0.1.0"
+description = "JARVIS -- local-first voice assistant with conversational intelligence"
+requires-python = ">=3.8"
+
+[project.scripts]
+# `jarvis` becomes a real command on PATH after `pip install -e .` from
+# the project root (editable install -- this is a single-machine local
+# tool, not a redistributable package). Points at jarvis_launcher.py's
+# main(), which changes into the project directory and runs jarvis.py
+# as a subprocess -- see jarvis_launcher.py's docstring for why it's a
+# thin wrapper rather than importing jarvis.py's CLI logic directly.
+jarvis = "jarvis_launcher:main"
+
+[tool.setuptools]
+py-modules = ["jarvis_launcher"]
