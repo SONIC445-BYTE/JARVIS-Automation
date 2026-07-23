@@ -1,13 +1,18 @@
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, BrowserEquivalent
 from .gui_backend import GUIBackend
 
 
 class TelegramDesktopAdapter(AdapterBase):
     WINDOW_TITLE = "Telegram"
     PLATFORM_ALIASES = ["telegram"]
+    # Phase 2g: data declaration only, see whatsapp_desktop_adapter.py's
+    # comment on this same field for the standing rule.
+    BROWSER_EQUIVALENT = BrowserEquivalent(
+        url_template="https://web.telegram.org/k/", browser_adapter_key="telegram_web"
+    )
     ACTIONS = [
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),

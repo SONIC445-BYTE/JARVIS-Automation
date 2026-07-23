@@ -29,6 +29,11 @@ class ODAVResult:
     steps_executed: int
     execution_time_ms: int
     reflection: Optional[str] = None
+    # Phase 2g: True when a browser adapter hit a CAPTCHA/login-wall.
+    # Distinct from success=False -- a block is a pause awaiting a human,
+    # not a failure. jarvis.py's conversation loop checks this to decide
+    # whether to report failure or start the pending-resume flow.
+    blocked: bool = False
 
 
 class ODAVLoop:
@@ -122,6 +127,23 @@ class ODAVLoop:
                     # which has no concept of send_message/read_unread.
                     print(f"\n[ODAV] Resolved adapter command: {resolved_intent.adapter}.{resolved_intent.action}")
                     exec_result = self._executor.execute_intent(resolved_intent)
+
+                    from AgentCore.ui_executor import ExecutionStatus
+                    if exec_result.status == ExecutionStatus.BLOCKED:
+                        # Phase 2g: a CAPTCHA/login-wall, not a failure --
+                        # message is the honest, physician-facing reason;
+                        # blocked=True tells the caller (jarvis.py) to
+                        # start the pending-resume flow instead of
+                        # reporting an error.
+                        return ODAVResult(
+                            success=False,
+                            message=exec_result.error or "Blocked, waiting for you to complete a step manually.",
+                            phase_reached=ODAVPhase.VERIFY,
+                            steps_executed=0,
+                            execution_time_ms=int((time.time() - start_time) * 1000),
+                            blocked=True,
+                        )
+
                     return ODAVResult(
                         success=exec_result.ok,
                         message=exec_result.error or f"{resolved_intent.action} on {resolved_intent.adapter}: {'OK' if exec_result.ok else 'FAILED'}",

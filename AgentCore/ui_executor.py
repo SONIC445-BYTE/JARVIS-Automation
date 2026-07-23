@@ -21,6 +21,11 @@ class ExecutionStatus(Enum):
     TIMEOUT = "timeout"
     ELEMENT_NOT_FOUND = "element_not_found"
     PERMISSION_DENIED = "permission_denied"
+    # Phase 2g: a CAPTCHA/login-wall was detected -- distinct from
+    # FAILED. A block isn't a failure, it's a pause: the caller should
+    # surface the reason and wait for a human to clear it, then retry
+    # the same command, not report an error and give up.
+    BLOCKED = "blocked"
 
 
 @dataclass
@@ -190,6 +195,30 @@ class UIExecutor:
                     metadata={"adapter": intent.adapter, "value": value},
                 )
             except Exception as e:
+                # Phase 2g: a CAPTCHA/login-wall is a pause, not a
+                # failure -- checked by type, not string-matched, so a
+                # browser adapter's BlockedError is never confused with
+                # a genuine error. platform_adapters.browser_automation
+                # is imported lazily here (not at module load) for the
+                # same reason element_finder.py imports UIScanner
+                # lazily: most adapters never need it, and Playwright
+                # shouldn't become a load-time dependency for the ones
+                # that don't.
+                try:
+                    from platform_adapters.browser_automation import BlockedError
+                    is_blocked = isinstance(e, BlockedError)
+                except ImportError:
+                    is_blocked = False
+
+                if is_blocked:
+                    return ExecutionResult(
+                        status=ExecutionStatus.BLOCKED,
+                        step_id=0,
+                        action_type=intent.action,
+                        target=intent.target,
+                        error=e.reason,
+                        duration_ms=(time.time() - start_time) * 1000,
+                    )
                 return ExecutionResult(
                     status=ExecutionStatus.FAILED,
                     step_id=0,

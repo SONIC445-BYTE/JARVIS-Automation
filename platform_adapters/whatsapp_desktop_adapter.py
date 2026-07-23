@@ -1,7 +1,7 @@
 import time
 from typing import Any, Dict, List
 
-from .adapter_base import ActionSpec, AdapterBase
+from .adapter_base import ActionSpec, AdapterBase, BrowserEquivalent
 from .gui_backend import GUIBackend
 
 
@@ -12,6 +12,14 @@ class WhatsappDesktopAdapter(AdapterBase):
 
     WINDOW_TITLE = "WhatsApp"
     PLATFORM_ALIASES = ["whatsapp"]
+    # Phase 2g: points at the real WhatsAppWebAdapter -- data declaration
+    # only. Not yet consulted by anything: resolution_gate.py's Q2 branch
+    # stays 2-way until Phase 2g has a handful of real, tested adapters
+    # to validate the 3-way branch against (whatsapp_web_adapter.py,
+    # telegram_web_adapter.py are the first two).
+    BROWSER_EQUIVALENT = BrowserEquivalent(
+        url_template="https://web.whatsapp.com", browser_adapter_key="whatsapp_web"
+    )
     ACTIONS = [
         ActionSpec("open_app", verbs=["open", "launch", "start"]),
         ActionSpec("close_app", verbs=["close", "quit", "exit"]),

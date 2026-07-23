@@ -26,6 +26,7 @@ import sys
 import time
 import threading
 import random
+from dataclasses import dataclass
 from enum import Enum
 from typing import Optional, Dict
 from os import getcwd
@@ -109,7 +110,7 @@ def _code_result_is_success(result: Dict) -> bool:
     return bool(result.get("file_path"))
 
 
-_AFFIRMATIVE_WORDS = ("yes", "yeah", "yep", "sure", "confirm", "go ahead", "do it", "install it", "please")
+_AFFIRMATIVE_WORDS = ("yes", "yeah", "yep", "sure", "confirm", "go ahead", "do it", "install it", "please", "continue")
 _NEGATIVE_WORDS = ("no", "nope", "don't", "do not", "cancel", "nevermind", "never mind", "stop")
 
 
@@ -121,6 +122,21 @@ def _is_affirmative(text: str) -> bool:
 def _is_negative(text: str) -> bool:
     lower = text.lower().strip()
     return any(lower == w or lower.startswith(w + " ") or lower.startswith(w + ",") for w in _NEGATIVE_WORDS)
+
+
+@dataclass
+class PendingResume:
+    """Phase 2g: multi-turn state between a CAPTCHA/login-wall block and
+    the physician completing it manually. Unlike PendingInstall, the
+    NEXT turn is not assumed to be an answer to this -- only an explicit
+    "continue"-style affirmative consumes it; anything else falls
+    through to normal handling so other commands/questions still work
+    while a browser sits blocked, and the pending state just stays alive
+    until the physician is actually ready (bounded by the conversation
+    loop's existing silence-timeout, so this can never truly hang
+    forever)."""
+    original_text: str
+    reason: str
 
 
 # Paths
@@ -181,7 +197,8 @@ class PersistentWakeService:
         self._conversation = None
         self._last_activity = time.time()
         self._pending_install = None  # Phase 2c: AgentCore.resolution_gate.PendingInstall
-        
+        self._pending_resume = None  # Phase 2g: PendingResume (CAPTCHA/login-wall)
+
         # Learning System (Sprint 8)
         self._learning = None
         
@@ -398,6 +415,39 @@ class PersistentWakeService:
 
         return f"Installed {pending.platform_display_name}."
 
+    def _handle_resume(self, text: str) -> str:
+        """Phase 2g: handle an affirmative "continue" after a CAPTCHA/
+        login-wall block. Re-executes the ORIGINAL command -- the
+        browser session persisted (platform_adapters/browser_automation.py's
+        shared session), so this re-checks the block and, if the
+        physician actually cleared it, proceeds with the real action.
+        Always clears self._pending_resume first: if the retry hits a
+        NEW block (e.g. a second CAPTCHA, or the same one because it
+        wasn't actually solved), a fresh PendingResume is set by the
+        normal "action" handler path this delegates to -- never leaves
+        stale pending state around."""
+        pending = self._pending_resume
+        self._pending_resume = None
+
+        if pending is None:
+            # Defensive: the real conversation loop only calls this when
+            # self._pending_resume is not None (see the dispatch check
+            # above), so this shouldn't be reachable there -- but a
+            # direct/future-refactor call with no pending state should
+            # get an honest answer, not an AttributeError crash.
+            return "Nothing is waiting to be resumed."
+
+        if not (hasattr(self, '_odav') and self._odav):
+            return f"Still blocked: {pending.reason}"
+
+        result = self._odav.execute(pending.original_text)
+        if getattr(result, "blocked", False):
+            self._pending_resume = PendingResume(original_text=pending.original_text, reason=result.message)
+            return result.message
+        if result.success:
+            return f"Continuing... {result.message}"
+        return f"Continued, but it still failed: {result.message}"
+
     def _return_to_sleep(self):
         """Return to sleep mode."""
         self._set_state(JarvisState.SLEEP)
@@ -535,6 +585,20 @@ class PersistentWakeService:
                 self._last_activity = time.time()
                 continue
 
+            # Phase 2g: pending resume (CAPTCHA/login-wall) -- unlike
+            # pending install, only an explicit affirmative consumes this;
+            # anything else falls through to normal handling below so
+            # other commands/questions still work while a browser sits
+            # blocked (see PendingResume's docstring for why).
+            if self._pending_resume is not None and _is_affirmative(text):
+                self._set_state(JarvisState.EXECUTION)
+                response = self._handle_resume(text)
+                self._set_state(JarvisState.SPEAK)
+                print(f"[Convo] JARVIS: '{response[:100]}...'")
+                self._speak(response)
+                self._last_activity = time.time()
+                continue
+
             # Route intent
             intent = self._router.classify(text)
             print(f"[Convo] Intent: {intent.intent_type.value} → {intent.handler}")
@@ -595,7 +659,29 @@ class PersistentWakeService:
                 self._set_state(JarvisState.EXECUTION)
                 if hasattr(self, '_odav') and self._odav:
                     result = self._odav.execute(text)
-                    response = result.message if result.success else f"Failed: {result.message}"
+                    if getattr(result, "blocked", False):
+                        # Phase 2g: CAPTCHA/login-wall -- pause, tell the
+                        # physician plainly, wait for "continue". Not a
+                        # failure, not a silent retry, not an infinite hang.
+                        if self._pending_resume is not None:
+                            # A second block arrived while an earlier one
+                            # was still unresolved. There is only one
+                            # pending-resume slot, so the earlier one is
+                            # about to be replaced -- say so plainly
+                            # instead of silently dropping it (found via
+                            # adversarial testing: without this, saying
+                            # "continue" later would silently retry the
+                            # WRONG command with no indication the first
+                            # block was ever abandoned).
+                            response = (
+                                f"Note: I still had '{self._pending_resume.original_text}' waiting on "
+                                f"a manual step -- switching to this new one instead. {result.message}"
+                            )
+                        else:
+                            response = f"{result.message}"
+                        self._pending_resume = PendingResume(original_text=text, reason=result.message)
+                    else:
+                        response = result.message if result.success else f"Failed: {result.message}"
                 else:
                     self._execute_command(text)
                     response = "Done."
