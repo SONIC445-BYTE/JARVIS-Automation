@@ -60,7 +60,7 @@ class LocalSTT:
                 self._recognizer = KaldiRecognizer(self._model, 16000)
                 print("DEBUG LocalSTT: Vosk model loaded successfully")
             else:
-                print("WARNING LocalSTT: Model not available, using fallback")
+                print("WARNING LocalSTT: Model not available")
                 
         except ImportError:
             print("WARNING LocalSTT: Vosk not installed")
@@ -91,28 +91,15 @@ class LocalSTT:
     
     def listen_once(self, timeout: float = 5.0) -> Optional[str]:
         """
-        Listen for a single phrase.
-        
-        Prioritizes Google STT (if available) for better accuracy,
-        falls back to Vosk (offline).
+        Listen for a single phrase using the local Vosk recognizer.
         """
-        # Try Google STT first (Better accuracy)
-        text = self._fallback_listen(timeout)
-        if text:
-            return text
-
-        # Fallback to Vosk if Google fails or not available
         if not self._recognizer:
             return None
         
         try:
             import sounddevice as sd
             import numpy as np
-            
-            result_text = None
-            # ... rest of vosk logic ...
-            result_event = threading.Event()
-            
+
             def callback(indata, frames, time_info, status):
                 if self._stop_event.is_set():
                     return
@@ -147,27 +134,8 @@ class LocalSTT:
                 
         except Exception as e:
             print(f"ERROR LocalSTT: {e}")
-            return self._fallback_listen(timeout)
-    
-    def _fallback_listen(self, timeout: float) -> Optional[str]:
-        """Fallback to Google Speech Recognition."""
-        try:
-            import speech_recognition as sr
-            
-            recognizer = sr.Recognizer()
-            mic = sr.Microphone()
-            
-            with mic as source:
-                recognizer.adjust_for_ambient_noise(source, duration=0.3)
-                audio = recognizer.listen(source, timeout=timeout, phrase_time_limit=10)
-            
-            text = recognizer.recognize_google(audio)
-            return text.lower()
-            
-        except Exception as e:
-            print(f"DEBUG LocalSTT fallback error: {e}")
             return None
-    
+
     def start_continuous(self, on_speech: Callable[[str], None]):
         """
         Start continuous speech recognition.
