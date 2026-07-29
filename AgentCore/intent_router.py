@@ -154,6 +154,24 @@ class IntentRouter:
         rf"^generate\s+{_FILLER}(?:script|function|code|program|class|module)\b",
     ]
 
+    # RHINAL capture patterns (RHINAL MCP integration). Each has exactly
+    # one capture group: everything after the trigger phrase, which
+    # becomes the text handed to rhinal_capture. Checked with re.search
+    # + .group(1), not the boolean-only _matches_any helper the other
+    # pattern lists use, since the extracted content is needed, not just
+    # a match/no-match signal. Verified no collision with the existing
+    # pattern lists: "remember"/"capture"/"vault"/"log this"/"note this
+    # down" don't appear in ACTION_PATTERNS, CODE_PATTERNS, or
+    # QUESTION_PATTERNS above.
+    RHINAL_CAPTURE_PATTERNS = [
+        r"^remember\s+(?:that|this)\s*[:,]?\s*(.*)$",
+        r"^capture\s+(?:this|that)\s+thought\s*[:,]?\s*(.*)$",
+        r"^save\s+(?:this|that)\s+to\s+(?:my\s+)?(?:rhinal\s+)?vault\s*[:,]?\s*(.*)$",
+        r"^log\s+(?:this|that)\s+(?:thought|decision|idea)\s*[:,]?\s*(.*)$",
+        r"^note\s+(?:this|that)\s+down\s*[:,]?\s*(.*)$",
+        r"^add\s+(?:this|that)\s+to\s+(?:my\s+)?(?:rhinal\s+)?vault\s*[:,]?\s*(.*)$",
+    ]
+
     def __init__(self, use_llm_classifier: bool = False, resolution_gate=None):
         self.use_llm_classifier = use_llm_classifier
         self._compile_patterns()
@@ -186,6 +204,8 @@ class IntentRouter:
         self._followup_re = [re.compile(p, re.IGNORECASE) for p in self.FOLLOWUP_PATTERNS]
         # Code patterns
         self._code_re = [re.compile(p, re.IGNORECASE) for p in self.CODE_PATTERNS]
+        # RHINAL capture patterns
+        self._rhinal_capture_re = [re.compile(p, re.IGNORECASE) for p in self.RHINAL_CAPTURE_PATTERNS]
     
     def classify(self, text: str, context: Dict = None) -> RoutedIntent:
         """
@@ -276,6 +296,25 @@ class IntentRouter:
                 processed_text=text_lower,
                 handler="code_engine"
             )
+
+        # Check RHINAL capture patterns (RHINAL MCP integration). Same
+        # "special handler, checked before the generic ACTION_PATTERNS
+        # fallback" position as code_engine above. capture_text is the
+        # text after the trigger phrase, or "" if the phrase had nothing
+        # after it (e.g. a bare "remember this" with no inline content) --
+        # the dispatcher must treat "" as an honest extraction failure,
+        # not send an empty capture to Rhinal.
+        for pattern in self._rhinal_capture_re:
+            match = pattern.match(text)
+            if match:
+                return RoutedIntent(
+                    intent_type=IntentType.ACTION,
+                    confidence=0.95,
+                    original_text=text,
+                    processed_text=text_lower,
+                    handler="rhinal_capture",
+                    extracted_entities={"capture_text": match.group(1).strip()}
+                )
 
         # Check action patterns
         if self._matches_any(text_lower, self._action_re):

@@ -812,6 +812,41 @@ class PersistentWakeService:
                 else:
                     response = f"Code task failed: no output produced for '{text}'"
 
+            elif intent.handler == "rhinal_capture":
+                # RHINAL MCP integration: capture a thought into the
+                # physician's Rhinal vault. Same "special handler checked
+                # directly in this elif chain" shape as code_engine above
+                # -- not routed through CommandRouter/ResolutionGate/
+                # AdapterBase, since Rhinal isn't a GUI platform with an
+                # install-detection question; it's always available if
+                # configured, unavailable (with an honest reason) if not.
+                self._set_state(JarvisState.EXECUTION)
+                capture_text = intent.extracted_entities.get("capture_text", "")
+                if not capture_text:
+                    response = "I didn't catch what you wanted me to remember -- try 'remember that ...' with the thought included."
+                else:
+                    from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError, RhinalMCPClient
+                    try:
+                        rhinal_result = RhinalMCPClient().capture(capture_text)
+                        # rhinal_capture always completes the full
+                        # classify -> distill -> save pipeline and saves
+                        # unconditionally once it gets this far (verified
+                        # against RHINAL's own mcp-server/src/tools.ts:
+                        # vaultWorthy/worthinessReason are informational,
+                        # not a save/skip gate in this MCP tool -- the
+                        # "worthiness gate" the code comment there refers
+                        # to is the web app's own UI behavior, not
+                        # replicated here). Report the save as fact, the
+                        # worthiness read as a note.
+                        response = "Saved that to your Rhinal vault."
+                        if rhinal_result.get("vaultWorthy") is False:
+                            reason = rhinal_result.get("worthinessReason")
+                            response += f" (Rhinal's classifier flagged it as borderline{': ' + reason if reason else ''}, but saved it anyway.)"
+                    except RhinalConfigError as e:
+                        response = str(e)
+                    except RhinalCallError as e:
+                        response = f"Couldn't reach Rhinal to save that: {e}"
+
             elif intent.handler == "action":
                 # Execute action with ODAV loop if available
                 self._set_state(JarvisState.EXECUTION)
