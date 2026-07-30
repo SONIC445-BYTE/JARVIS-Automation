@@ -141,6 +141,33 @@ Config required: `RHINAL_PROVIDER=groq`, `RHINAL_MODEL_ID=llama-3.1-8b-instant`.
 
 ---
 
+### S0-E3 — Tiered knowledge-retrieval provider chain
+**Status: ✅ CLOSED.** Commit `20ce0a88` on `phase-2-adapter-wiring`.
+
+**Starting state, checked before building (not assumed).** `AgentCore/knowledge/` had zero SerpApi or Serper integration — no package in `requirements.txt`, no env var references anywhere. The only working discovery path was `serp_fetcher.py`'s Selenium-driven DuckDuckGo scrape, called directly by `discovery_manager.discover_sources()`. This is "browser-automation" only, with no API tier, no failover, no quota visibility, and no narration hook — confirmed by reading the actual code, not inferred from the blueprint's description of what should exist.
+
+**Prerequisite check, escalated rather than guessed past.** Building a real SerpApi/Serper integration needs real credentials to verify against — none existed in the repo or environment. Asked before building further; the project owner supplied a real, working SerpApi key (free tier, 250 searches/month) for this phase. No Serper key was available. **Built and live-verified the SerpApi tier; built the Serper tier structurally against its published API contract, explicitly flagged as not live-verified** — the key itself is never written to any file in this repo, read only from `SERPAPI_KEY`/`SERPER_KEY` at call time, same pattern as `RHINAL_API_KEY`.
+
+**Correction to the original ask — worth stating plainly, not silently reworded.** The blueprint's work-item text said "real quota tracking from response headers." Checked live against the real SerpApi endpoint before building anything on top of that assumption: **the search endpoint's response headers carry no quota/rate-limit fields at all.** Real quota lives at a separate `https://serpapi.com/account.json` endpoint (`plan_searches_left`, `total_searches_left`, `this_month_usage`, etc.), confirmed with a real live call. `get_quota()` in `serpapi_fetcher.py` hits that endpoint instead — a different implementation than the one line of blueprint text specified, because the specified mechanism doesn't exist on the real interface. Same discipline as the RHINAL README-vs-code and `GeneratorHelper`/`LLMAdapter` findings: verify against the live interface, not the documented assumption, even when the assumption is in this project's own blueprint.
+
+**What was built.**
+- `serpapi_fetcher.py` — primary tier. `fetch_serpapi()` (raises `SerpApiConfigError` if no key, `SerpApiCallError` on any other failure — distinct exception types so the provider chain can tell "not configured" apart from "configured but broken"). `get_quota()` — on-demand, not called per-search (would double API traffic with no benefit in the hot path).
+- `serper_fetcher.py` — secondary tier, same config/exception pattern. **Not live-verified — no key available this phase.**
+- `provider_chain.py` — `fetch_with_fallback()`: tries each tier in `KNOWLEDGE_PROVIDER_ORDER` (config.py, overridable via env var), skips unconfigured tiers, falls through on real call failures, returns `(results, provider_name)` — `provider_name is None` only when every tier is genuinely exhausted, which `discover_sources()`/`resolve_knowledge()` already turn into an honest `UNKNOWN` verdict rather than a fabricated answer.
+- `serp_fetcher.py` — lazy-import fix applied as named in this phase's scope: `selenium`/`webdriver_manager` imports moved from module level into `get_driver_instance()`/`fetch_serp()`, so importing `AgentCore.knowledge` no longer pulls a Chrome-launching dependency in just because the last-resort tier exists in the same package. Same discipline as the `NetHyTechSTT`/`browser_automation.py` fix.
+- Narration: `notify(message)` threaded through `discover_sources()` → `resolve_knowledge()` → `RAGEngine.query()` → `jarvis.py`, where it's now wired to `self._speak` at the actual RAG call site (`jarvis.py`, the `hasattr(self, '_rag')` branch). "Let me check that..." is now something JARVIS actually says during a live search, not a signature nobody calls.
+
+**Verification (adversarial, not just the happy path).**
+- 18 new tests (`AgentCore/knowledge/tests/test_provider_chain.py`): fallback ordering (first tier wins without touching later ones; unconfigured tier falls through; a *real call failure* — not just missing config — also falls through), honest failure when every tier is exhausted, narration content at each stage, config-driven provider order (subprocess-verified, since `config.py` reads the env var at import time), quota parsing against the real `account.json` shape, and the selenium import-coupling regression (subprocess-verified, mirroring `test_nethytech_listen_import_coupling.py`).
+- **Adversarial case that mattered:** tried a real, live call with a key that IS set but IS wrong (not just missing) — confirmed live against the actual endpoint that this correctly raises `SerpApiCallError` (HTTP 401) rather than crashing or being indistinguishable from "not configured." Added as a permanent regression test rather than a one-off check.
+- **Caught my own flawed verification once, corrected it rather than reporting the false result.** First attempt at confirming the narration wiring mocked `fetch_with_fallback` itself, which made `notify` trivially never fire — a false negative, not a real signal. Re-verified by mocking one level lower (the individual provider function), which let the real `fetch_with_fallback` logic run and actually call `notify`. Confirmed end-to-end: `resolve_knowledge(..., notify=callback)` → `["Let me check that..."]`.
+- Real live call against the actual SerpApi endpoint with the supplied key: `fetch_serpapi("current president of the United States")` returned real, structured results (`title`/`url`/`snippet`, `source="serpapi"`). This same call is now a permanent test (`TestSerpApiLiveIfKeyAvailable`) that skips cleanly when no key is present rather than failing or fabricating a result.
+- Full suite: **417 passed, 4 failed, 1 skipped** (153s). The 4 failures are the unchanged D11 baseline — none of those files were touched this phase. The 1 skip is the live SerpApi test, correctly skipped in the bare `pytest -q` run where `SERPAPI_KEY` wasn't in the environment.
+
+**Operational note, no secret recorded.** A real SerpApi account now exists and was used for this phase's live verification (free tier, 250 searches/month, well under quota after this phase's calls). The key itself is not written anywhere in this repo or these files — a future phase needing to re-verify the SerpApi tier, or to obtain/verify a Serper key, should ask the project owner directly rather than assume no credentials exist.
+
+---
+
 ## Defects added to blueprint §1.6
 
 | # | Defect | Severity | Detail |
@@ -223,7 +250,7 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 
 | Item | Status | Blocker / next action |
 |---|---|---|
-| **S0-E3** — knowledge-retrieval fix | OPEN | Next in queue. SerpApi primary → Serper secondary → browser-automation last resort. Config-driven providers, real quota tracking from response headers, user-visible provider switch, "let me check that" narration, honest failure if the whole chain fails. Also apply the lazy-import fix to `serp_fetcher.py`'s Chrome construction. |
+| **S0-E3** — knowledge-retrieval fix | ✅ CLOSED (`20ce0a88`) | See the closed-item entry above. Serper tier unverified (no key) — re-verify if/when a `SERPER_KEY` becomes available. |
 | **S0-E9** — Tier-1 inference wins | OPEN | `generate_stream()` (exists at `llm_engine.py:161`, **called by nothing**) · model warm-up · task-aware token budgets. **Then re-measure latency before any routing work** (§3.7b). |
 | **D11** — 4 dead tests | LOGGED, in blueprint §1.6 | Cheap, no design decisions. Own phase when scheduled. |
 | **D12** — window-title/`AvailabilityChecker` PWA false positive | LOGGED, in blueprint §1.6 | Root-caused (substring match in `pyautogui.getWindowsWithTitle`). Own phase when scheduled. |

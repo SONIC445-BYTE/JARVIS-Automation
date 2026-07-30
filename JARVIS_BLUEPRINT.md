@@ -220,7 +220,7 @@ Real engineering producing **zero user value** until wired:
 |---|---|---|---|
 | S0-E1 | 3-engine + installed-app audit formally closed | ✅ | Per-engine verdict; all 4 suite failures named + provenance-checked → D11; conversational-layer misroute → D13 |
 | S0-E2 | Desktop adapter launch-fallback independently verified | ✅ | `31939c8` — diff read, 4 tests re-run independently, real unmocked `open_app()` run against both adapters → surfaced/sharpened D12 |
-| S0-E3 | Knowledge-retrieval fix (API tiers + failover) | **OPEN** | Next in queue |
+| S0-E3 | Knowledge-retrieval fix (API tiers + failover) | ✅ | `20ce0a88` — SerpApi/Serper/browser tiered chain, config-driven, live-verified against the real SerpApi endpoint (a real key was supplied for this phase). Quota tracking corrected from the original "response headers" assumption to the real `/account.json` endpoint. Serper tier built but not live-verified (no key available) — flagged, not claimed. |
 | S0-E4 | Command routing verified across bug classes | ✅ | 5 bug classes fixed structurally |
 | S0-E5 | Resolution gate + honest-failure discipline | ✅ | |
 | S0-E6 | Level6 approval-gated apply with rollback | ✅ | |
@@ -233,7 +233,7 @@ Real engineering producing **zero user value** until wired:
 1. **STT: Vosk-first, cloud path deleted.** Not deprioritised — *deleted*. Fixes D1, unblocks T3. Whisper evaluated later as an accuracy upgrade against measured CPU latency, not assumed.
 2. Close the audit formally. Perpetual "in progress" hides state.
 3. Verify `31939c8`.
-4. Knowledge retrieval: SerpApi primary → Serper secondary → browser-automation last resort. Config-driven providers, real quota tracking from response headers, user-visible provider switch, "let me check that" narration, honest failure if the whole chain fails.
+4. ~~Knowledge retrieval: SerpApi primary → Serper secondary → browser-automation last resort.~~ **Done (S0-E3, commit `20ce0a88`).** Config-driven providers, quota tracking (corrected to the real `/account.json` endpoint, not response headers — see execution log), user-visible provider switch, "let me check that" narration wired to `self._speak`, honest failure if the whole chain fails.
 5. **Wire `generate_stream()`** — cost xs, speech starts at token 1 not token 150.
 6. Model warm-up; task-aware token budgets (`MAX_TOKENS` 256 default; callers already vary 50–200).
 7. Fix D5 (hardcoded path), D6 (curl→HTTP client).
