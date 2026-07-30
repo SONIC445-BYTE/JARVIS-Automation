@@ -182,14 +182,14 @@ CROSS-CUTTING — GOVERN  ← the genuine differentiator
 | # | Defect | Severity |
 |---|---|---|
 | ~~D1~~ | ~~`LocalSTT.listen_once()` calls `recognize_google()` **first**~~ — **✅ RESOLVED**, commit `a3c91d06` (S0-E8). Both cloud entry points deleted; verified by grepping the remote git object. **T3 now TRUE.** Kept in table for trail. | ~~🔴~~ closed |
-| **D11** | 4 pre-existing test failures, **dead since initial commit `dbef62f8`** — not regressions. `test_integration.py::test_routing`/`::test_tier2_flow` (`CodeEngine` has no `.policy` attribute, never did; bodies are `pass`), `test_basic_write.py::test_auto_write` (`file_path` returns a directory, `open()` fails), `test_mode_engine.py::test_audit_log_created` (asserts `hmac_signature`, actual key is `sig`). Cheap fixes, no design decisions. Logged not fixed — outside S0-E1 scope. | 🟡 Low |
-| **D12** | `AvailabilityChecker` false positive: reports WhatsApp installed when only a **WhatsApp Web PWA shortcut** exists. Adapter then correctly fails to launch a nonexistent desktop app — gate and executor disagree, gate is wrong. Surfaced during `31939c8` verification, then independently reproduced live during S0-E2's close-out with a sharper root cause: it isn't only `AvailabilityChecker`'s installed-check that's fooled — `WhatsappDesktopAdapter.open_app()`'s own `activate_window()` call is fooled the same way, via `pyautogui.getWindowsWithTitle()`'s substring match (`Get-Process` confirms the matched window belongs to `chrome.exe`; `Get-AppxPackage` confirms no real WhatsApp Desktop UWP package is installed). Telegram unaffected — confirmed via `Get-Process` path match to be the real app. Affects the resolution gate's "not installed" branch. | 🟠 Medium |
-| **D13** | `IntentRouter.classify()` misroutes informational "search for X" phrasings to `handler="action"` instead of `"llm"` — e.g. `"search for the definition of recursion and explain it"`, `"search for python tutorials"`. Found during S0-E1's conversational-layer audit, reconfirmed live 2026-07-29 against the current `classify()`. Live-path bug, not dead scaffolding — logged, not fixed, out of S0-E1's declared scope. | 🟡 Medium |
+| ~~D11~~ | ~~4 pre-existing test failures, dead since initial commit~~ — **✅ RESOLVED**, commit `21c37832`. All 4 fixed (not just found): `.policy`→`.config` reference, `file_path` now opened as the real written file inside the sandbox dir, `hmac_signature`→`sig` (the real, working key). All 4 formerly-failing tests now genuinely pass. | ~~🟡 Low~~ closed |
+| ~~D12~~ | ~~`AvailabilityChecker`/`WhatsappDesktopAdapter` false positive on PWA shortcuts~~ — **✅ RESOLVED**, commit `54a86665`. `GUIBackend.activate_window()`/`close_window()` gained `exclude_process_names`, wired into both whatsapp/telegram desktop adapters (open + close). Live-verified both directions: WhatsApp's `open_app()` now correctly returns `False` (was `True`); Telegram's real-app detection unaffected. | ~~🟠 Medium~~ closed |
+| ~~D13~~ | ~~`IntentRouter` misroutes "search for X" to `action`~~ — **✅ RESOLVED**, commit `6053c942`. ACTION_PATTERNS' search entry restricted to phrasings with an explicit action-continuation verb; bare "search for X" now falls through to `handler="llm"`. Live-verified against both original examples plus two non-regression guards (continuation case stays action, platform-named search still reaches the resolution gate). | ~~🟡 Medium~~ closed |
 | D2 | `memory_store.py` "encryption" is XOR with hardcoded default key `"jarvis_default_key"` — visible in source | 🔴 Critical before any sensitive data |
 | D3 | Import time ~16s (was 29s). Target for between-patient use: **<3s** | 🟠 Product-viability number |
 | D4 | `rag_engine → serp_fetcher` scrapes Google HTML; fragile + ToS exposure | 🟠 High |
-| D5 | Hardcoded `C:\Users\chatu` path in `Brain/brain.py` | 🟡 Medium |
-| D6 | `LLMEngine` uses `subprocess(["curl", ...])` rather than an HTTP client | 🟡 Medium |
+| ~~D5~~ | ~~Hardcoded `C:\Users\chatu` path in `Brain/brain.py`~~ — **✅ RESOLVED**, commit `8ce7f044`. Blueprint named only one file; 3 more live occurrences found and fixed too (`Features/clap_with_music.py`, `Time_Operations/throw_alert.py`, `ui.py`). Verified zero remaining repo-wide. | ~~🟡 Medium~~ closed |
+| ~~D6~~ | ~~`LLMEngine` uses `subprocess(["curl", ...])`~~ — **✅ RESOLVED**, commit `fb332247`. Both `generate()` and `chat()` switched to `requests.post()`, matching `generate_stream()`/`chat_stream()`'s existing pattern. Live-verified against the real Ollama backend. | ~~🟡 Medium~~ closed |
 | D7 | `ODAVLoop.execute()` incomplete gate-outcome handling (unreachable from live loop today) | 🟡 Low |
 | D8 | `co_brain.py` legacy system #1 not retired | 🟡 Low |
 | D9 | Default branch is stale `feature/improve-readme-presentation-…`, 30+ commits behind | 🟡 Low |
@@ -212,7 +212,7 @@ Real engineering producing **zero user value** until wired:
 
 **Stage numbering is now unified** across all four prior schemes. EMR adapter precedes ambient mode (ambient with nothing to write into is just recording).
 
-## Stage 0 — Reliability layer *(all 9 exit criteria closed 2026-07-30 — not renumbering the original "72%", its computation basis isn't recorded here; work items 7-8 below (D5/D6/D2) remain open, so this stage isn't fully done despite the table below being all-✅)*
+## Stage 0 — Reliability layer *(all 9 exit criteria closed 2026-07-30 — not renumbering the original "72%", its computation basis isn't recorded here; work item 7 (D5/D6) closed 2026-07-30; work item 8 (D2) is the one remaining item and gates Stage 0.5's real-clinical-data exit criterion — see below)*
 
 > **Evidence for every closed row is in `JARVIS_EXECUTION_LOG.md`** — commit SHA, what verified it, and any finding it produced. A bare ✅ without that trail is not acceptable in this table.
 
@@ -236,7 +236,7 @@ Real engineering producing **zero user value** until wired:
 4. ~~Knowledge retrieval: SerpApi primary → Serper secondary → browser-automation last resort.~~ **Done (S0-E3, commit `20ce0a88`).** Config-driven providers, quota tracking (corrected to the real `/account.json` endpoint, not response headers — see execution log), user-visible provider switch, "let me check that" narration wired to `self._speak`, honest failure if the whole chain fails.
 5. **Wire `generate_stream()`** — cost xs, speech starts at token 1 not token 150.
 6. Model warm-up; task-aware token budgets (`MAX_TOKENS` 256 default; callers already vary 50–200).
-7. Fix D5 (hardcoded path), D6 (curl→HTTP client).
+7. ~~Fix D5 (hardcoded path), D6 (curl→HTTP client).~~ **Done, commits `8ce7f044`/`fb332247`.**
 8. **Fix D2 — replace XOR with real encryption** before any clinical data touches the system.
 
 **Freeze during Stage 0:** no further Level6/L9 investment, no DEI research, no orb wiring, no emotion wiring, no new desktop adapters.
