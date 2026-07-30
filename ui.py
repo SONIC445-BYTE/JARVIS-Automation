@@ -76,8 +76,14 @@ class JarvisUI(QWidget):
             # Get the directory where ui.py is located
             current_directory = os.path.dirname(os.path.abspath(__file__))
 
-            # Specify the path to main.py based on the current directory
-            path_to_main_py = os.path.join(current_directory, r"C:\Users\chatu\OneDrive\Desktop\J.A.R.V.I.S\MAIN\main.py")
+            # Specify the path to the entry point based on the current
+            # directory -- was a hardcoded absolute path to a main.py
+            # that doesn't exist anywhere in this repo (D5); os.path.join
+            # with an absolute second argument silently discards
+            # current_directory entirely on Windows, so this never
+            # actually used current_directory regardless. jarvis.py is
+            # this project's real entry point.
+            path_to_main_py = os.path.join(current_directory, "jarvis.py")
 
             command = ["python", path_to_main_py]
             self.process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, cwd=current_directory)

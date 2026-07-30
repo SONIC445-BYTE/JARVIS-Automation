@@ -57,8 +57,6 @@ def load_AlamTime(file_path):
         print(f"Error loading schedule: {e}")
     return schedule
 
-Alam_path = r"C:\Users\chatu\OneDrive\Desktop\Jarvis\Alam_data.txt"
-
 def check_Alam(Alam_path):
     last_modified = 0
     while True:
