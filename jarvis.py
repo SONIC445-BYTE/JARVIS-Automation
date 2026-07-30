@@ -28,6 +28,7 @@ Features:
 """
 
 import os
+import re
 import sys
 
 # Diagnosed root cause of the wake-word "detection failure" report: this
@@ -568,7 +569,78 @@ class PersistentWakeService:
                 engine.runAndWait()
             except:
                 print(f"[JARVIS] {text}")
-    
+
+    _SENTENCE_BOUNDARY_RE = re.compile(r'[.!?]\s+')
+
+    # Adversarial finding while testing this (2026-07-30): the naive
+    # version of this split "Dr. Smith will see the patient at 3pm."
+    # into "Dr." + "Smith will see the patient at 3pm." -- a genuinely
+    # bad failure mode for a physician-facing voice product, since "Dr."
+    # is about as common a token as this system will ever speak. Not a
+    # general sentence-boundary solver (that's NLTK/spaCy territory) --
+    # a bounded, honest guard against the abbreviations most likely to
+    # appear in this system's actual conversational output.
+    # Deliberately conservative -- "no" or "fig" were considered and
+    # dropped: both are common standalone words/sentence-starters (e.g.
+    # "No, that's not right.") in ordinary conversation, and including
+    # them would trade a rare abbreviation-splitting glitch for a more
+    # common false suppression of a real sentence boundary. Kept to
+    # titles/honorifics and academic-style abbreviations, which are
+    # unambiguous almost everywhere they appear.
+    _ABBREVIATIONS = {
+        "dr", "mr", "mrs", "ms", "prof", "sr", "jr", "st",
+        "vs", "etc", "e.g", "i.e", "approx",
+    }
+
+    def _stream_and_speak_chat(self, messages, system) -> str:
+        """
+        S0-E9: streams LLMEngine.chat_stream() and speaks each completed
+        sentence as it arrives, instead of the old chat()-then-speak
+        path that waited for the entire response before saying a word
+        (live-measured: ~23.7s of silence for a 3-sentence answer,
+        vs. a first chunk at ~2.3s). Returns the full accumulated text
+        so the caller can still store it in conversation history.
+
+        Sentence-level, not token-level: speaking mid-word or mid-clause
+        as raw tokens arrive would sound worse than the flat TTS voice
+        already does, not better -- the win is starting sooner, not
+        chopping speech into fragments.
+        """
+        buffer = ""
+        full_text = ""
+
+        for chunk in self._llm.chat_stream(messages, system):
+            buffer += chunk
+            full_text += chunk
+            buffer = self._speak_complete_sentences(buffer)
+
+        # Speak whatever's left -- the final sentence often has no
+        # trailing punctuation captured before the stream ends.
+        if buffer.strip():
+            self._speak(buffer.strip())
+
+        return full_text.strip()
+
+    def _speak_complete_sentences(self, buffer: str) -> str:
+        """
+        Speaks every complete sentence in buffer, skipping boundaries
+        that are really just an abbreviation ("Dr.", "e.g.") rather than
+        a real sentence end. Returns whatever's left unspoken (the
+        trailing incomplete sentence, or the abbreviation-adjacent text
+        that needs more input before it can be judged).
+        """
+        last_spoken_end = 0
+        for match in self._SENTENCE_BOUNDARY_RE.finditer(buffer):
+            candidate = buffer[last_spoken_end:match.start() + 1].strip()
+            last_word = candidate.rstrip(".!?").split()[-1].lower() if candidate else ""
+            if last_word in self._ABBREVIATIONS:
+                continue  # not a real boundary -- keep accumulating
+            if candidate:
+                self._speak(candidate)
+            last_spoken_end = match.end()
+
+        return buffer[last_spoken_end:]
+
     # ============================================================
     # SPRINT 6: CONVERSATIONAL INTELLIGENCE
     # ============================================================
@@ -584,6 +656,13 @@ class PersistentWakeService:
             from AgentCore.prompt_templates import PromptTemplates
             
             self._llm = LLMEngine()
+            # S0-E9: warm the model in the background rather than blocking
+            # startup on it -- a cold-load measured ~7.6s live, and startup
+            # is already ~16s against a <3s target (D3). By the time wake
+            # word + STT actually produce a first utterance, the model
+            # should already be resident in memory.
+            if self._llm.is_available():
+                threading.Thread(target=self._llm.warm_up, daemon=True).start()
             self._tts = TTSEngine()
             self._router = IntentRouter()
             self._cpu_guard = CPUGuard()
@@ -744,7 +823,8 @@ class PersistentWakeService:
             
             response = None
             response = None
-            
+            spoken_already = False
+
             # --- ADDITION: Level-6 Engine Hook ---
             try:
                 from AgentCore.feature_gate import is_enabled as feature_enabled
@@ -916,13 +996,22 @@ class PersistentWakeService:
                         rag_response = self._rag.query(text, notify=self._speak)
                         response = rag_response.text
                     else:
-                        # Standard LLM response
+                        # Standard LLM response -- streamed (S0-E9).
+                        # chat() waited for the full response before
+                        # speaking anything; live-measured, that's ~23.7s
+                        # of silence vs. a first chunk at ~2.3s. Speaks
+                        # each completed sentence as it arrives instead
+                        # of waiting for the whole thing, then skips the
+                        # generic end-of-loop self._speak(response) below
+                        # via spoken_already so the answer isn't spoken
+                        # twice.
                         self._conversation.add_user(text)
                         system, messages = self._conversation.get_context()
-                        
-                        llm_response = self._llm.chat(messages, system)
-                        response = llm_response.text
-                    
+
+                        self._set_state(JarvisState.SPEAK)
+                        response = self._stream_and_speak_chat(messages, system)
+                        spoken_already = True
+
                     self._conversation.add_assistant(response)
                     
             elif intent.handler == "canned":
@@ -935,11 +1024,12 @@ class PersistentWakeService:
             
             if not response:
                 response = "I'm not sure how to help with that."
-            
+
             # SPEAK
             self._set_state(JarvisState.SPEAK)
             print(f"[Convo] JARVIS: '{response[:100]}...'")
-            self._speak(response)
+            if not spoken_already:
+                self._speak(response)
             self._last_activity = time.time()
         
         # Return to sleep
