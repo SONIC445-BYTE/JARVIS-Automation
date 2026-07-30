@@ -168,6 +168,30 @@ Config required: `RHINAL_PROVIDER=groq`, `RHINAL_MODEL_ID=llama-3.1-8b-instant`.
 
 ---
 
+### S0-E9 — Tier-1 inference wins: streaming, warm-up, task-aware token budgets
+**Status: ✅ CLOSED.** Commit `bc83d7ec` on `phase-2-adapter-wiring`.
+
+**Real numbers measured live before building anything (2026-07-30), not assumed from the blueprint's description of the problem.** Cold Ollama call: 10.4s. Warm call (same model, already loaded): 2.8s -- a real ~7.6s tax on whatever request happens to arrive first. A real `chat_stream()`-shaped answer's first chunk arrived at ~2.3s vs. 23.7s for the full response.
+
+**What was found before building.** `generate_stream()` (`llm_engine.py:161`) was real, working code -- but wraps `/api/generate` (single prompt). jarvis.py's actual live conversation loop calls `LLMEngine.chat()` (multi-turn message history via `/api/chat`), a structurally different endpoint. Streaming `generate()` alone, as the blueprint's work-item text literally said, could not have reached the path that needed it -- confirmed by reading `jarvis.py`'s real call site before writing anything, not assumed from the method existing. Built `chat_stream()` as `chat()`'s streaming counterpart instead.
+
+**Warm-up: a design correction made before shipping, not after.** First draft defaulted `LLMEngine.__init__(warm_up=True)`. Caught before committing: dozens of call sites construct `LLMEngine()` across this codebase (tests, `code_engine`, `level6`, one-off CLI utilities) -- defaulting warm-up on would add a real blocking network call to all of them, not just the one live conversational path this is meant to help. Changed the default to `False` and wired `warm_up()` explicitly, once, at `jarvis.py`'s real service-startup site, on a background thread so it doesn't block the rest of startup (already ~16s against the <3s target, D3).
+
+**Token budgets.** `generate()` already accepted `max_tokens` (existing callers vary 50-200 -- confirmed by reading every call site: `rag_engine.py` passes 200, `AgentCore/pipeline/intent_router.py` passes 50, several others use the 256 default). `chat()` had no such parameter at all -- hardcoded to the class default unconditionally. Since `chat()` is the main jarvis.py conversation loop's only real caller, this was the actual task-aware gap, not a general "add token budgets" task. Added the parameter with the same clamping behavior `generate()` already had.
+
+**Wiring into the live path.** `jarvis.py`'s "Standard LLM response" branch now calls a new `_stream_and_speak_chat()` method: streams `chat_stream()`, speaks each completed sentence as it arrives via `self._speak()`, and sets a `spoken_already` flag so the shared end-of-loop `self._speak(response)` (used by every other dispatch branch) doesn't speak the same answer twice. Sentence-level, not token-level -- speaking mid-word fragments as raw tokens arrive would sound worse than the existing flat TTS voice, not better.
+
+**Adversarial finding, fixed in this same phase rather than logged for later.** Live-tested the sentence-splitter against a domain-relevant adversarial input and found a real bug: naive punctuation-based splitting broke `"Dr. Smith will see the patient at 3pm."` into `"Dr."` + `"Smith will see the patient at 3pm."` -- a bad failure mode specifically because "Dr." is about as common a token as a physician-facing voice product will ever speak. Fixed with a bounded abbreviation guard (`dr, mr, mrs, ms, prof, sr, jr, st, vs, etc, e.g, i.e, approx`) checked against the last word before each candidate sentence boundary. Deliberately excluded "no" and "fig" from the set after tracing through a counter-case (`"Call the front desk. No. Call the lab instead."`) -- both are common standalone sentence-starters in ordinary conversation, and including them would trade a rare abbreviation-splitting glitch for a more common false suppression of a real one-word sentence. Live-verified against real (not canned) LLM output containing both "Dr. Smith" and "Mrs. Johnson" -- both spoken correctly as whole sentences.
+
+**Verification (adversarial, not just the happy path).**
+- 19 new tests (`tests/test_llm_streaming.py`): warm-up gating in all three states (off by default, on when requested and available, skipped when requested but unavailable), `chat()`'s new token-budget parameter and its ceiling clamp (unchanged from `generate()`'s existing behavior), `chat_stream()`'s chunk yielding and system-message prepending, and the sentence-buffering logic tested directly against `jarvis.py`'s real `PersistentWakeService` class (constructed via `__new__` to skip the heavy `__init__`, not a mirrored copy of the logic) -- including the "Dr.", "St. Mary's" (must NOT wrongly split), and "No." (must still split, the abbreviation guard's own limit) cases.
+- **Real end-to-end before/after measurement on the actual jarvis.py code path**, not a synthetic microbenchmark: old blocking `chat()`-then-speak took **34.04s** to first spoken word on a real 3-sentence question; new streaming + sentence-buffered speech took **9.87s** -- **24.17s faster**, live-measured, not estimated from the smaller streaming-only numbers above.
+- Full suite: **434 passed, 4 failed** (unchanged D11 baseline, none of those files touched this phase), **1 skipped** (live SerpApi test).
+
+**What this phase did not do, on purpose.** Did not touch D3 (import time, ~16s) or GPU config -- both explicitly separate items in the blueprint's own work-item list, not part of "streaming, warm-up, token budgets." Did not build or evaluate the §3.7b capability/confidence router -- the blueprint's own sequencing table says to re-measure latency after these three items before considering routing, which is exactly what the 9.87s number above is for; whether that number is fast enough to keep deferring router work is the project owner's call, not decided here.
+
+---
+
 ## Defects added to blueprint §1.6
 
 | # | Defect | Severity | Detail |
@@ -251,7 +275,7 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | Item | Status | Blocker / next action |
 |---|---|---|
 | **S0-E3** — knowledge-retrieval fix | ✅ CLOSED (`20ce0a88`) | See the closed-item entry above. Serper tier unverified (no key) — re-verify if/when a `SERPER_KEY` becomes available. |
-| **S0-E9** — Tier-1 inference wins | OPEN | `generate_stream()` (exists at `llm_engine.py:161`, **called by nothing**) · model warm-up · task-aware token budgets. **Then re-measure latency before any routing work** (§3.7b). |
+| **S0-E9** — Tier-1 inference wins | ✅ CLOSED (`bc83d7ec`) | See the closed-item entry above. 9.87s to first spoken word is the new baseline for the §3.7b re-measure-before-routing decision -- decision itself not made here. |
 | **D11** — 4 dead tests | LOGGED, in blueprint §1.6 | Cheap, no design decisions. Own phase when scheduled. |
 | **D12** — window-title/`AvailabilityChecker` PWA false positive | LOGGED, in blueprint §1.6 | Root-caused (substring match in `pyautogui.getWindowsWithTitle`). Own phase when scheduled. |
 | **D13** — `IntentRouter` search-phrase misroute | LOGGED, in blueprint §1.6 | Live-path bug. Own phase when scheduled. |

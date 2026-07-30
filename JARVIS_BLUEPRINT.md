@@ -226,7 +226,7 @@ Real engineering producing **zero user value** until wired:
 | S0-E6 | Level6 approval-gated apply with rollback | ✅ | |
 | S0-E7 | Persistent memory storage + boundary tests | ✅ | |
 | S0-E8 | **Local STT — cloud path deleted** | ✅ 🔴 | `a3c91d06` — remote git blob grepped, zero cloud refs. **T3: CONTRADICTED → TRUE** |
-| S0-E9 | Tier-1 inference wins (streaming, warm-up, token budgets) | **OPEN** | Then re-measure before any routing work (§3.7b) |
+| S0-E9 | Tier-1 inference wins (streaming, warm-up, token budgets) | ✅ | `bc83d7ec` — real end-to-end measurement on the actual jarvis.py path: 34.04s → 9.87s to first spoken word (24.17s faster). `chat_stream()` added (`generate_stream()` alone couldn't reach the live path, which uses `/api/chat` not `/api/generate`), warm-up wired at live startup only (not the constructor default — see execution log), `chat()` gained task-aware `max_tokens`. Re-measured per §3.7b's sequencing as instructed — the 9.87s number is the new baseline; whether that's fast enough to defer routing work further is the owner's call, not decided here. |
 
 **Work items, in order:**
 
@@ -728,7 +728,7 @@ Not an EMR. Not a diagnostic system. Not a chatbot. Not a general agent framewor
 # PART 6 — IMMEDIATE NEXT ACTIONS
 
 1. ~~**Delete the cloud STT path.**~~ **Done (S0-E8, commit `a3c91d06`).** D1 resolved, T3 flipped.
-2. **Fix conversational latency — reported as bad in real use.** It is not one problem, it is four stacking: cold model load (no warm-up), full-response wait (`generate_stream()` dark), ~16s import (D3), no GPU config. Do the three cheap ones first — **streaming, warm-up, token budgets** — then **re-measure before designing any router** (§3.7). **This is S0-E9, next after S0-E3.**
+2. ~~**Fix conversational latency — reported as bad in real use.**~~ **Done for the three cheap items (S0-E9, commit `bc83d7ec`).** Streaming, warm-up, and task-aware token budgets landed; real end-to-end measurement: 34.04s → 9.87s to first spoken word. Import time (D3, ~16s) and GPU config are separate, still-open items — this phase only closed the three named here.
 3. **Decide DEC-002** (audit trail) before Stage 0.5 begins. Architect in.
 4. ~~Close the audit; verify `31939c8`.~~ **Done (S0-E1, S0-E2) — see Stage 0 table.**
 5. Wire the orb + banner as a static frame on every launch (§3.8) — no new code required. **Frozen during Stage 0 (see Stage 0's freeze list) — do not start yet.**
