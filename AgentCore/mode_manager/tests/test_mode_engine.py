@@ -38,7 +38,14 @@ class TestModeEngineHardened(unittest.TestCase):
         self.assertTrue(os.path.exists("data/logs/mode_switch.log"))
         with open("data/logs/mode_switch.log") as f:
             line = f.readline()
-            self.assertIn("hmac_signature", line) # or 'sig' if using that key
+            # D11: the test guessed at a key name ("hmac_signature")
+            # that was never actually implemented. AgentCore/mode_manager/
+            # audit.py's write_log()/verify_line() consistently use "sig"
+            # on both the write and verify sides -- renaming only the
+            # test to match what's real, not renaming the working,
+            # internally-consistent write/verify contract to match a
+            # guess (that would be a real behavior change, not a test fix).
+            self.assertIn("sig", line)
 
 if __name__ == "__main__":
     unittest.main()

@@ -58,6 +58,13 @@ def test_auto_write(temp_workspace):
     
     assert result["dry_run"] is False
     assert os.path.exists(result["file_path"])
-    with open(result["file_path"], "r") as f:
+    # D11: result["file_path"] is the sandbox *directory* handle_command()
+    # writes into (it can hold multiple files for multi-file responses),
+    # not a single file -- opening it directly raised PermissionError on
+    # Windows (opening a directory as a file). engine.py's single-file
+    # heuristic names a python response "hello_world.py".
+    written_file = os.path.join(result["file_path"], "hello_world.py")
+    assert os.path.exists(written_file)
+    with open(written_file, "r") as f:
         content = f.read()
         assert "print('Hello World')" in content
