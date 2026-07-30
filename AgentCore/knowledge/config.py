@@ -1,7 +1,21 @@
 
 # AgentCore/knowledge/config.py
 
+import os
+
 SERP_ENGINES = ["duckduckgo", "bing"]
+
+# Knowledge-discovery provider chain, tried in this order (S0-E3).
+# Config-driven: override with the KNOWLEDGE_PROVIDER_ORDER env var as a
+# comma-separated list, e.g. "serper,browser" to skip SerpApi entirely.
+# Providers whose API key isn't configured are skipped, not treated as
+# failures -- see provider_chain.py.
+KNOWLEDGE_PROVIDER_ORDER = [
+    p.strip()
+    for p in os.environ.get("KNOWLEDGE_PROVIDER_ORDER", "serpapi,serper,browser").split(",")
+    if p.strip()
+]
+
 MAX_CANDIDATES = 20
 MAX_TOP_SOURCES = 5
 CONCURRENCY = 5

@@ -913,7 +913,7 @@ class PersistentWakeService:
                 else:
                     # Use RAG if available for grounded answers
                     if hasattr(self, '_rag') and self._rag:
-                        rag_response = self._rag.query(text)
+                        rag_response = self._rag.query(text, notify=self._speak)
                         response = rag_response.text
                     else:
                         # Standard LLM response

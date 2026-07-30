@@ -9,32 +9,38 @@ from .network_guard import internet_available
 from .cache_store import CacheStore
 from .freshness_policy import needs_refresh, get_ttl
 from .trust_scorer import score_source
-from typing import Dict
+from typing import Callable, Dict, Optional
 
 _cache = CacheStore()
 
-def resolve_knowledge(query: str, force_refresh: bool = False) -> Dict:
+def resolve_knowledge(query: str, force_refresh: bool = False, notify: Optional[Callable[[str], None]] = None) -> Dict:
     """
     Main entry point: Resolve query to verified knowledge bundle.
+
+    notify, if given, is passed through to discover_sources() (S0-E3's
+    provider chain) so a caller can narrate "let me check that" /
+    provider-fallback messages to the user instead of the search
+    happening silently. Not called on a cache hit -- nothing to narrate
+    when no real search happens.
     """
     topic_key = query.lower().strip()
-    
+
     # 1. Check Cache
     cached = _cache.get_cached(topic_key)
     if cached and not force_refresh:
         if not needs_refresh(cached):
             print(f"[Knowledge] Cache Hit for '{query}'")
             return cached['bundle']
-    
+
     # 2. Check Internet
     if not internet_available():
         print("[Knowledge] Offline & Cache Miss")
         return {"verdict": "OFFLINE", "summary": "Internet unavailable."}
-        
+
     print(f"[Knowledge] Discovering sources for '{query}'...")
-    
+
     # 3. Discovery
-    candidates = discover_sources(query)
+    candidates = discover_sources(query, notify=notify)
     if not candidates:
         return {"verdict": "UNKNOWN", "summary": "No sources found."}
         

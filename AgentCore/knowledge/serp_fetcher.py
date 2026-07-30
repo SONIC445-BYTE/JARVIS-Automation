@@ -6,11 +6,6 @@ from typing import List, Dict
 import urllib.parse
 from contextlib import contextmanager
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from .config import USER_AGENT, REQUEST_TIMEOUT
 
 import atexit
@@ -18,9 +13,24 @@ import atexit
 _driver = None
 
 def get_driver_instance():
-    """Get or create a global persistent driver."""
+    """
+    Get or create a global persistent driver.
+
+    selenium/webdriver_manager are imported here, not at module level --
+    this is the last-resort tier of the S0-E3 provider chain and must
+    not pull in a Chrome-launching dependency just because this module
+    (or discovery_manager/provider_chain, which import it transitively)
+    was imported. Same lazy-import discipline already applied to
+    NetHyTechSTT and browser_automation.py after the 59-minute test-hang
+    incident that eager Selenium/webdriver_manager imports caused there.
+    """
     global _driver
     if _driver is None:
+        from selenium import webdriver
+        from selenium.webdriver.chrome.service import Service
+        from selenium.webdriver.chrome.options import Options
+        from webdriver_manager.chrome import ChromeDriverManager
+
         options = Options()
         options.add_argument(f"user-agent={USER_AGENT}")
         options.add_argument("--headless=new")
@@ -49,8 +59,10 @@ def cleanup_driver():
 
 def fetch_serp(query: str, max_results: int = 10) -> List[Dict]:
     """Fetch SERP from DuckDuckGo using Persistent Selenium."""
+    from selenium.webdriver.common.by import By
+
     url = f"https://duckduckgo.com/?q={urllib.parse.quote(query)}&ia=web"
-    
+
     results = []
     try:
         driver = get_driver_instance()

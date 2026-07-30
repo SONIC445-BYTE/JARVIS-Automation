@@ -6,7 +6,7 @@ Grounds LLM responses in user's knowledge.
 Sprint 7: Gap Fixes - Knowledge Grounding
 """
 
-from typing import Optional, Dict, List
+from typing import Callable, Optional, Dict, List
 from pathlib import Path
 
 from .knowledge_base import KnowledgeBase
@@ -49,28 +49,33 @@ ANSWER:"""
         print(f"[RAGEngine] Knowledge docs: {len(self.kb.list_documents())}")
         print(f"[RAGEngine] LLM available: {self.llm.is_available()}")
     
-    def query(self, question: str, use_rag: bool = True) -> LLMResponse:
+    def query(self, question: str, use_rag: bool = True, notify: Optional[Callable[[str], None]] = None) -> LLMResponse:
         """
         Answer a question with optional RAG (Local + Wikipedia).
+
+        notify, if given, is passed through to the knowledge-retrieval
+        provider chain (S0-E3) so the caller can narrate "let me check
+        that" / provider-fallback messages to the user (e.g. jarvis.py
+        passes self._speak) instead of the search happening silently.
         """
         context = ""
         source = "general knowledge"
-        
+
         if use_rag:
             # 1. Try Local Knowledge Base
             context = self.kb.get_context(question)
             if context:
                 source = "local knowledge"
-            
+
             # 2. Live Knowledge Acquisition (Sprint 6.2)
             # Check if time-sensitive
             try:
                 from .knowledge_classifier import is_time_sensitive
                 if not context and is_time_sensitive(question):
                     from .knowledge import resolve_knowledge
-                    
+
                     print(f"[RAGEngine] Time-sensitive query detected: '{question}'")
-                    bundle = resolve_knowledge(question)
+                    bundle = resolve_knowledge(question, notify=notify)
                     
                     if bundle.get("verdict") in ["CONFIRMED", "UNCERTAIN"]:
                         # Format context from bundle
