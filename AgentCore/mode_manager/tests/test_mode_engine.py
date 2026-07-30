@@ -1,3 +1,5 @@
+import base64
+import secrets
 import unittest
 import os
 import shutil
@@ -10,8 +12,14 @@ class TestModeEngineHardened(unittest.TestCase):
         self.test_config = "feature_flags/test_hardening.yaml"
         with open(self.test_config, "w") as f:
             f.write("enabled: true\nauto_switch_confidence_threshold: 0.8\ncooldown_seconds: 0.1\n")
-        # Mock env key for audit
-        os.environ["JARVIS_HMAC_KEY"] = "testkey"
+        # D2: secure_key.resolve_key()'s env-var path expects a real,
+        # base64-encoded 32-byte key -- "testkey" as a plain string is
+        # no longer valid (that laxness was part of the weakness this
+        # fixed). A fresh random key per test run is fine; these tests
+        # only need signing/verification to work internally consistently,
+        # not a specific key value.
+        self._prior_hmac_key = os.environ.get("JARVIS_HMAC_KEY")
+        os.environ["JARVIS_HMAC_KEY"] = base64.b64encode(secrets.token_bytes(32)).decode()
 
     def tearDown(self):
         if os.path.exists(self.test_config):
@@ -19,6 +27,10 @@ class TestModeEngineHardened(unittest.TestCase):
         # Clean logs
         if os.path.exists("data/logs/mode_switch.log"):
             os.remove("data/logs/mode_switch.log")
+        if self._prior_hmac_key is None:
+            os.environ.pop("JARVIS_HMAC_KEY", None)
+        else:
+            os.environ["JARVIS_HMAC_KEY"] = self._prior_hmac_key
 
     def test_rule_match(self):
         engine = ModeEngine(self.test_config)

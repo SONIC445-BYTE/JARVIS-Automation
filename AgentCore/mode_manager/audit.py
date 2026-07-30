@@ -2,16 +2,17 @@ import json
 import time
 import hmac
 import hashlib
-import os
 from pathlib import Path
 
-def _get_hmac_key():
-    key = os.environ.get("JARVIS_HMAC_KEY")
-    if not key:
-        # Fallback for dev/test without crashing, but warn
-        # In production this should raise
-        return b"dev_insecure_key_default"
-    return key.encode()
+from AgentCore.secure_key import resolve_key
+
+# D2: was os.environ.get("JARVIS_HMAC_KEY") falling back to a hardcoded
+# b"dev_insecure_key_default" -- the identical weakness memory_store.py
+# had (XOR under "jarvis_default_key"). Shares secure_key.resolve_key()
+# with memory_store.py rather than a second, separately-maintained
+# implementation of the same fail-closed key logic.
+def _get_hmac_key() -> bytes:
+    return resolve_key("audit_hmac", "JARVIS_HMAC_KEY")
 
 def sign_entry(entry_dict):
     # Sort keys for deterministic JSON

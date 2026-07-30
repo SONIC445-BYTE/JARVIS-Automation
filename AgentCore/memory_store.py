@@ -4,6 +4,16 @@ Memory Store - Long-Term Encrypted Preference Storage
 Persistent storage for learned preferences and patterns.
 
 Sprint 4: Learning & Personalization
+
+D2 (2026-07-30): replaced XOR "encryption" under a hardcoded default
+key (`"jarvis_default_key"`) with real AES-256-GCM under a key from
+AgentCore.secure_key.resolve_key() -- OS keyring by default, an
+explicit env var or dev-only file as deliberate alternatives, never a
+silent insecure fallback. No real caller ever passed a custom
+encryption_key (confirmed by reading every call site before this
+change), so every record on disk under the old scheme was encrypted
+with that one hardcoded key -- _migrate_legacy_xor() uses exactly that
+fact to do a one-time, verified migration on first load.
 """
 
 import os
@@ -11,11 +21,31 @@ import json
 import time
 import base64
 import hashlib
+import shutil
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from datetime import datetime
 from threading import Lock
+
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+from .secure_key import resolve_key, KeyConfigurationError
+
+FORMAT_AES_GCM = "aes-gcm-v1"
+# The only key any pre-D2 data could ever have been encrypted with --
+# no real caller ever passed a custom encryption_key to MemoryStore.
+_LEGACY_XOR_DEFAULT_KEY = b"jarvis_default_key"
+
+
+class MemoryStoreMigrationError(Exception):
+    """
+    Raised when migrating legacy XOR-encrypted data to AES-GCM fails at
+    any step. Must propagate, not be caught-and-ignored: a partially
+    migrated store (some records under the old format, some under the
+    new, with no marker distinguishing which) is a worse state than
+    either end of the migration, so this refuses to leave that outcome.
+    """
 
 
 @dataclass
@@ -41,80 +71,182 @@ class MemoryStore:
     
     Features:
     - Local-only (no cloud sync)
-    - Simple encryption
+    - AES-256-GCM encryption, real key resolution (see secure_key.py)
     - Export/delete capability
     - Versioned snapshots
     """
     
-    VERSION = 1
-    
-    def __init__(self, store_dir: Optional[Path] = None, encryption_key: str = None):
+    VERSION = 2  # D2: real key resolution + AES-GCM, replacing XOR under a hardcoded key
+
+    def __init__(self, store_dir: Optional[Path] = None, encryption_key: Optional[bytes] = None):
         if store_dir is None:
             store_dir = Path(__file__).parent.parent / "data" / "memory"
-        
+
         self.store_dir = Path(store_dir)
         self.store_dir.mkdir(parents=True, exist_ok=True)
-        
+
         self._store_file = self.store_dir / "memory_store.json"
         self._backup_dir = self.store_dir / "backups"
         self._backup_dir.mkdir(exist_ok=True)
-        
-        # Simple encryption key (in production, use proper key management)
-        self._key = (encryption_key or "jarvis_default_key").encode()
-        
+
+        # D2: real key resolution -- fails closed (raises
+        # KeyConfigurationError) if no real key source is configured.
+        # No insecure default; callers must handle or let this
+        # propagate, never catch-and-substitute a weaker key.
+        self._key = encryption_key or resolve_key("memory_store", "JARVIS_MEMORY_KEY")
+        self._aesgcm = AESGCM(self._key)
+
         self._memory: Dict[str, MemoryRecord] = {}
         self._lock = Lock()
-        
+
         self._load()
-    
-    def _encrypt(self, data: str) -> str:
-        """Simple XOR encryption (for demonstration)."""
-        # In production, use proper AES-256 encryption
-        key_bytes = self._key * ((len(data) // len(self._key)) + 1)
-        encrypted = bytes(a ^ b for a, b in zip(data.encode(), key_bytes[:len(data)]))
-        return base64.b64encode(encrypted).decode()
-    
-    def _decrypt(self, data: str) -> str:
-        """Simple XOR decryption."""
-        encrypted = base64.b64decode(data.encode())
-        key_bytes = self._key * ((len(encrypted) // len(self._key)) + 1)
-        decrypted = bytes(a ^ b for a, b in zip(encrypted, key_bytes[:len(encrypted)]))
-        return decrypted.decode()
-    
+
+    def _encrypt(self, plaintext: str) -> str:
+        """AES-256-GCM encryption. Nonce is regenerated per call and prepended to the ciphertext."""
+        nonce = os.urandom(12)
+        ciphertext = self._aesgcm.encrypt(nonce, plaintext.encode(), None)
+        return base64.b64encode(nonce + ciphertext).decode()
+
+    def _decrypt(self, blob: str) -> str:
+        """AES-256-GCM decryption -- raises if the key is wrong or the data was tampered with."""
+        raw = base64.b64decode(blob.encode())
+        nonce, ciphertext = raw[:12], raw[12:]
+        plaintext = self._aesgcm.decrypt(nonce, ciphertext, None)
+        return plaintext.decode()
+
     def _load(self):
-        """Load store from disk."""
+        """Load store from disk, migrating legacy XOR-format data if found."""
         if not self._store_file.exists():
             return
-        
+
         try:
             with open(self._store_file, 'r') as f:
                 data = json.load(f)
-            
-            if data.get("encrypted", False):
-                content = self._decrypt(data["content"])
-                records = json.loads(content)
-            else:
-                records = data.get("records", {})
-            
-            for key, record_data in records.items():
-                self._memory[key] = MemoryRecord(**record_data)
-                
         except Exception as e:
+            # A malformed/unreadable file is treated softly (log, start
+            # with an empty store) -- this is the pre-existing behavior
+            # for genuinely corrupt JSON, not something D2 changes.
             print(f"[MemoryStore] Load error: {e}")
-    
+            return
+
+        if data.get("format") == FORMAT_AES_GCM:
+            # Deliberately NOT inside a broad try/except: a decryption
+            # failure here (wrong key, or tampering -- raises
+            # cryptography.exceptions.InvalidTag) must propagate, not be
+            # silently swallowed into "started with an empty store."
+            # Confirmed live during testing: the original broad
+            # except-and-log here made a wrong key indistinguishable
+            # from "no data was ever saved" -- the exact kind of silent
+            # data loss D2 exists to prevent, not just XOR itself.
+            content = self._decrypt(data["content"])
+            records = json.loads(content)
+        elif data.get("encrypted") and data.get("format") is None:
+            # Pre-D2 files are always {"encrypted": True, ...} with no
+            # "format" key at all -- that combination is the migration
+            # trigger. Also not caught here: a migration failure must
+            # stop __init__/_load, not be swallowed.
+            records = self._migrate_legacy_xor(data)
+        else:
+            records = data.get("records", {})
+
+        for key, record_data in records.items():
+            self._memory[key] = MemoryRecord(**record_data)
+
+    def _migrate_legacy_xor(self, data: dict) -> dict:
+        """
+        One-time migration from the pre-D2 XOR scheme to AES-GCM.
+        Legacy data was always encrypted with the hardcoded default key
+        -- no real caller ever configured a custom one (confirmed by
+        reading every real MemoryStore() call site before writing this).
+        Decrypts with that known legacy key, re-encrypts under the real
+        resolved key, and verifies the round-trip BEFORE touching the
+        old file. Any single failure raises MemoryStoreMigrationError
+        and aborts the whole migration -- never leaves a partially
+        migrated store.
+        """
+        try:
+            legacy_content = self._xor_decrypt_legacy(data["content"])
+            records = json.loads(legacy_content)
+        except Exception as e:
+            raise MemoryStoreMigrationError(
+                f"Legacy XOR data in {self._store_file} could not be decrypted with the "
+                f"known legacy default key: {e}. Refusing to proceed -- back up the file "
+                f"and investigate before retrying; this store is otherwise untouched."
+            ) from e
+
+        new_content = json.dumps(records)
+        try:
+            encrypted = self._encrypt(new_content)
+            roundtrip = self._decrypt(encrypted)
+        except Exception as e:
+            raise MemoryStoreMigrationError(
+                f"AES-GCM re-encryption failed during migration of {self._store_file}: {e}. "
+                f"Refusing to proceed; this store is otherwise untouched."
+            ) from e
+        if roundtrip != new_content:
+            raise MemoryStoreMigrationError(
+                f"AES-GCM re-encryption round-trip check failed during migration of "
+                f"{self._store_file} -- decrypted content did not match what was encrypted. "
+                f"Refusing to write; this store is otherwise untouched. Do not retry "
+                f"without investigating."
+            )
+
+        # Only now that the new format is confirmed readable: back up the
+        # old file, then overwrite it with the migrated data.
+        backup_path = self._store_file.with_name(self._store_file.stem + ".xor-backup.json")
+        try:
+            shutil.copy2(self._store_file, backup_path)
+        except Exception as e:
+            raise MemoryStoreMigrationError(
+                f"Could not write pre-migration backup {backup_path}: {e}. Refusing to "
+                f"overwrite {self._store_file} without a backup in place."
+            ) from e
+
+        new_data = {
+            "version": self.VERSION,
+            "format": FORMAT_AES_GCM,
+            "encrypted": True,
+            "content": encrypted,
+            "updated_at": time.time(),
+            "migrated_from": "xor-v1",
+            "migrated_at": time.time(),
+        }
+        with open(self._store_file, 'w') as f:
+            json.dump(new_data, f)
+
+        print(
+            f"[MemoryStore] Migrated legacy XOR-encrypted data to AES-GCM "
+            f"({len(records)} record(s)). Pre-migration backup: {backup_path}"
+        )
+        return records
+
+    @staticmethod
+    def _xor_decrypt_legacy(data: str) -> str:
+        """
+        Decrypts data written under the pre-D2 XOR scheme, using the
+        one key it could ever have been encrypted with -- migration-only,
+        never used for new data.
+        """
+        key = _LEGACY_XOR_DEFAULT_KEY
+        encrypted = base64.b64decode(data.encode())
+        key_bytes = key * ((len(encrypted) // len(key)) + 1)
+        decrypted = bytes(a ^ b for a, b in zip(encrypted, key_bytes[:len(encrypted)]))
+        return decrypted.decode()
+
     def _save(self):
-        """Save store to disk (encrypted)."""
+        """Save store to disk (AES-GCM encrypted)."""
         with self._lock:
             records = {k: asdict(v) for k, v in self._memory.items()}
             content = json.dumps(records)
-            
+
             data = {
                 "version": self.VERSION,
+                "format": FORMAT_AES_GCM,
                 "encrypted": True,
                 "content": self._encrypt(content),
                 "updated_at": time.time()
             }
-            
+
             try:
                 with open(self._store_file, 'w') as f:
                     json.dump(data, f)

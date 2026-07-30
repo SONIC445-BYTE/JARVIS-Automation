@@ -32,3 +32,6 @@ Pillow==12.1.1
 pyyaml
 sumy
 libcst
+cryptography
+keyring
+pywin32

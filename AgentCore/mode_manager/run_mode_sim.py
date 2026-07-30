@@ -10,8 +10,11 @@ def main():
 
     text = sys.argv[1]
     
-    # Mock Key
-    os.environ["JARVIS_HMAC_KEY"] = "dev_key"
+    # D2: secure_key.resolve_key()'s env-var path expects a real,
+    # base64-encoded 32-byte key -- a plain "dev_key" string is no
+    # longer valid. This is a manual CLI dev tool, so opt into the
+    # explicit dev-key path instead of fabricating a fake env-var key.
+    os.environ["JARVIS_INSECURE_DEV_KEY"] = "1"
     
     # Force enable
     config_path = "feature_flags/sim_config.yaml"
