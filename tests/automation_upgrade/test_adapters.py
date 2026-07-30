@@ -14,8 +14,12 @@ class FakeBackend:
         self.window_found = window_found
         self.open_command_result = open_command_result
 
-    def activate_window(self, title):
-        self.calls.append(("activate_window", title))
+    def activate_window(self, title, exclude_process_names=None):
+        # D12: real GUIBackend.activate_window() gained this kwarg to
+        # skip windows owned by a browser process; FakeBackend doesn't
+        # need real process-identity logic, just to accept and record
+        # the same call shape so adapter tests aren't coupled to it.
+        self.calls.append(("activate_window", title, exclude_process_names))
         return self.window_found
 
     def hotkey(self, *keys):
@@ -27,8 +31,8 @@ class FakeBackend:
     def press(self, key):
         self.calls.append(("press", key))
 
-    def close_window(self, title):
-        self.calls.append(("close_window", title))
+    def close_window(self, title, exclude_process_names=None):
+        self.calls.append(("close_window", title, exclude_process_names))
         if not self.window_found:
             return False
         self.hotkey("alt", "f4")
@@ -75,7 +79,7 @@ def test_text_editor_close_app_fires_shortcut_when_window_found():
     ok = adapter.close_app()
 
     assert ok is True
-    assert ("close_window", "Notepad") in backend.calls
+    assert ("close_window", "Notepad", None) in backend.calls
     assert ("hotkey", ("alt", "f4")) in backend.calls
 
 
@@ -93,7 +97,7 @@ def test_text_editor_close_app_does_not_fire_shortcut_when_window_not_found():
     ok = adapter.close_app()
 
     assert ok is False
-    assert ("close_window", "Notepad") in backend.calls
+    assert ("close_window", "Notepad", None) in backend.calls
     assert not any(call[0] == "hotkey" for call in backend.calls)
 
 

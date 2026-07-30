@@ -13,6 +13,12 @@ class WhatsappDesktopAdapter(AdapterBase):
 
     WINDOW_TITLE = "WhatsApp"
     PLATFORM_ALIASES = ["whatsapp"]
+    # D12: confirmed live -- "WhatsApp" substring-matches a Chrome window
+    # titled "WhatsApp Web" (a browser tab, not this desktop app).
+    # activate_window()/close_window() skip windows owned by these
+    # processes so open_app()/close_app() can't mistake someone's open
+    # browser tab for the real app.
+    _BROWSER_PROCESS_NAMES = {"chrome.exe", "msedge.exe", "firefox.exe", "brave.exe", "opera.exe"}
     # Phase 2g: points at the real WhatsAppWebAdapter -- data declaration
     # only. Not yet consulted by anything: resolution_gate.py's Q2 branch
     # stays 2-way until Phase 2g has a handful of real, tested adapters
@@ -36,7 +42,7 @@ class WhatsappDesktopAdapter(AdapterBase):
         if self.dry_run:
             self.log_action("open_app", {"target": "whatsapp", "dry_run": True})
             return True
-        if self.backend.activate_window(self.WINDOW_TITLE):
+        if self.backend.activate_window(self.WINDOW_TITLE, exclude_process_names=self._BROWSER_PROCESS_NAMES):
             time.sleep(0.2)
             self.log_action("open_app", {"target": "whatsapp", "success": True})
             return True
@@ -99,7 +105,7 @@ class WhatsappDesktopAdapter(AdapterBase):
         if self.dry_run:
             self.log_action("close_app", {"dry_run": True})
             return True
-        closed = self.backend.close_window(self.WINDOW_TITLE)
+        closed = self.backend.close_window(self.WINDOW_TITLE, exclude_process_names=self._BROWSER_PROCESS_NAMES)
         if not closed:
             self.log_action("close_app_skipped", {"reason": f"{self.WINDOW_TITLE} not found/focused"})
         return closed

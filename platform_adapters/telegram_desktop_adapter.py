@@ -8,6 +8,13 @@ from .gui_backend import GUIBackend
 class TelegramDesktopAdapter(AdapterBase):
     WINDOW_TITLE = "Telegram"
     PLATFORM_ALIASES = ["telegram"]
+    # D12: same false-positive class confirmed live for WhatsApp's
+    # "WhatsApp"/"WhatsApp Web" collision -- see
+    # whatsapp_desktop_adapter.py. Applied here too since the mechanism
+    # (WINDOW_TITLE substring-matching a browser tab for the same web
+    # service) is identical, even though no live collision was found for
+    # Telegram specifically on this machine.
+    _BROWSER_PROCESS_NAMES = {"chrome.exe", "msedge.exe", "firefox.exe", "brave.exe", "opera.exe"}
     # Phase 2g: data declaration only, see whatsapp_desktop_adapter.py's
     # comment on this same field for the standing rule.
     BROWSER_EQUIVALENT = BrowserEquivalent(
@@ -37,7 +44,7 @@ class TelegramDesktopAdapter(AdapterBase):
         # window silently failed to open at all. Confirmed live: the
         # non-Store Telegram Desktop installer always places the exe at
         # %APPDATA%\Telegram Desktop\Telegram.exe.
-        if self.backend.activate_window(self.WINDOW_TITLE):
+        if self.backend.activate_window(self.WINDOW_TITLE, exclude_process_names=self._BROWSER_PROCESS_NAMES):
             return True
         return self.backend.open_command('start "" "%APPDATA%\\Telegram Desktop\\Telegram.exe"')
 
@@ -45,7 +52,7 @@ class TelegramDesktopAdapter(AdapterBase):
         self.log_action("close_app", {"target": "telegram", "dry_run": self.dry_run})
         if self.dry_run:
             return True
-        closed = self.backend.close_window(self.WINDOW_TITLE)
+        closed = self.backend.close_window(self.WINDOW_TITLE, exclude_process_names=self._BROWSER_PROCESS_NAMES)
         if not closed:
             self.log_action("close_app_skipped", {"reason": f"{self.WINDOW_TITLE} not found/focused"})
         return closed

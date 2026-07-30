@@ -11,7 +11,11 @@ def test_close_window_fires_hotkey_when_target_activated():
     result = backend.close_window("Notepad")
 
     assert result is True
-    backend.activate_window.assert_called_once_with("Notepad")
+    # D12: close_window() now forwards exclude_process_names (default
+    # None) to activate_window(), so desktop adapters closing their own
+    # app can't Alt+F4 an unrelated browser window that happens to share
+    # a title substring -- see whatsapp_desktop_adapter.py.
+    backend.activate_window.assert_called_once_with("Notepad", exclude_process_names=None)
     backend.hotkey.assert_called_once()
 
 
