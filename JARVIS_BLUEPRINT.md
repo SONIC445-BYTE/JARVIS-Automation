@@ -212,7 +212,7 @@ Real engineering producing **zero user value** until wired:
 
 **Stage numbering is now unified** across all four prior schemes. EMR adapter precedes ambient mode (ambient with nothing to write into is just recording).
 
-## Stage 0 — Reliability layer *(72% complete)*
+## Stage 0 — Reliability layer *(all 9 exit criteria closed 2026-07-30 — not renumbering the original "72%", its computation basis isn't recorded here; work items 7-8 below (D5/D6/D2) remain open, so this stage isn't fully done despite the table below being all-✅)*
 
 > **Evidence for every closed row is in `JARVIS_EXECUTION_LOG.md`** — commit SHA, what verified it, and any finding it produced. A bare ✅ without that trail is not acceptable in this table.
 
