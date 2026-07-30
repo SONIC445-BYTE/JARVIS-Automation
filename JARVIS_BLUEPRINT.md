@@ -185,7 +185,7 @@ CROSS-CUTTING — GOVERN  ← the genuine differentiator
 | ~~D11~~ | ~~4 pre-existing test failures, dead since initial commit~~ — **✅ RESOLVED**, commit `21c37832`. All 4 fixed (not just found): `.policy`→`.config` reference, `file_path` now opened as the real written file inside the sandbox dir, `hmac_signature`→`sig` (the real, working key). All 4 formerly-failing tests now genuinely pass. | ~~🟡 Low~~ closed |
 | ~~D12~~ | ~~`AvailabilityChecker`/`WhatsappDesktopAdapter` false positive on PWA shortcuts~~ — **✅ RESOLVED**, commit `54a86665`. `GUIBackend.activate_window()`/`close_window()` gained `exclude_process_names`, wired into both whatsapp/telegram desktop adapters (open + close). Live-verified both directions: WhatsApp's `open_app()` now correctly returns `False` (was `True`); Telegram's real-app detection unaffected. | ~~🟠 Medium~~ closed |
 | ~~D13~~ | ~~`IntentRouter` misroutes "search for X" to `action`~~ — **✅ RESOLVED**, commit `6053c942`. ACTION_PATTERNS' search entry restricted to phrasings with an explicit action-continuation verb; bare "search for X" now falls through to `handler="llm"`. Live-verified against both original examples plus two non-regression guards (continuation case stays action, platform-named search still reaches the resolution gate). | ~~🟡 Medium~~ closed |
-| D2 | `memory_store.py` "encryption" is XOR with hardcoded default key `"jarvis_default_key"` — visible in source | 🔴 Critical before any sensitive data |
+| ~~D2~~ | ~~`memory_store.py` "encryption" is XOR with hardcoded default key~~ — **✅ RESOLVED**, commit `6e508780`. Real AES-256-GCM under a key from `AgentCore/secure_key.py` (OS keyring by default, fail-closed on any resolution failure — never an insecure fallback). `mode_manager/audit.py`'s identical HMAC-key weakness fixed in the same commit, sharing the same key-resolution module. Legacy XOR data migrates on load with a verified round-trip and a hard stop on any single record's failure. Two more files with the identical weakness found but not fixed (`learning_system/audit_log.py`, `ui_agent/utils/ui_audit.py`) — logged as a follow-up, not silently expanded into this phase. | ~~🔴 Critical~~ closed |
 | D3 | Import time ~16s (was 29s). Target for between-patient use: **<3s** | 🟠 Product-viability number |
 | D4 | `rag_engine → serp_fetcher` scrapes Google HTML; fragile + ToS exposure | 🟠 High |
 | ~~D5~~ | ~~Hardcoded `C:\Users\chatu` path in `Brain/brain.py`~~ — **✅ RESOLVED**, commit `8ce7f044`. Blueprint named only one file; 3 more live occurrences found and fixed too (`Features/clap_with_music.py`, `Time_Operations/throw_alert.py`, `ui.py`). Verified zero remaining repo-wide. | ~~🟡 Medium~~ closed |
@@ -194,6 +194,7 @@ CROSS-CUTTING — GOVERN  ← the genuine differentiator
 | D8 | `co_brain.py` legacy system #1 not retired | 🟡 Low |
 | D9 | Default branch is stale `feature/improve-readme-presentation-…`, 30+ commits behind | 🟡 Low |
 | D10 | Level6 enablement flipped outside version control | 🟡 Low |
+| **D14** | Same hardcoded-default-key weakness D2 fixed in `memory_store.py`/`mode_manager/audit.py` also exists, unfixed, in `AgentCore/learning_system/audit_log.py` (`os.environ.get('JARVIS_HMAC_KEY', 'jarvis-learning-audit-default-key')`) and `AgentCore/ui_agent/utils/ui_audit.py` (same `JARVIS_HMAC_KEY` pattern, different literal default). Both confirmed live/reachable (imported by `learning_system/__init__.py` and `ui_agent/ui_agent_main.py` respectively). Found while auditing D2's real callers; not fixed there — D2 itself doesn't gate on these two, only on `memory_store.py`/`mode_manager/audit.py`, which are the paths any real clinical-data write would actually go through. Fix is mechanical: swap each for `AgentCore.secure_key.resolve_key()`, same pattern as D2. | 🟠 High — not a Stage 0.5 gate, but the same weakness class as D2 |
 
 ## 1.7 Dark capability inventory
 
@@ -212,7 +213,7 @@ Real engineering producing **zero user value** until wired:
 
 **Stage numbering is now unified** across all four prior schemes. EMR adapter precedes ambient mode (ambient with nothing to write into is just recording).
 
-## Stage 0 — Reliability layer *(all 9 exit criteria closed 2026-07-30 — not renumbering the original "72%", its computation basis isn't recorded here; work item 7 (D5/D6) closed 2026-07-30; work item 8 (D2) is the one remaining item and gates Stage 0.5's real-clinical-data exit criterion — see below)*
+## Stage 0 — Reliability layer *(all 9 exit criteria AND all 8 numbered work items closed 2026-07-30 — not renumbering the original "72%", its computation basis isn't recorded here. D2 closed, commit `6e508780` — Stage 0.5's real-clinical-data gate is clear. D14, a narrower non-gating follow-up found while closing D2, is open — see §1.6.)*
 
 > **Evidence for every closed row is in `JARVIS_EXECUTION_LOG.md`** — commit SHA, what verified it, and any finding it produced. A bare ✅ without that trail is not acceptable in this table.
 
@@ -237,7 +238,7 @@ Real engineering producing **zero user value** until wired:
 5. **Wire `generate_stream()`** — cost xs, speech starts at token 1 not token 150.
 6. Model warm-up; task-aware token budgets (`MAX_TOKENS` 256 default; callers already vary 50–200).
 7. ~~Fix D5 (hardcoded path), D6 (curl→HTTP client).~~ **Done, commits `8ce7f044`/`fb332247`.**
-8. **Fix D2 — replace XOR with real encryption** before any clinical data touches the system.
+8. ~~Fix D2 — replace XOR with real encryption before any clinical data touches the system.~~ **Done, commit `6e508780`.** Stage 0's own D2 gate for Stage 0.5 is now clear — see D14 below for a narrower, non-gating follow-up found while closing this.
 
 **Freeze during Stage 0:** no further Level6/L9 investment, no DEI research, no orb wiring, no emotion wiring, no new desktop adapters.
 
