@@ -57,7 +57,19 @@ class IntentRouter:
         r"^launch\s+",
         r"^start\s+",
         r"^run\s+",
-        r"^search\s+(?:for\s+)?",
+        # D13: bare "^search\s+(?:for\s+)?" used to match unconditionally,
+        # so any "search for X" won -- checked before QUESTION_PATTERNS --
+        # regardless of what followed. Confirmed live:
+        # "search for the definition of recursion and explain it" and
+        # "search for python tutorials" both misrouted to action, with no
+        # named platform for resolution_gate to have caught first.
+        # Restricted to phrasings with an explicit action-continuation
+        # verb ("...and open/click/visit/go to..."), which is the actual
+        # signal a bare "search for X" is ambiguous about -- a plain
+        # search-and-tell-me-about-it request now falls through to the
+        # question/chat patterns below (handler="llm") instead of
+        # silently winning here first.
+        r"^search\s+(?:for\s+)?.+?\s+and\s+(?:open|click|visit|go\s+to)\b",
         r"^go\s+to\s+",
         r"^navigate\s+to\s+",
         r"^send\s+",
