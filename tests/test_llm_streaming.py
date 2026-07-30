@@ -63,14 +63,11 @@ class TestChatTaskAwareTokenBudget(unittest.TestCase):
 
         captured = {}
 
-        def fake_run(cmd, **kwargs):
-            import json as _json
-            payload = _json.loads(cmd[-1])
-            captured["num_predict"] = payload["options"]["num_predict"]
-            result = mock.Mock(returncode=0, stdout=_json.dumps({"message": {"content": "ok"}, "eval_count": 1}))
-            return result
+        def fake_post(url, json=None, **kwargs):
+            captured["num_predict"] = json["options"]["num_predict"]
+            return mock.Mock(status_code=200, json=lambda: {"message": {"content": "ok"}, "eval_count": 1})
 
-        with mock.patch("subprocess.run", side_effect=fake_run):
+        with mock.patch("requests.post", side_effect=fake_post):
             engine.chat([{"role": "user", "content": "hi"}], max_tokens=50)
 
         self.assertEqual(captured["num_predict"], 50)
@@ -82,14 +79,11 @@ class TestChatTaskAwareTokenBudget(unittest.TestCase):
 
         captured = {}
 
-        def fake_run(cmd, **kwargs):
-            import json as _json
-            payload = _json.loads(cmd[-1])
-            captured["num_predict"] = payload["options"]["num_predict"]
-            result = mock.Mock(returncode=0, stdout=_json.dumps({"message": {"content": "ok"}, "eval_count": 1}))
-            return result
+        def fake_post(url, json=None, **kwargs):
+            captured["num_predict"] = json["options"]["num_predict"]
+            return mock.Mock(status_code=200, json=lambda: {"message": {"content": "ok"}, "eval_count": 1})
 
-        with mock.patch("subprocess.run", side_effect=fake_run):
+        with mock.patch("requests.post", side_effect=fake_post):
             engine.chat([{"role": "user", "content": "hi"}])
 
         self.assertEqual(captured["num_predict"], LLMEngine.MAX_TOKENS)
@@ -103,17 +97,57 @@ class TestChatTaskAwareTokenBudget(unittest.TestCase):
 
         captured = {}
 
-        def fake_run(cmd, **kwargs):
-            import json as _json
-            payload = _json.loads(cmd[-1])
-            captured["num_predict"] = payload["options"]["num_predict"]
-            result = mock.Mock(returncode=0, stdout=_json.dumps({"message": {"content": "ok"}, "eval_count": 1}))
-            return result
+        def fake_post(url, json=None, **kwargs):
+            captured["num_predict"] = json["options"]["num_predict"]
+            return mock.Mock(status_code=200, json=lambda: {"message": {"content": "ok"}, "eval_count": 1})
 
-        with mock.patch("subprocess.run", side_effect=fake_run):
+        with mock.patch("requests.post", side_effect=fake_post):
             engine.chat([{"role": "user", "content": "hi"}], max_tokens=99999)
 
         self.assertEqual(captured["num_predict"], LLMEngine.MAX_TOKENS)
+
+
+class TestNoCurlSubprocess(unittest.TestCase):
+    """
+    D6: generate() and chat() used subprocess(["curl", ...]) to call
+    Ollama's HTTP API -- a separate process per call, depending on curl
+    being on PATH, for no benefit over the requests library already
+    used by generate_stream()/chat_stream() in this same file. Both
+    switched to requests.post(); this pins that neither ever shells out
+    to curl again.
+    """
+
+    def test_generate_never_shells_out_to_curl(self):
+        engine = LLMEngine.__new__(LLMEngine)
+        engine.model = "llama3:latest"
+        engine._ollama_available = True
+
+        fake_response = mock.Mock(status_code=200)
+        fake_response.json.return_value = {"response": "hi", "eval_count": 1}
+
+        with mock.patch("requests.post", return_value=fake_response) as m_post, \
+             mock.patch("subprocess.run") as m_run:
+            result = engine.generate("hello")
+
+        m_post.assert_called_once()
+        m_run.assert_not_called()
+        self.assertEqual(result.text, "hi")
+
+    def test_chat_never_shells_out_to_curl(self):
+        engine = LLMEngine.__new__(LLMEngine)
+        engine.model = "llama3:latest"
+        engine._ollama_available = True
+
+        fake_response = mock.Mock(status_code=200)
+        fake_response.json.return_value = {"message": {"content": "hi"}, "eval_count": 1}
+
+        with mock.patch("requests.post", return_value=fake_response) as m_post, \
+             mock.patch("subprocess.run") as m_run:
+            result = engine.chat([{"role": "user", "content": "hello"}])
+
+        m_post.assert_called_once()
+        m_run.assert_not_called()
+        self.assertEqual(result.text, "hi")
 
 
 class TestChatStream(unittest.TestCase):

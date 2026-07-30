@@ -167,28 +167,31 @@ class LLMEngine:
             if system:
                 request["system"] = system
             
-            # Call Ollama API
-            result = subprocess.run(
-                ["curl", "-s", "http://localhost:11434/api/generate",
-                 "-d", json.dumps(request)],
-                capture_output=True,
-                text=True,
-                timeout=60
+            # Call Ollama API. D6: was subprocess(["curl", ...]) --
+            # shells out to a separate process per call and depends on
+            # curl being on PATH, for no benefit over the requests
+            # library already used by generate_stream()/chat_stream()
+            # in this same file.
+            import requests
+            resp = requests.post(
+                "http://localhost:11434/api/generate",
+                json=request,
+                timeout=60,
             )
-            
-            if result.returncode == 0:
-                data = json.loads(result.stdout)
-                
+
+            if resp.status_code == 200:
+                data = resp.json()
+
                 return LLMResponse(
                     text=data.get("response", "").strip(),
                     tokens_used=data.get("eval_count", 0),
                     duration_ms=(time.time() - start_time) * 1000,
                     model=self.model
                 )
-            
+
         except Exception as e:
             print(f"[LLMEngine] Error: {e}")
-        
+
         return self._fallback_response(prompt)
     
     def generate_stream(self, prompt: str, system: str = None,
@@ -358,24 +361,23 @@ class LLMEngine:
             if system:
                 request["messages"] = [{"role": "system", "content": system}] + messages
             
-            result = subprocess.run(
-                ["curl", "-s", "http://localhost:11434/api/chat",
-                 "-d", json.dumps(request)],
-                capture_output=True,
-                text=True,
-                timeout=60
+            import requests
+            resp = requests.post(
+                "http://localhost:11434/api/chat",
+                json=request,
+                timeout=60,
             )
-            
-            if result.returncode == 0:
-                data = json.loads(result.stdout)
-                
+
+            if resp.status_code == 200:
+                data = resp.json()
+
                 return LLMResponse(
                     text=data.get("message", {}).get("content", "").strip(),
                     tokens_used=data.get("eval_count", 0),
                     duration_ms=(time.time() - start_time) * 1000,
                     model=self.model
                 )
-                
+
         except Exception as e:
             print(f"[LLMEngine] Chat error: {e}")
         
