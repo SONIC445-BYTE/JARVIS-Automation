@@ -1,6 +1,6 @@
 # JARVIS Blueprint — Canonical Reference
 
-**Version:** 2.5 · **Date:** 2026-07-29
+**Version:** 2.6 · **Date:** 2026-07-30
 
 > ## ⚠ READ FIRST — custody and companion file
 >
@@ -561,6 +561,150 @@ At every planning point, one question:
 > **Does this move a physician closer to using JARVIS, or make JARVIS more impressive to an engineer?**
 
 Both are legitimate. But the honest count over the last cycle was heavily the second. **Stage discipline defends against expanding too fast; this defends against deepening in the wrong place.** v1.0 had the first and lacked the second — that omission is what all three external analyses independently found.
+
+---
+
+## 4.4c Remote/companion-app architecture proposals — parked, developer-only, end of roadmap
+
+*(Logged 2026-07-30, from a multi-turn design thread. All four items below are: not started, developer-only with no public/patient-facing access, sequenced after DEC-002/audit-trail and RHINAL's remaining tools, and — per Ayan's explicit instruction — usable only against synthetic/test data until the deployment-policy question in each is actually settled. Registered as Ayan requested: whole entries, not pre-split by the reviewer's risk read — but each entry states its own internal tiering honestly so scale isn't hidden.)*
+
+### PG-001 — JARVIS Privacy Gateway
+**What it is.** A mandatory pipeline stage between speech capture and encrypted transport: `Mic → STT → Privacy Gateway → Policy Engine → Encrypted Transport → Desktop`. **Design principle, near-verbatim, worth keeping exact:** *"The gateway does not decide what is compliant. It enforces the privacy policy selected by the deploying organization."* Same posture as a firewall — this project doesn't become the compliance authority for every hospital that deploys it.
+
+**Three deployment modes, each with the detector's role stated explicitly (this distinction is the load-bearing part, arrived at over several turns of correction):**
+
+| Mode | Objective | Primary mechanism | Detector's role |
+|---|---|---|---|
+| A — Personal | No transformation | None | Optional (logging only) |
+| B — Protected | Transform sensitive data | Sensitive Content Detector + Tokenizer | **Primary** — on the critical path; a miss means pseudonymization fails for that piece of data |
+| C — Strict Clinical | Prevent remote clinical discussion | **Session-declared intent** + deployment policy | **Secondary** — safety net for accidental drift, never the primary gate |
+
+**Why Mode C is not detector-primary — this was a real correction mid-thread, keep it.** No content classifier reaches zero false negatives. An architecture whose safety property depends on one eventually fails silently. The fix: a physician declares session type ("Clinical") at connection time; the policy engine blocks remote clinical use on that hard, checkable declaration — zero inference required. The detector still runs, but only to catch drift *after* a non-clinical session accidentally turns into one, not as the enforcement mechanism itself.
+
+**Detector Assurance — required before Mode B can be claimed to work, not optional polish.** The detector is probabilistic and must publish measurable performance: recall on patient identifiers (high priority), precision, **false-negative rate (explicitly flagged critical for Mode B)**, latency, entity-type coverage. Findings must be structured with confidence, not binary — e.g. `Person name (0.99)`, `Bed number (0.62)` — so the policy engine can threshold, not just branch on "detected: yes/no."
+
+**Boundary sentence — keep near-verbatim, this is the honest ceiling of the whole feature:**
+> *"Mode B's privacy guarantees are bounded by the performance of the Sensitive Content Detector. It is designed to reduce exposure through policy-driven pseudonymization, not to guarantee complete removal of all identifying information."*
+
+**Forbidden claim, explicit:** never market tokenization/masking as "anonymization." State it as policy-driven de-identification with a measured, published error rate.
+
+**Data classification, not binary PII detection** — ask "what class is this" not "does this contain PII":
+
+| Class | Action |
+|---|---|
+| Public | Allow |
+| Personal | Encrypt |
+| Patient Identifier | Tokenize or block |
+| Clinical Narrative | Encrypt or block |
+| Credentials | Never transmit |
+| RHINAL write | Require confirmation |
+
+**Policy is configuration, loaded per deployment, not hardcoded branches** — e.g. a hospital supplies a YAML declaring `remote_voice.enabled`, `patient_identifiers.tokenize`, `clinical_notes.allow_remote: false`, etc. Compliance becomes something a hospital configures, not something engineered per-deployment into the codebase.
+
+**Capability Negotiation at session start** — when a session connects, it receives an explicit capability set (`Remote Voice: ✓`, `Patient Discussion: ✗`, `RHINAL Writes: ✗`, `Email: ✓ (confirmation required)`). Agents ask the session "am I permitted to do this?" rather than implementing privacy logic themselves. Centralizes enforcement; new channels/agents don't each need their own compliance logic.
+
+**Explicit open gap, not yet resolved:** Mode C's "does this remote request contain identifiable patient information" detection is itself a hard, unsolved sub-problem when it does run as the drift-catch. Whatever build eventually happens needs the same Detector Assurance treatment applied to that specific check, not an assumption that it's a free primitive.
+
+**Superseding note:** this replaces the reviewer's earlier, weaker three-concepts framing (transport/processing/persistence as fully separable). That framing was directionally right but didn't have Mode C's declared-intent primacy or the Detector Assurance requirement — PG-001 above is the actual design of record.
+
+---
+
+### Communication Gateway + Telephony — architecture correction, transport question still open
+**Correction to the original "give JARVIS a phone number" framing:** a live phone call is inherently a network transport — audio leaves the calling device before reaching the desktop engine, regardless of whose name is on the SIM or how the call is encrypted. **This does not mean the feature is unsafe** — see the Remote Desktop analogy below — but it does mean the safety question is "is encrypted remote transport acceptable under this deployment's security policy," not "can this be engineered to avoid crossing a network."
+
+**The distinction that resolved the earlier over-correction, worth keeping:** transport, processing, and persistence are three independent questions.
+
+| Question | JARVIS's architecture |
+|---|---|
+| Does data travel over a network? | Yes, when remote |
+| Is data processed by a third-party AI? | No |
+| Is the LLM running on the user's own machine? | Yes |
+| Is data stored on a third-party AI platform? | No |
+
+**Remote Desktop analogy:** connecting to a hospital workstation over the internet doesn't make "the hospital computer cloud-based" — computation still happens locally; only keystrokes/pixels cross the network. JARVIS's phone-call concept is the same shape: the voice stream travels, the reasoning/automation/memory stay local. **"100% local" should not be the marketing claim** — it breaks the instant someone asks "can I use it from my phone." Correct framing: **"Local Intelligence. Secure Access. User-Controlled Data."**
+
+**Architecture correction — two structural gaps in the original design note:**
+1. **Communication Gateway layer**, above Session Manager: all channels (phone, WhatsApp, Telegram, WebRTC, desktop, API) terminate here — transport, codecs, streaming, auth handshake — and produce an authenticated Session. **Session Manager must never know which channel a session originated from.**
+2. **Live Conversation Controller** — interruption handling, cancelling in-flight tasks, turn-taking during execution, tracking what's completed. **Not phone-specific** — this is a real gap in the current conversation loop already, independent of telephony, worth scoping as its own item whenever picked up.
+
+**Privacy & Data Residency Policy — six principles, draft, to govern this and PG-001 together:**
+1. **Local Processing by Default** — inference/automation/memory/execution on user-controlled devices by default; no third-party AI unless explicitly enabled.
+2. **Encrypted Remote Access** — approved channels transport encrypted commands/responses to the user's own JARVIS instance. Remote transport does not imply remote AI processing.
+3. **User-Controlled Data Residency** — memory, documents, embeddings, logs, automation state stay on user/organization-controlled infrastructure.
+4. **Channel Independence** — same local engine performs planning/execution regardless of which channel a command arrived through.
+5. **Trust-Based Authorization** — every channel gets a trust level; higher-risk actions need stronger authentication regardless of channel (email, file deletion, RHINAL writes, hospital record modification, financial actions). **Open sub-question, not yet resolved:** "hospital record modifications" was listed alongside generic actions like "sending emails" in the source proposal — clinical writes likely need their own, higher tier given DEC-002 and the physician-first thesis, not to be folded into one generic "higher-risk" bucket. Decide explicitly when this is built, don't default silently.
+6. **Organizational Deployment modes** — Strict Local (no remote access), Secure Remote (encrypted remote, computation/storage stay on org infrastructure), Hybrid (selected cloud services, explicit admin approval).
+
+**Orchestrator interface** — worth defining now even with one implementation, to avoid a redesign later: `accepts(task)`, `plan(task)`, `execute(plan)`.
+
+**For clinical/hospital deployments specifically: Strict Local Mode should be the enforced default until an organization's actual policy authority says otherwise** — not a config value sitting equal beside the others by default.
+
+---
+
+### Security Broker + Mobile Trust Companion
+**What it is.** A human-in-the-loop security broker: JARVIS automates until it hits a genuine security boundary (password field, OTP, passkey, CAPTCHA, biometric, payment confirmation, high-risk action), then hands control to a companion mobile app rather than attempting to bypass the boundary.
+
+```
+"Book my flight" → JARVIS automates (open site, fill forms, navigate)
+                 → SECURITY GATE detected
+                 → secure request sent to phone: "Site wants your password" [Approve/Reject]
+                 → user authenticates (password/biometric/OTP) on phone
+                 → encrypted response → desktop continues
+```
+
+**Why this is better than CAPTCHA/security-bypass approaches, and matches this project's existing posture:** respects the target site's security model instead of evading it — same "no component decides beyond its evidence, defer to explicit approval" pattern already used in the resolution gate and PG-001's session-declared intent. Passwords can stay on the phone rather than being stored in the desktop agent.
+
+**Checkpoint classification:**
+
+| Gate | JARVIS action |
+|---|---|
+| Password field | Ask phone for password/passkey approval |
+| OTP received | Notify phone to enter OTP |
+| CAPTCHA | Ask user to solve, resume automatically |
+| Payment confirmation | Require explicit approval |
+| Delete files | Require confirmation |
+| Bank transfer | Multi-step approval |
+| Admin privilege | Ask for OS authentication |
+
+**Credential-vault → Approval Engine extension:** every sensitive action becomes an explicit approval request — *"JARVIS wants to send ₹2,000 via UPI"* / *"JARVIS wants to permanently delete 500 files"* — Approve/Reject. Phone becomes a trusted control panel for the desktop, not just a password store.
+
+**Proposed structure:** (1) Automation Engine — performs tasks; (2) Security Broker — detects boundaries; (3) Mobile Trust Companion — approvals, credentials, OTPs, passkeys; (4) Audit Log — every sensitive action, transparently. **The Audit Log component here should reuse whatever mechanism DEC-002's audit trail work builds, not a second parallel logging system.**
+
+**Real implementation challenges, stated honestly rather than assumed solvable:**
+- **Reliable gate detection** — needs UI accessibility data + OCR + vision, same three-tier resolver already decided in §3.2, applied to a new detection target (security checkpoints, not just clickable elements).
+- **Secure communication** — phone↔desktop needs end-to-end encryption with *mutual* authentication, so neither side can be impersonated.
+- **Credential handling — explicit honest limit, do not overclaim:** the source proposal itself admits traditional password fields require the desktop to type plaintext into the page at some point; full non-exposure is only achievable for passkey-based auth, where the phone can authenticate without revealing a secret at all. "The desktop never learns the password" is true for passkeys, **not** true for legacy password forms — state this precisely, don't let the passkey case's cleanliness imply a blanket guarantee.
+- **User consent policies** — user-configurable rules, e.g. "always ask before payments over ₹5,000," "auto-approve GitHub login on home PC."
+
+**Risk tier note:** this touches real authentication credentials and financial actions directly — at least as sensitive as PG-001, arguably more, since a mistake here has direct financial/account consequences rather than a privacy exposure. Treat accordingly whenever it's picked up.
+
+---
+
+### JVMA — JARVIS Visual Memory Agent *(long-term architecture vision, registered whole per Ayan's explicit instruction)*
+
+**What it is.** Not an incremental improvement to screen automation — a proposal for persistent visual-motor memory, so JARVIS learns an application's UI once and re-localizes rather than re-detecting from scratch every time, the way existing reactive agents (Claude/OpenAI computer use, Browser Use, Clicky, UI-TARS, OmniParser) all currently work.
+
+**Core philosophy:** humans don't re-identify every button from scratch — they remember relative structure ("Save is near the upper-left," "the login button moved slightly after the update"). JVMA proposes the same for JARVIS.
+
+**Five-layer architecture, as proposed:**
+1. **Global Scene Understanding** — identify which application/context is on screen (OCR, logos, window titles, UI Automation tree, icons, object detection) → produces a Scene Graph.
+2. **Spatial Localization Engine** — once the application is known, stop re-searching the whole screen; work in relative coordinates *within* the application's bounding box (e.g. "63% from left, 22% from top inside Chrome") rather than absolute screen coordinates, so resolution/window-size/monitor changes don't break targeting.
+3. **Hierarchical Reference System** — nested reference frames (Desktop → Application → Panel → Toolbar → Button); if one level moves, only that level needs updating, not everything beneath it.
+4. **Relative Geometry Engine** — every element stores distance/angle/scale/nearest-neighbors rather than absolute position — explicitly analogous to SLAM in robotics.
+5. **Procedural Memory** — successful automations become named, reusable "skills" (e.g. `Paint_Save_Image`) that execute directly from memory rather than re-planning each time.
+
+**Supporting mechanisms proposed alongside the five layers:**
+- **Confidence Engine** — every click carries a fused confidence score across signals (logo match, OCR, geometry, window title); low confidence asks the human instead of guessing.
+- **Dynamic Adaptation** — when a UI shifts, compute an affine transform (translation/rotation/scale) between old and new layout rather than relearning from zero; only ask the human if confidence drops below threshold even after transform correction.
+- **"Show Me Once" Mode** — if an element can't be found, JARVIS asks the human to click it once, then permanently updates its memory. **This is the one piece of JVMA that's small, cheap, and buildable independently of the rest** — it doesn't require any of the five layers to exist first and could sit on top of the current Tier-1/2/3 resolver largely as-is, whenever picked up.
+- **Multi-Level Search Strategy** — search narrows through the hierarchy (Desktop → known App → known Panel → known Toolbar → target) rather than scanning the whole screen every time, for both speed and accuracy.
+- **Neighbor Graph** — elements remember their neighbors, so a moved/missing element's likely new position can be predicted from what's still findable nearby.
+- **Temporal Prediction** — Bayesian prediction of likely next actions from observed sequences (e.g. probability of "Save" rises after "Edit").
+- **Human Takeover for creative work** — for genuinely creative tasks (Photoshop, Blender, CAD), the agent mirrors the screen, watches the human work, learns from it, and resumes automation after — rather than attempting the creative task itself.
+- **UI Automation Priority — already decided, this restates it correctly, not new scope:** accessibility APIs → UI Automation → DOM → OCR → vision → mouse, in that order, matching §3.2's existing Tier-1/2/3 resolver exactly. **Never use vision if a native API already answers the question.**
+- **Memory Compression** — store UI graphs/bounding-boxes/transforms, never raw screenshots, to keep the memory database viable at scale.
+
+**Honest scale statement, stated plainly so "parked" isn't mistaken for "small":** this is a multi-month research-and-engineering undertaking, not a feature. It introduces new failure modes with no existing mitigation designed yet — e.g. a skill cached against one application version silently misfiring after that application updates, or confidence scores that need the same kind of published, measured assurance metrics as PG-001's Sensitive Content Detector before "97% confidence" can be trusted as meaning anything. Registered here as a long-term direction, not a scoped near-term build.
 
 ---
 
