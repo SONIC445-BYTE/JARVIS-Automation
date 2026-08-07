@@ -1,6 +1,6 @@
 # JARVIS Blueprint — Canonical Reference
 
-**Version:** 2.6 · **Date:** 2026-07-30
+**Version:** 3.1 · **Date:** 2026-08-06
 
 > ## ⚠ READ FIRST — custody and companion file
 >
@@ -17,11 +17,45 @@
 >
 > **What changed in v2.2.** Adopts **Cognitive Operating System** as the framing architecture (§5.0). Names the **World Model** as a cross-cutting gap in the layer map — and resolves it: it *is* the patient-journey event graph, already decided, previously unnamed. Confirms RHINAL's scope is unchanged (separate MCP-reached product, not the clinical source of truth) and records why that boundary matters legally. Separates the two "Decision Engine" concepts.
 >
+> **What changed in v2.8.** Folds the `jcode` swarm coordinator into Phase 3b as a reference *pattern* (not implementation — file-conflict recovery vs. irreversible clinical actions are different problems). Adds **MemPalace** as a near-term (not parked) memory-layer candidate answering UNK-001, with a scoped, audited adoption path. Logs three items as **considered and declined**, with reasons, so they aren't re-proposed blind: jcode's self-dev mode (conflicts with Phase 3d's approval gate and PG-001's Detector Assurance principle), the KD-of-LLMs survey (weight modification conflicts with CPU-first + approval-gated constraints; `upskill` already chosen for this reason), and kimi-k3-in-c (four orders of magnitude beyond JARVIS's target scale — kept only as an external citation for "refuse to guess" as a design rule).
+>
+> **What changed in v2.9.** From an external architecture review: adds **Task/Workflow/Resource Planner split** as Stage 2's natural decomposition (not built early — triggered by Stage 2's multi-role coordination need, e.g. an MRI order needing radiology-queue/machine/fasting/transport/billing sequencing). Declines a proposed standalone **Context Engine** layer — reframed as a query interface on the existing World Model + PG-001's Capability Negotiation, since a separate stateful layer would risk the exact memory-duplication drift UNK-001 already warned against. Confirms the review's "Assistant vs. Hospital OS" distinction independently re-derives Stage 1 vs. Stage 2's existing staging — no change needed, cited as corroboration.
+>
+> **What changed in v3.0.** Adds a **NORTH STAR** section above Part 1 — *"a physician's capacity is limited by their judgment, not by their paperwork"* — with the five hurdles it decomposes into, and a standing instruction to test every proposed item against it. Reframes the **Boundary Ledger** from internal debug artifact to potential first shippable product (shadow-mode failure recorder: zero clinical risk, immediate COO value, and the only dataset no competitor has). Amends **Phase 3d** with an **immutable tier** — some components must not be self-modifiable even with approval, because approval fatigue is a real failure mode. Adds **Visible Memory** as a product principle (DPDP compliance obligation turned differentiator, cheap on MemPalace's spatial model). Adds an **MCP-suggestion approval constraint** (suggesting integrations extends the trust boundary). Logs **outbound telephony** as a separate hard stop from inbound — calling third parties is a disclosure/identity question, not a transport one — plus the unresolved inbound gateway gap (always-on second device vs. VoIP provider reopening DEC-004).
+>
+> **What changed in v3.1.** Adds **Gesture Mode** — logged as an *optional* input modality rather than a replacement layer, which is the reframe that makes a category everyone wrote off after Kinect/Leap Motion worth revisiting. Lead use case is sterile hands (a genuine workflow block, not an aesthetic upgrade); stylus-replacement explicitly excluded; explicit activation noted as a *stronger* consent posture than ambient mode, not an equal problem; consequential actions still routed through the ResolutionGate. Adds **CI-enforced verification** — moving the execution log's verification standard from documentation into a build gate that can fail, validated by `KbWen/agentic-os` and `itseffi/personal-os` independently reaching the same conclusion. Would have caught two real failures already recorded in this project.
+>
 > **What changed in v2.3.** Extends §3.7 (Q1) into **§3.7b — two-part routing.** Splits local/cloud model selection into a deterministic data-class gate (clinical → LAN ceiling, never learned) and a smart capability/confidence router beneath it (Conifer-shaped: try local, escalate on low confidence). Adds explicit user-override behavior — physicians can force a tier for general requests; clinical requests refuse cloud with a stated reason rather than silently complying or silently ignoring. Connects "stale local knowledge" complaints to the existing knowledge-retrieval chain before reaching for a bigger model. The original §3.7 rejection of connectivity-based clinical routing is preserved as the ceiling this new router operates beneath, not replaced.
 >
 > **What changed in v2.4.** Adopts the companion **`JARVIS_EXECUTION_LOG.md`** — evidence for closed Stage 0 items moves there; this file keeps a status + one-line pointer, not the full trail, so the table stays scannable. Closes S0-E1, S0-E2, S0-E8 with evidence. Adds D11 (4 dead-since-inception test failures) and D12 (`AvailabilityChecker` false positive on PWA shortcuts). Marks D1 resolved.
 >
 > **What changed in v2.5.** **Reconciliation.** Two independently-edited copies of this file were found diverged in an untracked `Downloads/` directory — this version merges both rather than discarding either (full incident record in the execution log). Recovers from the discarded copy: the §1.5 T3 row (v2.4 marked D1 resolved in §1.6 but left T3 at CONTRADICTED in §1.5 — an internal inconsistency, now fixed), D13 (a live `IntentRouter` misclassification bug found during S0-E1, absent from v2.4), and the §1.3 layer-map lines for L6/L7 (v2.4 left both stale despite S0-E2/S0-E8 having resolved what they described). Both files now committed inside the JARVIS-Automation repo — the custody rule above is satisfied, not just stated.
+
+---
+
+# NORTH STAR
+
+> **A physician's capacity is limited by their judgment, not by their paperwork.**
+
+This is the destination — a describable world-state that is currently false, and could someday be verified true. Everything below decomposes it into measurable hurdles, the way "make humanity interplanetary" decomposes into launch cost, reusability, life support.
+
+| Hurdle | Current state | Analogous to |
+|---|---|---|
+| Software recommends but cannot complete actions | The Commit Gap — measured four independent ways | Launch cost |
+| Clinical documents are unreadable to machines | Indic medical OCR essentially unclaimed (best model: 16 downloads) | Reusability |
+| No system knows what is actually happening | World Model / patient-journey event graph — designed, unbuilt | Navigation |
+| Trust ceiling on autonomous action | Approval gates everywhere — correctly, but it is a ceiling | Life support |
+| Coordination is human-mediated | Stage 2 / Plan C | Orbital assembly |
+
+**Why this framing rather than "build a better AI assistant":**
+
+1. **It tells you what to refuse.** Diagnostic AI fails this test — it substitutes for judgment rather than freeing it. Every item declined in this blueprint (self-dev mode, KD weight-training, telephony-before-policy) is refusable in one line against this sentence.
+2. **It explains the sequencing already chosen.** Physician → administration → hospital-wide is *widening the radius of whose paperwork stops limiting them*, not an arbitrary staging.
+3. **It survives contact with the graveyard.** Olive AI's goal was "AI workforce for healthcare" — a capability claim, so it had no way to detect it was failing. *"Is this physician's capacity still limited by paperwork?"* is answerable in one clinic, in one week.
+
+**The unglamorous corollary.** SpaceX did not start by building Mars ships; they started by landing a booster — a mechanical, unromantic problem everyone else treated as solved-enough. JARVIS's equivalent is not the orb, the telephony gateway, or the agent swarm. It is the **Boundary Ledger** (§Stage 0.5): sitting in an OPD and recording every instance of software failing to complete an action. Boring, invisible in a demo, and the only thing that generates data no competitor has.
+
+**Test every proposed item against the north star sentence before scheduling it.** If it does not reduce the administrative ceiling on clinical judgment, it needs a different justification.
 
 ---
 
@@ -252,6 +286,10 @@ Real engineering producing **zero user value** until wired:
 - Local voice → `intent_router` → verified UI action
 - **Audit trail architected in from line one** (DEC-002 — P0/10.00, highest-priority item in the generated roadmap). Every action emits who/what/when/why/source/consent. Retrofit cost grows with every adapter; the decision is one-way.
 - **Boundary Ledger** — log every case where a deterministic rule was wrong or ambiguous on real clinical input. This *is* the symbolic-vs-learned boundary map, and it costs one workflow instead of a research programme.
+
+  **Reframe (v3.0) — this is the product, not a debug artifact.** As originally scoped it reads as an internal research output. Look at what it actually accumulates: a timestamped, physician-verified record of exactly where hospital software fails to complete an action. **That is the Commit Gap, measured, in one real hospital, with rupee figures attached.** It cannot be scraped, bought, or LLM-generated — it exists only if someone sits in an OPD and records failures as they occur. Qventus does not have it. Abridge does not have it.
+
+  **Consequence: JARVIS's first shippable form may be a failure recorder, not an automation tool.** Shadow mode, acts on nothing, logs *"doctor tried to close encounter → HIS rejected → missing discharge-summary field → 4 min lost."* Why this is a stronger wedge than the OPD queue itself: **zero clinical risk** (acts on nothing, so DEC-002 and PG-001 are satisfied trivially rather than blocking) · **immediately valuable to the Stage 2 COO buyer** (bottleneck analytics delivered years early) · **it is the training set** (every entry is a labelled example of what to automate next, ranked by real frequency and real cost) · **MOAT-004 compounds from day one** without writing a single adapter. The Commit Gap thesis holds that the market cannot close the gap because there is no outcome data — this is a product whose entire function is generating that data.
 - **Event emission from day one.** Every state change writes a provenance-stamped event. This is the substrate Stage 2 needs — build it now or Stage 2 becomes a rewrite.
 
 **Explicitly not in scope:** FHIR, ABDM, EMR integration, remote access, ambient mode, cloud anything.
@@ -313,6 +351,8 @@ Existing HIS / EMR / ERP / LIS / RIS-PACS / payer portals / ABDM / PDFs / voice
                           │
    analytics: throughput, task ageing, blockers, documentation gaps, claim readiness
 ```
+
+**Planner decomposition — trigger condition, not something to build early.** The single Planner in §5.0's Cognitive OS framing (Intent Router → Resolution Gate → Command Router) is correct for Stage 0/0.5/1, where there's one accountable role (the physician) and one action stream. Stage 2 introduces genuinely distributed coordination — multiple accountable roles, resource constraints, sequencing dependencies (e.g. a doctor's MRI order needs radiology-queue check → machine availability → patient fasting status → transport staff → billing clearance, in that order, before dispatch). **When Stage 2 actually starts, split the single Planner into Task Planner (what needs doing), Workflow Planner (sequencing/dependencies across roles), and Resource Planner (queue/equipment/staff availability).** Not before — splitting the planner while there's still only one role to plan for is complexity with nothing yet to justify it. This is orchestration, not automation, and it's the same shift Stage 2's buyer change (physician → COO/CFO/CNO) already signals architecturally.
 
 **Non-negotiable principles:**
 
@@ -539,9 +579,9 @@ Items with real prior decisions attached. None are cancelled; all are sequenced 
 
 | Item | State | Gate / note |
 |---|---|---|
-| **Phase 3b — sub-agent spawning** | DESIGNED | Parallel execution of independent, already-resolved intents. Each sub-agent still passes through the *unchanged* ResolutionGate → CommandRouter → adapter pipeline. Failure isolation required: one sub-agent failing must not mask or crash others. |
+| **Phase 3b — sub-agent spawning** | DESIGNED — reference pattern identified | Parallel execution of independent, already-resolved intents. Each sub-agent still passes through the *unchanged* ResolutionGate → CommandRouter → adapter pipeline. Failure isolation required: one sub-agent failing must not mask or crash others. **`jcode` (github.com/1jehuang/jcode, 11.2k stars, Rust) implements a real, working swarm coordinator** — multiple agents in one session, a server that notifies agent B when agent A's work affects it, DM/broadcast messaging between agents. **Adopt the coordination pattern, not the implementation.** jcode's swarm solves *file-conflict resolution* — recoverable by design, a bad merge just gets reverted. Phase 3b's sub-agents execute *physical/clinical actions* (send a message, close an encounter, write to RHINAL) — not recoverable the same way; there's no diff to check once an action has fired. This is why Phase 3b's own failure-isolation requirement is already stronger than jcode needs it to be, and why the requirement stays as originally specified rather than being loosened to match jcode's model. The Orchestrator interface stub (§4.4c, telephony entry) is the right place to hang a coordinator built on this pattern once Phase 3b is actually scheduled. |
 | **Phase 3c — NL scheduling** | DESIGNED | *"Remind me to check labs at 3pm."* Must produce an **inspectable** schedule, execute through the existing pipeline at fire-time (same gates), and be listable/cancellable. A schedule that can't be seen or undone isn't trustworthy on a clinical machine. |
-| **Phase 3d — skill-writing proposals** | DESIGNED | JARVIS drafts a proposal (what it does, what access it needs, example I/O) and surfaces it. **Nothing runs until explicitly approved.** Non-negotiable, not a phase-1 simplification — this was walked back from full autonomy deliberately. Approved skills become versioned, reviewable code via the existing draft→review→merge workflow. |
+| **Phase 3d — skill-writing proposals** | DESIGNED — reference implementation now exists | JARVIS drafts a proposal (what it does, what access it needs, example I/O) and surfaces it. **Nothing runs until explicitly approved.** Non-negotiable, not a phase-1 simplification — this was walked back from full autonomy deliberately. Approved skills become versioned, reviewable code via the existing draft→review→merge workflow. **`huggingface/upskill`** (github.com/huggingface/upskill, launched 2026-01-28) is a working, official implementation of exactly this pattern — not fine-tuning; a strong "teacher" model's behavior on a task is distilled into a structured, reusable `SKILL.md` that a weaker local "student" model then follows at inference time. Documented result: `llama3.2` 23%→77% on a structured-extraction task with the generated skill attached (~83% on an unseen variant, confirming generalization). `upskill generate` covers the propose/draft half; `upskill eval` covers before/after verification — both map directly onto this row's existing approval workflow rather than replacing it. **Constraint before adoption, not optional:** the tool's default skill-generation teacher is a cloud API (Claude/OpenAI) — running generation against a cloud teacher on anything derived from real clinical interaction data crosses the exact boundary §3.7/PG-001 exist to enforce, since the generation step itself is where source data could leave the machine, not just later inference. The tool does support local models as generators via `--base-url` (documented against llama.cpp-style local endpoints) — this must be the enforced path whenever the source task touches clinical data, selected by the same data-classification logic as §3.7, not left as the tool's out-of-the-box cloud default. |
 | **Appointment / schedule query** | NOT STARTED | *"What's my next appointment," "push this patient to 3pm."* Bounded, tied to the OPD queue — not general calendar automation. Rides on 3c's mechanism. |
 | **Qwen3-TTS evaluation** | GATED | Real latency measurement on target hardware **before** any commitment to replace pyttsx3. Qwen3-TTS (0.6B/1.7B, Apache-2.0, real emotion/tone control) is materially heavier than the current fixed-inflection TTS. A wrong emotional read is more jarring than a flat voice. Measure, don't assume. |
 | **Text-emotion detection** | BUILT, UNWIRED | `j-hartmann/emotion-english-distilroberta-base`. Boundary-tested: may **only** influence TTS delivery, never response content or decision logic — enforced by a subprocess-level transitive-import test mirroring `test_session_memory_boundary.py`. Trained on Twitter/Reddit text; accuracy on transcribed clinical speech is unverified. Blocked on the TTS decision above. |
@@ -564,7 +604,75 @@ Both are legitimate. But the honest count over the last cycle was heavily the se
 
 ---
 
+**Phase 3d amendment — the immutable tier (added v3.0).** Phase 3d's approval gate is binary today: approved or not. That is insufficient on its own, because **approval fatigue is a real failure mode** — a physician clicking "approve" for the twentieth time that day is not a meaningful safety gate for a change to the resolution gate. Some components must not be self-modifiable *even with approval*. Three tiers, not two:
+
+| Tier | Contents | Rule |
+|---|---|---|
+| **Immutable** | `ResolutionGate` · `secure_key.py` · audit-trail emission · §3.7b's clinical/general data gate · the approval mechanism itself | **Never self-modifiable. No proposal path exists.** Human-written, human-reviewed, through git only. |
+| **Approval-gated** | New skills, new adapters, prompt/behavior tuning, new MCP integrations | Propose → explicit approval → versioned commit. Phase 3d as originally designed. |
+| **Free** | Logging verbosity, non-clinical UI preferences, cached UI coordinates | No approval needed |
+
+**The property that makes the floor real, not decorative: JARVIS must not be able to modify what is *in* the immutable tier.** Otherwise it is a suggestion, not a floor — the same reasoning that makes `secure_key.py` refuse ambiguous configuration rather than picking a default. Precedent already exists in the codebase: Level6 has full self-coding capability *and* an approval-gated apply with snapshot-first rollback — it can write code, it cannot silently ship it. The immutable tier simply says certain files are not in Level6's writable set at all, regardless of approval.
+
+### Visible Memory — product principle, tied to MemPalace *(added v3.0, near-term)*
+
+**The gap:** no major assistant lets a user see what it has actually stored. Memory happens invisibly and surfaces unpredictably. **For a general chatbot that is a UX weakness. For a clinical system it is a compliance failure** — DPDP gives data principals rights over their data, and a physician who cannot inspect what JARVIS retained cannot answer a patient's question about it, nor verify the hospital's configured retention policy is being honoured.
+
+**Why MemPalace makes this cheap rather than a new build:** its own metaphor is *spatial* — rooms and chambers, a palace you walk through — which is natively visualizable in a way a vector store is not. Making memory browsable is a presentation layer over a structure that already has the right shape, not new architecture.
+
+**The principle, stated generally:** *never make the user trust an invisible state.* This is the honest-failure discipline applied to storage instead of execution — the same reason `close_app()` returns a real result instead of a hardcoded `True`, and the same reason PG-001 refuses to call tokenization "anonymization."
+
+**Requirements when built:** browsable memory contents · what was stored, when, from which session · explicit deletion · visible retention-policy state. Turns a compliance obligation into a product differentiator.
+
+### MCP suggestion capability — approval constraint *(added v3.0)*
+
+Extending beyond RHINAL to other MCP servers is the intended direction, and JARVIS proactively *suggesting* useful MCP connections is reasonable. **One constraint worth writing down before it is built:** an assistant that suggests installing third-party integrations is recommending an extension of its own trust boundary. Suggest, never auto-install; surface what data the proposed tool would gain access to; every new MCP server gets the same tool-by-tool source audit RHINAL received (`tools/list` verified live, source read, behaviour never inferred from tool names); anything touching clinical data routes through §3.7b's gate first.
+
+### Outbound telephony — separate feature, separate hard stop *(added v3.0)*
+
+**This was never in scope for the telephony entry above, and it is a different feature with different obligations.** "JARVIS calls people on my contact list" is not a variation on "physician calls JARVIS" — it means JARVIS *initiating* contact with third parties (patients, colleagues, labs) who never consented to speaking with an AI, possibly about clinical matters, from a number they may associate with the physician personally.
+
+**That is a disclosure and identity question, not a transport question** — plausibly carrying real regulatory weight in a clinical context. Logged as its own hard stop, requiring its own explicit decision, separate from inbound telephony's already-parked status.
+
+**Inbound practical gap, also unresolved:** for JARVIS to answer a dedicated number, either (a) a second phone runs the companion app permanently as an always-on gateway — a real operational burden, or (b) a VoIP/cloud telephony provider routes the call audio — **which reopens DEC-004's residency question that §4.4c otherwise works around.** There is no third option avoiding both. Unresolved by design; telephony is parked partly *because* of this.
+
+### Gesture Mode — optional input modality, sterile-context lead case *(added v3.1)*
+
+**The reframe that makes this worth logging.** Gesture control failed as a *primary* input layer — Kinect, Leap Motion, a decade of touchless-UI startups — for one consistently underestimated reason: **gorilla arm.** Holding hands mid-air for sustained work is physically exhausting in a way keyboard and mouse are not. That failure was real, and it caused the whole category to be filed as "tried, didn't work."
+
+**But failed-as-primary and useless-as-optional are different conclusions, and the industry mostly stopped distinguishing them around 2015.** As an *optional mode* — explicitly activated, coexisting with keyboard/mouse/voice, dropped the moment the physician wants — gorilla arm stops being a design flaw and becomes a natural time-limit on a mode nobody is forced to stay in. That is a genuine blind spot worth occupying.
+
+**Lead use case is not the aesthetic one: sterile hands.** A physician who has just gloved, is at a scrub sink, or has contaminated hands mid-procedure *cannot* touch a keyboard. Today they break sterility, wait, or ask someone else. Gesture there is not a nicer way to do something already possible — it is the only way to do something otherwise blocked. **This is the version that survives the north-star test**; general "control your computer with gestures" does not, because it restyles friction rather than removing it.
+
+**Secondary genuinely-good fits:** short discrete actions (advance a slide, dismiss a non-clinical notification) and spatial manipulation (rotating a 3D scan, where gesture maps to the task better than a mouse does).
+
+**Explicitly not in scope:** hand-tracking as a stylus replacement. Air-drawing is worse than an actual stylus on every axis that matters — accuracy, fatigue, cost. A cheap graphics tablet beats it. The Iron Man version looks better; the tablet works better.
+
+**Consent — and this is a genuine advantage, not a shared problem.** Gesture needs a camera on in a room where patients may be present, which lands in the same territory as ambient mode. But gesture mode is **explicitly activated by the physician**, which is the *stronger* consent posture — it is PG-001 Mode C's logic applied to vision: declared intent beats inference. Inherit ambient mode's consent framework (visible indicator whenever the camera is live, auto-timeout, per-session activation, never default-on), and note that explicit activation makes this more defensible than always-on ambient rather than equally fraught.
+
+**Reliability tiering — non-negotiable, same as voice.** A misread gesture that closes the wrong tab is annoying. A misread gesture that dismisses a clinical alert or triggers a consequential action is not. **Gesture may drive navigation freely; anything consequential still routes through the ResolutionGate and confirmation, exactly as voice does.** Gesture is an input modality, never a bypass of the approval architecture.
+
+**Technical note:** MediaPipe Hands runs at usable framerates on CPU — the tracking is mature and is not the hard part. The hard parts are consent, tiering, and resisting scope expansion beyond the sterile-context case.
+
+### CI-enforced verification — move the standard from documentation into the build *(added v3.1)*
+
+**The problem, demonstrated twice in this project already.** `JARVIS_EXECUTION_LOG.md` states the verification standard ("confirm from the remote git object, not the working tree"; "name every failure with git-history provenance") and relies on it being followed. It was not, twice: S0-E8 was reported complete with passing local tests and a correct diff while nothing was ever committed, and "3 pre-existing failures" was carried forward across reports as a number rather than a verified fact (actual answer: 4, all dead since the initial commit).
+
+**External validation of the fix.** `KbWen/agentic-os` names this exact failure and mechanizes the answer:
+
+> *"'Done.' — your AI coding agent, about code it didn't test."*
+>
+> *"A rules file is a prompt the agent can ignore... this is the part that checks it actually did — in your git hooks and CI, where **the agent's own report doesn't get a vote**."*
+
+Its `validate.sh` parses each task's work log and fails if a required phase was skipped or its evidence is missing. `itseffi/personal-os` independently reached the same conclusions ("verification-first completion: require fresh evidence before claiming work is done"; "treat tool output as untrusted input") — two projects converging separately is decent evidence the principle is correct rather than idiosyncratic.
+
+**Adopt: a CI check that fails when a phase claims completion without evidence.** Their honest note on hook strength transfers directly — a local pre-commit hook is opt-in and bypassable with `--no-verify`; **CI checks are the floor that cannot be skipped.** Put the gate in CI, not only in a hook. Rigor scales to risk, matching the tiered-effort rule already in the project instruction.
+
+**Why this is worth doing despite being unglamorous:** it converts the single most valuable discipline in this project from something a person must remember into something the build enforces. It would have caught a real failure in this session.
+
 ## 4.4c Remote/companion-app architecture proposals — parked, developer-only, end of roadmap
+
+
 
 *(Logged 2026-07-30, from a multi-turn design thread. All four items below are: not started, developer-only with no public/patient-facing access, sequenced after DEC-002/audit-trail and RHINAL's remaining tools, and — per Ayan's explicit instruction — usable only against synthetic/test data until the deployment-policy question in each is actually settled. Registered as Ayan requested: whole entries, not pre-split by the reviewer's risk read — but each entry states its own internal tiering honestly so scale isn't hidden.)*
 
@@ -708,6 +816,33 @@ Both are legitimate. But the honest count over the last cycle was heavily the se
 
 ---
 
+### MemPalace — candidate for L3's defensible half *(near-term, not parked — unlike the four items above)*
+
+**What it is.** `github.com/MemPalace/mempalace` (58k stars, MIT, actively maintained). Local-first AI memory: verbatim storage plus a temporal knowledge graph with validity windows (add/query/invalidate/timeline), backed by local SQLite/ChromaDB. Publishes exact, methodology-disclosed benchmarks (96.6% raw R@5 on LongMemEval, no API key, no cloud) and explicitly flags "teaching to the test" in its own benchmark doc rather than headlining an inflated number — the same reporting discipline this project has held throughout, worth citing as a model.
+
+**Why this is different from the four parked items above: it's a real, near-term answer to UNK-001.** UNK-001 asked whether persistent memory is even the right architecture for clinical work, since the EMR is authoritative and a memory layer risks duplicating stale facts plus inheriting consent obligations for data it needn't hold. MemPalace's temporal graph — validity windows, explicit invalidation — is architecturally the "don't silently duplicate stale facts" property UNK-001 was worried about, not a generic vector-memory blob.
+
+**Adoption path, configured without compromising the architecture — same discipline as RHINAL's integration, not a blind import:**
+1. Run as a local MCP server only — `docker run -i --rm -v mempalace-data:/data mempalace`. No cloud backend, no `--extra` that adds network calls.
+2. **Audit all 36 MCP tools individually before wiring any** — read `mempalace/backends/base.py` and each tool's source directly, same standard that caught RHINAL's `vaultWorthy` gate. Do not infer tool behavior from names.
+3. Wire only the temporal-graph add/query/invalidate/timeline operations JARVIS's memory layer actually needs — not the full 36-tool surface built for a developer's own coding-session memory.
+4. Anything that could touch clinical content routes through §3.7's clinical/general gate before reaching MemPalace, same as every other subsystem.
+5. Backend choice: `chroma` or `sqlite_exact` only (fully local, embedded, no server process). Do not use `qdrant`/`pgvector` (server-mode) without a separate residency review.
+
+**Status:** candidate, not yet built. Sequenced within Stage 1's memory work, not end-of-roadmap with the companion-app items — it's infrastructure for L3, not a new capability surface.
+
+---
+
+### Considered and declined — logged so these aren't re-proposed without this context
+
+**jcode's self-dev mode.** The agent modifies, builds, tests, and reloads its own source binary autonomously. jcode's own README hedges this explicitly: recommended only with frontier models, since "weaker models can make subtle, breaking changes" — an admission that its safety depends on model capability being high enough. **This directly conflicts with Phase 3d's non-negotiable** (nothing runs until explicitly approved — walked back from full autonomy deliberately) and with PG-001's Detector Assurance principle (never let a safety property rest on "the model is probably good enough," always make it measurable or gate it on human approval). Not adopted, not adapted. If re-proposed later, this is why it was declined the first time.
+
+**Awesome-Knowledge-Distillation-of-LLMs (`github.com/Tebmer/...`).** Not a tool — a curated academic bibliography (56 commits, one README, no code) for LLM knowledge-distillation research. Every technique it surveys (SFT, RLHF, DPO, on-policy self-distillation) modifies model *weights*, requiring a training loop, GPU compute, and real risk of catastrophic forgetting if done wrong — categorically different from "runs quietly in the background on an ordinary laptop." **This is exactly why Phase 3d chose `upskill` over fine-tuning already** — same self-improvement goal, achieved by writing a `SKILL.md` a small model reads at inference time, not by training a network. Nothing in this survey does better than the already-adopted approach for JARVIS's CPU-first, approval-gated constraints; it does worse, at higher cost and higher risk. Kept only as a reference for *why* alternatives cost what they cost, if `upskill`'s approach is ever found insufficient for some task class.
+
+**kimi-k3-in-c (`github.com/FareedKhan-dev/kimi-k3-in-c`).** A portable-C99 engine running a specific 2.78-trillion-parameter model (Kimi K3, 1.56TB checkpoint) on CPU by streaming its MoE experts from NVMe — exploits that model's specific sparsity (3.7% active params/token), not a generalizable inference technique. Requires ~1.7TB free disk and hours of download time even at its smallest preset. **Four orders of magnitude beyond JARVIS's actual target** (§3.1: 8-16GB laptops, Qwen2.5-1.5B class models) — not adoptable, not portable, no version of "best use" here means running or porting this code. **What transfers is a principle, not code, and it's a genuinely sharp reference for it:** the config reader refuses to substitute defaults and exits with a distinct error code rather than guess, specifically because a permissive reader would silently produce *a fluent, working-looking, wrong model* — the identical failure shape as D1 (`_fallback_listen` silently defaulting to cloud STT) and the `vaultWorthy` bug (a plausible-but-wrong inferred behavior). Cited here as external validation of "refuse to guess" as a load-bearing rule, already earned independently in this project — not a new instruction, a strong example to point to.
+
+---
+
 # PART 5 — WHAT THE FINAL VERSION LOOKS LIKE
 
 ## 5.0 Framing architecture — Cognitive Operating System
@@ -788,6 +923,8 @@ The gap was real but the fix was already decided under another name.
 | What evidence supports it? | `source` field |
 
 That is precisely the Stage 2 event-graph specification, emitted from Stage 0.5 onward. **Naming it a world model changes nothing structural — it clarifies purpose and makes the gap visible in the layer map, where it was previously invisible.**
+
+**"Context Engine" — considered as a new layer, declined; reframed as a query interface on the World Model.** An external review proposed inserting a Context Engine between Memory and Planner, merging active patient, current workflow, role, permissions, hospital policy, recent history, urgency, and confidence into one structured object handed to every planner decision. **The need is real; the proposed location isn't.** Every field in that list is either a query *against* the event graph (active patient, recent history, current workflow state) or a policy check with an already-designed home (permissions/role/policy → PG-001's Capability Negotiation, §4.4c). A separate layer holding this would risk becoming a second place state lives — exactly the drift UNK-001 already flagged as the core risk of any memory-adjacent component that isn't the system of record. **Correct version: a query/assembly interface reading from the World Model and the Capability Negotiation output, not a new layer with its own state.** Same capability the reviewer wanted, correct ownership, no duplication risk.
 
 ### RHINAL's scope — unchanged
 
