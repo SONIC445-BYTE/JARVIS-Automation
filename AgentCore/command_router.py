@@ -164,6 +164,7 @@ class CommandRouter:
             target=target if (matched_action.requires_target and target) else matched_alias,
             message=message if matched_action.requires_message else "",
             message_required_but_missing=message_required_but_missing,
+            source_text=text,
         )
 
 

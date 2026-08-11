@@ -2,61 +2,50 @@
 Learning Audit Log — Immutable append-only log with HMAC signatures
 =====================================================================
 Records all proposed/approved/auto actions with tamper evidence.
+
+DEC-002 (2026-07-31): now a thin wrapper over
+AgentCore.audit_trail.AppendOnlyAuditLog, the shared engine also used
+by the clinical action audit trail, rather than a second, separately-
+maintained implementation of the same append-only + HMAC-chain logic.
+Reused because the chaining design here was already solid; what
+genuinely needed rework (confirmed by reading this file, not assumed):
+the key used to be computed once at *module import time*
+(`_HMAC_KEY = os.environ.get('JARVIS_HMAC_KEY', 'jarvis-learning-audit-
+default-key').encode()`) -- the identical D2/D14 hardcoded-default-key
+weakness, plus it ran before any fail-closed check could even happen.
+And log_event()'s actual file write had no try/except at all, so a
+transient write failure (disk full, permission error) would propagate
+uncaught to whatever called it -- no distinction from a configuration
+failure, and no recovery path. Both fixed via the shared engine: key
+resolution is fail-closed at construction (secure_key.resolve_key(),
+same as memory_store.py/mode_manager/audit.py), and transient write
+failures are queued to a fallback file and reconciled automatically
+rather than crashing the caller.
+
+Public API (log_event/verify_log_integrity/get_entries/get_stats)
+unchanged -- nothing that already imports LearningAuditLog needed to
+change.
 """
 
-import os
-import json
-import time
-import hmac
-import hashlib
 from pathlib import Path
 from typing import Dict, List, Optional
-from threading import Lock
 
-
-# HMAC key — in production, load from env or secure vault
-_HMAC_KEY = os.environ.get('JARVIS_HMAC_KEY', 'jarvis-learning-audit-default-key').encode()
+from AgentCore.audit_trail import AppendOnlyAuditLog
 
 
 class LearningAuditLog:
-    """
-    Append-only HMAC-signed audit log for the learning system.
-
-    Each line is a JSON object with an 'hmac' field computed over
-    the rest of the payload + the previous line's HMAC (chaining).
-    """
-
-    GENESIS_HMAC = '0' * 64
+    """Append-only HMAC-signed audit log for the learning system."""
 
     def __init__(self, log_path: Optional[str] = None):
         if log_path is None:
             root = Path(__file__).resolve().parents[2]
             log_path = root / 'data' / 'audit' / 'learning_audit.log'
-        self._path = Path(log_path)
-        self._path.parent.mkdir(parents=True, exist_ok=True)
-        self._lock = Lock()
-        self._seq = 0
-        self._prev_hmac = self.GENESIS_HMAC
-        self._load_state()
+        self._log = AppendOnlyAuditLog(
+            log_path=Path(log_path),
+            key_purpose="learning_audit",
+            key_env_var="JARVIS_HMAC_KEY",
+        )
 
-    # ------------------------------------------------------------------
-    def _load_state(self):
-        """Resume sequence counter and HMAC chain from existing log."""
-        if not self._path.exists():
-            return
-        try:
-            with open(self._path, 'r', encoding='utf-8') as f:
-                for line in f:
-                    line = line.strip()
-                    if not line:
-                        continue
-                    entry = json.loads(line)
-                    self._seq = entry.get('seq', self._seq) + 1
-                    self._prev_hmac = entry.get('hmac', self._prev_hmac)
-        except Exception as e:
-            print(f"[LearningAudit] Error loading state: {e}")
-
-    # ------------------------------------------------------------------
     def log_event(self, event_type: str, payload: dict) -> dict:
         """
         Append an event to the audit log.
@@ -67,80 +56,24 @@ class LearningAuditLog:
             payload: Arbitrary JSON-serialisable data.
 
         Returns:
-            The written entry dict.
+            The written entry dict. Note: a transient write failure no
+            longer raises -- it's queued to a fallback file and
+            reconciled automatically. Callers that need to know whether
+            the write itself succeeded should call the shared engine's
+            append() directly via self._log for the full
+            AuditWriteResult; this method preserves the original
+            "returns the entry dict" contract for existing callers.
         """
-        with self._lock:
-            entry = {
-                'seq': self._seq,
-                'ts': time.time(),
-                'type': event_type,
-                'payload': payload,
-                'prev_hmac': self._prev_hmac,
-            }
-            # compute HMAC over the canonical JSON of the entry
-            canon = json.dumps(entry, sort_keys=True, separators=(',', ':'))
-            entry['hmac'] = hmac.new(
-                _HMAC_KEY, canon.encode(), hashlib.sha256
-            ).hexdigest()
+        result = self._log.append({'type': event_type, 'payload': payload})
+        return result.entry
 
-            # append
-            with open(self._path, 'a', encoding='utf-8') as f:
-                f.write(json.dumps(entry, separators=(',', ':')) + '\n')
-
-            self._prev_hmac = entry['hmac']
-            self._seq += 1
-            return entry
-
-    # ------------------------------------------------------------------
     def verify_log_integrity(self) -> bool:
-        """
-        Verify the entire log: check HMAC chain and individual signatures.
+        """Verify the entire log: check HMAC chain and individual signatures."""
+        return self._log.verify_integrity()
 
-        Returns True if all entries are intact.
-        """
-        if not self._path.exists():
-            return True  # empty log is valid
-
-        prev = self.GENESIS_HMAC
-        try:
-            with open(self._path, 'r', encoding='utf-8') as f:
-                for lineno, line in enumerate(f, 1):
-                    line = line.strip()
-                    if not line:
-                        continue
-                    entry = json.loads(line)
-
-                    # check chain link
-                    if entry.get('prev_hmac') != prev:
-                        print(f"[LearningAudit] Chain break at line {lineno}")
-                        return False
-
-                    stored_hmac = entry.pop('hmac')
-                    canon = json.dumps(entry, sort_keys=True, separators=(',', ':'))
-                    expected = hmac.new(
-                        _HMAC_KEY, canon.encode(), hashlib.sha256
-                    ).hexdigest()
-                    if not hmac.compare_digest(stored_hmac, expected):
-                        print(f"[LearningAudit] HMAC mismatch at line {lineno}")
-                        return False
-                    prev = stored_hmac
-            return True
-        except Exception as e:
-            print(f"[LearningAudit] Verification error: {e}")
-            return False
-
-    # ------------------------------------------------------------------
     def get_entries(self, limit: int = 100) -> List[dict]:
         """Return the last *limit* entries."""
-        if not self._path.exists():
-            return []
-        entries = []
-        with open(self._path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    entries.append(json.loads(line))
-        return entries[-limit:]
+        return self._log.get_entries(limit)
 
     def get_stats(self) -> dict:
         entries = self.get_entries(limit=999_999)

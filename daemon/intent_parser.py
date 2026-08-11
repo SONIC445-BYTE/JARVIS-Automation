@@ -26,6 +26,14 @@ class Intent:
     # text (see CommandRouter.resolve()'s docstring for why that
     # leftover text is never real content for this action shape).
     message_required_but_missing: bool = False
+    # DEC-002: the original, unparsed text that produced this Intent --
+    # didn't exist on this dataclass before (nothing needed it), but the
+    # audit trail's "why" field needs the physician's actual words, not
+    # just the parsed adapter/action/target. Populated by
+    # CommandRouter.resolve(); defaults to "" for any other Intent
+    # construction site so this is purely additive, not a behavior
+    # change for existing callers.
+    source_text: str = ""
 
 
 _RISK_TERMS = {"delete", "format", "erase", "wipe", "run script", "shutdown"}

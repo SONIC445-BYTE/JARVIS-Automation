@@ -176,7 +176,98 @@ class UIExecutor:
         close_app when no adapter is registered for intent.adapter --
         send_message/read_unread have no legacy fallback, since nothing
         implemented them before this.
+
+        DEC-002: this is the single pre-adapter chokepoint every
+        Intent passes through regardless of which adapter/action it
+        resolves to, so it's also the single place the who/what/when/
+        why/source/consent audit record is emitted, covering every
+        return path below without each adapter needing its own
+        emission call.
+
+        Two distinct failure modes, sequenced deliberately:
+        - Configuration-class (the audit trail's key can't be resolved
+          at all) is checked FIRST, before the action runs -- a genuine
+          hard stop that actually blocks the action, matching D2's
+          fail-closed discipline. Checking this only *after* running
+          the action (an earlier draft of this method did exactly that)
+          would mean the action already happened by the time the
+          "stop" fires -- not a hard stop at all, just an exception
+          thrown after the fact with the real result lost. Caught here
+          specifically.
+        - Transient (a write failure once the log is already
+          resolvable, e.g. disk full mid-session) never blocks the
+          action -- it's checked *after*, folded into
+          result.metadata['audit_write_warning'] so the physician-
+          facing caller (ODAVLoop) can speak it, never silently lost in
+          a log file.
         """
+        start_time = time.time()
+        try:
+            from AgentCore.audit_trail import get_clinical_audit_log
+            get_clinical_audit_log()
+        except Exception as e:
+            from AgentCore.secure_key import KeyConfigurationError
+            if isinstance(e, KeyConfigurationError):
+                return ExecutionResult(
+                    status=ExecutionStatus.FAILED,
+                    step_id=0,
+                    action_type=getattr(intent, "action", ""),
+                    target=getattr(intent, "target", ""),
+                    error=(
+                        f"Can't proceed -- the audit trail isn't configured ({e}). "
+                        f"This needs to be fixed before real actions can run."
+                    ),
+                    duration_ms=(time.time() - start_time) * 1000,
+                )
+            # Unexpected (not a KeyConfigurationError) -- don't silently
+            # swallow, but don't treat as the same hard stop either;
+            # log loudly and let the action proceed, matching the
+            # transient-failure treatment rather than blocking on
+            # something that isn't actually the known configuration
+            # failure mode.
+            print(f"*** [UIExecutor] Unexpected error checking the audit log before acting: {e} ***")
+
+        result = self._execute_intent_inner(intent)
+        self._emit_audit_for_intent(intent, result)
+        return result
+
+    def _emit_audit_for_intent(self, intent, result: "ExecutionResult") -> None:
+        """
+        Called after the action has already run -- only transient
+        write failures reach here (the configuration-class check
+        already happened before the action, in execute_intent()), so
+        this never blocks or changes result; it only ever adds a
+        visible warning to result.metadata if the write itself failed.
+        """
+        try:
+            from AgentCore.audit_trail import emit_clinical_action
+            audit_result = emit_clinical_action(
+                what_adapter=getattr(intent, "adapter", ""),
+                what_action=getattr(intent, "action", ""),
+                what_target=getattr(intent, "target", ""),
+                why=getattr(intent, "source_text", ""),
+                outcome_status=result.status.value,
+                outcome_ok=result.ok,
+                outcome_error=result.error,
+            )
+        except Exception as e:
+            print(f"*** [UIExecutor] Audit emission raised unexpectedly: {e} -- action result is unaffected. ***")
+            result.metadata["audit_write_warning"] = (
+                f"Audit record could not be written ({e}). The action itself completed; "
+                f"this needs attention."
+            )
+            return
+
+        if not audit_result.ok:
+            result.metadata["audit_write_warning"] = (
+                f"Audit record could not be written ({audit_result.error}) -- queued for "
+                f"retry, not lost. The action itself completed; this needs attention."
+                if audit_result.queued_to_fallback else
+                f"Audit record could not be written or queued ({audit_result.error}). "
+                f"The action itself completed; this needs urgent attention."
+            )
+
+    def _execute_intent_inner(self, intent) -> ExecutionResult:
         start_time = time.time()
 
         # 5th instance of the router-hands-adapters-an-unclean-value bug

@@ -144,9 +144,19 @@ class ODAVLoop:
                             blocked=True,
                         )
 
+                    message = exec_result.error or f"{resolved_intent.action} on {resolved_intent.adapter}: {'OK' if exec_result.ok else 'FAILED'}"
+                    # DEC-002: an audit-write failure never blocks the
+                    # action (see UIExecutor.execute_intent()), but it
+                    # must not be silently lost in a log file either --
+                    # surfaced here so it actually reaches the
+                    # physician-facing response, not just a print().
+                    audit_warning = exec_result.metadata.get("audit_write_warning")
+                    if audit_warning:
+                        message = f"{message} ({audit_warning})"
+
                     return ODAVResult(
                         success=exec_result.ok,
-                        message=exec_result.error or f"{resolved_intent.action} on {resolved_intent.adapter}: {'OK' if exec_result.ok else 'FAILED'}",
+                        message=message,
                         phase_reached=ODAVPhase.VERIFY,
                         steps_executed=1 if exec_result.ok else 0,
                         execution_time_ms=int((time.time() - start_time) * 1000)
