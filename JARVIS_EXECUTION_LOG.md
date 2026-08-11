@@ -51,6 +51,21 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ---
 
+### D14 (second half) — `ui_agent/utils/ui_audit.py`'s hardcoded-default HMAC key
+**Status: ✅ CLOSED.** Commit `4ca05bfb` on `phase-2-adapter-wiring`. Risk tier: low — mechanical, no design decision, the third application of an already-twice-proven pattern (D2, then DEC-002's `LearningAuditLog` rework).
+
+**The defect.** `UIAudit.__init__` read `os.environ.get("JARVIS_HMAC_KEY", "JARVIS_UI_SECRET")` — the identical hardcoded-default-key weakness D2 fixed, D14 first named it here alongside `learning_system/audit_log.py`. The one real call site, `ui_agent_main.py:36` (`self.audit = UIAudit()`), never passed a key, so every real deployment silently signed with the literal default unless `JARVIS_HMAC_KEY` happened to be set.
+
+**Fix.** Routed through `AgentCore.secure_key.resolve_key()`, same fail-closed contract as D2/DEC-002. Own purpose namespace (`"ui_audit"`/`JARVIS_UI_AUDIT_KEY`) rather than sharing `JARVIS_HMAC_KEY` with `mode_manager/audit.py` — collision would mean one env var silently governing two unrelated audit trails' keys.
+
+**A real behavior change, verified rather than assumed safe.** The one real call site (`UIAgentMain`, exercised by `AgentCore/ui_agent/tests/test_agent_smoke.py`) has no key configured in the test environment, so this fix means it now falls through to the real OS keyring on every run — it never touched the keyring before this fix. Directly verified this still passes (`test_agent_smoke.py::test_ui_agent_smoke` — PASSED), same automatic generate-and-reuse behavior D2's operational note already documented for `memory_store.py`/`mode_manager/audit.py`.
+
+**Verification.** 4 new tests (`AgentCore/ui_agent/tests/test_ui_audit_key_resolution.py`): fail-closed construction when no key source resolves (keyring forced to fail via mock, `KeyConfigurationError` raised, `UIAudit` never constructed); a real construct→sign→write→read-back→independently-recompute-and-compare round trip against a real key; two different real keys producing two different signatures for the identical entry (confirms the key is actually load-bearing in the signature, not decorative); and a direct regression guard confirming the retired `"JARVIS_UI_SECRET"` literal no longer produces a matching signature against a real-key-signed entry. Full suite: **494 passed** (490 + this phase's 4), **1 skipped** (SerpApi live test, expected), **0 failures**.
+
+**A separate, pre-existing finding surfaced while writing these tests — flagged, not fixed here.** `UIAudit.log_dir` is hardcoded to `Path("data/ui_actions")` with no test-isolation path, so every test that constructs a real `UIAgentMain` (`test_agent_smoke.py`) writes real files into the actual repo. Confirmed via file timestamps this predates this phase (files dated 2026-07-29 through 2026-08-11 already present before any work in this phase began) — unrelated to the key-resolution weakness this phase fixed, not made worse by it. Own phase when scheduled — same shape as the `JARVIS_CLINICAL_AUDIT_LOG_DIR` isolation DEC-002's `tests/conftest.py` fixture needed, but a different subsystem, needs its own fixture.
+
+---
+
 ### S0-E8 — Local STT, cloud path deleted 🔴 *thesis-critical*
 **Status: ✅ CLOSED.** Commit `a3c91d06` on `phase-2-adapter-wiring`.
 
@@ -343,7 +358,7 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | **D5** — hardcoded `chatu` paths | ✅ CLOSED (`8ce7f044`) | Turned out to be 4 files, not the 1 the blueprint named — see the batched entry above. |
 | **D6** — `curl` subprocess in `LLMEngine` | ✅ CLOSED (`fb332247`) | See the batched entry above. |
 | **D2** — XOR encryption / hardcoded default key | ✅ CLOSED (`6e508780`) | Real AES-GCM + fail-closed key resolution, both `memory_store.py` and `mode_manager/audit.py`. Stage 0.5's real-clinical-data gate is clear. See the closed-item entry above. |
-| **D14** — same weakness, 2 more files | HALF-CLOSED (`b338c4fb`) | `learning_system/audit_log.py` fixed as a byproduct of DEC-002 — see that closed-item entry above. `ui_agent/utils/ui_audit.py` confirmed still unfixed (`os.environ.get("JARVIS_HMAC_KEY", hmac_key)`, line 14) — different subsystem, own phase when scheduled. |
+| **D14** — same weakness, 2 more files | ✅ CLOSED (`b338c4fb`, `4ca05bfb`) | `learning_system/audit_log.py` fixed as a byproduct of DEC-002; `ui_agent/utils/ui_audit.py` fixed in its own dedicated phase. See the closed-item entries above/below. |
 | **RHINAL — wire remaining 13 tools** | SCOPED, NOT STARTED | Distinct phase. Use known risk classes (read-only vs write-capable). |
 | **`rhinal_attach_file`** | BLOCKED (hard stop, named explicitly in standing instructions) | Needs a genuinely non-identifying real test file + explicit approval. Do not fabricate a `scanResult`. |
 | **Blueprint status rows** | ✅ APPLIED (2026-07-29 reconciliation) | S0-E1/E2/E8 now show ✅ with SHA + evidence pinned in blueprint §Stage 0, cross-referenced to this file. |
