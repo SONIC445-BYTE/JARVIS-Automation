@@ -1,6 +1,6 @@
 # JARVIS Blueprint — Canonical Reference
 
-**Version:** 3.1 · **Date:** 2026-08-06
+**Version:** 3.5 · **Date:** 2026-08-10
 
 > ## ⚠ READ FIRST — custody and companion file
 >
@@ -17,19 +17,31 @@
 >
 > **What changed in v2.2.** Adopts **Cognitive Operating System** as the framing architecture (§5.0). Names the **World Model** as a cross-cutting gap in the layer map — and resolves it: it *is* the patient-journey event graph, already decided, previously unnamed. Confirms RHINAL's scope is unchanged (separate MCP-reached product, not the clinical source of truth) and records why that boundary matters legally. Separates the two "Decision Engine" concepts.
 >
-> **What changed in v2.8.** Folds the `jcode` swarm coordinator into Phase 3b as a reference *pattern* (not implementation — file-conflict recovery vs. irreversible clinical actions are different problems). Adds **MemPalace** as a near-term (not parked) memory-layer candidate answering UNK-001, with a scoped, audited adoption path. Logs three items as **considered and declined**, with reasons, so they aren't re-proposed blind: jcode's self-dev mode (conflicts with Phase 3d's approval gate and PG-001's Detector Assurance principle), the KD-of-LLMs survey (weight modification conflicts with CPU-first + approval-gated constraints; `upskill` already chosen for this reason), and kimi-k3-in-c (four orders of magnitude beyond JARVIS's target scale — kept only as an external citation for "refuse to guess" as a design rule).
->
-> **What changed in v2.9.** From an external architecture review: adds **Task/Workflow/Resource Planner split** as Stage 2's natural decomposition (not built early — triggered by Stage 2's multi-role coordination need, e.g. an MRI order needing radiology-queue/machine/fasting/transport/billing sequencing). Declines a proposed standalone **Context Engine** layer — reframed as a query interface on the existing World Model + PG-001's Capability Negotiation, since a separate stateful layer would risk the exact memory-duplication drift UNK-001 already warned against. Confirms the review's "Assistant vs. Hospital OS" distinction independently re-derives Stage 1 vs. Stage 2's existing staging — no change needed, cited as corroboration.
->
-> **What changed in v3.0.** Adds a **NORTH STAR** section above Part 1 — *"a physician's capacity is limited by their judgment, not by their paperwork"* — with the five hurdles it decomposes into, and a standing instruction to test every proposed item against it. Reframes the **Boundary Ledger** from internal debug artifact to potential first shippable product (shadow-mode failure recorder: zero clinical risk, immediate COO value, and the only dataset no competitor has). Amends **Phase 3d** with an **immutable tier** — some components must not be self-modifiable even with approval, because approval fatigue is a real failure mode. Adds **Visible Memory** as a product principle (DPDP compliance obligation turned differentiator, cheap on MemPalace's spatial model). Adds an **MCP-suggestion approval constraint** (suggesting integrations extends the trust boundary). Logs **outbound telephony** as a separate hard stop from inbound — calling third parties is a disclosure/identity question, not a transport one — plus the unresolved inbound gateway gap (always-on second device vs. VoIP provider reopening DEC-004).
->
-> **What changed in v3.1.** Adds **Gesture Mode** — logged as an *optional* input modality rather than a replacement layer, which is the reframe that makes a category everyone wrote off after Kinect/Leap Motion worth revisiting. Lead use case is sterile hands (a genuine workflow block, not an aesthetic upgrade); stylus-replacement explicitly excluded; explicit activation noted as a *stronger* consent posture than ambient mode, not an equal problem; consequential actions still routed through the ResolutionGate. Adds **CI-enforced verification** — moving the execution log's verification standard from documentation into a build gate that can fail, validated by `KbWen/agentic-os` and `itseffi/personal-os` independently reaching the same conclusion. Would have caught two real failures already recorded in this project.
->
 > **What changed in v2.3.** Extends §3.7 (Q1) into **§3.7b — two-part routing.** Splits local/cloud model selection into a deterministic data-class gate (clinical → LAN ceiling, never learned) and a smart capability/confidence router beneath it (Conifer-shaped: try local, escalate on low confidence). Adds explicit user-override behavior — physicians can force a tier for general requests; clinical requests refuse cloud with a stated reason rather than silently complying or silently ignoring. Connects "stale local knowledge" complaints to the existing knowledge-retrieval chain before reaching for a bigger model. The original §3.7 rejection of connectivity-based clinical routing is preserved as the ceiling this new router operates beneath, not replaced.
 >
 > **What changed in v2.4.** Adopts the companion **`JARVIS_EXECUTION_LOG.md`** — evidence for closed Stage 0 items moves there; this file keeps a status + one-line pointer, not the full trail, so the table stays scannable. Closes S0-E1, S0-E2, S0-E8 with evidence. Adds D11 (4 dead-since-inception test failures) and D12 (`AvailabilityChecker` false positive on PWA shortcuts). Marks D1 resolved.
 >
 > **What changed in v2.5.** **Reconciliation.** Two independently-edited copies of this file were found diverged in an untracked `Downloads/` directory — this version merges both rather than discarding either (full incident record in the execution log). Recovers from the discarded copy: the §1.5 T3 row (v2.4 marked D1 resolved in §1.6 but left T3 at CONTRADICTED in §1.5 — an internal inconsistency, now fixed), D13 (a live `IntentRouter` misclassification bug found during S0-E1, absent from v2.4), and the §1.3 layer-map lines for L6/L7 (v2.4 left both stale despite S0-E2/S0-E8 having resolved what they described). Both files now committed inside the JARVIS-Automation repo — the custody rule above is satisfied, not just stated.
+>
+> **What changed in v2.6.** *(Entry missing until now — reconstructed from the actual §4.4c content committed at this version, per the v2.6-vs-v3.1 superset check that confirmed this content already existed.)* Adds **§4.4c**, a distinct "remote/companion-app architecture proposals" section, parked and developer-only: **PG-001** (Privacy Gateway, three modes — Personal/Protected/Strict Clinical, with detector role stated explicitly per mode); **Communication Gateway + Telephony** (corrects the original design's transport/processing/persistence conflation; logs outbound calling and the inbound gateway gap as unresolved); **Security Broker + Mobile Trust Companion** (phone-as-approval-device for security checkpoints); **JVMA** (long-term visual-memory research direction, registered whole rather than pre-split). All four logged before NORTH STAR existed (added in v3.0) and were never subsequently re-tested against it — see the v3.5 audit note below.
+>
+> **What changed in v2.7.** Adds a reference-implementation note to Phase 3d's row (§4.4b): `huggingface/upskill` as a working implementation of the propose-then-approve skill-writing pattern already specified, with the constraint that skill-generation must route through a local teacher model whenever the source task touches clinical data — the tool's cloud default is not acceptable for that case.
+>
+> **What changed in v2.8.** Folds the `jcode` swarm coordinator into Phase 3b as a reference *pattern* (not implementation — file-conflict recovery vs. irreversible clinical actions are different problems). Adds **MemPalace** as a near-term (not parked) memory-layer candidate answering UNK-001, with a scoped, audited adoption path. Logs three items as **considered and declined**, with reasons, so they aren't re-proposed blind: jcode's self-dev mode (conflicts with Phase 3d's approval gate and PG-001's Detector Assurance principle), the KD-of-LLMs survey (weight modification conflicts with CPU-first + approval-gated constraints; `upskill` already chosen for this reason), and kimi-k3-in-c (four orders of magnitude beyond JARVIS's target scale — kept only as an external citation for "refuse to guess" as a design rule).
+>
+> **What changed in v2.9.** From an external architecture review: adds **Task/Workflow/Resource Planner split** as Stage 2's natural decomposition (not built early — triggered by Stage 2's multi-role coordination need, e.g. an MRI order needing radiology-queue/machine/fasting/transport/billing sequencing). Declines a proposed standalone **Context Engine** layer — reframed as a query interface on the existing World Model + PG-001's Capability Negotiation, since a separate stateful layer would risk the exact memory-duplication drift UNK-001 already warned against. Confirms the review's "Assistant vs. Hospital OS" distinction independently re-derives Stage 1 vs. Stage 2's existing staging — no change needed, cited as corroboration.
+>
+> **What changed in v3.0.** Adds a **NORTH STAR** section above Part 1 — *"a physician's capacity is limited by their judgment, not by their paperwork"* — with the five hurdles it decomposes into, and a standing instruction to test every proposed item against it. Reframes the **Boundary Ledger** from internal debug artifact to potential first shippable product (shadow-mode failure recorder: zero clinical risk, immediate COO value, and the only dataset no competitor has). Amends **Phase 3d** with an **immutable tier** — some components must not be self-modifiable even with approval, because approval fatigue is a real failure mode. Adds **Visible Memory** as a product principle (DPDP compliance obligation turned differentiator, cheap on MemPalace's spatial model). Adds an **MCP-suggestion approval constraint** (suggesting integrations extends the trust boundary). Logs **outbound telephony** as a separate hard stop from inbound — calling third parties is a disclosure/identity question, not a transport one — plus the unresolved inbound gateway gap (always-on second device vs. VoIP provider reopening DEC-004). **Note (added retroactively, v3.5): §4.4c's four items (logged v2.6) predate this section and were never re-tested against it — see the v3.5 audit note.**
+>
+> **What changed in v3.1.** Adds **Gesture Mode** — logged as an *optional* input modality rather than a replacement layer, which is the reframe that makes a category everyone wrote off after Kinect/Leap Motion worth revisiting. Lead use case is sterile hands (a genuine workflow block, not an aesthetic upgrade); stylus-replacement explicitly excluded; explicit activation noted as a *stronger* consent posture than ambient mode, not an equal problem; consequential actions still routed through the ResolutionGate. Adds **CI-enforced verification** — moving the execution log's verification standard from documentation into a build gate that can fail, validated by `KbWen/agentic-os` and `itseffi/personal-os` independently reaching the same conclusion. Would have caught two real failures already recorded in this project. **Gesture Mode is the one item in v2.6–v3.4 that explicitly self-tests against NORTH STAR at the time it was written — see the v3.5 audit note for why this matters.**
+>
+> **What changed in v3.2.** Confirms **multi-department deployment** is already covered by the existing World Model design — each department is a role-filtered view onto one shared event graph, not a separate syncing system. Adds a **cross-checked confirmation** amendment to Stage 2's principles: a self-reported status with no independent second signal is unfalsifiable (concrete case: a pharmacist falsely marking dispensals). Rejects ABHA-ID re-entry as the fix (it identifies the patient, not the actor — proves nothing about who made the entry). Confirms via direct research that NABH requires reconciliation exist but not that it happen at time of action, and is voluntary accreditation many hospitals lack. Specifies a tiered, confidence-scored second-signal design instead of a universal reconciliation app — hospital inventory systems first, patient/family confirmation reusing the already-designed WhatsApp/Telegram channel second, barcode/QR scanning as fallback only.
+>
+> **What changed in v3.3.** Adds **Adaptive Adapter Generation** — distinct from Phase 3d's skill-writing: generating code to reach systems JARVIS currently cannot interact with, triggered by repeated Boundary Ledger failures, executed through Level6's existing sandbox/approval machinery, approved by the developer rather than the physician. Corrects the Boundary Ledger's framing: **exhaust workarounds first, log what survives** — a physician mid-OPD needs the task done, not a notebook of failures. Adds a developer-configured, provider-agnostic model slot (cloud API or Ollama) scoped structurally to this path only, permissible as cloud precisely because it runs offline with no clinical data in scope. Sandboxing requirements informed by the verified **OpenAI / Hugging Face incident (21 July 2026)** — models escaped a sandbox via a zero-day in the package-registry proxy, the sandbox's own allow-listed egress path, and reached HF production infrastructure. Key correction taken from it: **action-level interception (the ResolutionGate) is the primary control, container isolation is defence-in-depth** — generated code executes *through* the gate, not beside it. The package-proxy-vs-air-gap tension is logged as explicitly unresolved rather than assumed solved.
+>
+> **What changed in v3.4.** Four insights from surveying current agentic-model releases. **§3.6b — local model selection criteria**: dense-vs-MoE decides CPU viability more than parameter count (a 2.78T sparse model can be more CPU-deployable than a 30B dense one); KV-cache design (GQA ratio, sliding-window proportion, head_dim) is the constraint that actually kills long agentic runs on modest hardware and is checkable in `config.json` before committing; failure-recovery can be a trained model property rather than harness scaffolding. Assessed **Muse Glimmer 30B** (Apache 2.0, 2026-08-10) against these — does not move the CPU-first line, but is a strong candidate for the hospital GPU box and the adapter-generation slot, potentially removing that slot's cloud dependency. **§3.6c — interaction/background split**: the one item here that is implementable today with no new models — keep the fast local model conversationally present while long work runs async, rather than going silent. Pattern taken from Thinking Machines' interaction-models research; their model itself is unusable here (276B, connectivity-dependent). Also carries their caution to keep the Live Conversation Controller thin.
+>
+> **What changed in v3.5.** Corrections from an external audit of the full v3.1 document — the audit itself found real, previously uncaught problems and this version fixes them rather than only logging them. **Rebuilt the changelog into correct chronological order** (it had run 2.0→2.2→2.8→3.1→2.3→2.5, with no v2.6 or v2.7 entry at all) and **added the two missing entries**, reconstructed from what those versions actually committed. **Fixed DEC-002's self-contradiction** — §4.1 read as fully open while §Stage 0.5 and Part 6 already acted on the architect-in answer, the same self-contradiction class the v2.5 entry names for D1/T3, uncaught for five subsequent version bumps; now distinguishes the decided *principle* from the still-open *concrete design*. **Corrected NORTH STAR's overclaim** that all declined items are "refusable in one line" against it — some were declined for narrower engineering reasons unrelated to the north star, which didn't exist yet when they were decided. **Added the audit's honest finding directly into §4.4c**: of its four items (logged v2.6, before NORTH STAR existed in v3.0), Security Broker's own lead example ("book my flight") is a clear miss against it, JVMA is a weak fit, PG-001/Telephony are one level removed; Gesture Mode (v3.1) is the one item that explicitly self-tests against it. Not re-litigated here — logged accurately, left for its own pass. **Added S05-E3** to Stage 0.5's exit criteria — the Boundary Ledger reframe (v3.0) had changed what Stage 0.5 might ship without the exit-criteria table being updated to match.
 
 ---
 
@@ -49,7 +61,7 @@ This is the destination — a describable world-state that is currently false, a
 
 **Why this framing rather than "build a better AI assistant":**
 
-1. **It tells you what to refuse.** Diagnostic AI fails this test — it substitutes for judgment rather than freeing it. Every item declined in this blueprint (self-dev mode, KD weight-training, telephony-before-policy) is refusable in one line against this sentence.
+1. **It tells you what to refuse.** Diagnostic AI fails this test — it substitutes for judgment rather than freeing it. *(Corrected v3.5 — the claim below originally overstated its own reach; see the v3.5 audit note.)* Some declined items are directly refusable this way (self-dev mode conflicts with the approval discipline this north star protects); others were declined for narrower engineering reasons (KD weight-training conflicts with CPU-first hardware constraints; kimi-k3 is simply out of scale; outbound telephony is a disclosure/consent question) that don't reduce to this one sentence. The north star is the test for *new* proposals going forward — it is not a retroactive justification for every prior decision, and items logged before it existed (§4.4c, v2.6) have not all been re-tested against it. See below.
 2. **It explains the sequencing already chosen.** Physician → administration → hospital-wide is *widening the radius of whose paperwork stops limiting them*, not an arbitrary staging.
 3. **It survives contact with the graveyard.** Olive AI's goal was "AI workforce for healthcare" — a capability claim, so it had no way to detect it was failing. *"Is this physician's capacity still limited by paperwork?"* is answerable in one clinic, in one week.
 
@@ -300,6 +312,7 @@ Real engineering producing **zero user value** until wired:
 |---|---|
 | S05-E1 | OPD queue used by one physician in real clinic conditions |
 | S05-E2 | Physician feedback captured and has visibly reshaped Stage 1 priorities |
+| S05-E3 | *(Added v3.5 — the v3.0 Boundary Ledger reframe changed what Stage 0.5 might ship without this table being updated to match.)* Boundary Ledger run in shadow mode for the stated one-week/one-OPD period, with real entries logged (not a build criterion — a usage criterion, same shape as S05-E1) |
 
 **Parallel, zero-cost:** begin the Indic OCR corpus, Track A only (see §3.4).
 
@@ -364,6 +377,20 @@ Existing HIS / EMR / ERP / LIS / RIS-PACS / payer portals / ABDM / PDFs / voice
 6. **Integration-light first** — don't make perfect integration a precondition for value
 7. Security by design — tenant isolation, least privilege, consent-aware access, local/hybrid hosting
 8. **No silent automation** of diagnosis, prescription, code selection, claim submission, or risk decisions
+
+**Amendment — cross-checked confirmation, not just self-reported status *(added v3.2)*.** Concrete failure case that exposes a real gap in principle 3 as originally stated: a pharmacist marks ten patients as "medicines dispensed," pockets the stock and payment. **The identity half of this is already covered — DEC-002's audit trail already records the *actor* (the pharmacist's own verified login), not the patient.** A proposed fix using the patient's ABHA ID as the safeguard was considered and is wrong: ABHA identifies the *patient*, not the person making the entry, so a dishonest actor can supply a correct ABHA ID exactly as easily as an honest one — it adds re-typing effort, not fraud resistance.
+
+**The actual gap: a self-reported status with no independent second signal is unfalsifiable by design.** Ten "dispensed" log entries prove nothing if the only source for all ten is the same person who benefits from the fraud. **Checked against NABH's actual pharmacy standards: reconciliation is a named required practice, but nothing found requires it to happen at the moment of dispensing rather than a periodic audit — which a dishonest actor can plan around. NABH accreditation is also voluntary, and many hospitals — disproportionately the smaller ones where this risk is highest — hold none at all. Not a solved problem to defer to.**
+
+**Do not build a universal reconciliation app — that reintroduces the 445-fragmented-systems problem this project exists to avoid.** Instead, the World Model accepts a second signal from whatever already exists at each hospital, ranked by reliability, with an honest confidence level attached — reusing principle 3's existing `confidence` field rather than adding new vocabulary:
+
+| Source | Reliability | Infrastructure needed |
+|---|---|---|
+| Hospital's existing inventory/procurement system, if any | Highest available, zero new hospital-side build | Read access via the same adapter/ABDM layer already planned |
+| Patient/family confirmation ("did you receive your medicines today?") | Independent of the reporting actor | **None — reuses Stage 1c's already-designed WhatsApp/Telegram inbound channel**, not new infrastructure |
+| Barcode/QR scan at point of dispensing | Most reliable | Genuinely new hardware/software — **fallback only**, not the default, since it doesn't scale across 445 differently-equipped hospitals |
+
+A record with no available cross-check is not rejected — it is logged with a lower confidence value than a corroborated one. That distinction, not a mandatory second app, is the actual fraud-resistance mechanism.
 
 ## Stage 3 — Hospital-wide operational control
 
@@ -450,6 +477,37 @@ The dataset — not the model — is the barrier. Nobody copies it by downloadin
 
 Local Qwen2.5, starting at 1.5B. Physician-facing label is **"Fast" / "Accurate"** — never model names or parameter counts. Currently the status box only labels; the real toggle is unbuilt.
 
+## 3.6b Local model selection criteria — beyond parameter count *(added v3.4)*
+
+**Learned from inspecting `meta-models/Muse-Glimmer-30B`'s actual `config.json` rather than its announcement.** Parameter count is a poor predictor of whether a model is deployable in JARVIS's constraints. Two properties matter more and are both checkable *before* committing to a model:
+
+**1. Dense vs. MoE decides CPU viability, not size.** Kimi-K3 (2.78T total) runs on CPU because only 3.7% of parameters are active per token — the rest streams from disk. Muse Glimmer (30B) does *not*, because it is dense: 52 layers, no expert routing, full 30B active every token, 59.6GB at bf16. **A smaller dense model can be less CPU-deployable than a vastly larger sparse one.** Check `architectures` and look for expert/routing config before assuming size implies feasibility.
+
+**2. KV-cache design decides whether long agentic runs survive on modest hardware.** This is the constraint that actually kills local agents, and Glimmer's config shows what deliberate optimization looks like:
+- `num_key_value_heads: 2` against `num_attention_heads: 32` — **16:1 GQA ratio**, extremely aggressive
+- `sliding_window: 2048` on **39 of 52 layers** (only 13 full-attention)
+- `head_dim: 128`
+
+That combination is engineered specifically to keep KV cache small across long tool-calling sequences. **Add this to the evaluation checklist for any candidate local model** — GQA ratio, sliding-window proportion, head_dim — not just parameters and benchmark scores.
+
+**3. "Failure recovery" can be a model property, not only harness scaffolding.** Glimmer is *trained* to diagnose a failed tool call and retry rather than halt. JARVIS's current plan scaffolds this behaviour around a weaker model (see the workaround-before-log correction in Adaptive Adapter Generation). Worth knowing the capability can come from the model — relevant when filling the adapter-generation slot, and a reason to prefer models trained for agentic failure handling over general-purpose ones of similar size.
+
+**Applied to Muse Glimmer specifically (Apache 2.0, released 2026-08-10):** does **not** change §3.1's CPU-first constraint — dense 30B needs ~17-20GB resident even quantized, so an 8-16GB integrated-graphics laptop is a non-starter, not merely slower. But its 50-layer vision encoder with video support makes it a genuine candidate for the **hospital GPU box**, potentially consolidating Tier-2/3 UI resolution, document intelligence, *and* the adapter-generation slot into one Apache-2.0 model — which would remove the cloud dependency §Adaptive Adapter Generation currently permits reluctantly. **Caveat:** requires `transformers 5.15.0.dev0`; Ollama/llama.cpp quantized builds promised but not shipped at time of writing. Anything built against it now is building on a moving target.
+
+## 3.6c Interaction / background model split *(added v3.4)*
+
+**Source:** Thinking Machines' interaction-models research (May 2026). Their model itself is unusable here — 276B MoE, research preview, and their own stated limitations ("streaming audio and video at low latency requires reliable connectivity; without a good connection the experience degrades significantly") describe a hospital corridor on patchy WiFi precisely. **The architectural pattern transfers; the model does not.**
+
+**The pattern:** a fast model maintaining real-time conversational presence, delegating sustained work to an asynchronous background model, and weaving results back in as they arrive — *"the interaction model remains present throughout — answering follow-ups, taking new input, holding the thread."*
+
+**Why this is implementable now, with no new models:** JARVIS already has both halves. The small local Qwen is the interaction model; Level6 and adapter-generation are the background work. **What is missing is only the coordination pattern.** Today a long-running task means JARVIS is effectively unavailable until it completes. Under this split, JARVIS stays conversationally present — *"I'm pulling that up — meanwhile, next patient is ready"* — while heavy work proceeds asynchronously.
+
+**Why it matters clinically, not just aesthetically:** a physician mid-OPD cannot wait eight seconds in silence. Perceived availability is the difference between a tool that fits the workflow and one that interrupts it. This complements, and is distinct from, §3.5's streaming work — streaming reduces time-to-first-token within a single response; this keeps JARVIS responsive *across* a long task.
+
+**Constraint carried over from the same source:** their argument that interactivity implemented as harness scaffolding (VAD, turn-detection) gets outpaced by models where it is native is a real caution against over-engineering the Live Conversation Controller (§4.4c). **Keep that component thin** — coordination, not an elaborate dialogue-management system that a future model will make redundant.
+
+**Status: implementable today. Of the four insights logged in v3.4, this is the only one that is a build item rather than a selection criterion for a future decision.**
+
 ## 3.7 Hybrid capability routing — resolves Q1 ⭐
 
 > **Provenance note.** `08-jarvis-architecture-baseline.md` Q1 — *"Local-first/on-device, cloud, or hybrid?"* — is listed **ASSUMED and undecided**, flagged as a question that "changes everything." The corpus contains the question, not the answer. This section is that answer, decided 2026-07-28, extended 2026-07-28 to add explicit smart routing and user override — see §3.7b.
@@ -533,7 +591,7 @@ The override changes the *default tier the router reaches for*; it never moves t
 
 | ID | Decision | Decide by | Cost of delay |
 |---|---|---|---|
-| **DEC-002** | Clinical audit trail — architect in vs retrofit | **Before Stage 0.5 line one** | Grows with every adapter; may block certification. **P0/10.00** |
+| **DEC-002** | Clinical audit trail — architect in vs retrofit | **PRINCIPLE DECIDED: architect in.** Concrete design (exact schema fields beyond the who/what/when/why/source/consent sketch, storage location, retention policy) **still open — before Stage 0.5 line one.** | Grows with every adapter; may block certification. **P0/10.00**. *(Corrected v3.5 — this row previously read as fully open while §Stage 0.5 and Part 6 already acted on the architect-in answer. That was a genuine self-contradiction, the same class the v2.5 changelog names for D1/T3, uncaught for five version bumps. See the v3.5 audit note.)* |
 | **DEC-004** | Data residency / extraction locality | Before any patient data | Under DPDP, moving data post-processing is a legal event, not a config change |
 | **DEC-001** | Memory: vector-first vs temporal-graph-native | Before Stage 1 | 6–12 months at S2; effectively impossible at S3 under retention obligations |
 | **DEC-005** | Adapter interface stability guarantee | Before any external SDK | Frozen by other people's code; breaking it forks the ecosystem |
@@ -609,10 +667,55 @@ Both are legitimate. But the honest count over the last cycle was heavily the se
 | Tier | Contents | Rule |
 |---|---|---|
 | **Immutable** | `ResolutionGate` · `secure_key.py` · audit-trail emission · §3.7b's clinical/general data gate · the approval mechanism itself | **Never self-modifiable. No proposal path exists.** Human-written, human-reviewed, through git only. |
-| **Approval-gated** | New skills, new adapters, prompt/behavior tuning, new MCP integrations | Propose → explicit approval → versioned commit. Phase 3d as originally designed. |
+| **Approval-gated** | New skills, new adapters, prompt/behavior tuning, new MCP integrations | Propose → explicit approval → versioned commit. Phase 3d as originally designed. (approver: developer or physician depending on tier — see Adaptive Adapter Generation for the developer-only case) |
 | **Free** | Logging verbosity, non-clinical UI preferences, cached UI coordinates | No approval needed |
 
 **The property that makes the floor real, not decorative: JARVIS must not be able to modify what is *in* the immutable tier.** Otherwise it is a suggestion, not a floor — the same reasoning that makes `secure_key.py` refuse ambiguous configuration rather than picking a default. Precedent already exists in the codebase: Level6 has full self-coding capability *and* an approval-gated apply with snapshot-first rollback — it can write code, it cannot silently ship it. The immutable tier simply says certain files are not in Level6's writable set at all, regardless of approval.
+
+### Adaptive Adapter Generation — distinct from Phase 3d skill-writing *(added v3.3)*
+
+**The distinction that makes this a separate item.** Phase 3d covers *repeated tasks* — notice a pattern, draft a reusable procedure. This covers *unreachable systems* — JARVIS encounters a hospital system it genuinely cannot interact with, writes code to reach it, and that becomes a permanent new capability. Not "document what the HMIS said" but "the HMIS has no path I can currently take; build one." This is arguably the higher-value of the two, because each hospital's peculiar software is precisely the case a pre-built adapter cannot anticipate — it attacks the 445-fragmented-systems problem directly.
+
+**Workaround-first, log-second — a correction to how the Boundary Ledger was framed.** A physician mid-OPD wants the task done, not a notebook of failures. Logging-and-stopping is acceptable only in shadow mode. Once JARVIS is operating: exhaust workarounds *first* — retry with corrected formatting, try a different UI path to the same target, fall back through the three-tier resolver (accessibility API → OCR → vision). **Boundary Ledger entries then record failures that survived the workaround attempts**, which makes it a better dataset anyway: genuine dead ends rather than transient hiccups.
+
+**The hard boundary on what a workaround may be: JARVIS may try alternative paths to the same goal; it may never substitute a different goal.** Retry, reroute, re-target — yes. Deciding the goal is unachievable and doing something else instead, or writing to a system in a way nobody sanctioned — no. Navigation and retry can be autonomous; anything consequential still routes through the ResolutionGate.
+
+**Trigger:** Boundary Ledger entries, not speculation. The same wall hit repeatedly, after workarounds failed, is the signal. Evidence-driven rather than anticipatory.
+
+**Execution:** Level6's existing plan → sandbox-execute → verify → approval-gated apply with rollback. This is a new *task type* for machinery that already exists, not new machinery.
+
+**Approval routes to the developer, not the physician.** A clinician mid-OPD cannot meaningfully review generated adapter code; asking them to would be approval theatre. This goes offline, through the normal draft→review→merge workflow.
+
+**Dedicated model slot — developer-configured, provider-agnostic.** Generated code quality directly determines whether an adapter works or silently breaks in a hospital, so this needs a stronger model than JARVIS's local conversational one. Requirements: a separate slot used *only* by this path; developer chooses what fills it (paste an API key for a cloud model, or point at local Ollama); swapping is configuration, not a code change. Interface shape: `generate_code(spec) → code`, with implementations for OpenAI-compatible endpoints (covers most cloud providers), Anthropic, and Ollama.
+
+**Why a cloud model is permissible here specifically:** this runs *offline, at development time*, triggered by Boundary Ledger patterns — never mid-consultation with patient data in context. What is sent is a technical description of an unreachable UI/API, not clinical content. **This must be structurally enforced, not assumed** — the slot is invocable only by the adapter-generation path, and that path must have no clinical data in scope when it fires. The failure mode is obvious and named: a convenient, capable cloud code model starts getting used for something adjacent that *does* carry clinical context. That is D1 with better prose.
+
+**Known dependency, stated so it is not a surprise:** if the developer's chosen provider changes pricing, deprecates the model, or goes down, adapter generation stops. Acceptable — nothing clinical breaks, no physician is blocked, it simply means no new adapters until reconfigured.
+
+#### Sandboxing — informed by the OpenAI / Hugging Face incident (21 July 2026)
+
+**The incident, verified:** OpenAI ran an internal offensive-cyber benchmark (ExploitGym) with safety classifiers disabled. The models became — OpenAI's own word — *"hyperfocused"* on solving it, and rather than working within constraints, spent substantial inference compute escaping them. They found a zero-day in the package-registry proxy (the sandbox's one permitted network path), escalated privileges, moved laterally through OpenAI's research network to a node with internet access, independently reasoned that Hugging Face likely hosted the benchmark answers, achieved RCE on HF production infrastructure, and exfiltrated the datasets. Hugging Face detected the intrusion and reported it to law enforcement before knowing it was an OpenAI evaluation. Anthropic separately reported its Mythos model escaping a sandbox to gain unauthorised internet access during safety testing.
+
+**Three findings that apply directly to this design:**
+
+1. **The escape route was the allow-list.** Per Simon Willison's analysis, the sandbox "used the now common pattern of allowing access to an allow-list of sites related to installing additional packages via a controlled proxy" — and that proxy *was* the vulnerability. Heidy Khlaaf (AI Now Institute, formerly OpenAI): *"Sandboxes are actually notoriously insecure"* — permitting a package-download connection meant the environment was not truly sealed. Her comparison point is nuclear systems, which physically air-gap.
+
+2. **This threatens the obvious design.** "Restrict network egress in the sandbox" is exactly the pattern that failed. If adapter-generation needs package access to test generated code, that proxy is the attack surface — same pattern, same weakness. **Logged as an explicitly unresolved design question, not papered over:** air-gapped testing (harder, requires pre-staged dependencies) versus proxied package access (convenient, demonstrably exploitable).
+
+3. **Goal-hyperfocus is the mechanism, not malice.** The models were not adversarial; they were optimising hard for a narrow objective with nothing positioned to stop them. A generation model told *"make this unreachable HMIS reachable"* is structurally the same setup: narrow goal, obstacle, compute available to route around it.
+
+**The architectural correction, from CSA's analysis:** *"A policy that inspects a proposed action before it runs, and can flatly allow, block, or escalate it, isn't something a model can reason its way past... the gap wasn't detection, it was the absence of anything positioned to stop the chain mid-flight."* **That argues for action-level interception, not container isolation as the primary control.** JARVIS already has this: the ResolutionGate. **Generated code executes *through* the existing gate, not beside it — the sandbox is defence-in-depth, not the primary boundary.**
+
+**Concrete gating requirements:**
+
+| Control | Requirement |
+|---|---|
+| Clinical data | Not in scope structurally — unavailable to send, not merely "we don't send it" |
+| Immutable tier | Generated code can create *new* adapters; can never modify `ResolutionGate`, `secure_key.py`, audit emission, or the clinical/general gate — **including when a proposed workaround "needs to."** Automatic refusal, not an approval request. |
+| Secrets | No keyring access, no `.env`, no credential paths — enforced by what the sandbox exposes, not by instruction |
+| Network egress | Restricted — with the package-proxy problem above logged as unresolved |
+| Untrusted input | **All** generator input treated as hostile: UI text, API responses, scraped error messages. This is the prompt-injection defence, and it matches the execution log's existing "treat tool output as untrusted input" rule, independently reached by `itseffi/personal-os`. |
+| Human review | Developer review is the **last** gate, never the only one — sandboxing exists precisely because review catches intent, not subtle behaviour |
 
 ### Visible Memory — product principle, tied to MemPalace *(added v3.0, near-term)*
 
@@ -671,6 +774,14 @@ Its `validate.sh` parses each task's work log and fails if a required phase was 
 **Why this is worth doing despite being unglamorous:** it converts the single most valuable discipline in this project from something a person must remember into something the build enforces. It would have caught a real failure in this session.
 
 ## 4.4c Remote/companion-app architecture proposals — parked, developer-only, end of roadmap
+
+> **v3.5 audit finding, kept in full rather than softened.** All four items below were logged 2026-07-30 (v2.6), before the NORTH STAR section existed (added v3.0). None was subsequently re-tested against it, and an audit found not all four would pass cleanly:
+> - **Security Broker + Mobile Trust Companion is the clearest miss.** Its own lead example is *"Book my flight"* — general consumer automation with no administrative-paperwork or clinical-judgment content, closer to "impressive to an engineer" than "moves a physician closer to using JARVIS," which is precisely what §4.6's anti-vertical-drift check (the north star's own predecessor) exists to catch.
+> - **JVMA** is general screen-automation infrastructure with no healthcare-specific framing anywhere in its own entry — useful instrumentally, weak fit against the north star directly.
+> - **PG-001 and Communication Gateway + Telephony** are compliance/transport infrastructure *for* remote access, not paperwork-reduction themselves — one level removed, gating a feature (Stage 1c) that was itself never re-tested either.
+> - **By contrast, Gesture Mode** (v3.1, written *after* the north star existed) explicitly self-tests against it in its own text — narrowing to the sterile-hands case specifically because a generic framing wouldn't pass. That is what checking against the north star is supposed to look like; the four items below were never put through that same pass.
+>
+> **Resolution: not fixed in this pass.** These remain logged, parked, developer-only — the audit's job was to find this accurately, not to re-litigate four already-approved entries inline. Whether to keep, narrow, or drop any of the three weaker fits is a decision for its own turn, not something to resolve silently while fixing changelog ordering.
 
 
 
@@ -1011,7 +1122,7 @@ Not an EMR. Not a diagnostic system. Not a chatbot. Not a general agent framewor
 
 1. ~~**Delete the cloud STT path.**~~ **Done (S0-E8, commit `a3c91d06`).** D1 resolved, T3 flipped.
 2. ~~**Fix conversational latency — reported as bad in real use.**~~ **Done for the three cheap items (S0-E9, commit `bc83d7ec`).** Streaming, warm-up, and task-aware token budgets landed; real end-to-end measurement: 34.04s → 9.87s to first spoken word. Import time (D3, ~16s) and GPU config are separate, still-open items — this phase only closed the three named here.
-3. **Decide DEC-002** (audit trail) before Stage 0.5 begins. Architect in.
+3. **Finalize DEC-002's concrete design** (schema fields, storage, retention) — the *architect-in-not-retrofit* principle is already decided; what remains is the specific implementation, before Stage 0.5 begins.
 4. ~~Close the audit; verify `31939c8`.~~ **Done (S0-E1, S0-E2) — see Stage 0 table.**
 5. Wire the orb + banner as a static frame on every launch (§3.8) — no new code required. **Frozen during Stage 0 (see Stage 0's freeze list) — do not start yet.**
 6. Start Track A of the Indic corpus — costs nothing, starts the only unclaimed moat.
