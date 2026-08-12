@@ -51,6 +51,41 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ---
 
+### D18 — the Level6 sandbox rebuilt as a real isolation boundary
+**Status: ✅ CLOSED.** Risk tier: high — security-boundary work directly downstream of the verified OpenAI/Hugging Face sandbox-escape incident.
+
+**What the defect was.** `sandbox_runner.py` ran `subprocess.run([sys.executable, "-m", "pytest"], cwd=temp_dir)` — the host interpreter against the host's own site-packages, isolated by nothing but a temporary working directory — while `env["JARVIS_SANDBOX_NETWORK"] = "0"` sat one line above, written in exactly one place and read in none.
+
+**Environment constraints established first, before any design.** Checked directly rather than assumed, because the answer determines what "real isolation" can even mean here: **Docker not installed. WSL not installed. Windows Sandbox not present. Not running as Administrator.** `pywin32` available. So container isolation is off the table on this machine, and any design premised on it would have been another unbuilt-image specification.
+
+**What was built.** A provisioned standalone interpreter (own `sys.prefix`, populated only from the vetted manifest's `image` layer) running inside three stacked OS-enforced boundaries, all non-admin:
+- **AppContainer with no capabilities** — Windows Filtering Platform refuses every socket; the LowBox token denies any file lacking an ACE for the package SID.
+- **Restricted token** with the user SID marked deny-only — the user profile's own ACLs stop applying to the child.
+- **Job object** — kill-on-job-close, active-process cap, memory and CPU-time limits, UI restrictions.
+
+Plus handle inheritance pinned to exactly three stdio handles and the host environment not inherited. **The launcher refuses to run when a required layer is unavailable rather than degrading silently** — silent degradation being the original defect's whole shape. `JARVIS_SANDBOX_NETWORK` was **deleted rather than repaired**, and an AST-based test now fails if anyone reintroduces it.
+
+**Independent verification — the part that matters, and it did not simply confirm the report.** The implementing agent's own 24 isolation tests pass, but a test written by the same pass that built the boundary can pass vacuously: "reading failed" is equally true when the path is wrong or the child never ran. So the reviewer wrote a separate probe with a **control arm** — the identical script and the identical interpreter, run twice, once contained and once not:
+
+| Probe | Contained | Control (no containment) |
+|---|---|---|
+| Read canary in `~` | `PermissionError` | **read `PARENT-INDEPENDENT-CANARY-4417`** |
+| Enumerate `~` | `PermissionError` | **99 entries** |
+| TCP 1.1.1.1:443 | `PermissionError [WinError 10013]` | **connected** |
+| DNS `example.com` | `gaierror` | **104.20.23.154** |
+
+**The control arm is what turns this into evidence rather than a passing assertion**, and the first attempt proved the point: pointing the probe at the *host* interpreter produced no output at all — ambiguous, not proof. The host Python is itself unreadable to the AppContainer, which is consistent with the boundary working but does not demonstrate it. Re-running with the provisioned interpreter on both arms produced the table above.
+
+**Dependency isolation separately verified:** `selenium`, `keyring` and `cryptography` are present on the host and genuinely absent from the provisioned interpreter.
+
+**A discrepancy the reviewer raised and then withdrew, recorded because the withdrawal is the honest part.** `mss` and `pyautogui` import inside the sandbox despite the manifest marking them `layer: host_mocked` — "never installed". That looked like a manifest claiming a property the implementation lacked, i.e. D18's own shape at smaller scale. Investigated: their `find_spec` origins are single-file stubs in the sandbox tree, while the real host packages are directories. They are auto-generated doubles, and the stub's own docstring says *"Do not read a green sandbox run as 'tested on Windows'."* The implementation was right and the reviewer's initial reading was wrong.
+
+**One correction to the environment brief, from the implementing pass:** `wsl.exe` *is* on PATH — it is the Windows inbox stub that prints "WSL is not installed". The conclusion held, but `shutil.which("wsl")` would report WSL as available. That is the same infer-capability-from-a-name error D18 is about, caught in the course of fixing D18.
+
+**What is honestly NOT closed, and why D19 exists.** Per §4.4b's own position the ResolutionGate remains the primary control and this is defence-in-depth. It is **not a container** — same kernel, filesystem and network stack. Network denial rests on unaudited BFE/mpssvc. `socket` and `subprocess` remain importable; only the *attempt* now fails. **Loopback is denied too**, which is a real functional cost rather than a win: adapter tests needing a local server cannot run in-sandbox without an admin-granted exemption. And most importantly the vetted closure is **copied from the host with no hashes and no pinning** — logged as **D19** on the implementing agent's own recommendation, and correctly: closing D18 while the manifest still describes hash-pinning as forthcoming would retire a ticket while leaving a document claiming a property the code lacks, which is D18's exact shape one level up.
+
+---
+
 ### Companion-app Phase 0 — three safety decisions resolved before any app code
 **Status: ✅ CLOSED (all three).** Risk tier: medium — each touches a safety-relevant design surface (detection-accuracy claims, authorization tiers, sandbox escape surface). Deliberately sequenced *before* companion-app scaffolding, because the app's own safety model depends on all three.
 
@@ -515,8 +550,9 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | **D14** — same weakness, 2 more files | ✅ CLOSED (`b338c4fb`, `4ca05bfb`) | `learning_system/audit_log.py` fixed as a byproduct of DEC-002; `ui_agent/utils/ui_audit.py` fixed in its own dedicated phase. See the closed-item entries above/below. |
 | **D15** — `code_engine`/`rhinal_capture` unaudited | ✅ CLOSED (split) | `code_engine` owner-confirmed intentional (build infrastructure, not a gap); `rhinal_capture` was the real half, split to D16 and fixed. See the closed-items section above. |
 | **D16** — `rhinal_capture`'s vault write unaudited | ✅ CLOSED (`64055a1b`) | `AgentCore/mcp_audit.py`'s `audited_mcp_write()`, reusable for the other 13 RHINAL tools. Two records per write; see the closed-item entry for why. |
-| **D18** — Level6 "sandbox" is not a sandbox | 🟠 OPEN | Host interpreter, host site-packages, temp cwd only. `JARVIS_SANDBOX_NETWORK=0` written and read nowhere. §4.4b's gating table is a spec for an unbuilt image, not a description of today. Own phase. |
-| **Companion app Phase 1 — scaffolding** | NOT STARTED | Gated on Phase 0, which has now landed. Hard constraint carried forward: nothing it can trigger reaches a real hospital system, real patient data, or a live financial/record action until Stage 0.5 validates with a real physician — Track A/Track B split, same as the Indic OCR corpus. |
+| **D18** — Level6 sandbox was not a sandbox | ✅ CLOSED | AppContainer + restricted token + job object + provisioned interpreter. Independently re-verified by the reviewer with a control arm, not accepted from the implementing pass. See the closed-item entry above. |
+| **D19** — sandbox has no supply-chain integrity | 🟠 OPEN | Closure copied from host site-packages: no hashes, no pinning, `hash: null` throughout the manifest. Blocked on infrastructure (no container runtime on this machine), not effort. Split out of D18 deliberately so closing D18 does not retire a ticket while a doc still claims hash-pinning. |
+| **Companion app Phase 1 — scaffolding** | NOT STARTED | Gated on Phase 0 (landed) and D18 (now closed) — unblocked. Hard constraint carried forward: nothing it can trigger reaches a real hospital system, real patient data, or a live financial/record action until Stage 0.5 validates with a real physician — Track A/Track B split, same as the Indic OCR corpus. |
 | **D17** — rescanner test vs. slow `_installed_map()` | 🟡 OPEN | Pre-existing, proven on a clean `HEAD` worktree. `_installed_map()` costs ~0.97s per tick even with a `Mock`; the test allows 0.45s for ≥2 iterations. Test-only symptom, but the per-tick cost may be a real product question. |
 | **Stage 0.5 design proposal** | DRAFTED, AWAITING APPROVAL | Full proposal delivered (data model + state machine, Tkinter UI shape, Boundary Ledger schema, E1/E2/E3 measurement). Not implemented. Carries 13 escalations of its own, including two prerequisites not currently met: physician access in real clinic conditions, and a pre-registered Stage 1 priority list committed *before* the physician session (without which S05-E2 is unfalsifiable and fails by default). |
 | **RHINAL — wire remaining 13 tools** | SCOPED, NOT STARTED | Distinct phase. Use known risk classes (read-only vs write-capable). |
