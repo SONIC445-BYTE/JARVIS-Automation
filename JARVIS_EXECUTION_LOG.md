@@ -51,6 +51,68 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ---
 
+### Companion-app Phase 0 — three safety decisions resolved before any app code
+**Status: ✅ CLOSED (all three).** Risk tier: medium — each touches a safety-relevant design surface (detection-accuracy claims, authorization tiers, sandbox escape surface). Deliberately sequenced *before* companion-app scaffolding, because the app's own safety model depends on all three.
+
+---
+
+**1. PG-001 Mode C drift-catch detector — built.** `AgentCore/privacy_gateway/`, design note `docs/pg001_mode_c_drift_detector.md`.
+
+Rule/lexicon-based, entirely local (§3.7b — session content may be clinical, so a detector that reaches the network *is* the leak), confidence-scored findings rather than a boolean, policy as configuration. The declared-intent primary gate is untouched; the detector's only outward effects are `drift_review_required` and an audit record, and `tests/test_gate.py` pins that ordering as a test rather than prose.
+
+**The measured numbers are unflattering, and that is the finding.** Full assurance output is embedded in the design note and reproduced by `python -m AgentCore.privacy_gateway.evaluate`:
+- **Drift recall 65% at the default threshold — a 35% false-negative rate.**
+- **`clinical_colloquial`: 0 of 8 caught.** A structural blind spot, not a tuning problem: *"The chap in the corner bed is still bringing up everything he eats"* is unambiguously clinical, contains no clinical vocabulary, and a lexicon scores it 0.000. Eight of thirteen total misses are this one category.
+- Patient-linked identifier recall 76.9% at the default 0.70; raising to 0.90 collapses it to 34.6%.
+- Zero false alarms across all three non-clinical categories, including the deliberately confusing one. Precise and insensitive.
+
+**This is the strongest available argument for the architecture PG-001 already chose.** A 35% FN rate would be indefensible as Mode C's primary gate; as a net *behind* a declared-intent gate it is a real improvement over nothing. The blueprint asserted "never let the safety property rest on a classifier" as a principle — this measures the principle.
+
+**Anti-fabrication made mechanical, not promised.** `TestDesignNoteMatchesAFreshRun` fails if any deterministic line the evaluation script prints is missing from the design note. A number cannot be hand-typed into that document without CI noticing — the same discipline §4.4b's CI-enforced verification section argues for, applied to a detector's own accuracy claims.
+
+**Two real defects found and fixed while completing this** (the agent that built it died on a session limit before running anything, so every test here was run for the first time by the reviewer):
+- The locality test asserted no network module appears in `sys.modules` at all, and **could never pass** — `urllib.request`, `http.client`, `socket` and `ssl` are already loaded at bare interpreter startup, so it measured the interpreter, not the package. Rewritten to measure the *delta* across the import. A check that cannot pass is not stricter; it is one that gets deleted the first time someone is in a hurry, and it would have masked exactly what it exists to catch. (`requests`/`httpx`/`torch`/`transformers` were absent throughout — the detector genuinely is local.)
+- A policy test set `clinical_confidence_threshold=0.999999` expecting no score to reach it. **`clinical_confidence` saturates at exactly 1.0**, so it still fired. Rewritten against a genuinely mid-scoring utterance, plus a companion test pinning the saturation as intended behaviour: a deployment can move the boundary, it cannot configure the detector into ignoring a maximally-confident hit — that is `DriftAction.LOG_ONLY`, an explicit and auditable choice, not a threshold quietly set to 1.0.
+
+---
+
+**2. Trust-tier split for hospital record modification — resolved.** Full working in `docs/trust_tier_clinical_writes.md`; §4.4c principle 5 replaced.
+
+Four tiers ordered by **irreversibility and liability**, not sensitivity — **T3 clinical write** sits above bank transfer deliberately, because money moved in error is recoverable and a discharge is not. Per-action confirmation always, no session pre-authorization, no "approve all". Three rules fix the boundary: the tier follows the **destination** not the verb (marking a queue entry `DONE` is T0 in JARVIS's own surface and T3 the day it writes through to the HIS); the boundary is the **signature** not the keystroke (drafting is T2, only the commit is T3); and **ordering physical work is a write** even when no prose changed.
+
+**"Regardless of channel" resolved as: no channel exempts the action — not that every channel can carry it.** Four invariant properties, and a channel that cannot meet all four **refuses rather than downgrades**, which blocks T3 over Stage 1c remote inbound.
+
+**Approval fatigue addressed with arithmetic rather than assertion:** at 40–100 patients/session a naive T3 fires 150–400 times, adding 10–30 minutes of pure confirmation — which fails NORTH STAR outright. Mitigated by the signature/keystroke split, and made measurable in PG-001's own Detector-Assurance spirit: **if >95% of confirmations are approved in under a second, the gate is not being read and must be reported as not working**, however correctly it fired.
+
+**A real internal contradiction this surfaced:** principle 4 (Channel Independence) said the same engine executes regardless of channel, which principle 5 now partially denies. Fixed with an explicit carve-out on principle 4. Worth noting the design *avoided* a second contradiction: §4.4c requires the Session Manager never learn which channel a session came from, and per-channel T3 refusal naively breaks that — resolved by having Capability Negotiation supply `(max tier, available confirmation modalities)` at connect, so the Gateway knows the channel and the Session Manager still never does.
+
+**Two prerequisites inherited, both additive changes to immutable-tier modules, neither made here:** `mcp_audit.py`'s pairing-by-adjacency breaks the moment a human pause sits between presentation and consent, so **the correlation-id field it already flagged becomes required rather than optional** — an independent second agent reaching the same conclusion as D16's own limitation note; and `audit_trail.py`'s hardcoded `consent: "direct_user_action"` must start carrying the confirmation modality and record id.
+
+---
+
+**3. Adapter-generation sandbox package access — resolved.** `docs/adapter_sandbox_dependencies.md`, manifest `AgentCore/policy/adapter_sandbox_dependencies.yaml`; §4.4b's finding 2 and the Network-egress row replaced.
+
+Pre-staged, not proxied: digest-pinned base, hashed lockfile over the full transitive closure, no index configured, no `pip` at runtime. **Live package fetching is not a default that can be switched off; it is absent.** Outside-the-set packages are a reviewed-once developer escalation through Phase 3d's existing propose → approve → versioned-commit idiom, recorded as a manifest diff.
+
+Three findings worth keeping: **`webdriver_manager` is the OpenAI/HF incident recurring one level down** (it fetches browser drivers over the network at runtime) — hard refusal, and the clearest demonstration that "no egress" and "vetted set" are two separate rules. The set had to **split into two layers** (`image` vs `host_mocked`) because `pywin32`/`pywinauto` cannot install in a Linux container at all, with the honest cost stated: the sandbox verifies adapter *logic*, not Windows behaviour. And **drift was verified as real before any image exists** — `requirements.txt` pins `Pillow==12.1.1` while the developer machine has `11.3.0`.
+
+**Deviation from the instruction, flagged rather than silently absorbed:** "reviewed-once" as literally worded is a permanent hole by construction. Implemented as reviewed-once-then-re-affirmed — every escalated entry carries `review_by:` (a past date fails CI) and `justified_by:` (CI fails when the named adapter no longer imports it), so the set shrinks by default. The soft spot is named too: expiry bumps are exactly what gets rubber-stamped, and the only counter-pressure is that clearing one is a reviewed diff with a written reason.
+
+**Hashes are `null` throughout, deliberately** — nothing has been built, so nothing has a real hash, and plausible-looking ones would be worse than none. `null` is defined as fail-closed: the build refuses.
+
+---
+
+### D18 — the Level6 "sandbox" is not a sandbox *(found, logged, NOT fixed)*
+**Status: 🟠 OPEN.** No commit — a finding, surfaced by the sandbox-design work and **independently confirmed against the source before logging**.
+
+`AgentCore/level6/sandbox_runner.py:80–83` runs `subprocess.run([sys.executable, "-m", "pytest"], cwd=sandbox_dir)` — the host interpreter against the host's own site-packages, isolated by nothing but a temp working directory. No container, no separate environment, no egress restriction.
+
+**The sharper half:** line 65 sets `env["JARVIS_SANDBOX_NETWORK"] = "0"`, and a repo-wide grep finds that name **in exactly one place — where it is written.** Nothing reads it. It is decoration shaped like a network control. That is the same failure as D1 (`_fallback_listen` inside a file named `local_stt.py`) and the `vaultWorthy` misread, and it is precisely what this project's standing rule "never infer a contract from an identifier name" exists to catch — this time in our own code, about a security boundary.
+
+**Consequence:** §4.4b's Concrete gating requirements table describes controls the current runner cannot enforce. Those rows are a specification for an image that must be built, not a description of today, and the blueprint now says so. Not fixed here — real isolation is its own phase, and §4.4b's own position is that the ResolutionGate is the primary control with the sandbox as defence-in-depth, so this weakens the second layer rather than the first.
+
+---
+
 ### D16 — `rhinal_capture`'s external vault write, now audited
 **Status: ✅ CLOSED.** Commit `64055a1b` on `phase-2-adapter-wiring`. Risk tier: medium (DEC-002-adjacent, external write path). Split out of D15 as its only real half after the owner confirmed `code_engine` is intentional build infrastructure, deliberately outside the clinical action path.
 
@@ -453,6 +515,8 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | **D14** — same weakness, 2 more files | ✅ CLOSED (`b338c4fb`, `4ca05bfb`) | `learning_system/audit_log.py` fixed as a byproduct of DEC-002; `ui_agent/utils/ui_audit.py` fixed in its own dedicated phase. See the closed-item entries above/below. |
 | **D15** — `code_engine`/`rhinal_capture` unaudited | ✅ CLOSED (split) | `code_engine` owner-confirmed intentional (build infrastructure, not a gap); `rhinal_capture` was the real half, split to D16 and fixed. See the closed-items section above. |
 | **D16** — `rhinal_capture`'s vault write unaudited | ✅ CLOSED (`64055a1b`) | `AgentCore/mcp_audit.py`'s `audited_mcp_write()`, reusable for the other 13 RHINAL tools. Two records per write; see the closed-item entry for why. |
+| **D18** — Level6 "sandbox" is not a sandbox | 🟠 OPEN | Host interpreter, host site-packages, temp cwd only. `JARVIS_SANDBOX_NETWORK=0` written and read nowhere. §4.4b's gating table is a spec for an unbuilt image, not a description of today. Own phase. |
+| **Companion app Phase 1 — scaffolding** | NOT STARTED | Gated on Phase 0, which has now landed. Hard constraint carried forward: nothing it can trigger reaches a real hospital system, real patient data, or a live financial/record action until Stage 0.5 validates with a real physician — Track A/Track B split, same as the Indic OCR corpus. |
 | **D17** — rescanner test vs. slow `_installed_map()` | 🟡 OPEN | Pre-existing, proven on a clean `HEAD` worktree. `_installed_map()` costs ~0.97s per tick even with a `Mock`; the test allows 0.45s for ≥2 iterations. Test-only symptom, but the per-tick cost may be a real product question. |
 | **Stage 0.5 design proposal** | DRAFTED, AWAITING APPROVAL | Full proposal delivered (data model + state machine, Tkinter UI shape, Boundary Ledger schema, E1/E2/E3 measurement). Not implemented. Carries 13 escalations of its own, including two prerequisites not currently met: physician access in real clinic conditions, and a pre-registered Stage 1 priority list committed *before* the physician session (without which S05-E2 is unfalsifiable and fails by default). |
 | **RHINAL — wire remaining 13 tools** | SCOPED, NOT STARTED | Distinct phase. Use known risk classes (read-only vs write-capable). |
