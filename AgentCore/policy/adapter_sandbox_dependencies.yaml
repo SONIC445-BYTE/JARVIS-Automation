@@ -18,13 +18,34 @@
 # supply-chain and fetch surface; it does not reduce what generated code can
 # attempt. Egress is blocked at the network layer or not at all.
 #
-# STATUS. `design_only`. The sandbox this describes does not exist yet. The
-# thing currently called a sandbox (AgentCore/level6/sandbox_runner.py) is a
-# `subprocess` running `sys.executable -m pytest` in a temp directory under
-# the host interpreter, with an advisory `JARVIS_SANDBOX_NETWORK=0` env var
-# that nothing reads or enforces. Until a real image exists, this manifest is
-# a review aid and the input to the static import check (design note 6), not
-# a boundary.
+# STATUS. `partially_enforced` (was `design_only` until D18 was addressed).
+# Read this carefully, because the two halves are genuinely different:
+#
+#   ENFORCED TODAY, on Windows, non-admin, verified by adversarial test
+#   (AgentCore/level6/tests/test_sandbox_isolation.py):
+#     - The sandbox runs a SEPARATE interpreter with its own site-packages,
+#       provisioned from the `layer: image` entries below plus their resolved
+#       dependency closure. Host packages absent from this file are genuinely
+#       not importable in the sandbox -- PyYAML, listed under `refused:`, is
+#       installed on the host and is measurably absent in the child.
+#     - `layer: host_mocked` entries are satisfied by generated stub modules,
+#       never by the real package.
+#     - An import outside the set fails closed BEFORE execution.
+#     - Network egress and loopback are denied by an AppContainer holding no
+#       capabilities (OS/WFP enforcement, not a Python-level patch).
+#     - Filesystem access outside the sandbox tree is denied by the
+#       AppContainer plus a restricted token with the user SID deny-only.
+#
+#   STILL SPECIFICATION ONLY, because it needs a container runtime that does
+#   not exist on the target machine (no Docker, no WSL, no Windows Sandbox,
+#   no Administrator):
+#     - Everything under `image:` below -- base_digest, lockfile, hashed
+#       transitive closure, `pip install --require-hashes`, no-pip-at-runtime.
+#     - Therefore: NO hash pinning and NO provenance. Packages are copied from
+#       the host's own installation. The sandbox's supply chain is exactly the
+#       host's supply chain. Design note 8.2 is unchanged and unaddressed.
+#     - Every `hash: null` and `base_digest: null` below is still null and
+#       still honest.
 #
 # FAIL-CLOSED RULES, in force whenever the image build is built:
 #   - `image.base_digest: null`  -> build refuses to run. No tag-only pulls.
@@ -36,8 +57,16 @@
 # hash-pinned yet because nothing has been built yet, and writing a
 # plausible-looking hash would be worse than writing none.
 
-schema_version: 1
-status: design_only
+schema_version: 2
+status: partially_enforced
+
+# Consumed by AgentCore/level6/sandbox_env.py. `import_names` was added in
+# schema 2 because the provisioner and the static import check both need to
+# map a distribution name to what generated code actually writes at the top of
+# a file, and inferring that from the distribution name is exactly the
+# "never infer a contract from an identifier name" mistake this project has a
+# standing rule against. Where an entry omits it, the value is read from the
+# installed distribution's own top_level.txt -- measured, not guessed.
 owner_decision: >
   Pre-stage a fixed, vetted dependency set inside the sandbox image. Anything
   outside that set is an explicit, reviewed-once escalation request. No
@@ -133,6 +162,7 @@ packages:
 
   - name: beautifulsoup4
     layer: image
+    import_names: ["bs4"]
     version: "4.14.3"
     hash: null
     approval: baseline
@@ -157,6 +187,7 @@ packages:
   # --- Imaging, for the OCR and vision resolver tiers -----------------------
   - name: Pillow
     layer: image
+    import_names: ["PIL"]
     version: "11.3.0"
     hash: null
     approval: baseline
@@ -181,6 +212,7 @@ packages:
 
   - name: opencv-python-headless
     layer: image
+    import_names: ["cv2"]
     version: "4.13.0.92"
     hash: null
     approval: baseline
@@ -263,6 +295,9 @@ packages:
 
   - name: pywin32
     layer: host_mocked
+    import_names: ["win32api", "win32con", "win32gui", "win32process",
+                   "win32security", "win32job", "win32file", "win32event",
+                   "win32clipboard", "pywintypes", "win32com"]
     version: "311"
     hash: null
     approval: baseline

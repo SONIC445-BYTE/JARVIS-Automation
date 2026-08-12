@@ -1,6 +1,47 @@
 # Adapter-generation sandbox — package access — design note
 
-**Status:** designed, not built. The sandbox this describes does not exist. Neither does the image.
+> **UPDATE (D18 isolation phase).** This note was written when there was no
+> sandbox at all. Part of it is now built, and the parts that are not have
+> changed status rather than content. Read this box before the rest of the
+> document, because several sentences below are now historical.
+>
+> **Now genuinely enforced** (see `docs/adapter_sandbox_isolation.md`, measured
+> by `AgentCore/level6/tests/test_sandbox_isolation.py`):
+> - The sandbox runs a **separate interpreter** with its own site-packages,
+>   provisioned from this note's vetted set. Host packages outside the set are
+>   genuinely not importable — verified against PyYAML, which is installed on
+>   the host and listed under `refused:`.
+> - The `layer: image` / `layer: host_mocked` split from §3.1 is real:
+>   host_mocked entries are generated stubs, never the real package.
+> - The §6 static import check exists, fails closed before execution, and emits
+>   the diagnostic block reproduced in that section.
+> - **Network egress is genuinely denied**, by a capability-less AppContainer
+>   (OS/WFP enforcement). §8.5's "egress is blocked at the network layer or not
+>   at all" is now the former.
+> - Filesystem access outside the sandbox tree is denied, so §4.4b's Secrets
+>   row ("no keyring access, no `.env`, no credential paths") is enforced by
+>   what the sandbox exposes rather than by instruction.
+>
+> **Still not built, and now the largest remaining gap:** everything under
+> `image:` — the digest-pinned base, the hashed lockfile, `--require-hashes`.
+> There is no container runtime on this machine and none can be installed
+> without Administrator. Packages are therefore **copied from the host
+> installation**, so §8.2 (supply-chain compromise at pin time) is not merely
+> unmitigated — there is no pinning at all, and the sandbox's supply chain is
+> exactly the host's.
+>
+> **Two claims below are now wrong and are corrected here rather than edited
+> away:**
+> - §3.2 says `requests` "can only reach loopback" inside the sandbox. It can
+>   reach **nothing**; AppContainer denies loopback too, and exempting it needs
+>   Administrator. That is a functional cost, discussed in the isolation note §7.
+> - §0 and §8.6's "there is no container today ... none of the above is
+>   running" remain literally true about the container, but the manifest is no
+>   longer only "a review aid" — it is now the input to real provisioning.
+
+**Status:** partially built. The vetted set is enforced by a real, separate,
+network-denied execution environment; the digest-pinned **image** this note
+specifies does not exist and cannot be built on the current machine.
 **Resolves:** the explicitly-unresolved design question in `JARVIS_BLUEPRINT.md` §4.4b — *"air-gapped testing (harder, requires pre-staged dependencies) versus proxied package access (convenient, demonstrably exploitable)."*
 **Owner decision being made concrete:** pre-stage a fixed, vetted dependency set inside the sandbox image. Anything outside it is an explicit, reviewed-once escalation. Never open-ended live package fetching by default.
 **Manifest:** `AgentCore/policy/adapter_sandbox_dependencies.yaml`.

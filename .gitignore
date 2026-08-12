@@ -87,6 +87,20 @@ dist/
 *.db
 
 # ========================
+# Level6 adapter-generation sandbox (D18)
+# ========================
+# The provisioned sandbox interpreter: a ~35MB standalone Python tree plus the
+# vetted dependency closure, rebuilt on demand from
+# AgentCore/policy/adapter_sandbox_dependencies.yaml. It is a build artifact
+# keyed by a manifest digest, never a source of truth -- committing it would
+# freeze a copy of the host's packages into the repository.
+projects/.sandbox_env/
+# Per-run sandbox workspaces containing generated code.
+projects/sandbox_level6/
+projects/test_sandbox/
+projects/_isolation_tests/
+
+# ========================
 # System-specific automation artifacts
 # ========================
 screenshots/
