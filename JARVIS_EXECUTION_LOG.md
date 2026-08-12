@@ -51,6 +51,32 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ---
 
+### UIAudit log-directory test isolation
+**Status: ✅ CLOSED.** Commit `61b06c66` on `phase-2-adapter-wiring`. Risk tier: low — mechanical, no design decision. Flagged during the D14 phase, fixed here as its own phase.
+
+**The defect.** `UIAudit.log_dir` was hardcoded to `Path("data/ui_actions")`, and `__init__` mkdir's it eagerly, so every test constructing a real `UIAgentMain` wrote real files into the actual repo directory on every run. Now honors `JARVIS_UI_ACTIONS_LOG_DIR` — same mechanism and naming shape as DEC-002's `JARVIS_CLINICAL_AUDIT_LOG_DIR` — with an autouse fixture in a new `AgentCore/ui_agent/tests/conftest.py`.
+
+**A flaw in my own previous phase, found and fixed here rather than left standing.** `test_ui_audit_key_resolution.py` (written in the D14 phase, one phase earlier) set `audit.log_dir` *after* construction — too late, since `__init__` had already mkdir'd the real path. **Those tests were themselves creating the directory they existed to avoid.** Rewritten to redirect via the env var, which happens before construction and actually works. Worth recording as its own instance of a recurring shape: the D14 phase also caught the `JARVIS_INSECURE_DEV_KEY` fixture writing real key files into the repo. Two consecutive phases, same class of mistake — a test-isolation mechanism that looks correct and silently isn't.
+
+**Verified by timestamp, not assumption.** Captured `Data/ui_actions/` before and after a full `AgentCore/ui_agent/tests/` run (21 passed): `audit_20260811.jsonl` unchanged at 21046 bytes, no new files created. Added 2 tests covering the isolation mechanism itself (`TestUiAuditLogDirIsolation`) — a fixture that silently stopped working would otherwise return this subsystem to writing into the repo with nothing failing. Also fixed `test_ui_fallback_unknown_app.py`'s hardcoded `"data/ui_actions/"` assertion, which would have degraded silently to its "directory not found" warning branch.
+
+**Full suite: 495 passed, 1 skipped, 1 failed** — the failure is the known pre-existing `pyautogui` fail-safe flake documented in the DEC-002 entry below, unrelated and unmodified.
+
+---
+
+### D15 — DEC-002's audit trail does not cover two live handlers *(found, logged, NOT fixed)*
+**Status: 🟠 OPEN.** No commit — this is a finding, not a fix.
+
+**How it was found.** An independent design review of Stage 0.5 (run as a separate agent against the canonical docs and the real code) surfaced it as a side observation. **Confirmed directly against `jarvis.py` before logging** — not taken on the reviewer's word, per the standing rule that a report about code is not evidence about code.
+
+**The finding.** `jarvis.py`'s dispatch chain checks `intent.handler == "code_engine"` (line 883) and `elif intent.handler == "rhinal_capture"` (line 895), calling each subsystem directly. Neither constructs a `daemon.intent_parser.Intent`, so neither reaches `UIExecutor.execute_intent()`, so **neither emits a DEC-002 audit record.** `rhinal_capture` performs a real write to the physician's external Rhinal vault with no audit trail; `code_engine` writes code to disk, likewise.
+
+**The honest reading of DEC-002's own claim.** "The single pre-adapter chokepoint every `Intent` passes through" is *literally true* — every `Intent` does pass through it. It is also misleading, because these two handlers never become `Intent`s. The variable is even named `intent` at those call sites, but it is an `IntentResult` from `IntentRouter.classify()`, a different type. **The architecture is not wrong and DEC-002 is not reopened; the coverage claim was broader than the code supports, and has been narrowed in blueprint §4.1 accordingly.**
+
+**Why it was not fixed on discovery.** It revises a prior closure claim — explicitly a hard stop under the standing instruction. There is also a real design question inside it, not a mechanical swap: should a non-GUI MCP handler be forced through an `Intent`/adapter path built for GUI platforms with install-detection semantics (the `rhinal_capture` branch's own comment explains why it deliberately isn't), or should those branches emit `emit_clinical_action()` directly? Both are defensible; picking one silently while "closing D15" would be exactly the drift this project's rules exist to prevent.
+
+---
+
 ### D14 (second half) — `ui_agent/utils/ui_audit.py`'s hardcoded-default HMAC key
 **Status: ✅ CLOSED.** Commit `4ca05bfb` on `phase-2-adapter-wiring`. Risk tier: low — mechanical, no design decision, the third application of an already-twice-proven pattern (D2, then DEC-002's `LearningAuditLog` rework).
 
@@ -359,6 +385,8 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | **D6** — `curl` subprocess in `LLMEngine` | ✅ CLOSED (`fb332247`) | See the batched entry above. |
 | **D2** — XOR encryption / hardcoded default key | ✅ CLOSED (`6e508780`) | Real AES-GCM + fail-closed key resolution, both `memory_store.py` and `mode_manager/audit.py`. Stage 0.5's real-clinical-data gate is clear. See the closed-item entry above. |
 | **D14** — same weakness, 2 more files | ✅ CLOSED (`b338c4fb`, `4ca05bfb`) | `learning_system/audit_log.py` fixed as a byproduct of DEC-002; `ui_agent/utils/ui_audit.py` fixed in its own dedicated phase. See the closed-item entries above/below. |
+| **D15** — `code_engine`/`rhinal_capture` unaudited | 🟠 OPEN | Found by independent review, confirmed against `jarvis.py`, logged not fixed (revises a closure claim = hard stop). Contains a real design question, not a mechanical swap. See the closed-items section above. |
+| **Stage 0.5 design proposal** | DRAFTED, AWAITING APPROVAL | Full proposal delivered (data model + state machine, Tkinter UI shape, Boundary Ledger schema, E1/E2/E3 measurement). Not implemented. Carries 13 escalations of its own, including two prerequisites not currently met: physician access in real clinic conditions, and a pre-registered Stage 1 priority list committed *before* the physician session (without which S05-E2 is unfalsifiable and fails by default). |
 | **RHINAL — wire remaining 13 tools** | SCOPED, NOT STARTED | Distinct phase. Use known risk classes (read-only vs write-capable). |
 | **`rhinal_attach_file`** | BLOCKED (hard stop, named explicitly in standing instructions) | Needs a genuinely non-identifying real test file + explicit approval. Do not fabricate a `scanResult`. |
 | **Blueprint status rows** | ✅ APPLIED (2026-07-29 reconciliation) | S0-E1/E2/E8 now show ✅ with SHA + evidence pinned in blueprint §Stage 0, cross-referenced to this file. |
