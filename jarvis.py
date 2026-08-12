@@ -142,6 +142,136 @@ def _code_result_is_success(result: Dict) -> bool:
     return bool(result.get("file_path"))
 
 
+def handle_rhinal_capture(text: str, capture_text: str) -> str:
+    """
+    The `elif intent.handler == "rhinal_capture":` dispatch branch, as a
+    real callable rather than code buried inside _conversation_loop's
+    method body.
+
+    Extracted for two reasons. First, tests/test_rhinal_dispatch.py used
+    to *mirror* this branch's logic in the test file itself (a documented
+    but fragile precedent) -- a mirror can pass while the real branch is
+    broken, which is exactly the wrong property for the audit path of an
+    external clinical-adjacent write. Second, the audit wiring below is
+    the kind of thing that must be tested against the real code, not a
+    copy of it. Nothing about the routing changed: the loop still reaches
+    this the same way, still outside CommandRouter/ResolutionGate/
+    AdapterBase, for the reasons in the call site's comment.
+
+    DEC-002 (D15, rhinal_capture half): rhinal_capture is a real network
+    write into the physician's external RHINAL vault, and until now it
+    emitted no who/what/when/why/source/consent record at all -- it never
+    reaches UIExecutor.execute_intent(), the chokepoint that covers every
+    Intent-routed action. Covered here via AgentCore.mcp_audit, which
+    reuses audit_trail.py's mechanism (and its exact two-tier failure
+    model) without pretending an MCP tool is a GUI platform. See
+    AgentCore/mcp_audit.py for the ordering argument (two records:
+    "attempted" before the wire, outcome after) and the pairing
+    limitation.
+
+    Field values, chosen deliberately -- none of these are defaults:
+
+    - what_adapter="rhinal_mcp". Not a platform_adapters/ registry key,
+      and deliberately not shaped like one: no `rhinal` adapter exists
+      or should exist (checked). A compliance reader must not read this
+      record as "a GUI adapter drove a window"; it was an MCP tool call
+      to an external service.
+    - what_action="rhinal_capture". The actual MCP tool name as
+      registered in RHINAL's mcp-server/src/index.ts, so the record names
+      something externally verifiable rather than a JARVIS-side
+      paraphrase.
+    - what_target="rhinal_vault". The destination of the write -- the
+      physician's external vault. Deliberately NOT the captured text:
+      that content already appears once in `why` (below), and copying
+      clinical-adjacent content into a second field of the same record
+      buys nothing and doubles the exposure.
+    - why=text, the physician's actual spoken words for this turn. Same
+      choice UIExecutor makes (it passes Intent.source_text), and the
+      same honest reasoning: this system has no model of intent beyond
+      what was said, so the closest true answer to "why" is the
+      utterance. Note the consequence, inherited from the existing
+      convention rather than introduced here: for "remember that X", the
+      utterance contains X, so the captured content does land in the
+      audit log. That is a property of the DEC-002 record shape (which
+      already logs dictated message bodies for send_message), not
+      something this branch can decide unilaterally -- flagged, not
+      silently accepted.
+    - source="voice". Not the emit_clinical_action() default taken by
+      omission -- passed explicitly because it is checkable here and
+      happens to be true: this function is reached only from
+      _conversation_loop, whose only input is self._stt.listen_once(),
+      i.e. the microphone. If a typed/remote channel is ever routed here
+      (Stage 1c's WhatsApp/Telegram inbound), this argument is the one
+      line that must change, and it is visible rather than implicit.
+    - who: not passed -- emit_clinical_action() fills it with
+      getpass.getuser(). What it can honestly mean today: the OS account
+      that ran JARVIS on this machine. What it cannot mean: a verified
+      physician identity. There is no per-physician login, no ABDM/ABHA
+      identity, and nothing here proves the person who spoke is the
+      account owner. Additionally specific to this path: the *vault side*
+      attributes the write to whoever owns the rhk_ key in
+      RHINAL_API_KEY, which need not be the same principal as the OS
+      user -- so `who` is "the local account that initiated it", not
+      "the account the external system will show".
+    - consent: fixed at "direct_user_action" by emit_clinical_action(),
+      and literally true here -- the physician said the words that
+      triggered it. No ambient capture path exists.
+    """
+    if not capture_text:
+        # Nothing is sent and nothing external happens, so there is no
+        # write to audit -- this is a clarification prompt, not an
+        # action. Auditing it would put non-events in a log whose value
+        # depends on every line being a real action.
+        return "I didn't catch what you wanted me to remember -- try 'remember that ...' with the thought included."
+
+    from AgentCore.mcp_audit import audited_mcp_write
+    from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError, RhinalMCPClient
+
+    audited = audited_mcp_write(
+        what_adapter="rhinal_mcp",
+        what_action="rhinal_capture",
+        what_target="rhinal_vault",
+        why=text,
+        source="voice",
+        call=lambda: RhinalMCPClient().capture(capture_text),
+    )
+
+    if audited.blocked:
+        # Tier-1 audit failure: the vault write did not happen. Say so.
+        return audited.blocked_reason
+
+    if audited.ok:
+        rhinal_result = audited.value
+        # rhinal_capture always completes the full classify -> distill ->
+        # save pipeline and saves unconditionally once it gets this far
+        # (verified against RHINAL's own mcp-server/src/tools.ts:
+        # vaultWorthy/worthinessReason are informational, not a save/skip
+        # gate in this MCP tool -- the "worthiness gate" the code comment
+        # there refers to is the web app's own UI behavior, not
+        # replicated here). Report the save as fact, the worthiness read
+        # as a note.
+        response = "Saved that to your Rhinal vault."
+        if rhinal_result.get("vaultWorthy") is False:
+            reason = rhinal_result.get("worthinessReason")
+            response += f" (Rhinal's classifier flagged it as borderline{': ' + reason if reason else ''}, but saved it anyway.)"
+    elif isinstance(audited.error, RhinalConfigError):
+        response = str(audited.error)
+    elif isinstance(audited.error, RhinalCallError):
+        response = f"Couldn't reach Rhinal to save that: {audited.error}"
+    else:
+        # Neither known Rhinal error type. Never report success for
+        # something that raised -- surface it honestly instead of
+        # letting an unexpected exception type fall through as a save.
+        response = f"Something went wrong saving that to Rhinal: {audited.error}"
+
+    if audited.audit_warning:
+        # Tier-2: the write happened (or genuinely failed) either way;
+        # the audit problem is spoken, never swallowed into a log.
+        response = f"{response} {audited.audit_warning}"
+
+    return response
+
+
 _AFFIRMATIVE_WORDS = ("yes", "yeah", "yep", "sure", "confirm", "go ahead", "do it", "install it", "please", "continue")
 _NEGATIVE_WORDS = ("no", "nope", "don't", "do not", "cancel", "nevermind", "never mind", "stop")
 
@@ -900,32 +1030,17 @@ class PersistentWakeService:
                 # AdapterBase, since Rhinal isn't a GUI platform with an
                 # install-detection question; it's always available if
                 # configured, unavailable (with an honest reason) if not.
+                #
+                # DEC-002/D15: this branch bypasses the Intent path, so it
+                # also bypasses UIExecutor.execute_intent(), the audit
+                # chokepoint -- an external vault write with no record.
+                # Closed in handle_rhinal_capture() via AgentCore.mcp_audit,
+                # which reuses the audit *mechanism* without routing this
+                # through the GUI-shaped machinery described above.
                 self._set_state(JarvisState.EXECUTION)
-                capture_text = intent.extracted_entities.get("capture_text", "")
-                if not capture_text:
-                    response = "I didn't catch what you wanted me to remember -- try 'remember that ...' with the thought included."
-                else:
-                    from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError, RhinalMCPClient
-                    try:
-                        rhinal_result = RhinalMCPClient().capture(capture_text)
-                        # rhinal_capture always completes the full
-                        # classify -> distill -> save pipeline and saves
-                        # unconditionally once it gets this far (verified
-                        # against RHINAL's own mcp-server/src/tools.ts:
-                        # vaultWorthy/worthinessReason are informational,
-                        # not a save/skip gate in this MCP tool -- the
-                        # "worthiness gate" the code comment there refers
-                        # to is the web app's own UI behavior, not
-                        # replicated here). Report the save as fact, the
-                        # worthiness read as a note.
-                        response = "Saved that to your Rhinal vault."
-                        if rhinal_result.get("vaultWorthy") is False:
-                            reason = rhinal_result.get("worthinessReason")
-                            response += f" (Rhinal's classifier flagged it as borderline{': ' + reason if reason else ''}, but saved it anyway.)"
-                    except RhinalConfigError as e:
-                        response = str(e)
-                    except RhinalCallError as e:
-                        response = f"Couldn't reach Rhinal to save that: {e}"
+                response = handle_rhinal_capture(
+                    text, intent.extracted_entities.get("capture_text", "")
+                )
 
             elif intent.handler == "action":
                 # Execute action with ODAV loop if available

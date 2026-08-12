@@ -2,38 +2,33 @@
 RHINAL MCP integration -- jarvis.py's conversation-loop dispatch branch
 (`elif intent.handler == "rhinal_capture":`).
 
-Same "mirror the exact dispatch code" approach as
-test_pending_resume_flow.py's TestActionHandlerSetsAndReplacesPendingResume
--- the branch lives inside _conversation_loop's large method body, not a
-separately callable unit, so these tests replicate its exact shape
-(documented so a change there must update this mirror, same discipline
-as the existing precedent) rather than mocking mic/audio to exercise the
-real loop.
+These used to *mirror* the branch's code in this file, because the branch
+lived inside _conversation_loop's large method body with no separately
+callable unit (the documented test_pending_resume_flow.py precedent). The
+branch body has since been extracted to jarvis.handle_rhinal_capture(),
+so these now call the real function -- the mirror is gone. That matters
+more than tidiness here: DEC-002 audit coverage for an external vault
+write must not be verified against a copy of the code that could pass
+while the shipped branch is broken.
+
+The audit wiring itself is covered separately in
+tests/test_rhinal_capture_audit_wiring.py; these tests keep their
+original job of pinning the physician-facing responses, which the audit
+wiring must not have changed.
 """
 import unittest
 from unittest import mock
 
 from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError
+from jarvis import handle_rhinal_capture
 
 
 def _run_rhinal_capture_branch(capture_text):
-    # Mirrors jarvis.py's `elif intent.handler == "rhinal_capture":`
-    # branch exactly -- see jarvis.py for the real code this pins.
-    if not capture_text:
-        return "I didn't catch what you wanted me to remember -- try 'remember that ...' with the thought included."
-
-    from AgentCore.rhinal_mcp_client import RhinalMCPClient
-    try:
-        rhinal_result = RhinalMCPClient().capture(capture_text)
-        response = "Saved that to your Rhinal vault."
-        if rhinal_result.get("vaultWorthy") is False:
-            reason = rhinal_result.get("worthinessReason")
-            response += f" (Rhinal's classifier flagged it as borderline{': ' + reason if reason else ''}, but saved it anyway.)"
-        return response
-    except RhinalConfigError as e:
-        return str(e)
-    except RhinalCallError as e:
-        return f"Couldn't reach Rhinal to save that: {e}"
+    # The real dispatch branch. `text` (the physician's whole utterance)
+    # and capture_text (the extracted thought) are separate arguments in
+    # the real code; these tests only care about capture_text, so the
+    # utterance is synthesized from it.
+    return handle_rhinal_capture(f"remember that {capture_text}", capture_text)
 
 
 class TestRhinalCaptureDispatch(unittest.TestCase):

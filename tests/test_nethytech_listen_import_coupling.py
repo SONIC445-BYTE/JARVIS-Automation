@@ -20,6 +20,27 @@ import subprocess
 import sys
 import unittest
 
+#: This timeout exists to catch a *hang* -- the original defect launched a
+#: real Chrome and navigated to an external site at import time, with no
+#: timeout anywhere, which blocked the whole suite indefinitely. It was
+#: never meant as an import-time performance assertion.
+#:
+#: It was 20s, which turned out to be too thin a margin and produced two
+#: false failures in a full-suite run while passing in isolation.
+#: Measured cause, not guessed: `import jarvis` and `import co_brain` each
+#: take ~9.2s in a subprocess on an idle machine here (consistent with D3's
+#: ~16s cold-start figure for the full startup path), so 20s left barely
+#: 2x headroom -- and a full suite run spawns many subprocesses and does
+#: real disk and network work concurrently, which is enough to exceed it.
+#: 90s still fails fast against a genuine hang while removing the
+#: false-failure mode entirely.
+#:
+#: If an import-time *performance* bound is ever wanted, that is D3's
+#: concern and belongs in its own explicit test with its own measured
+#: threshold -- not smuggled in as the side effect of a hang guard, where
+#: a slow machine silently reads as a coupling regression.
+SUBPROCESS_TIMEOUT_S = 90
+
 
 class TestNetHyTechListenImportCoupling(unittest.TestCase):
     def test_importing_listen_module_does_not_create_driver(self):
@@ -33,7 +54,7 @@ class TestNetHyTechListenImportCoupling(unittest.TestCase):
             ],
             capture_output=True,
             text=True,
-            timeout=20,
+            timeout=SUBPROCESS_TIMEOUT_S,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertEqual(
@@ -55,7 +76,7 @@ class TestNetHyTechListenImportCoupling(unittest.TestCase):
             ],
             capture_output=True,
             text=True,
-            timeout=20,
+            timeout=SUBPROCESS_TIMEOUT_S,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertEqual(proc.stdout.strip().splitlines()[-1], "True")
@@ -75,7 +96,7 @@ class TestNetHyTechListenImportCoupling(unittest.TestCase):
             ],
             capture_output=True,
             text=True,
-            timeout=20,
+            timeout=SUBPROCESS_TIMEOUT_S,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
         lines = proc.stdout.strip().splitlines()[-2:]
