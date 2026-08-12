@@ -41,8 +41,13 @@ def test_unknown_app_fallback():
     # Should have triggered OCR click or generic type via UnknownAppFallbackAdapter
     assert any(s["action"] == "ocr_click" or s["action"] == "type" for s in result.steps)
     
-    # Check Audit Logs
-    audit_dir = "data/ui_actions/"
+    # Check Audit Logs. Reads the same env-var override UIAudit itself
+    # honors -- this used to hardcode "data/ui_actions/", which both
+    # asserted against the real repo directory and would have silently
+    # degraded to the "not found" warning branch once the log was
+    # redirected for test isolation.
+    from AgentCore.ui_agent.utils import ui_audit
+    audit_dir = os.environ.get(ui_audit.LOG_DIR_ENV_VAR, ui_audit.DEFAULT_LOG_DIR)
     if os.path.exists(audit_dir):
         logs = os.listdir(audit_dir)
         print(f"Audit logs found: {logs}")

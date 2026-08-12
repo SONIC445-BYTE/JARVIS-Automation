@@ -1,4 +1,5 @@
 import json
+import os
 import time
 import hmac
 import hashlib
@@ -7,11 +8,22 @@ from typing import Dict, Any
 
 from AgentCore.secure_key import resolve_key
 
+#: Overrides where UI action logs are written. Exists because
+#: UIAudit's directory was previously hardcoded, so every test
+#: constructing a real UIAgentMain wrote real files into the actual
+#: repo's data/ui_actions/ -- confirmed by finding real dated log
+#: files there. Same mechanism and naming shape as DEC-002's
+#: JARVIS_CLINICAL_AUDIT_LOG_DIR; AgentCore/ui_agent/tests/conftest.py
+#: sets it per-test to a tmp_path.
+LOG_DIR_ENV_VAR = "JARVIS_UI_ACTIONS_LOG_DIR"
+DEFAULT_LOG_DIR = "data/ui_actions"
+
+
 class UIAudit:
     """Logs UI actions with signatures and screenshot links."""
 
     def __init__(self):
-        self.log_dir = Path("data/ui_actions")
+        self.log_dir = Path(os.environ.get(LOG_DIR_ENV_VAR, DEFAULT_LOG_DIR))
         # D14: this used to be os.environ.get("JARVIS_HMAC_KEY", "JARVIS_UI_SECRET")
         # -- the identical hardcoded-default-key weakness D2 fixed in
         # memory_store.py/mode_manager/audit.py. Every real caller
