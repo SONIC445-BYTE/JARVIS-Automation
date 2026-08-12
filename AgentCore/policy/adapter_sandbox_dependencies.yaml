@@ -1,0 +1,390 @@
+# Adaptive Adapter Generation -- vetted dependency set for the generation sandbox.
+#
+# Design note: docs/adapter_sandbox_dependencies.md
+# Blueprint:   JARVIS_BLUEPRINT.md, 4.4b, "Sandboxing -- informed by the
+#              OpenAI / Hugging Face incident (21 July 2026)"
+#
+# WHAT THIS FILE IS. The human-reviewed policy record of which third-party
+# packages may exist inside the adapter-generation sandbox, and why each one
+# earns its place. It is NOT the install mechanism. The install mechanism is
+# the lockfile named under `image.lockfile`, which carries the full transitive
+# closure with hashes and is consumed by `pip install --require-hashes`.
+# Two files, two jobs: this one is reviewable by a person, the lock is
+# enforceable by a machine, and CI asserts they agree (see design note 4).
+#
+# WHAT THIS FILE IS NOT. It is not a network-egress control. Every capability
+# a package here provides is also reachable from the standard library
+# (`socket`, `urllib.request`, `subprocess`). Curating dependencies reduces
+# supply-chain and fetch surface; it does not reduce what generated code can
+# attempt. Egress is blocked at the network layer or not at all.
+#
+# STATUS. `design_only`. The sandbox this describes does not exist yet. The
+# thing currently called a sandbox (AgentCore/level6/sandbox_runner.py) is a
+# `subprocess` running `sys.executable -m pytest` in a temp directory under
+# the host interpreter, with an advisory `JARVIS_SANDBOX_NETWORK=0` env var
+# that nothing reads or enforces. Until a real image exists, this manifest is
+# a review aid and the input to the static import check (design note 6), not
+# a boundary.
+#
+# FAIL-CLOSED RULES, in force whenever the image build is built:
+#   - `image.base_digest: null`  -> build refuses to run. No tag-only pulls.
+#   - any package `hash: null`   -> that package is not installable. No
+#                                   "resolve it at build time" fallback.
+#   - `review_by` in the past    -> CI fails. Extension is a reviewed diff
+#                                   with a written reason, never a click.
+# Nulls below are honest placeholders, not defaults. Nothing here has been
+# hash-pinned yet because nothing has been built yet, and writing a
+# plausible-looking hash would be worse than writing none.
+
+schema_version: 1
+status: design_only
+owner_decision: >
+  Pre-stage a fixed, vetted dependency set inside the sandbox image. Anything
+  outside that set is an explicit, reviewed-once escalation request. No
+  open-ended live package fetching by default, no package-registry proxy, no
+  auto-install at generation time.
+
+image:
+  base: python:3.12-slim
+  # Digest, not tag. `python:3.12-slim` is a moving target; an image that
+  # drifts is an allow-list with extra steps.
+  base_digest: null                      # PENDING -- build fails closed
+  platform: linux/amd64
+  lockfile: AgentCore/policy/adapter_sandbox.lock   # PENDING -- not yet generated
+  lock_tool: "pip-compile --generate-hashes (full transitive closure)"
+  install_command: "pip install --require-hashes -r adapter_sandbox.lock"
+  pip_index_disabled: true               # no index URL configured in the image
+  system_packages:
+    # Not pip packages. Named here because `pytesseract` is a thin wrapper and
+    # is useless without the binary; a manifest that lists only pip names
+    # would silently ship a broken OCR tier.
+    - name: tesseract-ocr
+      version: null                      # PENDING -- distro package, pin at build
+      justification: "Binary backing pytesseract. Wrapper alone does nothing."
+  rebuild_triggers:
+    - "An escalation request is approved and merged into this file."
+    - "A published advisory names any package in the closure."
+    - "Scheduled refresh, quarterly, as a reviewed diff."
+  # Deliberately NOT a trigger: upstream base-image updates. Auto-rebuild on
+  # upstream change reintroduces unreviewed change through the back door.
+  rebuilt_by: developer                  # same approver as adapter generation
+  last_built: null
+  review_by: null
+
+layers:
+  image: >
+    Installed for real inside the sandbox image, pinned and hashed. Must be
+    importable and functional on linux/amd64 with no display and no network.
+  host_mocked: >
+    Windows-only or display-only modules a generated adapter may legitimately
+    import, satisfied inside the sandbox by unittest.mock doubles supplied by
+    the test harness -- never installed, never executed for real. This is not
+    a workaround; it is what the existing suite already does (see
+    tests/test_phase2d_ported_adapters.py, which mocks element_finder so tests
+    never depend on a real screen scan). Real Windows behaviour is verified on
+    the host, outside the sandbox, under developer supervision.
+
+# ---------------------------------------------------------------------------
+# The vetted set.
+#
+# `version` values were resolved from the developer machine on 2026-08-12
+# (Python 3.12.10, win32) and are real, not invented. They are a STARTING
+# POINT, not the pins: the image is linux/amd64 and several of these resolve
+# differently there. Re-resolve at first build, then these fields record what
+# the lock actually contains.
+#
+# Note the discrepancy this exercise already surfaced: requirements.txt pins
+# Pillow==12.1.1 while the developer machine has 11.3.0 installed. The host
+# environment does not match the host's own declared requirements, today,
+# before any sandbox exists. See design note 8.3.
+# ---------------------------------------------------------------------------
+
+packages:
+
+  # --- Verification harness -------------------------------------------------
+  - name: pytest
+    layer: image
+    version: "9.0.2"
+    hash: null
+    approval: baseline
+    justified_by: sandbox_harness
+    review_by: null
+    justification: >
+      The sandbox's verification step literally shells out to
+      `sys.executable -m pytest` (AgentCore/level6/sandbox_runner.py). Without
+      pytest there is no verify stage, and the generated adapter reaches
+      developer review unexercised.
+
+  # --- HTTP / markup, for API-shaped and web-shaped targets -----------------
+  - name: requests
+    layer: image
+    version: "2.32.5"
+    hash: null
+    approval: baseline
+    justified_by: generated_adapters
+    review_by: null
+    justification: >
+      "An HMIS exposes a REST endpoint nobody wired up" is the most likely
+      non-GUI instance of the unreachable-system case this whole feature
+      exists for. Inside the sandbox it can only reach loopback. Included
+      knowingly: omitting it would not remove the capability (urllib.request
+      is stdlib), it would only make generated code uglier and reviews longer.
+      Overturnable -- see design note 3.2 for the criterion.
+
+  - name: beautifulsoup4
+    layer: image
+    version: "4.14.3"
+    hash: null
+    approval: baseline
+    justified_by: generated_adapters
+    review_by: null
+    justification: >
+      Parsing HTML from a web-shaped hospital system. Already a project
+      dependency; adapters that scrape a page rather than drive it need it.
+
+  - name: lxml
+    layer: image
+    version: "6.0.2"
+    hash: null
+    approval: baseline
+    justified_by: generated_adapters
+    review_by: null
+    justification: >
+      bs4's fast parser backend and the XML path for HL7/CDA-shaped payloads.
+      Flagged in the design note's residual-risk section: it parses untrusted
+      bytes and is C-heavy.
+
+  # --- Imaging, for the OCR and vision resolver tiers -----------------------
+  - name: Pillow
+    layer: image
+    version: "11.3.0"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_2_ocr
+    review_by: null
+    justification: >
+      Image handling under screenshot and OCR paths (3.2's three-tier
+      resolver). Also a hard transitive of pyautogui. Version conflict with
+      requirements.txt (12.1.1) is real and unresolved -- design note 8.3.
+
+  - name: numpy
+    layer: image
+    version: "2.2.6"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_3_vision
+    review_by: null
+    justification: >
+      opencv's array interface, and adapter code that touches pixel arrays
+      directly. Declared as a direct entry rather than left transitive because
+      generated code imports it by name.
+
+  - name: opencv-python-headless
+    layer: image
+    version: "4.13.0.92"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_3_vision
+    review_by: null
+    justification: >
+      Template matching and preprocessing for the vision tier. Headless
+      variant, not the `opencv-python` the host uses -- the image has no
+      display and the GUI variant drags in GTK/X11 for nothing. If the
+      headless build does not publish this exact version, the build fails
+      closed rather than picking the nearest one.
+    note: >
+      The heaviest entry in the set by a wide margin. Kept because the vision
+      tier is a real, adopted part of 3.2, not speculative. Revisit if
+      generated adapters turn out never to reach tier 3.
+
+  # --- Browser automation ---------------------------------------------------
+  - name: playwright
+    layer: image
+    version: "1.58.0"
+    hash: null
+    approval: baseline
+    justified_by: browser_adapters
+    review_by: null
+    justification: >
+      platform_adapters/browser_automation.py uses sync_playwright; browser-
+      backed adapters are an existing, shipped adapter class (Phase 2g).
+    unresolved: >
+      The Python package is small; the browser binaries are not, and
+      `playwright install` is a network fetch -- exactly the pattern this
+      decision bans. Either the binaries are baked into the image (large,
+      rarely refreshed attack surface sitting inside the sandbox) or browser
+      adapters cannot be verified in-sandbox and every one becomes an
+      escalation. Not resolved here. Lean: bake them, pinned by digest,
+      refreshed on the same quarterly cadence. Stated as a lean, not a
+      decision.
+
+  # --- Process introspection ------------------------------------------------
+  - name: psutil
+    layer: image
+    version: "7.2.2"
+    hash: null
+    approval: baseline
+    justified_by: gui_backend_d12
+    review_by: null
+    justification: >
+      Half of GUIBackend's D12 process-identity check (the fix for "WhatsApp"
+      matching a Chrome tab instead of the desktop app). Cross-platform, so it
+      installs in the image for real rather than being mocked.
+
+  # --- host_mocked: Windows-only / display-only -----------------------------
+  # These are NOT installed. The generated adapter may import them; the
+  # sandbox harness supplies mock doubles. Real behaviour is verified on the
+  # Windows host, outside the sandbox, by the developer.
+
+  - name: pyautogui
+    layer: host_mocked
+    version: "0.9.54"
+    hash: null
+    approval: baseline
+    justified_by: gui_backend
+    review_by: null
+    justification: >
+      GUIBackend's entire implementation -- window activation, hotkey,
+      typewrite, click. Every GUI adapter routes through it. Mocked rather
+      than installed because it needs a real display; GUIBackend already
+      tolerates its absence (`_optional_import` returns None), so the import
+      graph holds together on Linux without it.
+
+  - name: pywinauto
+    layer: host_mocked
+    version: "0.6.9"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_1_accessibility
+    review_by: null
+    justification: >
+      The accessibility-API tier -- tier 1 of 3.2's resolver, the one a
+      generated adapter should try before OCR or vision. Windows-only.
+
+  - name: pywin32
+    layer: host_mocked
+    version: "311"
+    hash: null
+    approval: baseline
+    justified_by: gui_backend_d12
+    review_by: null
+    justification: >
+      win32process for the other half of D12's process-identity check.
+      Windows-only; does not install on linux at all.
+
+  - name: comtypes
+    layer: host_mocked
+    version: "1.4.15"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_1_accessibility
+    review_by: null
+    justification: >
+      pywinauto's UIA backend dependency. Declared explicitly because the UIA
+      path fails obscurely rather than loudly when it is missing.
+
+  - name: pytesseract
+    layer: host_mocked
+    version: "0.3.13"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_2_ocr
+    review_by: null
+    justification: >
+      OCR tier. Listed as host_mocked despite being cross-platform because
+      real OCR in-sandbox means shipping the tesseract binary and language
+      data; see image.system_packages. Promote to `image` if and when a
+      generated adapter needs OCR results verified rather than stubbed.
+
+  - name: mss
+    layer: host_mocked
+    version: "10.1.0"
+    hash: null
+    approval: baseline
+    justified_by: resolver_tier_2_ocr
+    review_by: null
+    justification: >
+      Screen capture feeding the OCR and vision tiers. Needs a display; there
+      is nothing to capture inside the sandbox.
+
+# ---------------------------------------------------------------------------
+# Refused, with reasons. Machine-readable so the generator can be told these
+# are known-refused and an escalation request naming one is auto-rejected
+# rather than routed to a human. Re-proposing any of these requires arguing
+# against the stated reason, not merely restating the need.
+# ---------------------------------------------------------------------------
+
+refused:
+
+  - name: selenium
+    reason: >
+      Superseded by playwright for this project's browser adapters, and it
+      travels with webdriver_manager (below). Two browser stacks in one image
+      is twice the surface for one capability.
+
+  - name: webdriver_manager
+    reason: >
+      HARD REFUSAL, not a judgement call. It downloads browser drivers over
+      the network at runtime. That is the live-fetch pattern this whole
+      decision bans, resurfacing inside a dependency rather than at the proxy.
+      A vetted set that contains a fetcher is not a vetted set.
+
+  - name: webscout
+    reason: >
+      A web-search client. Nothing an adapter needs; everything an escape
+      wants. The distinction from `requests`: requests talks to a target the
+      adapter was written for, webscout talks to the open internet by design.
+
+  - name: mcp
+    reason: >
+      MCP client. New MCP servers are their own approval path with their own
+      tool-by-tool source audit (4.4b, MCP suggestion capability). Generated
+      adapter code must not be able to open that door sideways.
+
+  - name: gradio_client
+    reason: "Remote inference client. Same class as webscout."
+
+  - name: pywhatkit
+    reason: "Network-backed convenience wrapper; no adapter depends on it."
+
+  - name: keyring
+    reason: >
+      The gating table says the sandbox exposes no keyring access. Shipping
+      the library while claiming the access is blocked is the kind of gap that
+      reads as an oversight later. Absent by design, not by omission.
+
+  - name: cryptography
+    reason: >
+      Secrets-adjacent, and nothing in the adapter contract encrypts anything.
+      If a generated adapter needs TLS, requests/urllib3 already carry it.
+
+  - name: libcst
+    reason: >
+      Code rewriting inside the thing that writes code. Generated code able to
+      rewrite code is a step toward the self-dev mode 4.4c explicitly
+      declined. The project uses libcst on the host, deliberately not here.
+
+  - name: keyboard
+    reason: >
+      GUIBackend's optional fallback for it is dead today -- verified, the
+      package is not installed on the developer machine and is not in
+      requirements.txt. Adding it to the sandbox would let generated code
+      depend on a path that does not exist where the adapter actually runs.
+
+  - name: PyYAML
+    reason: >
+      Not refused on risk -- refused on need. No adapter in platform_adapters/
+      imports yaml; the feature-flag file a new adapter ships alongside is
+      written by the harness, not parsed by the adapter. Listed here so the
+      omission reads as a decision rather than a gap.
+
+# ---------------------------------------------------------------------------
+# Escalation records. Empty by construction -- the set ships with none.
+# Each approved escalation appends one entry here in the same commit that adds
+# the package above, with `approval: escalated` and a non-null `review_by`.
+# The git commit IS the approval record; AgentCore/human_loop/approval_workflow.py
+# keeps approvals in an in-memory dict that does not survive the process and
+# is therefore not a durable record of anything.
+# ---------------------------------------------------------------------------
+
+escalations: []
