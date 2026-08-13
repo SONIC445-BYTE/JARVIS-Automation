@@ -51,6 +51,10 @@ _MESSAGE_PREFIXES = (
 # verb-scan bounding must agree on where the target starts.
 _TRAILING_CONTEXT_MARKERS = _TARGET_MARKERS + (" from ", " on ", " in ", " about ")
 
+# D17: see CommandRouter._default_adapter_classes(). Module-level so it is
+# shared by every CommandRouter() in the process, not per-instance.
+_DEFAULT_ADAPTER_CLASSES_CACHE: Optional[Dict[str, Type[AdapterBase]]] = None
+
 
 class CommandRouter:
     """
@@ -68,8 +72,20 @@ class CommandRouter:
 
     @staticmethod
     def _default_adapter_classes() -> Dict[str, Type[AdapterBase]]:
-        instances = create_default_adapters(logger=_NullLogger(), dry_run=True)
-        return {key: type(instance) for key, instance in instances.items()}
+        """Cached at module scope (D17): every unparameterized `CommandRouter()`
+        used to reconstruct all 14 default adapters from scratch just to read
+        off their types, which measured ~0.6-1s on this machine -- real cost
+        paid on every call, not just the first, since nothing remembered the
+        answer. The set of default adapter classes is fixed for the process
+        (registry.py's imports don't change at runtime), so there is nothing
+        to recompute after the first call. Populated once; every later
+        CommandRouter() reuses it.
+        """
+        global _DEFAULT_ADAPTER_CLASSES_CACHE
+        if _DEFAULT_ADAPTER_CLASSES_CACHE is None:
+            instances = create_default_adapters(logger=_NullLogger(), dry_run=True)
+            _DEFAULT_ADAPTER_CLASSES_CACHE = {key: type(instance) for key, instance in instances.items()}
+        return _DEFAULT_ADAPTER_CLASSES_CACHE
 
     def resolve(self, text: str) -> Optional[Intent]:
         """Return an Intent if text names a known platform + a supported

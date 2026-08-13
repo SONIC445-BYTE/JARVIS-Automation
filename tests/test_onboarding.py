@@ -151,10 +151,28 @@ class TestRescanInterval(unittest.TestCase):
 
 class TestPeriodicAvailabilityRescanner(StatusBoxTestCase):
     def test_calls_refresh_repeatedly_on_interval(self):
+        """D17: a fixed 0.45s sleep assumed each loop iteration was
+        effectively instant. It is not -- the loop body writes the scan
+        cache via _write_scan_cache()/_installed_map(), which constructs a
+        CommandRouter() and, before that construction was cached (see
+        AgentCore/command_router.py's D17 fix), cost ~0.6-1s on the FIRST
+        call in a process regardless of the checker being mocked. That first
+        call could by itself exceed this test's whole sleep window,
+        independent of anything the rescanner does wrong. Polling for the
+        count against a generous deadline is correct regardless of whether
+        this happens to be the first CommandRouter() built in the process
+        (this test run in isolation) or the hundredth (part of the full
+        suite, cache already warm from earlier tests) -- it no longer
+        assumes anything about how fast one iteration is, only that two
+        complete within a bound generous enough to not be the actual thing
+        under test.
+        """
         fake_checker = mock.Mock()
         rescanner = onboarding.PeriodicAvailabilityRescanner(checker=fake_checker, interval_s=0.1)
         rescanner.start()
-        time.sleep(0.45)
+        deadline = time.time() + 5.0
+        while fake_checker.refresh.call_count < 2 and time.time() < deadline:
+            time.sleep(0.02)
         rescanner.stop()
         self.assertGreaterEqual(fake_checker.refresh.call_count, 2)
 
