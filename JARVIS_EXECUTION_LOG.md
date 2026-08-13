@@ -30,6 +30,26 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ## Closed items — with evidence
 
+### Orb wiring — declined, hard stop, not attempted *(v3.16)*
+**Status: 🛑 HARD STOP. Not built.** No commit — a finding, not a fix.
+
+**The instruction's premise, checked before writing anything.** Asked to wire `jarvis_orb.py`'s existing static-frame render (`render_frame()`/`play()`, per §3.8) above the compact status box on every launch, explicitly framed as "no new design work... purely a wiring gap" because "the module and its two render modes already exist and were tested."
+
+**That premise is false, and not by a small margin.** `jarvis_orb.py` does not exist:
+- `git log --all --oneline -- "*jarvis_orb*"` across every branch (`main`, `phase-1-code-engine-fix`, `phase-2-adapter-wiring`, and their remotes) returns nothing — the file has never been committed to this repository, ever.
+- Not present anywhere on disk in this checkout, any sibling checkout (`C:\Users\mukho\.gemini\antigravity\scratch\`), or the common outside-git locations this project's own custody-rule warning names as places files have gone missing before (`Downloads/`, `OneDrive/`).
+- `grep -rl "orb"` across the repo's Python files turns up only unrelated substring matches ("absorb", etc.) — no orb-rendering code of any kind exists anywhere in the codebase.
+
+**The blueprint's own §1.7 asserted otherwise** ("`jarvis_orb.py` — built and **approved**, untested on Windows terminal, not yet wired... a decided asset awaiting wiring") **and §Stage 0's freeze list separately named "no orb wiring" as frozen "during Stage 0."** Two things worth separating: Stage 0 itself closed 2026-07-30 (all 9 exit criteria and 8 work items — see §Stage 0's own header), so that specific freeze condition has lapsed on its own terms. But the freeze lapsing doesn't matter here, because the deeper problem is that the premise the freeze was protecting — a real, tested module sitting dark — was itself never true in this repository. §1.7's line is corrected in place rather than left standing next to this finding.
+
+**Why this was not worked around.** Reconstructing `jarvis_orb.py` from the blueprint's own description (§3.8's algorithmic orb-and-ring renderer, z-buffered, 28×12, bounded `play(frames=N)`) would be writing a new ASCII-art terminal renderer from a paragraph of prose — real design and implementation work, exactly the category the instruction itself excluded ("no new design work... this is purely a wiring gap"). Building it under the label "wiring" would misrepresent what actually happened, the same shape of problem this project has flagged repeatedly when a claim didn't match what was actually built.
+
+**What would actually need to happen before this can be picked up again:** either the real `jarvis_orb.py` file is located (a prior session's local checkout, a machine this one hasn't searched, a chat export) and brought into the repo under version control per the custody rule, or a fresh decision is made to write it from scratch as real design work, scoped and modeled like any other new component — not slipped in as a config/wiring change. Neither is this agent's call to make unilaterally.
+
+**Untouched, exactly as instructed elsewhere in the same run applies here too:** no code written, no test written, nothing committed. The other two items in this run (verification cleanup, Vosk model swap) proceeded independently and are unaffected.
+
+---
+
 ### STT accuracy — swapped LocalSTT to the larger Vosk model, measured, not assumed *(v3.15)*
 **Status: ✅ CLOSED.** Risk tier: low (config/path change, no code rewrite, no clinical data, no immutable-tier code touched). Model: Sonnet 5.
 
