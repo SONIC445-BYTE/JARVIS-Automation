@@ -53,12 +53,35 @@ class TestLocalSTTNoCloudPath(unittest.TestCase):
         # hardware (patch sd.InputStream to blow up immediately) and
         # confirm the exception handler in listen_once() doesn't reach for
         # a cloud fallback -- it must return None and nothing else.
+        #
+        # vosk.Model/KaldiRecognizer are ALSO stubbed before import, and
+        # deliberately so, not just for speed. This test's own next line
+        # throws away whatever _initialize() built anyway
+        # (stt._recognizer is immediately replaced with _FakeRecognizer),
+        # so a real model load inside LocalSTT.__init__() was always
+        # wasted work for what this test actually checks -- and became
+        # much MORE wasted once local_stt.py was swapped from
+        # vosk-model-small-en-us-0.15 (~1-2s to load) to
+        # vosk-model-en-us-0.22 for accuracy (see local_stt.py's own
+        # comment and the execution log's STT accuracy entry): measured
+        # 35-95s to construct the real Model() across repeated runs on
+        # this machine, varying with OS disk-cache state for the 2.7GB on
+        # disk -- unpredictable and far too slow for a regression test
+        # that isn't testing model loading at all.
         script = (
-            "import sys\n"
+            "import sys, types\n"
             "import sounddevice\n"
             "def _boom(*a, **kw):\n"
             "    raise RuntimeError('forced failure for regression test')\n"
             "sounddevice.InputStream = _boom\n"
+            "fake_vosk = types.ModuleType('vosk')\n"
+            "class _StubModel:\n"
+            "    def __init__(self, path): pass\n"
+            "class _StubKaldiRecognizer:\n"
+            "    def __init__(self, model, rate): pass\n"
+            "fake_vosk.Model = _StubModel\n"
+            "fake_vosk.KaldiRecognizer = _StubKaldiRecognizer\n"
+            "sys.modules['vosk'] = fake_vosk\n"
             "from WakeService.local_stt import LocalSTT\n"
             "stt = LocalSTT()\n"
             "class _FakeRecognizer:\n"

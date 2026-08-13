@@ -25,8 +25,25 @@ class LocalSTT:
     
     # Model will be downloaded to this directory
     MODEL_DIR = Path(__file__).parent / "models"
-    MODEL_NAME = "vosk-model-small-en-us-0.15"
-    MODEL_URL = "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip"
+    # Swapped from vosk-model-small-en-us-0.15 (40MB, WER 9.85 on
+    # librispeech test-clean) to vosk-model-en-us-0.22 (1.8GB, WER 5.69) --
+    # measured directly, not assumed: on a 6-phrase set including the exact
+    # commands reported failing live ("open notepad", "open spotify"), the
+    # small model mis-transcribed "open spotify" as "open spot if i" and
+    # "open whatsapp" as "open what's app" (neither would match any
+    # platform alias); the large model got both exactly right, 5/6 exact
+    # matches vs 3/6 for small (6/6 vs 4/6 case-insensitive -- the one
+    # remaining "mismatch" for both models was a capitalization difference,
+    # not a transcription error). Real cost: ~35s to load (vs ~1-2s for the
+    # small model) and ~2.7GB on disk (vs ~70MB) -- see the execution log's
+    # STT accuracy entry for the full measurement and the lighter-weight
+    # vosk-model-en-us-0.22-lgraph (128MB) alternative if that load time
+    # proves too costly. WakeService/wake_detector.py's grammar-restricted
+    # ["jarvis"]-only wake-word detector deliberately stays on the small
+    # model -- a different, continuously-running, latency-sensitive task
+    # not implicated in the reported command-misrecognition failures.
+    MODEL_NAME = "vosk-model-en-us-0.22"
+    MODEL_URL = "https://alphacephei.com/vosk/models/vosk-model-en-us-0.22.zip"
     
     def __init__(self, on_result: Optional[Callable[[str], None]] = None):
         """
@@ -76,7 +93,7 @@ class LocalSTT:
         zip_path = self.MODEL_DIR / f"{self.MODEL_NAME}.zip"
         
         try:
-            print(f"Downloading Vosk model (~50MB)...")
+            print(f"Downloading Vosk model (~1.8GB, this will take a while)...")
             urllib.request.urlretrieve(self.MODEL_URL, zip_path)
             
             print("Extracting model...")
