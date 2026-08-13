@@ -30,6 +30,17 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ## Closed items — with evidence
 
+### D17 — CommandRouter's default adapter classes cached; rescanner test made deadline-based *(v3.12)*
+**Status: ✅ CLOSED.** Commit `fde5f189` on `phase-2-adapter-wiring`. Risk tier: low.
+
+**Investigated from the current code, not the earlier finding's memory of it, per instruction.** `CommandRouter._default_adapter_classes()` called `create_default_adapters()` — which constructs all 14 real adapter instances — on every unparameterized `CommandRouter()`, just to read off their types. Measured directly (fresh process): first call ~0.28-0.6s, every later call ~0s once Python's own module-import cache is warm — but nothing cached the CLASS MAP itself, so every single `CommandRouter()` re-paid the full instantiation cost of 14 adapters. `_installed_map()` (called by `_write_scan_cache()`, which the periodic rescanner's tick body calls) inherited that cost on every tick.
+
+**The real product question the earlier finding named as "more interesting than the test."** Why does a background tick cost ~1s of work at all? Answer: it was reconstructing a static, unchanging mapping from scratch every time, for no reason — `registry.py`'s imports don't change at runtime, so there is nothing to legitimately recompute after the first call. Fixed with a module-level cache (`_DEFAULT_ADAPTER_CLASSES_CACHE`) in `AgentCore/command_router.py`. Confirmed: repeated `CommandRouter()` construction measured at 0.0s per call after the fix, down from ~0.28s.
+
+**The test fix, separately, because caching alone doesn't fully solve it.** In the live app `CommandRouter()` is already constructed well before the rescanner's first tick, so the cache is warm by the time it matters — but for an ISOLATED test run, the rescanner's own first tick can still be the very first `CommandRouter()` built in that process, and caching a computation doesn't make its first call free. `test_calls_refresh_repeatedly_on_interval` was changed from a single fixed `time.sleep(0.45)` then assert, to polling `refresh.call_count` against a 5-second deadline — correct regardless of whether this is the first `CommandRouter()` in the process or the hundredth, and no longer assumes anything about how fast one iteration is.
+
+**Verified, not assumed.** Ran the exact test 3x in fresh, isolated processes — matching the original "fails 3/3 on a clean worktree" reproduction methodology exactly — 3/3 pass now. Full `tests/test_onboarding.py` (59 tests) and every command-router-touching test (38 tests) pass. Full project suite: **630 passed, 1 skipped, 0 failures** — identical to the pre-fix count, confirming no regressions and that this was the one flaky test folding back into green.
+
 ### DEC-002 — Clinical audit trail, architected in, wired into `UIExecutor.execute_intent()` ⭐ *P0/10.00, Stage 0.5 gate*
 **Status: ✅ CLOSED.** Commit `b338c4fb` on `phase-2-adapter-wiring`. Risk tier: medium, per standing instruction — same tier as D2 (security/audit-critical, wired into the live pre-adapter path, reversible via `git revert`, no real patient data, no live external writes, no money).
 
@@ -226,7 +237,7 @@ Three findings worth keeping: **`webdriver_manager` is the OpenAI/HF incident re
 ---
 
 ### D17 — a rescanner test that cannot pass when `_installed_map()` is slow *(found, logged, NOT fixed)*
-**Status: 🟡 OPEN.** No commit — a finding.
+**Status: ✅ CLOSED (v3.12).** Commit `fde5f189` on `phase-2-adapter-wiring`. Risk tier: low — pure caching of a static computation, no audit/resolution-gate territory. See the closed-item entry below for the fix.
 
 `tests/test_onboarding.py::TestPeriodicAvailabilityRescanner::test_calls_refresh_repeatedly_on_interval` failed in a full-suite run. Diagnosed rather than retried: `PeriodicAvailabilityRescanner._run()`'s loop body is `refresh()` then `_write_scan_cache()`, and **`_installed_map()` measures ~0.97s even when the checker is a `Mock`** (timed directly). The test sets `interval_s=0.1`, sleeps `0.45`, and asserts `call_count >= 2`; one iteration costs ~1.07s, so exactly one can complete. The test assumes an instant loop body and the implementation does not have one.
 
@@ -610,7 +621,7 @@ Recorded so future agents weight the corpus correctly rather than treating all o
 | **D19** — sandbox has no supply-chain integrity | 🟡 PARTIALLY CLOSED (v3.11) | Drift/tamper half closed: `adapter_sandbox_provisioned.lock.json` hash-pins the files actually copied from the host, `provision()` refuses on mismatch, verified against a real tampered host file. Provenance half — container-image `pip install --require-hashes` against a package index — remains 🟠 OPEN, genuinely blocked on infrastructure (no container runtime on this machine). See the v3.11 entry above for the full split. |
 | **Companion app Phase 1 — scaffolding** | ✅ BUILT | `AgentCore/comm_gateway/`. See the closed-item entry above. |
 | **Scoped loopback exception (`LoopbackExceptionPipe`)** | 🔴 INVESTIGATED, NOT DELIVERED (v3.11) | Works for AppContainer alone (adversarially tested); refused (`WinError 5`) against the real launcher's AppContainer+restricted-token stack, isolated to the restricted token specifically. Root cause not fully isolated. Kept in repo with both results asserted as tests rather than removed or claimed working. Do not weaken the restricted-token default to "fix" this — see the v3.11 entry above. |
-| **D17** — rescanner test vs. slow `_installed_map()` | 🟡 OPEN | Pre-existing, proven on a clean `HEAD` worktree. `_installed_map()` costs ~0.97s per tick even with a `Mock`; the test allows 0.45s for ≥2 iterations. Test-only symptom, but the per-tick cost may be a real product question. |
+| **D17** — rescanner test vs. slow `_installed_map()` | ✅ CLOSED (v3.12, `fde5f189`) | `CommandRouter`'s default adapter classes now cached (were being reconstructed from 14 real adapter instances on every call); test made deadline-based instead of fixed-sleep. See the closed-item entry above. |
 | **Stage 0.5 design proposal** | DRAFTED, AWAITING APPROVAL | Full proposal delivered (data model + state machine, Tkinter UI shape, Boundary Ledger schema, E1/E2/E3 measurement). Not implemented. Carries 13 escalations of its own, including two prerequisites not currently met: physician access in real clinic conditions, and a pre-registered Stage 1 priority list committed *before* the physician session (without which S05-E2 is unfalsifiable and fails by default). |
 | **RHINAL — wire remaining 13 tools** | SCOPED, NOT STARTED | Distinct phase. Use known risk classes (read-only vs write-capable). |
 | **`rhinal_attach_file`** | BLOCKED (hard stop, named explicitly in standing instructions) | Needs a genuinely non-identifying real test file + explicit approval. Do not fabricate a `scanResult`. |
