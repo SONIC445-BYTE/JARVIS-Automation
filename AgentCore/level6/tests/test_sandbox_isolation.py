@@ -310,9 +310,15 @@ class TestNetworkBoundary(IsolationTestBase):
     def test_loopback_is_also_denied_which_is_a_functional_cost(self):
         """Documented honestly: this is a LIMITATION, not a win.
 
-        A generated adapter test that stands up a local HTTP server cannot work
-        in-sandbox. Exempting loopback for an AppContainer needs
-        `CheckNetIsolation`, which needs Administrator.
+        General TCP loopback for a generated adapter's own test still does not
+        work in-sandbox. Exempting an AppContainer from real loopback sockets
+        needs `CheckNetIsolation.exe LoopbackExempt`, which needs
+        Administrator -- re-checked while building the D19 follow-up below,
+        still true. `LoopbackExceptionPipe` (sandbox_isolation.py) was an
+        attempt at a non-admin substitute using named pipes instead of
+        sockets; see TestLoopbackExceptionPipe below -- it does NOT deliver a
+        working exception against this file's actual launcher configuration,
+        adversarially confirmed rather than assumed. This limitation stands.
         """
         srv = socket.socket()
         srv.bind(("127.0.0.1", 0))
@@ -325,6 +331,209 @@ class TestNetworkBoundary(IsolationTestBase):
 
             res, out = run_in_sandbox(
                 self.env, self.workspace("loopback"),
+                "import socket,sys\n"
+                "try:\n"
+                "    socket.create_connection(('127.0.0.1',int(sys.argv[1])),timeout=5)\n"
+                "    print('LOOPBACK CONNECTED')\n"
+                "except Exception as e:\n"
+                "    print('loopback blocked:', type(e).__name__)\n",
+                argv=[port])
+            self.assertNotIn("LOOPBACK CONNECTED", out)
+            self.assertIn("loopback blocked", out)
+        finally:
+            srv.close()
+
+
+# ---------------------------------------------------------------------------
+# 6. Scoped loopback exception attempt: one named pipe, ACE-granted to one
+#    AppContainer SID (D19 follow-up). NOT DELIVERED -- see
+#    TestLoopbackExceptionPipe's own docstring. Kept adversarially tested
+#    (both the positive AppContainer-alone result and the negative
+#    real-launcher result) so the finding stays pinned rather than silently
+#    regressing into an unverified claim either way.
+# ---------------------------------------------------------------------------
+
+_PIPE_CLIENT_PROBE = r"""
+import ctypes, sys
+
+k32 = ctypes.WinDLL("kernel32", use_last_error=True)
+k32.CreateFileW.restype = ctypes.c_void_p
+k32.CreateFileW.argtypes = [ctypes.c_wchar_p, ctypes.c_uint32, ctypes.c_uint32,
+                            ctypes.c_void_p, ctypes.c_uint32, ctypes.c_uint32,
+                            ctypes.c_void_p]
+k32.WriteFile.restype = ctypes.c_int
+k32.WriteFile.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_uint32,
+                          ctypes.POINTER(ctypes.c_uint32), ctypes.c_void_p]
+k32.ReadFile.restype = ctypes.c_int
+k32.ReadFile.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_uint32,
+                         ctypes.POINTER(ctypes.c_uint32), ctypes.c_void_p]
+k32.CloseHandle.restype = ctypes.c_int
+k32.CloseHandle.argtypes = [ctypes.c_void_p]
+
+GENERIC_READ = 0x80000000
+GENERIC_WRITE = 0x40000000
+OPEN_EXISTING = 3
+INVALID_HANDLE_VALUE = (2 ** 64) - 1
+
+def try_open(path):
+    h = k32.CreateFileW(path, GENERIC_READ | GENERIC_WRITE, 0, None,
+                        OPEN_EXISTING, 0, None)
+    if h in (None, 0, INVALID_HANDLE_VALUE):
+        return None, ctypes.get_last_error()
+    return h, None
+
+h, err = try_open(sys.argv[1])
+if h:
+    buf = b"ping"
+    written = ctypes.c_uint32(0)
+    k32.WriteFile(h, buf, len(buf), ctypes.byref(written), None)
+    resp = ctypes.create_string_buffer(64)
+    nread = ctypes.c_uint32(0)
+    k32.ReadFile(h, resp, 64, ctypes.byref(nread), None)
+    print("DECLARED_OK:" + resp.raw[:nread.value].decode(errors="replace"))
+    k32.CloseHandle(h)
+else:
+    print("DECLARED_BLOCKED:%d" % err)
+
+h2, err2 = try_open(sys.argv[2])
+if h2:
+    print("UNDECLARED_CONNECTED")
+    k32.CloseHandle(h2)
+else:
+    print("UNDECLARED_BLOCKED:%d" % err2)
+"""
+
+
+class TestLoopbackExceptionPipe(IsolationTestBase):
+    """Documents the REAL, adversarially-measured state, not the hoped-for
+    one. `LoopbackExceptionPipe` was built expecting the pattern below to
+    work end-to-end; it does not, against this file's actual launcher
+    configuration, and this class exists to pin that finding down with a
+    control rather than let it be silently re-asserted as working later.
+    """
+
+    def test_appcontainer_alone_can_reach_a_declared_pipe(self):
+        """The positive half: the ACE mechanism itself is real and correct.
+
+        AppContainer with NO restricted token and NO job object -- isolating
+        exactly what `LoopbackExceptionPipe` grants, independent of the other
+        two layers `ContainedLauncher` normally stacks with it.
+        """
+        import threading
+        import win32file
+        import win32pipe
+        from AgentCore.level6.sandbox_isolation import (ContainedLauncher,
+                                                         LoopbackExceptionPipe)
+
+        ws = self.workspace("pipe_ac_alone")
+        launcher = ContainedLauncher(workspace=str(ws),
+                                     readonly_paths=[str(self.env.root)],
+                                     stat_only_paths=[str(ws.parent)],
+                                     use_restricted_token=False,
+                                     use_job_object=False)
+        if not launcher.plan.appcontainer:
+            self.skipTest("AppContainer unavailable: %s"
+                          % launcher.plan.reasons.get("appcontainer"))
+        sid = launcher.profile.sid_string
+
+        pid = os.getpid()
+        declared_name = r"\\.\pipe\jarvis_test_ac_alone_%d" % pid
+        declared = LoopbackExceptionPipe(pipe_name=declared_name, appcontainer_sid=sid)
+        h_declared = declared.create_server_handle()
+
+        def serve(handle):
+            try:
+                win32pipe.ConnectNamedPipe(handle, None)
+                _rc, data = win32file.ReadFile(handle, 64)
+                win32file.WriteFile(handle, b"pong:" + data)
+            except Exception:
+                pass
+
+        server_thread = threading.Thread(target=serve, args=(h_declared,), daemon=True)
+        server_thread.start()
+        try:
+            res, out = run_in_sandbox(
+                self.env, ws, _PIPE_CLIENT_PROBE,
+                argv=[declared_name, declared_name],  # second arg unused by this assertion
+                use_restricted_token=False, use_job_object=False)
+            server_thread.join(timeout=10)
+            self.assertIn("DECLARED_OK:pong:ping", out, out)
+        finally:
+            try:
+                win32file.CloseHandle(h_declared)
+            except Exception:
+                pass
+
+    def test_the_real_launcher_still_denies_the_declared_pipe(self):
+        """The negative half, against `run_in_sandbox`'s actual default
+        launcher (AppContainer + restricted token + job object -- the
+        configuration every real adapter-generation run uses).
+
+        Adversarially confirmed, not assumed: this SHOULD have connected if
+        `LoopbackExceptionPipe` delivered what it was designed to. It does
+        not. WinError 5 (ACCESS_DENIED), same as an undeclared pipe would
+        get, even though the ACE is present and correct (see
+        `test_appcontainer_alone_can_reach_a_declared_pipe` for proof the ACE
+        itself is not the problem). Isolated separately (not re-tested here
+        to keep this test fast): the job object is not a factor either --
+        restricted-token-on/job-object-off fails identically to the full
+        stack. If this test ever starts passing, `LoopbackExceptionPipe`'s
+        docstring and the module-level note above it are now WRONG and need
+        updating before anyone relies on this as fixed.
+
+        No server thread here deliberately -- the earlier version of this
+        test spawned one calling blocking `ConnectNamedPipe`, and closing that
+        handle from the main thread while the server thread's blocking call
+        was still outstanding was unreliable under pytest's process lifecycle
+        (hung rather than erroring on this machine). Unnecessary anyway: the
+        access check that denies the client happens at CreateFile/open time,
+        before any handshake -- proven by the earlier version's own evidence,
+        where the denial was already observed while the server thread was
+        still blocked waiting for a connection that was never coming.
+        """
+        import win32file
+        from AgentCore.level6.sandbox_isolation import (ContainedLauncher,
+                                                         LoopbackExceptionPipe)
+
+        ws = self.workspace("pipe_real_launcher")
+        launcher = ContainedLauncher(workspace=str(ws),
+                                     readonly_paths=[str(self.env.root)],
+                                     stat_only_paths=[str(ws.parent)])
+        if not launcher.plan.appcontainer:
+            self.skipTest("AppContainer unavailable: %s"
+                          % launcher.plan.reasons.get("appcontainer"))
+        sid = launcher.profile.sid_string
+
+        pid = os.getpid()
+        declared_name = r"\\.\pipe\jarvis_test_real_launcher_%d" % pid
+        declared = LoopbackExceptionPipe(pipe_name=declared_name, appcontainer_sid=sid)
+        h_declared = declared.create_server_handle()
+
+        try:
+            res, out = run_in_sandbox(
+                self.env, ws, _PIPE_CLIENT_PROBE,
+                argv=[declared_name, declared_name])
+            self.assertNotIn("DECLARED_OK", out, out)
+            self.assertIn("DECLARED_BLOCKED:5", out, out)
+        finally:
+            try:
+                win32file.CloseHandle(h_declared)
+            except Exception:
+                pass
+
+    def test_general_tcp_loopback_still_denied_regardless(self):
+        """Unaffected by any of the above either way: general TCP loopback
+        stays denied, exactly as test_loopback_is_also_denied_which_is_a_
+        functional_cost already shows, for the unrelated reason that TCP
+        loopback exemption needs Administrator.
+        """
+        srv = socket.socket()
+        srv.bind(("127.0.0.1", 0))
+        srv.listen(5)
+        port = srv.getsockname()[1]
+        try:
+            res, out = run_in_sandbox(
+                self.env, self.workspace("pipe_scope_tcp_control"),
                 "import socket,sys\n"
                 "try:\n"
                 "    socket.create_connection(('127.0.0.1',int(sys.argv[1])),timeout=5)\n"

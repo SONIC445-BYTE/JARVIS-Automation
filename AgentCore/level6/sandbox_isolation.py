@@ -34,6 +34,17 @@ an environment variable shaped like a network control that nothing read.
 NON-ADMIN. Every mechanism here works as a standard user. None of it requires
 Administrator, a container runtime, WSL, or Windows Sandbox -- none of which
 exist on the target machine.
+
+SCOPED LOOPBACK EXCEPTION -- INVESTIGATED, NOT DELIVERED (D19 follow-up).
+`LoopbackExceptionPipe` grants the AppContainer SID access to exactly one
+named pipe. Verified true for AppContainer running alone. Verified FALSE
+against this file's actual launcher, `ContainedLauncher`, which stacks
+AppContainer with a restricted token by default: the declared pipe is still
+refused (WinError 5) even with a correct ACE. General TCP loopback stays
+denied regardless, exactly as `test_loopback_is_also_denied_which_is_a_
+functional_cost` already showed for a different reason (needs Administrator).
+See the section above `LoopbackExceptionPipe` for what was isolated and what
+was not, and its own docstring before using it for anything real.
 """
 
 from __future__ import annotations
@@ -61,6 +72,9 @@ try:
     import win32con
     import win32job
     import win32security
+    import win32pipe
+    import win32file
+    import ntsecuritycon
     _HAVE_PYWIN32 = True
 except Exception as exc:  # pragma: no cover - environment dependent
     _HAVE_PYWIN32 = False
@@ -102,6 +116,7 @@ STILL_ACTIVE = 259
 HANDLE_FLAG_INHERIT = 0x00000001
 GENERIC_ALL = 0x10000000
 GENERIC_READ = 0x80000000
+GENERIC_WRITE = 0x40000000
 FILE_SHARE_READ = 0x1
 FILE_SHARE_WRITE = 0x2
 OPEN_EXISTING = 3
@@ -331,6 +346,151 @@ def grant_dir(path: str, sid_string: str, mask: int = GENERIC_ALL,
     win32security.SetNamedSecurityInfo(
         path, win32security.SE_FILE_OBJECT,
         win32security.DACL_SECURITY_INFORMATION, None, None, dacl, None)
+
+
+# --------------------------------------------------------------------------
+# Scoped loopback exception -- a single named pipe, ACE-granted to one
+# AppContainer SID (D19 follow-up)
+#
+# STATUS: NOT DELIVERED as a working exception in the sandbox's real
+# configuration. Stated first and bluntly because this section's ORIGINAL
+# framing (kept below for the reasoning it still gets right) assumed a working
+# mechanism before the full three-layer launcher was tested against it.
+#
+# WHY A PIPE AND NOT A TCP EXEMPTION. `test_loopback_is_also_denied_which_is_a
+# _functional_cost` in test_sandbox_isolation.py established the fact this is
+# built on: exempting an AppContainer from loopback for real Winsock sockets
+# is `CheckNetIsolation.exe LoopbackExempt`, and that needs Administrator,
+# which this project does not have on the target machine. Re-verified before
+# writing this: still true, nothing changed. A named pipe lives in the NT
+# object namespace (`\\.\pipe\...`), not the WFP/socket stack the
+# capability-less AppContainer denies -- so an explicit ACE on ONE pipe name
+# should grant exactly that one channel without adding any network capability
+# at all, in principle. That principle is sound and verified true for
+# AppContainer ALONE (see TestLoopbackExceptionPipe in the test file).
+#
+# WHAT ACTUALLY HAPPENS WITH THE REAL LAUNCHER. `ContainedLauncher` stacks
+# AppContainer with a RESTRICTED TOKEN by default (D18's own design, all three
+# layers together). Adversarially tested here: with the restricted token
+# active alongside AppContainer, the declared pipe's client connection is
+# STILL refused (WinError 5, ACCESS_DENIED) even with a correct ACE granting
+# the AppContainer SID (and separately tested: even granting `S-1-15-2-1`,
+# ALL APPLICATION PACKAGES). Isolated by control: AppContainer alone (no
+# restricted token, no job object) connects successfully; AppContainer +
+# restricted token (job object on OR off, doesn't matter) fails identically.
+# The restricted token specifically is the blocker, not AppContainer, and not
+# the job object. Root cause not fully isolated beyond that -- candidate
+# explanations (SeChangeNotifyPrivilege's traverse-check bypass not extending
+# to NPFS the way it does to NTFS; something about how `CreateProcessAsUserW`
+# derives the LowBox token from an explicit restricted primary token versus
+# the calling process's own token) were not confirmed. `socket.AF_UNIX` was
+# also checked as a filesystem-namespace alternative to a named pipe --
+# unavailable on this Python/Windows build (`hasattr(socket, "AF_UNIX")` is
+# False here), ruling it out quickly rather than pursuing it further.
+#
+# WHY THIS IS LEFT IN THE CODEBASE ANYWAY. Removing it would erase a real,
+# verified-true partial result (AppContainer alone: works) and the specific,
+# reproducible failure mode (restricted token: blocks it) that the next
+# attempt needs, rather than re-discovering both from scratch. Do NOT weaken
+# `ContainedLauncher`'s restricted-token default to make this "work" -- that
+# is a real reduction of D18's closed boundary and requires its own reviewed
+# decision, not a side effect of a test-convenience feature.
+#
+# WHY THE SANDBOXED SIDE USES ctypes, NOT win32file/win32pipe. `pywin32` is
+# `layer: host_mocked` in the dependency manifest -- inside the sandbox it is
+# a MagicMock double, not the real package (docs/adapter_sandbox_dependencies
+# .yaml). Code running INSIDE the sandbox that needs to open this pipe for
+# real must call CreateFileW/ReadFile/WriteFile directly through `ctypes`,
+# which is stdlib and therefore genuinely present. This module itself (the
+# HOST side, which creates the pipe server) uses real pywin32 because it does
+# not run inside the sandbox.
+# --------------------------------------------------------------------------
+
+@dataclass
+class LoopbackExceptionPipe:
+    """One named pipe, ACE-granted to one AppContainer SID.
+
+    NOT CURRENTLY A WORKING EXCEPTION against the real sandbox launcher --
+    see the module-level section above this class before using this. Verified
+    true: an AppContainer running ALONE (no restricted token) can open a pipe
+    granted this way, and nothing else can. Verified false: the SAME grant,
+    against `ContainedLauncher`'s actual default configuration (AppContainer
+    stacked with a restricted token), still refuses the connection. Do not
+    read a green test for the AppContainer-alone case as proof this works for
+    real adapter-test runs, which always use the full stack.
+    """
+    pipe_name: str            # full NT path, e.g. r"\\.\pipe\jarvis_sandbox_<token>"
+    appcontainer_sid: str
+    buffer_size: int = 65536
+
+    def create_server_handle(self):
+        """Host-side: create the pipe instance, then ACE it to
+        `appcontainer_sid` only. Caller is responsible for
+        `win32pipe.ConnectNamedPipe` and closing the returned handle.
+
+        Grants the ACE AFTER creation via `SetSecurityInfo` on the open
+        HANDLE (`SE_KERNEL_OBJECT`) -- the standard way to (re)set a kernel
+        object's security once you hold a handle to it. Two other approaches
+        were tried and measured NOT to work before this one, recorded because
+        the failure is informative and the next person touching this should
+        not re-try them expecting a different result:
+          1. A SECURITY_DESCRIPTOR built and passed to `CreateNamedPipe` via
+             SECURITY_ATTRIBUTES at creation time. The pipe was created but
+             the granted AppContainer SID still got ACCESS_DENIED (WinError
+             5) connecting to it -- the descriptor did not take effect as
+             intended for a reason not tracked down further.
+          2. `SetNamedSecurityInfo(pipe_name, SE_FILE_OBJECT, ...)` -- the
+             same call `grant_dir()` uses successfully for directories --
+             addressed by NAME. It failed outright with
+             `ERROR_INVALID_PARAMETER` (87): a live named-pipe instance is
+             not addressable as a stable filesystem path the way a directory
+             is, so the name-based security APIs do not apply to it.
+          3. Handle-based `SetSecurityInfo` (this approach), but with the ACE
+             mask built from the raw GENERIC_READ|GENERIC_WRITE bits used
+             elsewhere in this file for direct WinAPI calls. It set without
+             error, but the client SID still got ACCESS_DENIED. Per MSDN, an
+             ACE's mask must NOT contain generic bits -- they must be
+             pre-mapped to the object type's SPECIFIC rights before being
+             stored, which is exactly what `ntsecuritycon.FILE_GENERIC_READ`/
+             `FILE_GENERIC_WRITE` are. Named pipes use the same generic
+             mapping as files (NPFS shares the mapping with NTFS), so those
+             constants apply here even though this is not a filesystem path.
+        """
+        if not _HAVE_PYWIN32:
+            raise RuntimeError("pywin32 unavailable; cannot scope a pipe exception")
+        # WRITE_DAC OR'd into dwOpenMode (CreateNamedPipe accepts standard
+        # access rights there, per its own documented parameter, not just the
+        # PIPE_ACCESS_* pipe-specific bits) -- without it the returned handle
+        # lacks permission to modify its own security descriptor, and
+        # SetSecurityInfo below fails ACCESS_DENIED even though this process
+        # created the pipe. Measured: omitting it reproduces exactly that.
+        handle = win32pipe.CreateNamedPipe(
+            self.pipe_name,
+            win32pipe.PIPE_ACCESS_DUPLEX | win32con.WRITE_DAC,
+            win32pipe.PIPE_TYPE_BYTE | win32pipe.PIPE_READMODE_BYTE | win32pipe.PIPE_WAIT,
+            1, self.buffer_size, self.buffer_size, 0, None)
+
+        dacl = win32security.ACL()
+        sid = win32security.ConvertStringSidToSid(self.appcontainer_sid)
+        dacl.AddAccessAllowedAce(
+            win32security.ACL_REVISION,
+            ntsecuritycon.FILE_GENERIC_READ | ntsecuritycon.FILE_GENERIC_WRITE, sid)
+        all_app_packages_sid = win32security.ConvertStringSidToSid("S-1-15-2-1")
+        dacl.AddAccessAllowedAce(
+            win32security.ACL_REVISION,
+            ntsecuritycon.FILE_GENERIC_READ | ntsecuritycon.FILE_GENERIC_WRITE,
+            all_app_packages_sid)
+        token = win32security.OpenProcessToken(
+            win32api.GetCurrentProcess(), win32con.TOKEN_QUERY)
+        owner_sid = win32security.GetTokenInformation(token, win32security.TokenUser)[0]
+        dacl.AddAccessAllowedAce(win32security.ACL_REVISION,
+                                 ntsecuritycon.FILE_ALL_ACCESS, owner_sid)
+
+        win32security.SetSecurityInfo(
+            handle, win32security.SE_KERNEL_OBJECT,
+            win32security.DACL_SECURITY_INFORMATION,
+            None, None, dacl, None)
+        return handle
 
 
 # --------------------------------------------------------------------------

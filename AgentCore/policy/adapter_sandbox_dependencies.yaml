@@ -32,20 +32,35 @@
 #       never by the real package.
 #     - An import outside the set fails closed BEFORE execution.
 #     - Network egress and loopback are denied by an AppContainer holding no
-#       capabilities (OS/WFP enforcement, not a Python-level patch).
+#       capabilities (OS/WFP enforcement, not a Python-level patch); a single
+#       named-pipe exception per declared local-server target is available
+#       (LoopbackExceptionPipe, sandbox_isolation.py), ACE-scoped to one pipe
+#       name and verified NOT to reopen general TCP loopback.
 #     - Filesystem access outside the sandbox tree is denied by the
 #       AppContainer plus a restricted token with the user SID deny-only.
+#     - D19: the files actually copied from the host into the sandbox are
+#       HASH-PINNED against a reviewed baseline
+#       (AgentCore/policy/adapter_sandbox_provisioned.lock.json) and
+#       provisioning REFUSES if the host's current copy does not match --
+#       verified by mutating a real host file and confirming the refusal
+#       (AgentCore/level6/tests/test_supply_chain_lock.py). This is drift/
+#       tamper detection against what a human reviewed, NOT provenance -- it
+#       cannot tell you the host copy was ever legitimate, only that it has
+#       not silently changed since the lock was committed.
 #
 #   STILL SPECIFICATION ONLY, because it needs a container runtime that does
 #   not exist on the target machine (no Docker, no WSL, no Windows Sandbox,
 #   no Administrator):
 #     - Everything under `image:` below -- base_digest, lockfile, hashed
-#       transitive closure, `pip install --require-hashes`, no-pip-at-runtime.
-#     - Therefore: NO hash pinning and NO provenance. Packages are copied from
-#       the host's own installation. The sandbox's supply chain is exactly the
-#       host's supply chain. Design note 8.2 is unchanged and unaddressed.
+#       transitive closure, `pip install --require-hashes` against a package
+#       index, no-pip-at-runtime. This is the PROVENANCE half of supply-chain
+#       integrity (verifying packages came from where they claim to), which
+#       the D19 host-baseline lock above does not provide and does not claim
+#       to. Design note 8.2 is updated, not closed, by D19.
 #     - Every `hash: null` and `base_digest: null` below is still null and
-#       still honest.
+#       still honest -- these fields describe the CONTAINER image's pinning,
+#       a different mechanism from the D19 lock file above, and remain
+#       genuinely blocked on infrastructure this machine does not have.
 #
 # FAIL-CLOSED RULES, in force whenever the image build is built:
 #   - `image.base_digest: null`  -> build refuses to run. No tag-only pulls.
@@ -53,9 +68,12 @@
 #                                   "resolve it at build time" fallback.
 #   - `review_by` in the past    -> CI fails. Extension is a reviewed diff
 #                                   with a written reason, never a click.
-# Nulls below are honest placeholders, not defaults. Nothing here has been
-# hash-pinned yet because nothing has been built yet, and writing a
-# plausible-looking hash would be worse than writing none.
+# Nulls below are honest placeholders, not defaults, for the CONTAINER image
+# specifically. Nothing under `image:` has been hash-pinned yet because no
+# image has been built yet, and writing a plausible-looking hash would be
+# worse than writing none. The separate D19 lock file
+# (adapter_sandbox_provisioned.lock.json) hash-pins what actually gets
+# provisioned today; see the STATUS block above for the distinction.
 
 schema_version: 2
 status: partially_enforced

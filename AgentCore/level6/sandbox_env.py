@@ -248,14 +248,17 @@ def _canonical_dist(name: str):
     return md.distribution(name)
 
 
-def _copy_distribution(name: str, site_packages: Path) -> Dict[str, Any]:
-    """Copy one installed distribution's files into the sandbox site-packages."""
+def _iter_distribution_files(name: str) -> Iterable[Tuple[str, Path]]:
+    """Yield (relative_path, absolute_host_path) for every file that would be
+    provisioned for `name` -- the single definition of "this distribution's
+    provisioned files", shared by the copier (sandbox_env's own job) and the
+    hash-pin lock (D19). Two independent notions of "what got copied" is
+    exactly the kind of drift a supply-chain check exists to catch; there must
+    be only one.
+    """
     dist = _canonical_dist(name)
     base = Path(dist.locate_file(""))
-    copied = 0
-    skipped_outside = 0
-    files = dist.files or []
-    for rel in files:
+    for rel in dist.files or []:
         rel_s = str(rel)
         if rel_s.startswith("..") or Path(rel_s).is_absolute():
             # Entry-point scripts and data files live outside site-packages
@@ -263,13 +266,25 @@ def _copy_distribution(name: str, site_packages: Path) -> Dict[str, Any]:
             # `-m`, never console scripts, so these are deliberately not
             # copied -- and a console script is an executable the sandbox
             # would otherwise gain for free.
-            skipped_outside += 1
+            continue
+        if "__pycache__" in Path(rel_s).parts:
             continue
         src = base / rel_s
         if not src.exists():
             continue
-        if "__pycache__" in Path(rel_s).parts:
-            continue
+        yield rel_s, src
+
+
+def _copy_distribution(name: str, site_packages: Path) -> Dict[str, Any]:
+    """Copy one installed distribution's files into the sandbox site-packages."""
+    dist = _canonical_dist(name)
+    copied = 0
+    skipped_outside = 0
+    for rel in dist.files or []:
+        rel_s = str(rel)
+        if rel_s.startswith("..") or Path(rel_s).is_absolute():
+            skipped_outside += 1
+    for rel_s, src in _iter_distribution_files(name):
         dst = site_packages / rel_s
         dst.parent.mkdir(parents=True, exist_ok=True)
         try:
@@ -283,6 +298,154 @@ def _copy_distribution(name: str, site_packages: Path) -> Dict[str, Any]:
         "files_copied": copied,
         "files_skipped_outside_site_packages": skipped_outside,
     }
+
+
+# --------------------------------------------------------------------------
+# Supply-chain integrity: provisioned-file hash-pinning (D19)
+#
+# WHAT THIS IS. D18 closed with `provision()` copying packages from the host's
+# own site-packages, unverified -- the manifest's `hash: null` fields and
+# `image.base_digest: null` describe a DIFFERENT, still-blocked mechanism (a
+# linux/amd64 container image built with `pip install --require-hashes`
+# against a lockfile, which needs a container runtime this machine does not
+# have). This is not that. This hashes the files `_copy_distribution` actually
+# reads, at the moment a human reviews and commits a lock, and refuses to
+# provision if what the host has NOW does not match what was reviewed THEN.
+# That is a real, checkable property, and it does not need a container: it is
+# a checksum comparison over local files, using `_iter_distribution_files` --
+# the exact same file list `_copy_distribution` copies, so the thing hashed
+# and the thing provisioned cannot silently diverge.
+#
+# WHAT THIS IS NOT. It does not verify the host's packages were ever
+# legitimate -- if the host was already compromised when the lock was
+# generated, the lock faithfully pins the compromise. It is not provenance
+# (no signature, no attestation, no comparison against a package index's
+# published hash). It is drift/tamper detection against a reviewed baseline,
+# nothing more, and the docstring at the top of this module and
+# docs/adapter_sandbox_dependencies.md say so in those words.
+# --------------------------------------------------------------------------
+
+LOCK_SCHEMA_VERSION = 1
+DEFAULT_LOCK_PATH = REPO_ROOT / "AgentCore" / "policy" / "adapter_sandbox_provisioned.lock.json"
+
+
+class SupplyChainIntegrityError(RuntimeError):
+    """Raised when the lock is missing, unreadable, or a hash fails to verify.
+
+    Always raised BEFORE `_build_interpreter` or any copy runs -- provisioning
+    must refuse, not degrade to an unverified copy, which is the exact defect
+    D18 fixed for the isolation boundary and D19 fixes here for the packages
+    inside it.
+    """
+
+
+def _hash_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return "sha256:" + h.hexdigest()
+
+
+def _distribution_file_hashes(name: str) -> Dict[str, str]:
+    """{relative_path: "sha256:<hex>"} for every file `_copy_distribution`
+    would copy for `name`, read from the host, right now."""
+    return {rel_s: _hash_file(src) for rel_s, src in _iter_distribution_files(name)}
+
+
+def generate_lock(manifest: Optional[Manifest] = None) -> Dict[str, Any]:
+    """Compute the hash-pin lock for the current manifest's resolved closure.
+
+    Deliberately a separate, explicit call -- never invoked implicitly by
+    `provision()`. Generating a lock is a human reviewing and committing "this
+    is the trusted baseline"; running it automatically on every provision
+    would make the lock re-trust whatever the host currently has on every run,
+    which verifies nothing.
+    """
+    man = manifest or load_manifest()
+    roots = [p["name"] for p in man.image_packages]
+    resolved, missing = resolve_closure(roots)
+    packages: Dict[str, Any] = {}
+    for n in resolved:
+        try:
+            packages[_norm(n)] = {
+                "name": n,
+                "version": md.version(n),
+                "files": _distribution_file_hashes(n),
+            }
+        except Exception as exc:
+            packages[_norm(n)] = {"name": n, "error": f"{type(exc).__name__}: {exc}"}
+    return {
+        "schema_version": LOCK_SCHEMA_VERSION,
+        "created": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "manifest_path": str(man.path),
+        "manifest_digest": man.digest(),
+        "host_python": sys.version,
+        "unavailable_on_host": missing,
+        "packages": packages,
+    }
+
+
+def write_lock(lock: Dict[str, Any], path: Optional[os.PathLike] = None) -> Path:
+    p = Path(path or DEFAULT_LOCK_PATH)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "w", encoding="utf-8") as fh:
+        json.dump(lock, fh, indent=2, sort_keys=True)
+        fh.write("\n")
+    return p
+
+
+def load_lock(path: Optional[os.PathLike] = None) -> Dict[str, Any]:
+    p = Path(path or DEFAULT_LOCK_PATH)
+    if not p.exists():
+        raise SupplyChainIntegrityError(
+            f"no hash-pin lock at {p} -- run generate_lock()+write_lock() and "
+            f"commit it as a reviewed baseline before provisioning; refusing "
+            f"to provision from an unverified host copy")
+    try:
+        with open(p, "r", encoding="utf-8") as fh:
+            lock = json.load(fh)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SupplyChainIntegrityError(f"could not read lock at {p}: {exc}") from exc
+    if lock.get("schema_version") != LOCK_SCHEMA_VERSION:
+        raise SupplyChainIntegrityError(
+            f"lock schema_version {lock.get('schema_version')!r} at {p} does "
+            f"not match expected {LOCK_SCHEMA_VERSION}")
+    return lock
+
+
+def verify_lock(resolved: Sequence[str], lock: Dict[str, Any]) -> List[str]:
+    """Compare the CURRENT host state against `lock`. Returns a list of human
+    -readable mismatches; empty means the host matches the reviewed baseline
+    exactly for every package in `resolved`.
+    """
+    mismatches: List[str] = []
+    packages = lock.get("packages") or {}
+    for n in resolved:
+        key = _norm(n)
+        entry = packages.get(key)
+        if entry is None:
+            mismatches.append(f"{n}: not present in the lock (unreviewed package)")
+            continue
+        if "error" in entry:
+            mismatches.append(f"{n}: lock recorded an error computing its baseline: {entry['error']}")
+            continue
+        try:
+            current = _distribution_file_hashes(n)
+        except Exception as exc:
+            mismatches.append(f"{n}: could not hash host copy: {type(exc).__name__}: {exc}")
+            continue
+        expected = entry.get("files", {})
+        for rel, exp_hash in expected.items():
+            got_hash = current.get(rel)
+            if got_hash is None:
+                mismatches.append(f"{n}: {rel}: present in lock, missing on host")
+            elif got_hash != exp_hash:
+                mismatches.append(f"{n}: {rel}: hash mismatch (lock {exp_hash[:19]}..., host {got_hash[:19]}...)")
+        for rel in current:
+            if rel not in expected:
+                mismatches.append(f"{n}: {rel}: present on host, not in lock (unreviewed file)")
+    return mismatches
 
 
 # --------------------------------------------------------------------------
@@ -350,17 +513,43 @@ _sys.modules[__name__] = _SandboxStub(name={mod!r})
 
 def provision(manifest: Optional[Manifest] = None,
               cache_root: Optional[os.PathLike] = None,
-              force: bool = False) -> SandboxEnv:
+              force: bool = False,
+              verify_supply_chain: bool = True,
+              lock_path: Optional[os.PathLike] = None) -> SandboxEnv:
     """Build (or reuse) the sandbox interpreter + vetted site-packages.
 
-    Cached by a digest over the manifest, the host Python version, and the
-    resolved versions of the vetted packages -- so editing the manifest or
-    upgrading a host package reprovisions rather than silently reusing an
-    environment that no longer matches what the manifest says.
+    Cached by a digest over the manifest, the host Python version, the
+    resolved versions of the vetted packages, and the hash-pin lock's own
+    digest -- so editing the manifest, upgrading a host package, or updating
+    the reviewed lock baseline all reprovision rather than silently reusing an
+    environment that no longer matches what's declared.
+
+    `verify_supply_chain` (default True, D19): before anything is built or
+    copied, the CURRENT host state is hashed and compared against the
+    committed lock at `lock_path` (default `DEFAULT_LOCK_PATH`). Any
+    mismatch -- a missing lock, a changed file, a package absent from the
+    lock -- raises `SupplyChainIntegrityError` and provisioning does not
+    proceed, cache-hit or not. Verifying on every call, including cache
+    reuse, is deliberate: the cache key is a digest over versions, not file
+    content, so a tampered file that does not change a version string would
+    otherwise serve a stale, unverified environment indefinitely. Set False
+    only for the lock's own generation workflow, never for a real sandbox run.
     """
     man = manifest or load_manifest()
     roots = [p["name"] for p in man.image_packages]
     resolved, missing = resolve_closure(roots)
+
+    if verify_supply_chain:
+        lock = load_lock(lock_path)
+        mismatches = verify_lock(resolved, lock)
+        if mismatches:
+            raise SupplyChainIntegrityError(
+                "sandbox provisioning refused -- host state does not match "
+                "the reviewed hash-pin lock (D19):\n  " + "\n  ".join(mismatches))
+        lock_digest = hashlib.sha256(
+            json.dumps(lock, sort_keys=True).encode()).hexdigest()[:12]
+    else:
+        lock_digest = None
 
     versions = {}
     for n in resolved:
@@ -374,7 +563,8 @@ def provision(manifest: Optional[Manifest] = None,
         "python": sys.version,
         "prefix": sys.prefix,
         "versions": versions,
-        "schema": 3,
+        "lock": lock_digest,
+        "schema": 4,
     }, sort_keys=True).encode()).hexdigest()[:16]
 
     cache_root = Path(cache_root or (REPO_ROOT / "projects" / ".sandbox_env"))
@@ -438,12 +628,19 @@ def provision(manifest: Optional[Manifest] = None,
         "unavailable_on_host": missing,
         "host_mocked_stubs": sorted(mocks),
         "version_drift_vs_manifest": drift,
+        "supply_chain_verified": verify_supply_chain,
+        "supply_chain_lock_digest": lock_digest,
         "not_claimed": [
-            "No hash pinning: packages are copied from the host installation, "
-            "not fetched with --require-hashes from an index. Supply-chain "
-            "integrity is exactly the host's.",
-            "No digest-pinned base image: there is no image and no container "
-            "runtime on this machine.",
+            "No digest-pinned base image and no pip --require-hashes install: "
+            "there is no container image and no container runtime on this "
+            "machine, so image.base_digest and image.lockfile in the "
+            "manifest stay null (still genuinely blocked on infrastructure).",
+            "Provisioned-file hashes ARE pinned and verified against "
+            "AgentCore/policy/adapter_sandbox_provisioned.lock.json (D19), "
+            "but this pins to a REVIEWED HOST BASELINE, not to a package "
+            "index's published hash -- it catches drift/tampering since the "
+            "lock was generated, it does not attest the host's packages were "
+            "ever legitimate.",
         ],
     }
     with open(stamp, "w", encoding="utf-8") as fh:
