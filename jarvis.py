@@ -1422,6 +1422,22 @@ class PersistentWakeService:
                 else:
                     response = "That app isn't installed."
 
+            elif intent.handler == "action_platform_unknown":
+                # PLATFORM_UNKNOWN honest-failure fix (item 2): this text
+                # named something to open/close/launch/start/run that
+                # ResolutionGate doesn't recognize as any known platform.
+                # Previously fell through to ODAVLoop's raw OBSERVE/
+                # DECIDE/ACT pipeline, whose open_app fallback shells out
+                # via subprocess.Popen with no honest check first --
+                # Windows' own cryptic error then surfaced almost
+                # verbatim (reported live via "open warfare", v3.14).
+                # Reported honestly here instead, matching action_no_
+                # adapter/action_not_installed's style -- never offers to
+                # install, since an unrecognized name isn't a real,
+                # fabricated, or even named adapter to install.
+                target = intent.extracted_entities.get("attempted_target") or "that"
+                response = f"I don't recognize '{target}' as an app or platform I can open."
+
             elif intent.handler == "llm" and self._llm and self._llm.is_available():
                 # Check CPU before LLM
                 if self._cpu_guard and not self._cpu_guard.should_proceed("llm"):

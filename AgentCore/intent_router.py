@@ -88,7 +88,31 @@ class IntentRouter:
         r"^set\s+.+\s+to\s+",
         r"^turn\s+(?:on|off)\s+",
     ]
-    
+
+    # Subset of ACTION_PATTERNS that names an app to launch/stop by name.
+    # When ResolutionGate can't find ANY recognized platform for text
+    # matching this (see GateOutcome.PLATFORM_UNKNOWN in classify()
+    # below), falling through to the generic ACTION_PATTERNS match lands
+    # in ODAVLoop's OBSERVE/DECIDE/ACT pipeline, whose open_app fallback
+    # (UIExecutor._open_app, via _create_simple_plan's literal "open "/
+    # "close " string check) shells out via subprocess.Popen(target,
+    # shell=True) with no honest check first -- Windows' own cryptic
+    # error then surfaces almost verbatim. Reported live via the v3.14
+    # smoke test's "open warfare" reproduction.
+    #
+    # Deliberately just open/close, NOT the full open/close/launch/
+    # start/run ACTION_PATTERNS subset an earlier draft of this pattern
+    # used: "launch"/"start"/"run" collide with real, higher-priority
+    # phrasings checked later in classify() -- CODE_PATTERNS'
+    # "run (the) tests/checks" and RHINAL_START_CASE_PATTERNS' "start a
+    # new case: ...", both confirmed misrouted to this handler instead
+    # during this fix's own test run before being narrowed. open/close
+    # have no such collision anywhere in this file's other pattern
+    # lists, and are the only two verbs _create_simple_plan actually
+    # maps to the raw-shell-out path today, so this stays exactly as
+    # wide as the reported gap, not wider.
+    PLATFORM_UNKNOWN_LAUNCH_PATTERN = r"^(?:open|close)\s+(.+)$"
+
     # Question indicators
     QUESTION_PATTERNS = [
         r"^what\s+(?:is|are|was|were)",
@@ -291,6 +315,7 @@ class IntentRouter:
     def _compile_patterns(self):
         """Compile regex patterns."""
         self._action_re = [re.compile(p, re.IGNORECASE) for p in self.ACTION_PATTERNS]
+        self._platform_unknown_launch_re = re.compile(self.PLATFORM_UNKNOWN_LAUNCH_PATTERN, re.IGNORECASE)
         self._question_re = [re.compile(p, re.IGNORECASE) for p in self.QUESTION_PATTERNS]
         self._confirm_re = [re.compile(p, re.IGNORECASE) for p in self.CONFIRM_PATTERNS]
         self._abort_re = [re.compile(p, re.IGNORECASE) for p in self.ABORT_PATTERNS]
@@ -405,7 +430,31 @@ class IntentRouter:
                     handler="action_not_installed",
                     extracted_entities={"gate_result": gate_result}
                 )
-            # PLATFORM_UNKNOWN: fall through to existing patterns below.
+            if gate_result.outcome == GateOutcome.PLATFORM_UNKNOWN:
+                # No recognized platform at all for this text. Stepping
+                # fully aside is correct for anything that isn't naming
+                # an app to launch -- "click the button", "what's the
+                # weather", "whatsapp is a messaging app" (a wired
+                # platform mentioned, but not as a launch attempt) --
+                # none of those are platform-launch commands and must
+                # keep falling through to QUESTION/CHAT/etc. unchanged.
+                # But when the phrasing IS a launch/stop attempt naming
+                # something unrecognized, honest-failure it here instead
+                # of falling through to ACTION_PATTERNS/ODAVLoop's raw
+                # shell-out fallback (see PLATFORM_UNKNOWN_LAUNCH_PATTERN
+                # above for the full reasoning).
+                launch_match = self._platform_unknown_launch_re.match(text_lower)
+                if launch_match:
+                    return RoutedIntent(
+                        intent_type=IntentType.ACTION,
+                        confidence=0.9,
+                        original_text=text,
+                        processed_text=text_lower,
+                        handler="action_platform_unknown",
+                        extracted_entities={"attempted_target": launch_match.group(1).strip()}
+                    )
+                # Not a launch/stop attempt -- fall through to existing
+                # patterns below, unchanged.
 
         # Check code patterns
         if self._matches_any(text_lower, self._code_re):
