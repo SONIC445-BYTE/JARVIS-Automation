@@ -1,0 +1,23 @@
+# Communication Gateway deployment policy (§4.4c PG-001: "policy is
+# configuration, loaded per deployment, not hardcoded branches").
+#
+# This file is optional -- if absent, AgentCore/comm_gateway/deployment_policy.py
+# defaults to exactly what is written here (strict_local, everything else
+# off). It exists as a documented, editable template for a deployment
+# that wants to change one specific thing, not as something required for
+# the safe default to hold.
+#
+# Changing `mode` away from strict_local is a real decision for "an
+# organization's actual policy authority", not a routine config edit --
+# see docs/companion_app_scaffold.md.
+
+mode: strict_local   # strict_local | secure_remote | hybrid
+
+remote_voice:
+  enabled: false
+
+patient_identifiers:
+  tokenize: true
+
+clinical_notes:
+  allow_remote: false
