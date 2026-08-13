@@ -30,8 +30,21 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ## Closed items — with evidence
 
-### Orb wiring — declined, hard stop, not attempted *(v3.16)*
-**Status: 🛑 HARD STOP. Not built.** No commit — a finding, not a fix.
+### Orb wiring — completed *(v3.17)*
+**Status: ✅ CLOSED.** Risk tier: low (adds one new module + one call site, no existing behavior changed, no clinical data, no immutable-tier code touched). Model: Sonnet 5. Commit `c4ad42cf`.
+
+**Resolves the v3.16 finding below — the finding itself was correct, not the file's status.** `jarvis_orb.py` genuinely did not exist anywhere this session could check as of v3.16. It existed outside the repository the whole time, in a location this agent had no access to; the project owner located it and provided the real, unmodified 197-line source directly in a follow-up message (after an initial message claimed it was pasted but the paste was actually empty — flagged rather than fabricated, then the real source followed).
+
+**What was built.** `jarvis_orb.py` committed at the repo root, unmodified from the provided source. Wired exactly as specified: a single call to `render_frame(0.6, 0.3)` (a fixed angle, deterministic — same output every launch) printed above the existing compact status box in `PersistentWakeService.start()`. The animated `play()` intro is explicitly NOT wired here — reserved for first-run onboarding only, per the standing design decision; a static-source test (`TestWiredIntoBootSequence.test_play_is_not_called_from_the_every_launch_path`) checks `start()`'s method body never calls it.
+
+**Verified live, not just under unit test, per instruction.** `tests/test_jarvis_orb.py` covers the renderer's own contract (dimensions, determinism, charset) and static-source wiring (9 tests, all passing) — but a unit test alone cannot prove the orb actually prints in a real boot. Ran a real `python jarvis.py --service` launch and captured genuine stdout: the orb's ASCII output appears immediately above the real status box, before "JARVIS online. Say Jarvis to wake me."
+
+**§1.7's "dark capability" line is corrected again** (now pointing at this closure) rather than left at v3.16's "does not exist" — see blueprint v3.17.
+
+---
+
+### Orb wiring — declined, hard stop, not attempted *(v3.16, superseded above)*
+**Status: 🛑 HARD STOP at the time. Not built then — since resolved, see the v3.17 entry directly above.** No commit — a finding, not a fix.
 
 **The instruction's premise, checked before writing anything.** Asked to wire `jarvis_orb.py`'s existing static-frame render (`render_frame()`/`play()`, per §3.8) above the compact status box on every launch, explicitly framed as "no new design work... purely a wiring gap" because "the module and its two render modes already exist and were tested."
 
