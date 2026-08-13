@@ -663,6 +663,15 @@ class PersistentWakeService:
         self._availability_rescanner = PeriodicAvailabilityRescanner()
         self._availability_rescanner.start()
 
+        # Terminal identity -- orb + status box, every launch (§3.8).
+        # Static frame only (~13ms): with import time already ~16s against
+        # a <3s target, animating on every launch isn't defensible. The
+        # full play() animation stays reserved for first-run onboarding
+        # only, per the standing design decision -- not wired here, a
+        # separate, smaller follow-up if it's ever picked up.
+        from jarvis_orb import render_frame
+        print(render_frame(0.6, 0.3))
+
         # Compact status box -- every launch (first run included, as the
         # standing header the full walkthrough above hands off to).
         from onboarding import render_status_box
