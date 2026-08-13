@@ -614,6 +614,22 @@ class PersistentWakeService:
         self._state_lock = threading.Lock()
         self._wake_detector = None
         self._stt = None
+        # Wake-thread concurrency fix: WakeDetector's callback used to be
+        # the FULL wake-handling chain (_on_wake_detected -> ...
+        # -> _return_to_sleep() -> wake_detector.start() again), all
+        # running synchronously ON WakeDetector's own listening thread --
+        # so _return_to_sleep() could restart listening (a new thread)
+        # before the original thread had unwound and closed its own mic
+        # stream, and a plain non-blocking stop() couldn't fix that
+        # because it was being called FROM inside that same thread's call
+        # stack (joining yourself from yourself deadlocks). The callback
+        # given to WakeDetector is now just this Event -- signal only, no
+        # I/O, safe to run on the listening thread. The actual handling
+        # (_handle_wake_detected, stop/restart included) runs on the main
+        # thread's own loop in start(), genuinely outside the listening
+        # thread's call stack, so WakeDetector.stop()'s real join() (see
+        # wake_detector.py) can never be asked to join its own caller.
+        self._wake_event = threading.Event()
 
         # Sprint 6: Conversation components
         self._llm = None
@@ -686,10 +702,19 @@ class PersistentWakeService:
         print("[Service] Listening for 'Jarvis'...")
         print("[Service] Press Ctrl+C to stop")
 
-        # Main service loop
+        # Main service loop. Waits on _wake_event rather than a bare
+        # sleep -- when WakeDetector's listening thread signals it (see
+        # _signal_wake_detected), the actual handling runs HERE, on this
+        # thread, not on the listening thread that raised it. This is
+        # the decoupling the wake-thread concurrency fix depends on: by
+        # the time _handle_wake_detected() reaches _stop_wake_detection(),
+        # the caller is this thread, genuinely outside WakeDetector's own
+        # call stack, so its blocking stop() can safely join it.
         try:
             while self._running:
-                time.sleep(0.5)
+                if self._wake_event.wait(timeout=0.5):
+                    self._wake_event.clear()
+                    self._handle_wake_detected()
         except KeyboardInterrupt:
             print("\n[Service] Interrupted by user")
 
@@ -702,7 +727,7 @@ class PersistentWakeService:
             from WakeService.wake_detector import WakeDetector
             from WakeService.local_stt import LocalSTT
             
-            self._wake_detector = WakeDetector(callback=self._on_wake_detected)
+            self._wake_detector = WakeDetector(callback=self._signal_wake_detected)
             self._stt = LocalSTT()
             
             print("[Service] Core components initialized")
@@ -737,11 +762,31 @@ class PersistentWakeService:
         if self._wake_detector:
             self._wake_detector.stop()
     
-    def _on_wake_detected(self):
-        """Called when 'Jarvis' is detected."""
+    def _signal_wake_detected(self):
+        """
+        WakeDetector's actual callback -- runs ON its listening thread,
+        so this must stay exactly this cheap: set an Event and return.
+        No state check here (deliberately): the state check belongs to
+        the handler that actually acts on it, and duplicating it here
+        would just be two copies of the same rule to keep in sync. If
+        the service is not in SLEEP when this fires, _handle_wake_detected
+        (running on the main thread, not this one) is what decides to
+        ignore it. Setting an already-set Event is a harmless no-op.
+        """
+        self._wake_event.set()
+
+    def _handle_wake_detected(self):
+        """
+        The real wake-handling chain. Called from start()'s main loop
+        after _wake_event fires -- i.e. from the main thread, never from
+        WakeDetector's own listening thread. That is what makes
+        _stop_wake_detection() below safe to block: WakeDetector.stop()
+        joins its listening thread, and the thread calling stop() here is
+        provably a different one.
+        """
         if self.state != JarvisState.SLEEP:
             return  # Ignore if not in sleep mode
-        
+
         print("[Service] Wake word detected!")
         
         # Transition to WAKE state

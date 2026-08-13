@@ -214,18 +214,69 @@ class WakeDetector:
         except Exception as e:
             print(f"[WakeDetector] Stream error: {e}")
     
-    def stop(self):
-        """Stop listening."""
+    def stop(self, timeout: float = 5.0):
+        """
+        Stop listening, and BLOCK until the listening thread has
+        provably exited -- not just until _stop_event is set.
+
+        `timeout` bounds the join (default 5s, generous headroom over
+        _listen_loop()'s own 0.5s queue-get polling interval) -- exposed
+        as a parameter, not hardcoded, mainly so a test can exercise the
+        "thread doesn't exit in time" warning path in well under 5s.
+
+        This is the wake-thread concurrency fix. The old version set the
+        flag and returned immediately, so a caller that turned around and
+        called start() again (as jarvis.py's _return_to_sleep() used to,
+        from inside the SAME thread this method was stopping) could spawn
+        a second _listen_loop() thread while the first was still inside
+        its own loop body, not yet back around to recheck _stop_event or
+        close its RawInputStream -- two concurrent mic captures on one
+        device, either one still able to fire the wake callback. Reported
+        live as one utterance activating two agents (see the execution
+        log's wake-thread concurrency entry).
+
+        Raises RuntimeError if called from the listening thread's own
+        call stack -- Thread.join() on yourself is a guaranteed deadlock,
+        and that call shape (a callback that eventually calls stop() on
+        the thread it's running on) is exactly the bug this fixes. A
+        caller hitting this must decouple: signal detection from the
+        callback, handle and restart from a different thread. See
+        jarvis.py's _signal_wake_detected/_handle_wake_detected split.
+        """
+        if self._listen_thread is not None and threading.current_thread() is self._listen_thread:
+            raise RuntimeError(
+                "WakeDetector.stop() was called from its own listening "
+                "thread -- joining yourself deadlocks. The wake callback "
+                "must only signal detection and return; stop the "
+                "detector from a different thread (see jarvis.py's "
+                "_signal_wake_detected/_handle_wake_detected split)."
+            )
+
         self.is_listening = False
         self._stop_event.set()
-        
+
+        if self._listen_thread is not None:
+            self._listen_thread.join(timeout=timeout)
+            if self._listen_thread.is_alive():
+                # Fail loud, not silent -- a caller relying on "stop()
+                # returned, so the mic is free" must know when that
+                # promise didn't hold, not discover it later as an
+                # unexplained double-listen.
+                print(
+                    f"[WakeDetector] WARNING: listening thread did not "
+                    f"exit within {timeout}s of stop() -- it may still "
+                    f"hold the audio stream. Not treating this as a "
+                    f"clean stop."
+                )
+            self._listen_thread = None
+
         # Clear queue
         while not self._audio_queue.empty():
             try:
                 self._audio_queue.get_nowait()
             except:
                 break
-        
+
         print("[WakeDetector] Stopped")
     
     def reset(self):
