@@ -179,9 +179,92 @@ class IntentRouter:
         r"^remember\s+(?:that|this)\s*[:,]?\s*(.*)$",
         r"^capture\s+(?:this|that)\s+thought\s*[:,]?\s*(.*)$",
         r"^save\s+(?:this|that)\s+to\s+(?:my\s+)?(?:rhinal\s+)?vault\s*[:,]?\s*(.*)$",
-        r"^log\s+(?:this|that)\s+(?:thought|decision|idea)\s*[:,]?\s*(.*)$",
+        # "decision"/"idea" removed from here (RHINAL 13-tool wiring phase):
+        # rhinal_decision_log/rhinal_idea_to_spec are now dedicated tools
+        # with their own mode-framed distillation, and are strictly more
+        # correct than routing those two phrasings through plain capture
+        # with no mode at all. Checked before this list in classify() so
+        # they take priority; see RHINAL_DECISION_LOG_PATTERNS/
+        # RHINAL_IDEA_TO_SPEC_PATTERNS below. "thought" stays here --
+        # there is no dedicated tool for a bare thought beyond rhinal_capture
+        # itself.
+        r"^log\s+(?:this|that)\s+thought\s*[:,]?\s*(.*)$",
         r"^note\s+(?:this|that)\s+down\s*[:,]?\s*(.*)$",
         r"^add\s+(?:this|that)\s+to\s+(?:my\s+)?(?:rhinal\s+)?vault\s*[:,]?\s*(.*)$",
+    ]
+
+    # ------------------------------------------------------------------
+    # RHINAL 13-tool wiring phase. One pattern list per tool, same single-
+    # capture-group convention as RHINAL_CAPTURE_PATTERNS above except
+    # where a tool genuinely needs more than one value (tag_prediction,
+    # resolve_prediction), which use named groups instead. Every tool name
+    # below is the real MCP tool name from RHINAL's index.ts, not a
+    # JARVIS-side paraphrase -- same discipline as rhinal_capture's own
+    # audit wiring.
+    #
+    # Read-only tools (no notionId needed except check_contradiction/
+    # get_case_graph's optional one, and confront/classify_worthiness,
+    # which take free text):
+    RHINAL_RECALL_PATTERNS = [
+        r"^recall\s+(?:what i said about|about)?\s*(.+)$",
+        r"^what did i say about\s+(.+)$",
+    ]
+    RHINAL_ASK_VAULT_PATTERNS = [
+        r"^ask\s+(?:my\s+)?vault\s*[:,]?\s*(.+)$",
+        r"^ask\s+rhinal\s*[:,]?\s*(.+)$",
+    ]
+    RHINAL_CLASSIFY_WORTHINESS_PATTERNS = [
+        r"^(?:would|is)\s+(?:this|that)\s+be\s+worth\s+(?:saving|remembering|capturing)\s*[:,]?\s*(.*)$",
+        r"^check\s+if\s+(?:this|that)(?:'s| is)\s+worth\s+saving\s*[:,]?\s*(.*)$",
+    ]
+    RHINAL_CONFRONT_PATTERNS = [
+        r"^confront\s+(?:my\s+)?vault\s+with\s*[:,]?\s*(.+)$",
+        r"^check\s+my\s+understanding\s+against\s+(?:my\s+)?vault\s*[:,]?\s*(.+)$",
+    ]
+    RHINAL_GET_CALIBRATION_SCORE_PATTERNS = [
+        r"^what'?s?\s+my\s+calibration\s+score\??$",
+        r"^what\s+is\s+my\s+calibration\s+score\??$",
+        r"^how\s+calibrated\s+am\s+i\??$",
+    ]
+    RHINAL_GET_CASE_GRAPH_PATTERNS = [
+        r"^(?:show|list)\s+(?:my\s+)?case\s+graphs?\s*(.*)$",
+        r"^(?:show|list)\s+(?:my\s+)?cases\s*(.*)$",
+    ]
+    RHINAL_CHECK_CONTRADICTION_PATTERNS = [
+        r"^check\s+(?:vault\s+)?record\s+(\S+)\s+for\s+contradictions?$",
+        r"^check\s+contradiction\s+for\s+record\s+(\S+)$",
+    ]
+
+    # Write-capable tools:
+    RHINAL_DECISION_LOG_PATTERNS = [
+        r"^log\s+(?:this|that)\s+decision\s*[:,]?\s*(.*)$",
+        r"^log\s+a\s+decision\s*[:,]?\s*(.*)$",
+    ]
+    RHINAL_IDEA_TO_SPEC_PATTERNS = [
+        r"^turn\s+(?:this|that)\s+into\s+a\s+spec\s*[:,]?\s*(.*)$",
+        r"^spec\s+(?:this|that)\s+idea\s*[:,]?\s*(.*)$",
+        # "log this/that idea" -- the natural counterpart to "log this
+        # thought" (stays on rhinal_capture) and "log this decision" (goes
+        # to rhinal_decision_log below). Previously routed to plain
+        # rhinal_capture with no mode; now goes to the dedicated tool,
+        # which is strictly more correct once it exists.
+        r"^log\s+(?:this|that)\s+idea\s*[:,]?\s*(.*)$",
+    ]
+    RHINAL_START_CASE_PATTERNS = [
+        r"^start\s+(?:a\s+)?(?:new\s+)?case\s+(?:called|titled)\s*[:,]?\s*(.+)$",
+        r"^start\s+(?:a\s+)?(?:new\s+)?case\s*[:,]\s*(.+)$",
+    ]
+    # tag_prediction / resolve_prediction: named groups, not group(1) --
+    # each needs two structured values (a notionId plus a confidence or an
+    # outcome), which a physician reading an id aloud is a real but narrow
+    # use case (e.g. reviewing a prior capture's returned notionId) rather
+    # than a naturally-spoken phrase; documented as a known UX limitation
+    # in the execution log rather than solved with new state-tracking here.
+    RHINAL_TAG_PREDICTION_PATTERNS = [
+        r"^tag\s+(?:record\s+)?(?P<notion_id>\S+)\s+as\s+a\s+prediction\s+(?:with\s+)?(?P<confidence>\d{1,3})\s*(?:%|percent)?\s*confidence$",
+    ]
+    RHINAL_RESOLVE_PREDICTION_PATTERNS = [
+        r"^resolve\s+(?:prediction\s+)?(?P<notion_id>\S+)\s+as\s+(?P<outcome>correct|partial|incorrect)$",
     ]
 
     def __init__(self, use_llm_classifier: bool = False, resolution_gate=None):
@@ -218,7 +301,32 @@ class IntentRouter:
         self._code_re = [re.compile(p, re.IGNORECASE) for p in self.CODE_PATTERNS]
         # RHINAL capture patterns
         self._rhinal_capture_re = [re.compile(p, re.IGNORECASE) for p in self.RHINAL_CAPTURE_PATTERNS]
-    
+        # RHINAL 13-tool wiring phase: (handler name, compiled patterns,
+        # "text" | "notion_id_and_confidence" | "notion_id_and_outcome" | "none")
+        # -- the last element says how to build extracted_entities from the
+        # match, since these tools' argument shapes genuinely differ (a
+        # single free-text capture group vs two named groups vs no
+        # arguments at all), unlike RHINAL_CAPTURE_PATTERNS's uniform single
+        # capture group.
+        self._rhinal_other_groups = [
+            ("rhinal_decision_log", self.RHINAL_DECISION_LOG_PATTERNS, "text"),
+            ("rhinal_idea_to_spec", self.RHINAL_IDEA_TO_SPEC_PATTERNS, "text"),
+            ("rhinal_start_case", self.RHINAL_START_CASE_PATTERNS, "text"),
+            ("rhinal_tag_prediction", self.RHINAL_TAG_PREDICTION_PATTERNS, "notion_id_and_confidence"),
+            ("rhinal_resolve_prediction", self.RHINAL_RESOLVE_PREDICTION_PATTERNS, "notion_id_and_outcome"),
+            ("rhinal_recall", self.RHINAL_RECALL_PATTERNS, "text"),
+            ("rhinal_ask_vault", self.RHINAL_ASK_VAULT_PATTERNS, "text"),
+            ("rhinal_classify_worthiness", self.RHINAL_CLASSIFY_WORTHINESS_PATTERNS, "text"),
+            ("rhinal_confront", self.RHINAL_CONFRONT_PATTERNS, "text"),
+            ("rhinal_get_calibration_score", self.RHINAL_GET_CALIBRATION_SCORE_PATTERNS, "none"),
+            ("rhinal_get_case_graph", self.RHINAL_GET_CASE_GRAPH_PATTERNS, "text"),
+            ("rhinal_check_contradiction", self.RHINAL_CHECK_CONTRADICTION_PATTERNS, "notion_id"),
+        ]
+        self._rhinal_other_re = [
+            (handler, [re.compile(p, re.IGNORECASE) for p in patterns], mode)
+            for handler, patterns, mode in self._rhinal_other_groups
+        ]
+
     def classify(self, text: str, context: Dict = None) -> RoutedIntent:
         """
         Classify user intent and determine handler.
@@ -326,6 +434,43 @@ class IntentRouter:
                     processed_text=text_lower,
                     handler="rhinal_capture",
                     extracted_entities={"capture_text": match.group(1).strip()}
+                )
+
+        # Check the remaining RHINAL tools (13-tool wiring phase). Same
+        # position as rhinal_capture above -- a special handler, checked
+        # before the generic ACTION_PATTERNS fallback, and deliberately
+        # before ACTION_PATTERNS' own bare "^start\s+" pattern so
+        # "start a new case: X" resolves to rhinal_start_case rather than
+        # being swallowed by the generic action fallback (which has no
+        # adapter named "case" and would report action_no_adapter).
+        for handler, patterns, mode in self._rhinal_other_re:
+            for pattern in patterns:
+                match = pattern.match(text)
+                if not match:
+                    continue
+                if mode == "text":
+                    entities = {"rhinal_text": (match.group(1) or "").strip()}
+                elif mode == "notion_id":
+                    entities = {"notion_id": match.group(1).strip()}
+                elif mode == "notion_id_and_confidence":
+                    entities = {
+                        "notion_id": match.group("notion_id").strip(),
+                        "confidence": int(match.group("confidence")),
+                    }
+                elif mode == "notion_id_and_outcome":
+                    entities = {
+                        "notion_id": match.group("notion_id").strip(),
+                        "outcome": match.group("outcome").lower(),
+                    }
+                else:  # "none" -- no-argument tools (rhinal_get_calibration_score)
+                    entities = {}
+                return RoutedIntent(
+                    intent_type=IntentType.ACTION,
+                    confidence=0.95,
+                    original_text=text,
+                    processed_text=text_lower,
+                    handler=handler,
+                    extracted_entities=entities,
                 )
 
         # Check action patterns

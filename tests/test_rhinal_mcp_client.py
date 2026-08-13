@@ -146,5 +146,127 @@ class TestRhinalMCPClientCapture(unittest.TestCase):
         self.assertIn("Missing modelId", str(ctx.exception))
 
 
+class TestRhinalMCPClientOtherTools(unittest.TestCase):
+    """The remaining 12 tools (RHINAL 13-tool wiring phase). Each test
+    verifies the tool name and argument mapping this client sends -- the
+    same shape of test as TestRhinalMCPClientCapture above, extended to
+    every method added against a real read of mcp-server/src/{index,
+    tools}.ts (see AgentCore/rhinal_mcp_client.py's own comment block for
+    the risk-class re-verification this was checked against, independent
+    of the earlier 14-tool verification entry). All 7 read-only tools plus
+    check_contradiction were additionally called live once each against the
+    real deployed backend before these mocked tests were written -- see the
+    execution log's RHINAL 13-tool wiring entry for the real responses.
+    """
+
+    def _config(self):
+        return RhinalConfig(server_path="/x/dist/index.js", base_url="https://rhinal.vercel.app", api_key="rhk_test")
+
+    def _client_calling(self, mock_call_tool_async):
+        async def fake(cfg, name, arguments):
+            return {"_name": name, "_arguments": arguments}
+        mock_call_tool_async.side_effect = fake
+        return RhinalMCPClient(config=self._config())
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_recall(self, m):
+        r = self._client_calling(m).recall("what did I say about X")
+        self.assertEqual(r["_name"], "rhinal_recall")
+        self.assertEqual(r["_arguments"], {"query": "what did I say about X"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_ask_vault(self, m):
+        r = self._client_calling(m).ask_vault("what did I decide about X")
+        self.assertEqual(r["_name"], "rhinal_ask_vault")
+        self.assertEqual(r["_arguments"], {"question": "what did I decide about X"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_classify_worthiness(self, m):
+        r = self._client_calling(m).classify_worthiness("some observation")
+        self.assertEqual(r["_name"], "rhinal_classify_worthiness")
+        self.assertEqual(r["_arguments"], {"text": "some observation"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_decision_log(self, m):
+        r = self._client_calling(m).decision_log("chose X because Y")
+        self.assertEqual(r["_name"], "rhinal_decision_log")
+        self.assertEqual(r["_arguments"], {"text": "chose X because Y"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_idea_to_spec(self, m):
+        r = self._client_calling(m).idea_to_spec("loose notes about a feature")
+        self.assertEqual(r["_name"], "rhinal_idea_to_spec")
+        self.assertEqual(r["_arguments"], {"text": "loose notes about a feature"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_confront(self, m):
+        r = self._client_calling(m).confront("my understanding of X")
+        self.assertEqual(r["_name"], "rhinal_confront")
+        self.assertEqual(r["_arguments"], {"outline": "my understanding of X"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_tag_prediction_with_follow_up(self, m):
+        r = self._client_calling(m).tag_prediction("notion-123", 80, follow_up_at="2026-09-01")
+        self.assertEqual(r["_name"], "rhinal_tag_prediction")
+        self.assertEqual(r["_arguments"], {"notionId": "notion-123", "confidence": 80, "followUpAt": "2026-09-01"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_tag_prediction_without_follow_up_omits_key(self, m):
+        r = self._client_calling(m).tag_prediction("notion-123", 50)
+        self.assertEqual(r["_arguments"], {"notionId": "notion-123", "confidence": 50})
+
+    def test_tag_prediction_rejects_out_of_range_confidence(self):
+        client = RhinalMCPClient(config=self._config())
+        with self.assertRaises(ValueError):
+            client.tag_prediction("notion-123", 101)
+        with self.assertRaises(ValueError):
+            client.tag_prediction("notion-123", -1)
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_resolve_prediction(self, m):
+        r = self._client_calling(m).resolve_prediction("notion-123", "correct")
+        self.assertEqual(r["_name"], "rhinal_resolve_prediction")
+        self.assertEqual(r["_arguments"], {"notionId": "notion-123", "outcome": "correct"})
+
+    def test_resolve_prediction_rejects_invalid_outcome(self):
+        client = RhinalMCPClient(config=self._config())
+        with self.assertRaises(ValueError):
+            client.resolve_prediction("notion-123", "definitely")
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_get_calibration_score_sends_no_arguments(self, m):
+        r = self._client_calling(m).get_calibration_score()
+        self.assertEqual(r["_name"], "rhinal_get_calibration_score")
+        self.assertEqual(r["_arguments"], {})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_start_case_with_root(self, m):
+        r = self._client_calling(m).start_case("A new case", root_notion_id="notion-123")
+        self.assertEqual(r["_name"], "rhinal_start_case")
+        self.assertEqual(r["_arguments"], {"title": "A new case", "rootNotionId": "notion-123"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_start_case_without_root_omits_key(self, m):
+        r = self._client_calling(m).start_case("A new case")
+        self.assertEqual(r["_arguments"], {"title": "A new case"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_get_case_graph_without_case_id_lists(self, m):
+        r = self._client_calling(m).get_case_graph()
+        self.assertEqual(r["_name"], "rhinal_get_case_graph")
+        self.assertEqual(r["_arguments"], {})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_get_case_graph_with_case_id(self, m):
+        r = self._client_calling(m).get_case_graph(case_id="case-123")
+        self.assertEqual(r["_arguments"], {"caseId": "case-123"})
+
+    @mock.patch("AgentCore.rhinal_mcp_client._call_tool_async")
+    def test_check_contradiction(self, m):
+        r = self._client_calling(m).check_contradiction("notion-123")
+        self.assertEqual(r["_name"], "rhinal_check_contradiction")
+        self.assertEqual(r["_arguments"], {"notionId": "notion-123"})
+
+
 if __name__ == "__main__":
     unittest.main()

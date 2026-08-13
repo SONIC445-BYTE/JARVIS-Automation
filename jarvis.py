@@ -60,7 +60,7 @@ import threading
 import random
 from dataclasses import dataclass
 from enum import Enum
-from typing import Optional, Dict
+from typing import Optional, Dict, Any
 from os import getcwd
 
 # Core imports
@@ -269,6 +269,262 @@ def handle_rhinal_capture(text: str, capture_text: str) -> str:
         # the audit problem is spoken, never swallowed into a log.
         response = f"{response} {audited.audit_warning}"
 
+    return response
+
+
+# RHINAL 13-tool wiring phase: handler names IntentRouter routes to for the
+# 12 tools other than rhinal_capture (rhinal_attach_file is a named hard
+# stop and has neither a client method nor a handler). Read-only tools call
+# RhinalMCPClient directly -- no audit wrapping, matching mcp_audit.py's own
+# scope ("non-GUI MCP *writes*"); a vault read has no external side effect
+# to record. Write-capable tools go through audited_mcp_write(), reusing
+# D16's mechanism exactly as its own module docstring recommended for "the
+# eleven other verified-live RHINAL tools" -- now built rather than just
+# invited.
+_RHINAL_WRITE_CAPABLE_HANDLERS = frozenset({
+    "rhinal_decision_log", "rhinal_idea_to_spec", "rhinal_tag_prediction",
+    "rhinal_resolve_prediction", "rhinal_start_case",
+})
+_RHINAL_READ_ONLY_HANDLERS = frozenset({
+    "rhinal_recall", "rhinal_ask_vault", "rhinal_classify_worthiness",
+    "rhinal_confront", "rhinal_get_calibration_score", "rhinal_get_case_graph",
+    "rhinal_check_contradiction",
+})
+RHINAL_OTHER_HANDLERS = _RHINAL_WRITE_CAPABLE_HANDLERS | _RHINAL_READ_ONLY_HANDLERS
+
+
+def _summarize_rhinal_sources(sources) -> str:
+    """Shared by recall/ask_vault: RHINAL's own tool description says the
+    calling agent is expected to synthesize an answer from the cited
+    sources (there is no server-side synthesis route to call instead --
+    confirmed reading tools.ts). No LLM synthesis step exists in this
+    dispatch layer and adding one is a real feature, not implied by wiring
+    the tool -- so this reports the citation count and the strongest match's
+    own summary, honestly, rather than fabricating a synthesized answer."""
+    if not sources:
+        return "I didn't find anything in your vault about that."
+    top = sources[0]
+    summary = top.get("summary") or top.get("source_quotes") or "(no summary)"
+    plural = "" if len(sources) == 1 else f" ({len(sources)} sources found)"
+    return f"Closest match from your vault{plural}: {summary}"
+
+
+def handle_rhinal_other(handler: str, text: str, entities: Dict[str, Any]) -> str:
+    """
+    Dispatch for the 12 RHINAL tools other than rhinal_capture. Same
+    "real callable, not inline elif-chain code" extraction rationale as
+    handle_rhinal_capture -- and the same reason it matters more here:
+    five of these are external writes into the physician's Rhinal vault
+    or a tracked prediction/case, and a test that mirrors this branch's
+    logic instead of calling it can pass while the real branch is broken.
+
+    Every RhinalMCPClient method called below was written against a real
+    read of RHINAL's mcp-server/src/{index,tools}.ts (see
+    AgentCore/rhinal_mcp_client.py's own comment block), and every read-
+    only tool plus check_contradiction was called live at least once
+    against the real deployed backend before this dispatch code was
+    written -- see the execution log's RHINAL 13-tool wiring entry.
+    """
+    from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError, RhinalMCPClient
+
+    # Lazy, not constructed until a call is actually about to be made --
+    # matching handle_rhinal_capture's behavior of never touching the
+    # client for an empty-input clarification prompt (RhinalMCPClient()
+    # itself does no I/O, but the empty-input branches below are meant to
+    # be genuine no-ops, and tests pin that with assert_not_called()).
+    _client_holder: list = []
+
+    def client() -> RhinalMCPClient:
+        if not _client_holder:
+            _client_holder.append(RhinalMCPClient())
+        return _client_holder[0]
+
+    def call_read_only(fn, missing_msg: str) -> str:
+        try:
+            return fn()
+        except RhinalConfigError as e:
+            return str(e)
+        except RhinalCallError as e:
+            return f"Couldn't reach Rhinal: {e}"
+
+    if handler == "rhinal_recall":
+        query = entities.get("rhinal_text", "")
+        if not query:
+            return "What would you like me to recall from your vault?"
+        def do():
+            result = client().recall(query)
+            return _summarize_rhinal_sources(result.get("sources") or [])
+        return call_read_only(do, "")
+
+    if handler == "rhinal_ask_vault":
+        question = entities.get("rhinal_text", "")
+        if not question:
+            return "What would you like to ask your vault?"
+        def do():
+            result = client().ask_vault(question)
+            return _summarize_rhinal_sources(result.get("sources") or [])
+        return call_read_only(do, "")
+
+    if handler == "rhinal_classify_worthiness":
+        content = entities.get("rhinal_text", "")
+        if not content:
+            return "What would you like me to check?"
+        def do():
+            result = client().classify_worthiness(content)
+            worthy = result.get("vaultWorthy")
+            reason = result.get("reason")
+            verdict = "worth saving" if worthy else "probably not worth saving"
+            return f"That looks {verdict}." + (f" ({reason})" if reason else "")
+        return call_read_only(do, "")
+
+    if handler == "rhinal_confront":
+        outline = entities.get("rhinal_text", "")
+        if not outline:
+            return "What's your understanding that you want checked against your vault?"
+        def do():
+            result = client().confront(outline)
+            if result.get("noResults"):
+                return "I didn't find anything relevant in your vault to confront that against."
+            n_correct = len(result.get("correct") or [])
+            n_missed = len(result.get("missed") or [])
+            n_contradicts = len(result.get("contradicts") or [])
+            n_unverified = len(result.get("unverified") or [])
+            parts = []
+            if n_correct:
+                parts.append(f"{n_correct} confirmed")
+            if n_missed:
+                parts.append(f"{n_missed} you missed")
+            if n_contradicts:
+                parts.append(f"{n_contradicts} contradicting your vault")
+            if n_unverified:
+                parts.append(f"{n_unverified} unverified")
+            return "Checked against your vault: " + ", ".join(parts) + "." if parts else "No differences found."
+        return call_read_only(do, "")
+
+    if handler == "rhinal_get_calibration_score":
+        def do():
+            score = client().get_calibration_score()
+            if not score:
+                return "You don't have any calibration data yet -- tag a prediction first."
+            return (
+                f"Your calibration score is {score.get('calibrationScore')}, from "
+                f"{score.get('resolvedPredictions')} of {score.get('totalPredictions')} "
+                f"tracked predictions resolved."
+            )
+        return call_read_only(do, "")
+
+    if handler == "rhinal_get_case_graph":
+        case_id = entities.get("rhinal_text") or None
+        def do():
+            result = client().get_case_graph(case_id=case_id)
+            if case_id:
+                if not result:
+                    return "I couldn't find that case."
+                title = result.get("title", "(untitled)")
+                return f"Case '{title}': {result.get('nodeCount', 0)} nodes, {result.get('edgeCount', 0)} edges."
+            cases = result or []
+            if not cases:
+                return "You don't have any case graphs yet."
+            names = ", ".join(c.get("title", "(untitled)") for c in cases[:5])
+            more = f" and {len(cases) - 5} more" if len(cases) > 5 else ""
+            return f"You have {len(cases)} case graph(s): {names}{more}."
+        return call_read_only(do, "")
+
+    if handler == "rhinal_check_contradiction":
+        notion_id = entities.get("notion_id", "")
+        def do():
+            result = client().check_contradiction(notion_id)
+            contradictions = result.get("contradictions") or []
+            if not contradictions:
+                return "No contradictions found for that record."
+            return f"Found {len(contradictions)} contradiction(s) for that record."
+        return call_read_only(do, "")
+
+    # --- Write-capable tools: audited_mcp_write(), same field-value
+    # reasoning as handle_rhinal_capture's docstring (why=text, source=
+    # "voice", who left to emit_clinical_action()'s getpass.getuser()
+    # default) -- not re-derived per tool, since none of that reasoning is
+    # tool-specific.
+    from AgentCore.mcp_audit import audited_mcp_write
+
+    if handler == "rhinal_decision_log":
+        content = entities.get("rhinal_text", "")
+        if not content:
+            return "I didn't catch the decision -- try 'log this decision: ...' with the decision included."
+        audited = audited_mcp_write(
+            what_adapter="rhinal_mcp", what_action="rhinal_decision_log",
+            what_target="rhinal_vault", why=text, source="voice",
+            call=lambda: client().decision_log(content),
+        )
+        return _rhinal_write_response(audited, "Logged that decision to your Rhinal vault.")
+
+    if handler == "rhinal_idea_to_spec":
+        content = entities.get("rhinal_text", "")
+        if not content:
+            return "I didn't catch the idea -- try 'turn this into a spec: ...' with the idea included."
+        audited = audited_mcp_write(
+            what_adapter="rhinal_mcp", what_action="rhinal_idea_to_spec",
+            what_target="rhinal_vault", why=text, source="voice",
+            call=lambda: client().idea_to_spec(content),
+        )
+        return _rhinal_write_response(audited, "Turned that into a spec in your Rhinal vault.")
+
+    if handler == "rhinal_start_case":
+        title = entities.get("rhinal_text", "")
+        if not title:
+            return "What should I call the new case?"
+        audited = audited_mcp_write(
+            what_adapter="rhinal_mcp", what_action="rhinal_start_case",
+            what_target="rhinal_vault", why=text, source="voice",
+            call=lambda: client().start_case(title),
+        )
+        return _rhinal_write_response(audited, f"Started a new case: {title}.")
+
+    if handler == "rhinal_tag_prediction":
+        notion_id = entities.get("notion_id", "")
+        confidence = entities.get("confidence")
+        audited = audited_mcp_write(
+            what_adapter="rhinal_mcp", what_action="rhinal_tag_prediction",
+            what_target="rhinal_vault", why=text, source="voice",
+            call=lambda: client().tag_prediction(notion_id, confidence),
+        )
+        return _rhinal_write_response(audited, f"Tagged that record as a prediction at {confidence}% confidence.")
+
+    if handler == "rhinal_resolve_prediction":
+        notion_id = entities.get("notion_id", "")
+        outcome = entities.get("outcome", "")
+        audited = audited_mcp_write(
+            what_adapter="rhinal_mcp", what_action="rhinal_resolve_prediction",
+            what_target="rhinal_vault", why=text, source="voice",
+            call=lambda: client().resolve_prediction(notion_id, outcome),
+        )
+        return _rhinal_write_response(audited, f"Resolved that prediction as {outcome}.")
+
+    # Unreachable if IntentRouter and RHINAL_OTHER_HANDLERS stay in sync --
+    # fails loudly rather than silently returning a fabricated success for
+    # a handler this function does not actually know how to dispatch.
+    raise ValueError(f"handle_rhinal_other: no dispatch for handler {handler!r}")
+
+
+def _rhinal_write_response(audited, success_message: str) -> str:
+    """Shared response-building for the 5 write-capable RHINAL tools --
+    same three-way branch (blocked / ok / config-vs-call error) as
+    handle_rhinal_capture, factored out since it doesn't vary per tool."""
+    from AgentCore.rhinal_mcp_client import RhinalCallError, RhinalConfigError
+
+    if audited.blocked:
+        response = audited.blocked_reason
+    elif audited.ok:
+        response = success_message
+    elif isinstance(audited.error, RhinalConfigError):
+        response = str(audited.error)
+    elif isinstance(audited.error, RhinalCallError):
+        response = f"Couldn't reach Rhinal: {audited.error}"
+    else:
+        response = f"Something went wrong: {audited.error}"
+
+    if audited.audit_warning:
+        response = f"{response} {audited.audit_warning}"
     return response
 
 
@@ -1041,6 +1297,17 @@ class PersistentWakeService:
                 response = handle_rhinal_capture(
                     text, intent.extracted_entities.get("capture_text", "")
                 )
+
+            elif intent.handler in RHINAL_OTHER_HANDLERS:
+                # RHINAL 13-tool wiring phase: same non-Intent-path shape as
+                # rhinal_capture above, for the same reason (not a GUI
+                # platform, no install-detection question). Read-only tools
+                # have no audit chokepoint gap to close (mcp_audit.py's own
+                # scope is external writes); the 5 write-capable tools are
+                # individually wrapped in audited_mcp_write() inside
+                # handle_rhinal_other() itself.
+                self._set_state(JarvisState.EXECUTION)
+                response = handle_rhinal_other(intent.handler, text, intent.extracted_entities)
 
             elif intent.handler == "action":
                 # Execute action with ODAV loop if available

@@ -27,8 +27,7 @@ class TestRhinalCapturePatterns(unittest.TestCase):
             "capture that thought about caching",
             "save this to my vault: interesting idea about retries",
             "save that to my vault",
-            "log this decision: we chose Postgres over Mongo",
-            "log that idea",
+            "log this thought: an interesting pattern today",
             "note this down",
             "note that down",
             "add this to my vault",
@@ -37,6 +36,24 @@ class TestRhinalCapturePatterns(unittest.TestCase):
         for text in phrasings:
             with self.subTest(text=text):
                 self.assertEqual(self._classify(text).handler, "rhinal_capture")
+
+    def test_decision_and_idea_phrasings_route_to_their_dedicated_tools(self):
+        """RHINAL 13-tool wiring phase: rhinal_decision_log/rhinal_idea_to_
+        spec now exist as dedicated tools with their own mode-framed
+        distillation, so "log this decision"/"log that idea" route there
+        instead of to plain rhinal_capture (mode=None) as they did before
+        those tools were wired -- strictly more correct once the dedicated
+        tool exists, not a behavior this test should keep pinning to the
+        old, less-specific routing."""
+        cases = [
+            ("log this decision: we chose Postgres over Mongo", "rhinal_decision_log"),
+            ("log a decision: switched to protocol B", "rhinal_decision_log"),
+            ("log that idea", "rhinal_idea_to_spec"),
+            ("turn this into a spec: build a dashboard", "rhinal_idea_to_spec"),
+        ]
+        for text, expected_handler in cases:
+            with self.subTest(text=text):
+                self.assertEqual(self._classify(text).handler, expected_handler)
 
     def test_capture_text_extracted_for_inline_content(self):
         intent = self._classify("remember that the vendor meeting moved to Thursday")

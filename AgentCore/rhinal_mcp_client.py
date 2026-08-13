@@ -184,3 +184,142 @@ class RhinalMCPClient:
         if mode:
             arguments["mode"] = mode
         return _run_async(_call_tool_async(config, "rhinal_capture", arguments))
+
+    # ---------------------------------------------------------------------
+    # Remaining 13 tools (RHINAL 13-tool wiring phase). Every method below
+    # was written against mcp-server/src/{index,tools}.ts read directly from
+    # a real local checkout, not inferred from a tool's name or from the
+    # earlier 14-tool verification pass's summary of it -- this project has
+    # been burned twice already by trusting a name over source
+    # (GeneratorHelper/LLMAdapter, vaultWorthy). Argument keys below match
+    # index.ts's zod inputSchema exactly (camelCase, e.g. "notionId", not a
+    # Pythonic rename), because these are serialized directly into the MCP
+    # tool call -- a renamed key would silently fail server-side validation.
+    #
+    # Risk classes, independently re-confirmed against tools.ts (not just
+    # carried over from the earlier verification entry, which named some but
+    # not all of these):
+    #   READ-ONLY (no route below ever calls a save/create/mutate endpoint):
+    #     recall, ask_vault, classify_worthiness, confront,
+    #     get_calibration_score, get_case_graph, check_contradiction.
+    #   WRITE-CAPABLE (calls a route that creates or mutates a record):
+    #     decision_log, idea_to_spec (both route through capture()'s real
+    #     classify->distill->save pipeline with a different mode), tag_
+    #     prediction, resolve_prediction, start_case.
+    #   rhinal_attach_file is NOT implemented here -- named hard stop.
+    # ---------------------------------------------------------------------
+
+    def recall(self, query: str) -> Dict[str, Any]:
+        """Read-only. rhinal_recall -> /api/vault/ask. Returns cited source
+        records; synthesis is the caller's job, matching the web app's own
+        retrieval/synthesis split (tools.ts has no server-side synthesis
+        route to call instead)."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_recall", {"query": query}))
+
+    def ask_vault(self, question: str) -> Dict[str, Any]:
+        """Read-only. rhinal_ask_vault -> the SAME /api/vault/ask route as
+        recall() (confirmed in tools.ts -- askVault() and recall() are two
+        thin wrappers over one endpoint, differing only in the MCP-facing
+        argument name: "question" here vs "query" for recall)."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_ask_vault", {"question": question}))
+
+    def classify_worthiness(self, text: str) -> Dict[str, Any]:
+        """Read-only -- tools.ts's own comment: "MUST NOT create a record".
+        Calls /api/classifier only, the same classifier capture() calls as
+        its first step, but never proceeds to distill/save."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_classify_worthiness", {"text": text}))
+
+    def decision_log(self, text: str) -> Dict[str, Any]:
+        """WRITE-CAPABLE. rhinal_decision_log -> tools.ts's decisionLog() is
+        `capture(cfg, {text, mode: "decision"})` verbatim -- the identical
+        classify->distill->save pipeline as rhinal_capture, framed as a
+        decision. Same save-unconditionally behavior as capture()."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_decision_log", {"text": text}))
+
+    def idea_to_spec(self, text: str) -> Dict[str, Any]:
+        """WRITE-CAPABLE. rhinal_idea_to_spec -> tools.ts's ideaToSpec() is
+        `capture(cfg, {text, mode: "spec"})` verbatim. Same pipeline and
+        same save-unconditionally behavior as capture()/decision_log()."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_idea_to_spec", {"text": text}))
+
+    def confront(self, outline: str) -> Dict[str, Any]:
+        """Read-only -- confirmed by reading tools.ts's confront(): calls
+        /api/vault/confront and returns its response directly, no save call
+        anywhere in the function body."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_confront", {"outline": outline}))
+
+    def tag_prediction(self, notion_id: str, confidence: float,
+                       follow_up_at: Optional[str] = None) -> Dict[str, Any]:
+        """WRITE-CAPABLE. rhinal_tag_prediction -> /api/predictions/tag,
+        mutating an EXISTING vault record (by notionId) to mark it as a
+        tracked prediction. `confidence` is 0-100 (index.ts's zod schema:
+        z.number().min(0).max(100)), not a 0-1 fraction -- validated
+        client-side too so a caller passing a fraction fails loudly here
+        rather than silently tagging "1% confidence"."""
+        if not 0 <= confidence <= 100:
+            raise ValueError(f"confidence must be 0-100 (RHINAL's own schema), got {confidence!r}")
+        config = self._get_config()
+        arguments: Dict[str, Any] = {"notionId": notion_id, "confidence": confidence}
+        if follow_up_at:
+            arguments["followUpAt"] = follow_up_at
+        return _run_async(_call_tool_async(config, "rhinal_tag_prediction", arguments))
+
+    def resolve_prediction(self, notion_id: str, outcome: str) -> Dict[str, Any]:
+        """WRITE-CAPABLE. rhinal_resolve_prediction -> /api/predictions/
+        resolve, mutating a previously-tagged prediction with its real
+        outcome and recalculating the Calibration Engine score.
+        `outcome` must be one of index.ts's exact enum values: "correct",
+        "partial", "incorrect" -- validated here so a typo fails before the
+        network call rather than as an opaque server-side schema error."""
+        if outcome not in ("correct", "partial", "incorrect"):
+            raise ValueError(
+                f"outcome must be one of 'correct'/'partial'/'incorrect' "
+                f"(RHINAL's own schema), got {outcome!r}")
+        config = self._get_config()
+        return _run_async(_call_tool_async(
+            config, "rhinal_resolve_prediction", {"notionId": notion_id, "outcome": outcome}))
+
+    def get_calibration_score(self) -> Dict[str, Any]:
+        """Read-only, no-arg -- tools.ts's own comment on the underlying
+        route: "Read-only." GET-shaped: /api/predictions/pending?scope=all,
+        returning only the `.calibration` summary field."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(config, "rhinal_get_calibration_score", {}))
+
+    def start_case(self, title: str, root_notion_id: Optional[str] = None) -> Dict[str, Any]:
+        """WRITE-CAPABLE. rhinal_start_case -> /api/cases/create, creating a
+        new Case Graph. `root_notion_id` optionally anchors it to an
+        existing vault record."""
+        config = self._get_config()
+        arguments: Dict[str, Any] = {"title": title}
+        if root_notion_id:
+            arguments["rootNotionId"] = root_notion_id
+        return _run_async(_call_tool_async(config, "rhinal_start_case", arguments))
+
+    def get_case_graph(self, case_id: Optional[str] = None) -> Dict[str, Any]:
+        """Read-only -- tools.ts's own comment: "Read-only." Without
+        case_id: lists all cases. With case_id: full node/edge detail for
+        that one case."""
+        config = self._get_config()
+        arguments: Dict[str, Any] = {}
+        if case_id:
+            arguments["caseId"] = case_id
+        return _run_async(_call_tool_async(config, "rhinal_get_case_graph", arguments))
+
+    def check_contradiction(self, notion_id: str) -> Dict[str, Any]:
+        """Read-only -- confirmed by reading tools.ts's checkContradiction():
+        calls /api/contradictions/check and returns its response directly,
+        no save/mutate call in the function body. Checks an EXISTING vault
+        record (by notionId) against the rest of the vault -- it does not
+        accept arbitrary untethered text (index.ts's own tool description
+        says so explicitly: capture the statement first if it isn't in the
+        vault yet, then pass the resulting record's notionId here)."""
+        config = self._get_config()
+        return _run_async(_call_tool_async(
+            config, "rhinal_check_contradiction", {"notionId": notion_id}))
