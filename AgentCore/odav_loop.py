@@ -178,7 +178,7 @@ class ODAVLoop:
                 if plan and plan.steps:
                     print(f"  Steps planned: {len(plan.steps)}")
                     for i, step in enumerate(plan.steps[:3]):
-                        print(f"    {i+1}. {step.action}: {step.target}")
+                        print(f"    {i+1}. {step.action_type.value}: {step.target}")
                 else:
                     # Fallback: treat as simple command
                     plan = self._create_simple_plan(command)
@@ -203,7 +203,7 @@ class ODAVLoop:
                 step_success = False
                 
                 while retries < self.MAX_RETRIES and not step_success:
-                    print(f"\n[ACT] Step {steps_executed + 1}: {step.action} - {step.target}")
+                    print(f"\n[ACT] Step {steps_executed + 1}: {step.action_type.value} - {step.target}")
                     
                     # Execute
                     if self._executor:
@@ -214,7 +214,7 @@ class ODAVLoop:
                     # ============ VERIFY ============
                     print(f"[VERIFY] Checking result...")
                     
-                    if result.success:
+                    if result.ok:
                         print(f"  ✓ Step succeeded")
                         steps_executed += 1
                         step_success = True
@@ -225,7 +225,7 @@ class ODAVLoop:
                         # Self-reflection
                         if self._reflection:
                             analysis = self._reflection.analyze(
-                                {"type": step.action, "target": step.target},
+                                {"type": step.action_type.value, "target": step.target},
                                 result.error,
                                 ui_state
                             )
@@ -328,19 +328,19 @@ class ODAVLoop:
         
         @dataclass
         class FallbackResult:
-            success: bool
+            ok: bool
             error: str = ""
-        
+
         try:
-            if step.action == "open_app":
+            if step.action_type.value == "open_app":
                 subprocess.Popen(f'start "" "{step.target}"', shell=True)
                 time.sleep(1)
-                return FallbackResult(success=True)
-            
-            return FallbackResult(success=False, error="Action not supported in fallback")
-            
+                return FallbackResult(ok=True)
+
+            return FallbackResult(ok=False, error="Action not supported in fallback")
+
         except Exception as e:
-            return FallbackResult(success=False, error=str(e))
+            return FallbackResult(ok=False, error=str(e))
 
 
 def run_odav(command: str) -> ODAVResult:

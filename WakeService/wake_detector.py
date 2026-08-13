@@ -48,9 +48,39 @@ class WakeDetector:
         self._recognizer = None
         self._audio_queue = queue.Queue()
         self._listen_thread: Optional[threading.Thread] = None
-        
+        # A single spoken "jarvis" can make Vosk's PartialResult() stabilize
+        # on the exact text "jarvis" across more than one 250ms chunk before
+        # AcceptWaveform finalizes it -- each stable partial re-matched the
+        # grammar and called self.callback() again with no guard, firing the
+        # wake callback more than once for one utterance (reported live:
+        # saying the wake word once activated two conversation loops).
+        # Cooldown covers both the partial and the final-result branches,
+        # since a final match can also land within the same trailing audio
+        # right after a partial already fired.
+        self._WAKE_FIRE_COOLDOWN_S = 1.5
+        self._last_fire_time = 0.0
+
         self._initialize()
     
+    def _try_fire(self) -> bool:
+        """
+        Gate a wake-word match behind the cooldown and invoke the
+        callback if it passes. Returns whether it fired, so callers can
+        decide what (if anything) to print.
+
+        Extracted from the two near-identical fire sites in
+        _listen_loop() (AcceptWaveform-final and PartialResult) so the
+        debounce logic has exactly one implementation and is directly
+        unit-testable without needing a real audio stream.
+        """
+        now = time.time()
+        if now - self._last_fire_time < self._WAKE_FIRE_COOLDOWN_S:
+            return False
+        self._last_fire_time = now
+        if self.callback:
+            self.callback()
+        return True
+
     def _initialize(self):
         """Initialize Vosk with grammar restriction."""
         try:
@@ -159,19 +189,20 @@ class WakeDetector:
                                 # WakeService/jarvis_service.py, that
                                 # don't go through jarvis.py's entry
                                 # point and so don't get that fix).
-                                print("[WakeDetector] Wake word detected!")
-                                if self.callback:
-                                    self.callback()
+                                if self._try_fire():
+                                    print("[WakeDetector] Wake word detected!")
                         else:
                             # Partial result - check for early detection
                             partial = json.loads(self._recognizer.PartialResult())
                             partial_text = partial.get("partial", "").lower().strip()
-                            
+
                             if partial_text == "jarvis":
-                                print("[WakeDetector] Wake word detected (partial)!")
-                                if self.callback:
-                                    self.callback()
-                                # Reset recognizer after detection
+                                if self._try_fire():
+                                    print("[WakeDetector] Wake word detected (partial)!")
+                                # Reset recognizer after detection (or after
+                                # a within-cooldown repeat of the same
+                                # stabilized partial) so the next chunk
+                                # starts a fresh utterance either way.
                                 self._recognizer.Reset()
                                 
                     except queue.Empty:
