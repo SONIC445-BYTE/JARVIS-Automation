@@ -30,6 +30,21 @@ An item is only ✅ when confirmed from the **actual source of truth**, not from
 
 ## Closed items — with evidence
 
+### Wake-thread concurrency fix *(v3.18)*
+**Status: ✅ CLOSED.** Risk tier: medium (touches the always-on wake-listening path every launch depends on; no clinical data, no immutable-tier code). Instructed as an Opus 5 item (threading redesign, safety/architecture-adjacent); executed as Sonnet 5 within this session — named here rather than silently substituted. Commit `eb13ebd9`.
+
+**Resolves finding #1 from the v3.14 live smoke test** (see that entry above): "`_on_wake_detected()` runs synchronously *on* `WakeDetector`'s own listening thread... `_return_to_sleep()` then calls `self._wake_detector.start()` again... while the original thread is still nested inside its own call stack and hasn't yet returned to recheck `_stop_event` or close its `RawInputStream`... two concurrent mic streams on the same device." That finding deliberately stopped short of fixing it, naming the real decision needed: "make `WakeDetector.stop()` block until the thread provably exits, called from somewhere other than that thread itself." This phase implements exactly that shape — the root cause was not re-diagnosed, only the fix built.
+
+**The fix, in two halves:**
+- `jarvis.py`: `WakeDetector`'s callback changed from the full handling chain to `_signal_wake_detected()` — sets a `threading.Event` and returns, nothing else, safe to run on the listening thread. `PersistentWakeService.start()`'s main loop now waits on that event (`self._wake_event.wait(timeout=0.5)`) instead of a bare `time.sleep(0.5)`, and dispatches to a new `_handle_wake_detected()` — the actual state check, TTS, and `_stop_wake_detection()`/restart cycle — genuinely from the main thread, never from `WakeDetector`'s own listening thread.
+- `WakeService/wake_detector.py`: `stop(timeout: float = 5.0)` now calls `self._listen_thread.join(timeout=timeout)` and blocks for real, warning loudly (not silently) if the thread doesn't exit in time rather than pretending the stop succeeded. Raises `RuntimeError` if called from `threading.current_thread() is self._listen_thread` — the exact call shape of the original bug — so if a future change reintroduces a synchronous callback, it fails loud immediately instead of reintroducing the race silently.
+
+**Verification.** 8 new tests: `tests/test_wake_detector_stop_joins_thread.py` (3 — blocks until a real thread exits; raises `RuntimeError` when called from that thread's own call stack, using a real thread whose target calls `stop()` on itself; warns rather than hangs when a thread ignores `_stop_event`) and `tests/test_wake_signal_handle_split.py` (5 — `_signal_wake_detected` only sets the event and never touches `stop()` even when invoked from a real thread; `_handle_wake_detected` ignores the signal outside `SLEEP`, stops the detector and routes correctly in both legacy and conversation mode). None of these fake the audio layer with a mock `WakeDetector` — they exercise the real `WakeDetector.stop()` and a bare `PersistentWakeService` instance's real methods, same pattern as the existing `test_wake_detector_debounce.py`. Full project suite: **712 passed, 1 skipped** (the same pre-existing `pyautogui` flake named in v3.15, re-confirmed unrelated), **0 failures**.
+
+**`WakeService/jarvis_service.py` deliberately left unfixed.** Confirmed via `grep` that only `jarvis.py` and this separate legacy entry point reference the old `_on_wake_detected` pattern; `jarvis_service.py` does not go through `jarvis.py`'s entry point, matching the precedent already noted in `wake_detector.py`'s own comments for a prior, unrelated fix.
+
+---
+
 ### Orb wiring — completed *(v3.17)*
 **Status: ✅ CLOSED.** Risk tier: low (adds one new module + one call site, no existing behavior changed, no clinical data, no immutable-tier code touched). Model: Sonnet 5. Commit `c4ad42cf`.
 
