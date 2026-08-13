@@ -287,6 +287,45 @@ Administrator. Adapters needing a live local endpoint must be verified on the
 host, outside the sandbox, under developer supervision — the same route already
 used for the Windows-only layer.
 
+**A non-admin scoped exception was attempted (D19 follow-up) and investigated
+to a specific, evidenced dead end, not abandoned on the first failure.**
+`LoopbackExceptionPipe` (sandbox_isolation.py) ACE-grants the AppContainer SID
+access to exactly one named pipe, reasoning that a pipe lives in the NT object
+namespace rather than the WFP/socket stack the AppContainer's zero-capability
+profile denies. Four real bugs were found and fixed while building it (a
+pywin32 ACE-mask overflow from unsigned generic rights, a missing `WRITE_DAC`
+open-mode bit needed before a handle can `SetSecurityInfo` on itself, raw
+`GENERIC_*` bits being invalid in a stored ACE where MSDN requires the
+object's *specific* rights, and the wrong `SE_OBJECT_TYPE` for a handle-based
+security call) — and after all four fixes, the mechanism genuinely works: an
+AppContainer running ALONE can open a declared pipe and nothing else.
+
+**It does not work against this file's real launcher.** `ContainedLauncher`
+stacks AppContainer with a restricted token by default (this whole design,
+D18's own point). With that restricted token active alongside AppContainer,
+the same, correctly-ACE'd pipe is still refused (WinError 5), even after also
+trying the `S-1-15-2-1` (ALL APPLICATION PACKAGES) SID in addition to the
+specific AppContainer SID. Isolated by control, not guessed: AppContainer
+alone connects; AppContainer + restricted token fails identically whether the
+job object is on or off, so the job object is not a factor. The restricted
+token specifically is the blocker, and the exact mechanism was not run to
+ground beyond that (candidates not confirmed: `SeChangeNotifyPrivilege`'s
+traverse-check bypass not extending to NPFS the way it does to NTFS; some
+difference in how `CreateProcessAsUserW` derives a LowBox token from an
+explicit restricted primary token versus the calling process's own token).
+`socket.AF_UNIX` was checked as a filesystem-namespace alternative — not
+available on this Python/Windows build, ruled out quickly.
+
+**Disposition:** not delivered, not silently dropped either. The code and its
+adversarial tests stay in the repo (`TestLoopbackExceptionPipe` in
+`test_sandbox_isolation.py`, both the AppContainer-alone success and the
+real-launcher failure, both asserted, so neither claim can silently drift back
+to being assumed rather than measured). Adapters needing a live local endpoint
+still route to the host, outside the sandbox, exactly as the paragraph above
+already says. Do not weaken `ContainedLauncher`'s restricted-token default to
+make this pass — that reduces D18's closed boundary and needs its own
+reviewed decision, not a side effect of a test-convenience feature.
+
 **pytest must be able to stat the sandbox's parent directory.** Measured: no
 combination of `--rootdir`, `--confcutdir` or `--noconftest` stops pytest 9 from
 stat-ing the parent during collection, and a denied parent surfaces as a
@@ -318,11 +357,17 @@ until ACL writes started failing — the boundary degrading with use.
 
 Stated as a list because these are the things a reader should not have to infer.
 
-1. **No supply-chain integrity whatsoever.** Packages are copied from the host
-   installation. No hashes, no digest-pinned base, no provenance, no
-   `--require-hashes`. The sandbox's supply chain **is** the host's supply
-   chain. The companion note's §8.2 is entirely unaddressed, and this is the
-   largest single gap between what the manifest specifies and what exists.
+1. **No provenance, and no digest-pinned base image.** `image.base_digest` and
+   `image.lockfile` in the manifest remain null; `pip install --require-hashes`
+   against a package index still needs a container runtime this machine does
+   not have. This is the companion note's §8.2 provenance half, and it is
+   still genuinely open. **Updated by D19, not left as originally written
+   here:** the files actually copied from the host ARE now hash-pinned
+   against a reviewed baseline (`adapter_sandbox_provisioned.lock.json`) and
+   provisioning refuses on any mismatch, verified by mutating a real host
+   file (`test_supply_chain_lock.py`). That closes the drift/tamper half of
+   this gap and does not touch the provenance half -- see the companion
+   note's §8.2 for the corrected split between the two.
 2. **No kernel-level isolation.** Same kernel, same filesystem namespace, same
    network stack. This is not a container and cannot become one on this machine.
 3. **The WFP/BFE dependency is unaudited.** Network denial rests on services
@@ -351,3 +396,49 @@ genuinely enforced for the first time; the rows that depend on a built image
 closed is defensible only if the residual in item 1 is re-logged as its own
 item, because it is a real gap that this phase did not close and the manifest
 still describes as if it will be.
+
+---
+
+## 9. Container upgrade path — a note attached to D18 and D19, not a plan
+
+Everything in this note and its D19 follow-up exists because Docker, WSL,
+Windows Sandbox, and Administrator are all unavailable on the target machine
+today. That is an environment fact, not a design preference, and it can
+change under this project without anyone touching this document.
+
+**If the deployment environment ever gets a container runtime** (Docker, WSL2,
+or equivalent) **or Administrator rights**, this whole design should be
+revisited with real container isolation as a **strictly stronger replacement**,
+not layered on top of what exists here. Concretely, that means:
+
+- The AppContainer / restricted-token / job-object stack in this file
+  (§2.2–§2.4) is replaced, not kept as an inner shell inside a container. A
+  container adds a separate kernel-visible namespace, filesystem namespace,
+  and network stack — properties §1 and §8.2 both state this design does not
+  and cannot have. Running both is not defence-in-depth; it is unaudited
+  complexity on top of a boundary that would already be stronger.
+- The D19 host-baseline lock (`adapter_sandbox_provisioned.lock.json`) is
+  replaced by the manifest's original `image:` design — a digest-pinned base
+  and `pip install --require-hashes` against a package index — because that
+  provides the provenance property the D19 lock explicitly does not (§8.2,
+  updated). The D19 lock was always the non-container substitute for that
+  mechanism, not an alternative implementation of it.
+- `LoopbackExceptionPipe` (§7, D19 follow-up — investigated, not currently
+  delivered against the real launcher) is replaced by whatever the
+  container's own network namespace makes possible for a declared local
+  target — very likely something closer to the originally-envisioned scoped
+  loopback rather than a named-pipe workaround, since a container's network
+  stack is not the same WFP/AppContainer capability model this pipe exception
+  was built to work around.
+- The AST-based static import check (§4, companion note §6) is the one piece
+  that stays regardless of runtime, because it is a generation-time developer
+  diagnostic, not a boundary — it earns its keep whether or not a container
+  exists underneath it.
+
+**Why this is written down now rather than left implicit:** the project has a
+standing rule against unbuilt-image specifications describing a boundary that
+does not exist (that was D18's original defect one level up). Recording the
+upgrade path explicitly is the alternative to two silent failure modes:
+building the container work as an unreviewed surprise later, or never
+revisiting the non-admin design once it stops being the only option and
+quietly becoming permanent by default.

@@ -39,9 +39,41 @@
 >   running" remain literally true about the container, but the manifest is no
 >   longer only "a review aid" — it is now the input to real provisioning.
 
+> **UPDATE (D19 hash-pinning phase).** Re-read carefully, because this
+> corrects a claim made in good faith above and in the D18 box: the boxed
+> text says supply-chain integrity needs the container image and stops there.
+> That conflated two different things. The **image's** hash-pinning
+> (`image.base_digest`, `image.lockfile`, `pip install --require-hashes`
+> against a package index) genuinely does need a container runtime and
+> remains **not built** — nothing below changes that. But **the files
+> `sandbox_env.py` actually copies from the host** can be hash-pinned without
+> a container: hash them once, when a human reviews the set, commit the
+> hashes, and refuse to provision if the host's copy no longer matches. That
+> needs nothing but a checksum comparison, and it is now built and enforced:
+>
+> - `AgentCore/policy/adapter_sandbox_provisioned.lock.json` — the reviewed
+>   baseline: `{package: {version, files: {relative_path: sha256}}}` for
+>   every file `_copy_distribution` copies, for the full resolved closure.
+> - `sandbox_env.provision()` hashes the CURRENT host state and compares
+>   against this lock, before anything is built or copied, on every call
+>   including cache reuse — not just cold provisioning — and raises
+>   `SupplyChainIntegrityError` on any mismatch. `AgentCore/level6/tests/
+>   test_supply_chain_lock.py` mutates a REAL file under the host's own
+>   site-packages (not a copy) and confirms provisioning genuinely refuses,
+>   then restores it.
+> - **What this is not**, stated as plainly as the container gap was stated
+>   above: it pins to a *reviewed host baseline*, not to a package index's
+>   published hash. It has no provenance and cannot tell you the packages
+>   were ever legitimate — only that they have not silently changed since a
+>   human last reviewed and committed the lock. §8.2 below is corrected in
+>   place rather than left to read as still fully open.
+
 **Status:** partially built. The vetted set is enforced by a real, separate,
 network-denied execution environment; the digest-pinned **image** this note
 specifies does not exist and cannot be built on the current machine.
+Provisioned-file **hashes are pinned and verified against a reviewed
+baseline** (D19) — see the update box above for exactly what that does and
+does not cover.
 **Resolves:** the explicitly-unresolved design question in `JARVIS_BLUEPRINT.md` §4.4b — *"air-gapped testing (harder, requires pre-staged dependencies) versus proxied package access (convenient, demonstrably exploitable)."*
 **Owner decision being made concrete:** pre-stage a fixed, vetted dependency set inside the sandbox image. Anything outside it is an explicit, reviewed-once escalation. Never open-ended live package fetching by default.
 **Manifest:** `AgentCore/policy/adapter_sandbox_dependencies.yaml`.
@@ -243,6 +275,8 @@ Pinning freezes the bug along with the version. Three entries in the set — `lx
 
 ### 8.2 Supply-chain compromise at pin time
 A hash pins **what we got**, not **what was legitimate**. If a package was already compromised on the day it was pinned, the hash makes that compromise reproducible and permanent, and every verification step downstream will confirm it faithfully. Pre-staging converts a continuous live-fetch risk into a point-in-time risk. That is a genuine improvement in exposure window. It is not elimination, and hash-pinning specifically provides *integrity*, not *provenance*.
+
+**Updated for D19.** This risk now has two layers, not one. `adapter_sandbox_provisioned.lock.json` closes the *drift* half of it today — a file changing on the host after the lock was reviewed is caught and refused, whether from tampering or an unreviewed in-place upgrade. It does nothing for the *provenance* half: if the host copy was already compromised the moment the lock was generated, the lock pins that compromise exactly as described above. The image's `pip install --require-hashes` against a package index would additionally verify the packages came from where they claim to, which the host-baseline lock cannot do and does not claim to. That gap remains genuinely open and remains blocked on the same missing container runtime as the rest of `image:`.
 
 ### 8.3 The image is not the host — and the host does not match itself
 An adapter verified in the sandbox runs on the developer's Windows machine and then in a hospital. Different OS, different resolved versions, different everything below the Python layer. Green in sandbox is evidence, not proof.
